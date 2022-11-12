@@ -1,6 +1,6 @@
-<script>
-    import "../app.css";
+<script lang="ts">
+    import About from "./about/About.svelte";
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<About />
+<!-- TODO: Choose font for project -->
