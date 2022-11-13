@@ -28,20 +28,20 @@
         href="https://www.linkedin.com/in/leon-obermann-171465208/"
         target="new"
     >
-        <img src="linkedin.svg" alt="LinkedIn Logo" />
+        <img src="mediaLinks/linkedin.svg" alt="LinkedIn Logo" />
     </a>
     <a
         class="btn btn-square btn-secondary mask mask-hexagon z-10"
         href="https://github.com/Jesus-Cries"
         target="new"
     >
-        <img src="github.svg" alt="Github Logo" />
+        <img src="mediaLinks/github.svg" alt="Github Logo" />
     </a>
     <a
         class="btn btn-square btn-secondary mask mask-hexagon"
         href="mailto:leon.oberm@gmail.com"
         target="new"
     >
-        <img src="mail.svg" alt="Email Icon" />
+        <img src="mediaLinks/mail.svg" alt="Email Icon" />
     </a>
 </div>

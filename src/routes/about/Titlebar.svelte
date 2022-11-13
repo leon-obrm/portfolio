@@ -1,7 +1,3 @@
-<script lang="ts">
-    import "../../app.css";
-</script>
-
 <div class="navbar bg-base-100">
     <div class="flex-1">
         <a class="btn btn-ghost normal-case text-2xl font-bold" href="/">obermann</a>

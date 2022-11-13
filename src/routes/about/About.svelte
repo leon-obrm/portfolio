@@ -1,5 +1,4 @@
 <script lang="ts">
-    import "../../app.css";
     import Titlebar from "./Titlebar.svelte";
     import Headline from "./Headline.svelte";
     import Description from "./Description.svelte";
@@ -9,7 +8,7 @@
 </script>
 
 <Titlebar />
-<div class="w-full mt-2 flex flex-col justify-start content-center items-center gap-5">
+<div class="w-full mt-2 pb-5 flex flex-col justify-start content-center items-center gap-5">
     <Headline />
     <Portrait />
     <ScrollDown />

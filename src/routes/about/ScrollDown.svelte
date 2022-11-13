@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import lottie from "lottie-web";
-    import animationData from "./LottieScrollDown.json";
+    import animationData from "./lottieScrollDown.json";
 
     let animationContainer: HTMLElement;
 
