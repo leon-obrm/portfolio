@@ -1,6 +1,7 @@
 <script lang="ts">
     import ListSelect from "./ListSelect.svelte";
     import NormalList from "./NormalList.svelte";
+    import TileList from "./TileList.svelte";
 </script>
 
 <div class="py-5 bg-secondary flex flex-col justify-center items-center content-center gap-5">
@@ -10,7 +11,8 @@
         <ListSelect />
     </div>
 
-    <NormalList />
+    <!-- <NormalList /> -->
+    <TileList />
 </div>
 
 <!-- HexagonList, NormalList, TileList -->

@@ -3,4 +3,5 @@ export interface SkillProps {
     abbreviation: string;
     description: string;
     hasLogo: boolean;
+    link: string;
 }
