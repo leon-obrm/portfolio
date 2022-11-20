@@ -15,7 +15,7 @@
             class="w-8 max-h-8 object-contain ml-2"
         />
     {:else}
-        <p class="w-8 text-md ml-2 text-center">{skill.abbreviation}</p>
+        <p class="w-8 text-md ml-2 text-center text-black font-normal">{skill.abbreviation}</p>
     {/if}
 
     <div class="divider divider-horizontal m-1" />

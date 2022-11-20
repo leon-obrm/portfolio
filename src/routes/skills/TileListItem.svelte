@@ -17,7 +17,7 @@
             />
         {:else}
             <p
-                class="w-12 h-12 p-2 text-xl text-gray-600 font-semibold text-center flex justify-center items-center"
+                class="w-12 h-12 p-2 text-xl text-gray-600 font-normal text-center flex justify-center items-center"
             >
                 {skill.abbreviation}
             </p>
