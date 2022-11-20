@@ -3,10 +3,12 @@
     export let skill: SkillProps;
 </script>
 
-<div
-    class="h-56 p-4 px-1.5 flex flex-col justify-between items-center content-center bg-white rounded-md gap-4"
+<a
+    class="btn btn-md normal-case hover:bg-gray-100 border-0 h-56 p-4 px-1.5 flex flex-col justify-between items-center content-center bg-white rounded-md gap-4 text-black font-normal"
+    href={`https://${skill.link}`}
+    target="new"
 >
-    <div class="flex flex-col justify-center items-center content-center gap-2">
+    <div class="flex flex-col justify-center items-center content-center gap-3">
         {#if skill.hasLogo}
             <img
                 src={`logos/${skill.name}.png`}
@@ -15,18 +17,18 @@
             />
         {:else}
             <p
-                class="w-12 h-12 p-2 text-xl font-semibold text-center flex justify-center items-center"
+                class="w-12 h-12 p-2 text-xl text-gray-600 font-semibold text-center flex justify-center items-center"
             >
                 {skill.abbreviation}
             </p>
         {/if}
 
-        <p class="text-md text-center">{skill.name}</p>
+        <p class="text-md text-center font-medium">{skill.name}</p>
     </div>
 
-    <p class="text-sm text-center">{skill.description}</p>
+    <p class="text-xs text-center">{skill.description}</p>
 
-    <a href={`https://${skill.link}`} target="new" class="link link-primary text-xs">
+    <a href={`https://${skill.link}`} target="new" class="link link-primary text-[0.65rem]">
         {skill.link}
     </a>
-</div>
+</a>

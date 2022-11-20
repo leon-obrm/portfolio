@@ -3,7 +3,11 @@
     export let skill: SkillProps;
 </script>
 
-<div class="w-20 h-[5.6rem] bg-white image-hex flex justify-center items-center content-center">
+<a
+    class="btn hover:bg-gray-100 border-0 w-20 h-[5.6rem] bg-white image-hex flex justify-center items-center content-center"
+    href={`https://${skill.link}`}
+    target="new"
+>
     {#if skill.hasLogo}
         <img
             src={`logos/${skill.name}.png`}
@@ -11,20 +15,12 @@
             class="w-12 max-h-12 object-contain"
         />
     {:else}
-        <p class="w-12 text-xl text-center">{skill.abbreviation}</p>
+        <p class="w-12 text-xl text-center text-black font-normal">{skill.abbreviation}</p>
     {/if}
-</div>
+</a>
 
 <style>
     .image-hex {
         clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    }
-
-    .bg-hex {
-        clip-path: polygon(50% 15%, 100% 40%, 100% 75%, 50% 100%, 0% 75%, 0% 40%);
-    }
-
-    .hex {
-        clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
     }
 </style>

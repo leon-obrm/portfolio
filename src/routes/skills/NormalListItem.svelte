@@ -3,7 +3,11 @@
     export let skill: SkillProps;
 </script>
 
-<div class="w-full max-w-xl p-1 bg-white flex justify-start content-center items-center rounded-md">
+<a
+    class="btn normal-case hover:bg-gray-100 border-0 w-full max-w-xl p-1 bg-white rounded-md flex justify-start content-center items-center"
+    href={`https://${skill.link}`}
+    target="new"
+>
     {#if skill.hasLogo}
         <img
             src={`logos/${skill.name}.png`}
@@ -16,7 +20,7 @@
 
     <div class="divider divider-horizontal m-1" />
     <div class="flex flex-col justify-center items-start content-center">
-        <p class="text-md">{skill.name}</p>
-        <p class="text-sm text-gray-400">{skill.description}</p>
+        <p class="text-md font-normal text-black">{skill.name}</p>
+        <p class="text-xs font-normal text-gray-400">{skill.description}</p>
     </div>
-</div>
+</a>
