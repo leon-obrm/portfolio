@@ -3,19 +3,20 @@
     import ViewList from "svelte-material-icons/ViewList.svelte";
     import ViewColumn from "svelte-material-icons/ViewColumn.svelte";
 
-    let currentList: number = 0;
+    export let currentIndex: number;
+    export let changeIndex: (index: number) => void;
 
-    const lists: any[] = [ViewModule, ViewList, ViewColumn];
+    const icons: any[] = [ViewModule, ViewList, ViewColumn];
 </script>
 
 <div class="btn-group">
-    {#each lists as list, i}
+    {#each icons as icon, i}
         <button
             class="btn btn-square btn-sm"
-            class:btn-active={currentList === i}
-            on:click={() => (currentList = i)}
+            class:btn-active={currentIndex === i}
+            on:click={() => changeIndex(i)}
         >
-            <svelte:component this={list} size="1.75em" />
+            <svelte:component this={icon} size="1.75em" />
         </button>
     {/each}
 </div>

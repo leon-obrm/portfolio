@@ -3,9 +3,7 @@
     export let skill: SkillProps;
 </script>
 
-<div
-    class="w-10/12 max-w-xl p-1 bg-white flex justify-start content-center items-center rounded-md"
->
+<div class="w-full max-w-xl p-1 bg-white flex justify-start content-center items-center rounded-md">
     {#if skill.hasLogo}
         <img
             src={`logos/${skill.name}.png`}
