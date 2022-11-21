@@ -14,9 +14,9 @@
     const lists: any[] = [HexagonList, NormalList, TileList];
 </script>
 
-<div class="py-5 bg-secondary flex flex-col justify-center items-center content-center gap-5">
+<div class="py-10 bg-secondary flex flex-col justify-center items-center content-center gap-5">
     <div class="w-10/12 max-w-xl flex justify-between items-center content-center">
-        <p class="text-2xl">Skills</p>
+        <h1 class="text-2xl font-medium">Skills</h1>
 
         <ListSelect {currentIndex} {changeIndex} />
     </div>

@@ -8,7 +8,7 @@
 </script>
 
 <Titlebar />
-<div class="w-full mt-2 pb-5 flex flex-col justify-start content-center items-center gap-5">
+<div class="w-full mt-2 pb-10 flex flex-col justify-start content-center items-center gap-5">
     <Headline />
     <Portrait />
     <ScrollDown />
