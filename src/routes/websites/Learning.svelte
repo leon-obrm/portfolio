@@ -1,7 +1,6 @@
 <script lang="ts">
     import type { SkillProps } from "../interfaces";
     import { skills } from "../skills/skills";
-    import HexagonListItem from "../skills/HexagonListItem.svelte";
 
     export let learning: string;
     const skill: SkillProps | undefined = skills.find(
@@ -10,6 +9,7 @@
 </script>
 
 <!-- TODO: Add fancy hover animation -->
+
 <div
     class="tooltip tooltip-primary"
     data-tip={skill?.abbreviation !== "" ? skill?.abbreviation : skill?.name}
