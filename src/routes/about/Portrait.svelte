@@ -7,7 +7,11 @@
         <div class="w-9 h-9 absolute top-0 left-3/4 bg-primary hex" />
     </div>
     <div class="w-2/5 max-w-xs h-full absolute bg-primary bg-hex" />
-    <img src="Portrait.png" alt="Portrait of Leon Obermann" class="w-2/5 max-w-xs image-hex" />
+    <img
+        src="Portrait-min-small-min.png"
+        alt="Portrait of Leon Obermann"
+        class="w-2/5 max-w-xs image-hex"
+    />
 </div>
 
 <style>
