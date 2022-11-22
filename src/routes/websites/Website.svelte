@@ -8,7 +8,7 @@
 </script>
 
 <div
-    class="w-10/12 max-w-3xl mt-5 flex flex-col justify-center items-center content-center gap-1 md:flex-row md:justify-between md:gap-8"
+    class="w-10/12 max-w-3xl flex flex-col justify-center items-center content-center gap-1 md:flex-row md:justify-between md:gap-8"
 >
     <div class="w-full max-w-md flex flex-col justify-center items-start content-center gap-5">
         <div class="flex flex-col justify-center items-start content-center gap-2">
@@ -31,7 +31,7 @@
 </div>
 
 {#if !isLast}
-    <div class="w-11/12 max-w-6xl flex flex-col justify-center items-center content-center">
+    <div class="w-11/12 max-w-4xl flex flex-col justify-center items-center content-center">
         <div class="divider" />
     </div>
 {/if}

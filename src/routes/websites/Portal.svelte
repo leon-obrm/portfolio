@@ -20,7 +20,7 @@
 
 <a
     bind:this={animationContainer}
-    class="btn bg-transparent border-0 hover:bg-transparent w-60 h-60 flex justify-center items-center content-center"
+    class="btn bg-transparent border-0 hover:bg-transparent w-60 h-60 flex justify-center items-center content-center -mb-6 md:mb-0"
     href={link}
     target="new"
 >
