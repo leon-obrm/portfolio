@@ -15,7 +15,7 @@
 </script>
 
 <div class="py-10 bg-secondary flex flex-col justify-center items-center content-center gap-5">
-    <div class="w-10/12 max-w-xl flex justify-between items-center content-center">
+    <div class="w-10/12 max-w-md flex justify-between items-center content-center md:max-w-3xl">
         <h1 class="text-2xl font-medium">Skills</h1>
 
         <ListSelect {currentIndex} {changeIndex} />

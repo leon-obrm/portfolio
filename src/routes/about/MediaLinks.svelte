@@ -1,4 +1,7 @@
 <script lang="ts">
+    import OnViewTransition from "../OnViewTransition.svelte";
+    import { scale } from "svelte/transition";
+
     import Linkedin from "svelte-material-icons/Linkedin.svelte";
     import Github from "svelte-material-icons/Github.svelte";
     import Email from "svelte-material-icons/Email.svelte";
@@ -20,12 +23,18 @@
     ];
 </script>
 
-<div class="w-full flex justify-evenly content-center items-center">
-    {#each links as link}
-        <div class="tooltip" data-tip={link.name}>
-            <a class="btn btn-square btn-secondary mask mask-hexagon" href={link.link} target="new">
-                <svelte:component this={link.icon} size="1.75em" color="#000" />
-            </a>
-        </div>
-    {/each}
-</div>
+<OnViewTransition containerClass="w-full">
+    <div class="w-full flex justify-evenly content-center items-center" in:scale>
+        {#each links as link}
+            <div class="tooltip" data-tip={link.name}>
+                <a
+                    class="btn btn-square btn-secondary mask mask-hexagon"
+                    href={link.link}
+                    target="new"
+                >
+                    <svelte:component this={link.icon} size="1.75em" color="#000" />
+                </a>
+            </div>
+        {/each}
+    </div>
+</OnViewTransition>

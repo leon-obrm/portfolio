@@ -16,6 +16,8 @@
             animationData: animationData,
         });
     });
+
+    // TODO: Find out why scale animation does not work on view
 </script>
 
 <a
