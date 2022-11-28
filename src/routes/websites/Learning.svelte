@@ -1,8 +1,8 @@
 <script lang="ts">
-    import type { SkillProps } from "../interfaces";
+    import type { SkillProps } from "../../lib/interfaces";
     import { skills } from "../skills/skills";
 
-    import OnViewTransition from "../OnViewTransition.svelte";
+    import OnViewTransition from "../../lib/OnViewTransition.svelte";
     import { scale } from "svelte/transition";
 
     export let learning: string;
@@ -23,7 +23,6 @@
             class="btn btn-sm hover:bg-gray-300 border-0 w-[2.65rem] h-12 bg-gray-200 image-hex flex justify-center items-center content-center"
             href={`https://${skill?.link}`}
             target="new"
-            in:scale
         >
             {#if skill?.hasLogo}
                 <img

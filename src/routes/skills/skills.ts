@@ -1,4 +1,4 @@
-import type { SkillProps } from "../interfaces";
+import type { SkillProps } from "../../lib/interfaces";
 
 export const skills: SkillProps[] = [
     {

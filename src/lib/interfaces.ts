@@ -1,3 +1,7 @@
+export interface Hash {
+    [details: string]: string;
+}
+
 export interface SkillProps {
     name: string;
     abbreviation: string;

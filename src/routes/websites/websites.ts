@@ -1,4 +1,4 @@
-import type { WebsiteProps } from "../interfaces";
+import type { WebsiteProps } from "../../lib/interfaces";
 
 export const websites: WebsiteProps[] = [
     {

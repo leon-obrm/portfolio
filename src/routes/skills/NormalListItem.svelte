@@ -1,6 +1,6 @@
 <script lang="ts">
-    import type { SkillProps } from "../interfaces";
-    import OnViewTransition from "../OnViewTransition.svelte";
+    import type { SkillProps } from "../../lib/interfaces";
+    import OnViewTransition from "../../lib/OnViewTransition.svelte";
     import { scale } from "svelte/transition";
 
     export let skill: SkillProps;

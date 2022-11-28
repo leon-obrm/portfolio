@@ -1,6 +1,6 @@
 <script lang="ts">
     import HexagonListItem from "./HexagonListItem.svelte";
-    import type { SkillProps } from "../interfaces";
+    import type { SkillProps } from "../../lib/interfaces";
     import { skills } from "./skills";
 
     let skillRows: SkillProps[][] = [];

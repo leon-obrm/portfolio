@@ -13,4 +13,4 @@
     });
 </script>
 
-<div bind:this={animationContainer} class="w-28 h-28 -m-8" />
+<div bind:this={animationContainer} class="w-28 h-28 -m-8 lg:w-36 lg:h-36" />

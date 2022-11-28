@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { WebsiteProps } from "../interfaces";
+    import type { WebsiteProps } from "../../lib/interfaces";
     import Learning from "./Learning.svelte";
     import Portal from "./Portal.svelte";
 
