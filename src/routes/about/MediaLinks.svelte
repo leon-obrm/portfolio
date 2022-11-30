@@ -25,9 +25,11 @@
 
 <OnViewTransition
     containerClass="w-3/4 max-w-md flex flex-col justify-center items-center content-center lg:w-full lg:max-w-lg"
-    repeat={true}
 >
-    <div class="w-full flex justify-between content-center items-center" in:scale>
+    <div
+        class="w-full flex justify-between content-center items-center"
+        in:scale={{ duration: 500 }}
+    >
         {#each links as link}
             <div class="tooltip" data-tip={link.name}>
                 <a

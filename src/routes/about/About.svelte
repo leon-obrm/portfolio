@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { fly, scale, blur, slide, draw } from "svelte/transition";
+
     import MediaQuery from "../../lib/MediaQuery.svelte";
     import Titlebar from "./Titlebar.svelte";
     import Headline from "./Headline.svelte";
@@ -6,6 +8,8 @@
     import Portrait from "./Portrait.svelte";
     import MediaLinks from "./MediaLinks.svelte";
     import ScrollDown from "./ScrollDown.svelte";
+
+    import OnLoadTransition from "../../lib/OnLoadTransition.svelte";
 </script>
 
 <Titlebar />
@@ -13,18 +17,21 @@
 <MediaQuery breakpoint="lg">
     <div
         slot="above"
-        class="mt-16 mb-2 px-14 w-full flex flex-col justify-center items-center content-center"
+        class="mt-16 mb-4 px-14 w-full flex flex-col justify-center items-center content-center gap-8"
     >
-        <div class="w-full max-w-7xl flex justify-around items-center content-center">
-            <div
-                class="w-full flex flex-1 flex-col justify-center items-center content-center gap-10"
-            >
-                <Headline />
-                <Description />
-                <MediaLinks />
-            </div>
+        <div class="w-full max-w-7xl flex justify-center items-center content-center gap-32">
+            <OnLoadTransition>
+                <div
+                    class="flex flex-col justify-center items-center content-center gap-10"
+                    in:scale={{ duration: 500 }}
+                >
+                    <Headline />
+                    <Description />
+                    <MediaLinks />
+                </div>
+            </OnLoadTransition>
 
-            <div class="w-1/2 flex-1">
+            <div class="-m-7">
                 <Portrait />
             </div>
         </div>

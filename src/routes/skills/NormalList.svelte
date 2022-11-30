@@ -4,7 +4,7 @@
     import NormalListItem from "./NormalListItem.svelte";
 </script>
 
-<div class="w-10/12 max-w-xl flex flex-col justify-center items-center align-center gap-2">
+<div class="w-10/12 max-w-xl flex flex-col justify-center items-center align-center gap-2 ">
     {#each skills as skill}
         <NormalListItem {skill} />
     {/each}

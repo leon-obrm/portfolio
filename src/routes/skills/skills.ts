@@ -65,6 +65,13 @@ export const skills: SkillProps[] = [
         link: "python.org",
     },
     {
+        name: "Socket.IO",
+        abbreviation: "",
+        description: "Software architectural style",
+        hasLogo: true,
+        link: "restfulapi.net",
+    },
+    {
         name: "JavaScript",
         abbreviation: "JS",
         description: "Programming language of the web",
@@ -104,6 +111,13 @@ export const skills: SkillProps[] = [
         abbreviation: "REST",
         description: "Software architectural style",
         hasLogo: false,
+        link: "restfulapi.net",
+    },
+    {
+        name: "Git",
+        abbreviation: "Git",
+        description: "Software architectural style",
+        hasLogo: true,
         link: "restfulapi.net",
     },
 ];

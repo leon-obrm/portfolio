@@ -1,12 +1,15 @@
 <script lang="ts">
-    import { fly, scale } from "svelte/transition";
+    import { scale } from "svelte/transition";
 
     import OnLoadTransition from "../../lib/OnLoadTransition.svelte";
     // TODO:? Check if displacement happens in production
 </script>
 
 <OnLoadTransition>
-    <div class="w-full relative mt-12 flex flex-col justify-center items-center content-center">
+    <div
+        class="w-full relative mt-12 flex flex-col justify-center items-center content-center"
+        in:scale={{ duration: 500 }}
+    >
         <!-- FIXME: Small hexagons don't stick to positions -->
         <div class="w-2/5 max-w-xs relative lg:w-4/5">
             <div class="w-3 h-3 absolute bottom-10 left-1/3 bg-primary hex" />
