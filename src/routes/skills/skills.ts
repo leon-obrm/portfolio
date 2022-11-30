@@ -60,7 +60,7 @@ export const skills: SkillProps[] = [
     {
         name: "Python",
         abbreviation: "",
-        description: "General-purpose programming language",
+        description: "High-level programming language",
         hasLogo: true,
         link: "python.org",
     },
