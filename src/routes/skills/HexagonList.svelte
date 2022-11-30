@@ -4,10 +4,10 @@
     import { skills } from "./skills";
 
     let width: number;
-    let isLg: boolean;
-    $: isLg = width >= 1024;
+    let isMd: boolean;
+    $: isMd = width >= 768;
 
-    $: console.log(isLg);
+    $: console.log(isMd);
 
     function fillSkillRows(smallRowLength: number, largeRowLength: number) {
         let skillRows: SkillProps[][] = [];
@@ -44,10 +44,10 @@
 
 <svelte:window bind:outerWidth={width} />
 
-<div class="w-10/12 max-w-xl flex flex-wrap justify-center items-center content-center">
-    {#each isLg ? horizontalSkillRows : verticalSkillRows as skillRow, i}
+<div class="w-10/12 max-w-4xl flex flex-wrap justify-center items-center content-center">
+    {#each isMd ? horizontalSkillRows : verticalSkillRows as skillRow, i}
         <div
-            class="w-full flex justify-center items-center content-center gap-4 -my-[0.3rem] lg:-my-[0.6rem]"
+            class="w-full flex justify-center items-center content-center gap-4 -my-[0.3rem] md:-my-[0.45rem]"
         >
             {#each skillRow as skill, j}
                 <HexagonListItem {skill} />

@@ -13,7 +13,7 @@
         in:scale
     >
         <a
-            class="btn hover:bg-gray-100 border-0 w-20 h-[5.6rem] bg-white image-hex flex justify-center items-center content-center lg:w-28 lg:h-[124px]"
+            class="btn hover:bg-gray-100 border-0 w-20 h-[5.6rem] bg-white image-hex flex justify-center items-center content-center md:w-24 md:h-[104px]"
             href={`https://${skill.link}`}
             target="new"
         >
@@ -21,10 +21,10 @@
                 <img
                     src={`logos/${skill.name}.png`}
                     alt={`${skill.name} logo`}
-                    class="w-12 max-h-12 object-contain lg:w-14 lg:max-h-14"
+                    class="w-12 max-h-12 object-contain md:w-14 md:max-h-14"
                 />
             {:else}
-                <p class="w-12 text-xl text-center text-black font-normal lg:w-14 lg:text-2xl">
+                <p class="w-12 text-xl text-center text-black font-normal md:w-14 md:text-2xl">
                     {skill.abbreviation}
                 </p>
             {/if}

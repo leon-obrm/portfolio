@@ -8,7 +8,7 @@
 
 <OnViewTransition containerClass="w-full" rootMargin="-5%">
     <a
-        class="btn normal-case hover:bg-gray-100 border-0 w-full max-w-xl p-1 bg-white rounded-md flex justify-start content-center items-center"
+        class="btn normal-case hover:bg-gray-100 border-0 w-full p-1 bg-white rounded-md flex justify-start content-center items-center"
         href={`https://${skill.link}`}
         target="new"
         in:scale
