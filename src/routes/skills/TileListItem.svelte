@@ -6,9 +6,9 @@
     export let skill: SkillProps;
 </script>
 
-<OnViewTransition>
+<OnViewTransition containerClass="w-36 lg:w-40">
     <a
-        class="btn btn-md normal-case hover:bg-gray-100 border-0 h-56 p-4 px-1.5 flex flex-col justify-between items-center content-center bg-white rounded-md gap-4 text-black font-normal"
+        class="btn btn-md normal-case hover:bg-gray-100 border-0 w-full h-56 p-4 px-1.5 flex flex-col justify-between items-center content-center bg-white rounded-md gap-4 text-black font-normal lg:h-60"
         href={`https://${skill.link}`}
         target="new"
         in:scale
@@ -28,12 +28,16 @@
                 </p>
             {/if}
 
-            <p class="text-md text-center font-medium">{skill.name}</p>
+            <p class="text-md text-center font-medium lg:text-base">{skill.name}</p>
         </div>
 
-        <p class="text-xs text-center">{skill.description}</p>
+        <p class="text-xs text-center lg:text-sm">{skill.description}</p>
 
-        <a href={`https://${skill.link}`} target="new" class="link link-primary text-[0.65rem]">
+        <a
+            href={`https://${skill.link}`}
+            target="new"
+            class="link link-primary text-[0.65rem] lg:text-xs"
+        >
             {skill.link}
         </a>
     </a>
