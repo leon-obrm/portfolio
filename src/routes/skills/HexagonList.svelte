@@ -6,6 +6,8 @@
     let width: number;
     let isMd: boolean;
     $: isMd = width >= 768;
+    let isLg: boolean;
+    $: isLg = width >= 1024;
 
     $: console.log(isMd);
 
@@ -38,14 +40,18 @@
         return skillRows;
     }
 
-    let verticalSkillRows: SkillProps[][] = fillSkillRows(2, 3);
-    let horizontalSkillRows: SkillProps[][] = fillSkillRows(6, 5);
+    let smSkillRows: SkillProps[][] = fillSkillRows(2, 3);
+    let mdSkillRows: SkillProps[][] = fillSkillRows(5, 6);
+    let lgSkillRows: SkillProps[][] = fillSkillRows(7, 8);
+
+    let currentSkillRows: SkillProps[][];
+    $: currentSkillRows = isLg ? lgSkillRows : isMd ? mdSkillRows : smSkillRows;
 </script>
 
 <svelte:window bind:outerWidth={width} />
 
 <div class="w-10/12 max-w-4xl flex flex-wrap justify-center items-center content-center">
-    {#each isMd ? horizontalSkillRows : verticalSkillRows as skillRow, i}
+    {#each currentSkillRows as skillRow, i}
         <div
             class="w-full flex justify-center items-center content-center gap-4 -my-[0.3rem] md:-my-[0.45rem]"
         >
