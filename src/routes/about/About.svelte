@@ -16,12 +16,12 @@
 
 <Titlebar />
 
-<MediaQuery breakpoint="lg">
+<MediaQuery breakpoint="md">
     <div
         slot="above"
         class="mt-16 mb-4 px-14 w-full flex flex-col justify-center items-center content-center gap-8"
     >
-        <div class="w-full max-w-7xl flex justify-center items-center content-center gap-32">
+        <div class="w-full max-w-7xl flex justify-center items-center content-center gap-20">
             <OnLoadTransition>
                 <div
                     class="flex flex-col justify-center items-center content-center gap-10"

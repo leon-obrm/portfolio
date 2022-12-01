@@ -24,7 +24,7 @@
 </script>
 
 <OnViewTransition
-    containerClass="w-3/4 max-w-md flex flex-col justify-center items-center content-center lg:w-full lg:max-w-lg"
+    containerClass="w-3/4 max-w-md flex flex-col justify-center items-center content-center md:w-full md:max-w-lg"
 >
     <div
         class="w-full flex justify-between content-center items-center"
