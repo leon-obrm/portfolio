@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
     import "../app.css";
     import Footer from "./Footer.svelte";
 </script>
 
-<div class=""><slot /></div>
+<div><slot /></div>
 <Footer />

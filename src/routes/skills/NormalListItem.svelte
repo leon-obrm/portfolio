@@ -17,10 +17,10 @@
             <img
                 src={`logos/${skill.name}.png`}
                 alt={`${skill.name} logo`}
-                class="w-8 max-h-8 object-contain ml-2 md:w-10 md:max-h-10"
+                class="w-8 max-h-8 object-contain ml-2"
             />
         {:else}
-            <p class="w-8 text-md ml-2 text-center text-black font-normal md:w-10 md:max-h-10">
+            <p class="w-8 text-md ml-2 text-center text-black font-normal">
                 {skill.abbreviation}
             </p>
         {/if}

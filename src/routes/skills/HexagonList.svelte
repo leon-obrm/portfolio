@@ -9,8 +9,6 @@
     let isLg: boolean;
     $: isLg = width >= 1024;
 
-    $: console.log(isMd);
-
     function fillSkillRows(smallRowLength: number, largeRowLength: number) {
         let skillRows: SkillProps[][] = [];
 
