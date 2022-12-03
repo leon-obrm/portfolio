@@ -10,8 +10,6 @@
     import ScrollDown from "./ScrollDown.svelte";
 
     import OnLoadTransition from "../../lib/OnLoadTransition.svelte";
-
-    // TODO: Switch breakpoints to md
 </script>
 
 <Titlebar />

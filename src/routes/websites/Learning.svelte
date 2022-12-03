@@ -11,8 +11,6 @@
     );
 </script>
 
-<!-- TODO: Add fancy hover animation -->
-
 <OnViewTransition>
     <div
         class="tooltip tooltip-primary"

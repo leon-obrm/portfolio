@@ -7,7 +7,7 @@ export const websites: WebsiteProps[] = [
         description:
             "This is the website you are visiting. I chose Svelte as a frontend framework because of the promises that new framework makes when it comes to the way code is written. In addition, I made use of Figma in order to improve my mockup and design skills.",
         learnings: ["Svelte", "Svelte Kit", "Tailwind", "Figma"],
-        color: "bg-[#ff784d]",
+        color: "bg-[#90c4df]",
         link: "/",
     },
     {
@@ -25,7 +25,7 @@ export const websites: WebsiteProps[] = [
         description:
             "This is my first website. I created it after my first lecture on web development sparked my interest. The website contains my first ever projects that I used to learn web technologies.",
         learnings: ["JavaScript", "HTML", "CSS", "SQL", "REST", "p5.js"],
-        color: "bg-[#7ee660]",
+        color: "bg-[#90c4df]",
         link: "https://obrm.de/index.php",
     },
 ];
