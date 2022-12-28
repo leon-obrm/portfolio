@@ -6,6 +6,10 @@
 
 <!-- TODO: Choose font for project -->
 
+<svelte:head>
+    <title>Leon Obermann</title>
+</svelte:head>
+
 <About />
 <Skills />
 <Websites />

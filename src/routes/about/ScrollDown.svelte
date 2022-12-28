@@ -11,6 +11,8 @@
             animationData: animationData,
         });
     });
+
+    // TODO: Implement scrolling on click
 </script>
 
 <div bind:this={animationContainer} class="w-28 h-28 -m-8 md:w-36 md:h-36" />

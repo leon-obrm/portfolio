@@ -34,6 +34,8 @@
         }
     }
 
+    // TODO: Replace deprecated functions
+
     function addNewListener(query: string) {
         mql = window.matchMedia(query);
         mqlListener = (v) => (matches = v.matches);

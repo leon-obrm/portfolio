@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { fly, scale, blur, slide, draw } from "svelte/transition";
+    import { scale } from "svelte/transition";
 
     import MediaQuery from "../../lib/MediaQuery.svelte";
-    import Titlebar from "./Titlebar.svelte";
+    import Navbar from "./Navbar.svelte";
     import Headline from "./Headline.svelte";
     import Description from "./Description.svelte";
     import Portrait from "./Portrait.svelte";
@@ -12,10 +12,11 @@
     import OnLoadTransition from "../../lib/OnLoadTransition.svelte";
 </script>
 
-<Titlebar />
+<Navbar />
 
 <MediaQuery breakpoint="md">
     <div
+        id="about"
         slot="above"
         class="mt-16 mb-4 px-14 w-full flex flex-col justify-center items-center content-center gap-8"
     >
@@ -40,6 +41,7 @@
     </div>
 
     <div
+        id="about"
         slot="below"
         class="w-full mt-2 pb-10 flex flex-col justify-start content-center items-center gap-5"
     >
