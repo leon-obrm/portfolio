@@ -25,7 +25,7 @@ export const skills: SkillProps[] = [
     {
         name: "Svelte Kit",
         abbreviation: "",
-        description: "Frontend framework for svelte",
+        description: "Frontend framework for Svelte",
         hasLogo: true,
         link: "kit.svelte.dev",
     },
