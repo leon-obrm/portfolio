@@ -17,10 +17,8 @@
 <MediaQuery breakpoint="md">
     <div
         slot="above"
-        class="mt-16 mb-4 px-14 w-full flex flex-col justify-center items-center content-center gap-8"
+        class="pt-16 pb-4 px-14 w-full flex flex-col justify-center items-center content-center gap-8"
     >
-        <div id="about" class="absolute -top-[100px]" />
-
         <div class="w-full max-w-7xl flex justify-center items-center content-center gap-20">
             <OnLoadTransition>
                 <div

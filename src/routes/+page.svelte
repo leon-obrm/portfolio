@@ -4,7 +4,7 @@
     import Websites from "./websites/Websites.svelte";
 </script>
 
-<!-- TODO: Choose font for project -->
+<!-- TODO?: Choose font for project -->
 
 <svelte:head>
     <title>Leon Obermann</title>

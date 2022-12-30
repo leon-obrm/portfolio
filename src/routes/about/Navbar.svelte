@@ -7,7 +7,7 @@
     }
 
     const links: LinkProps[] = [
-        { text: "About", link: "#about" },
+        { text: "About", link: "/" },
         { text: "Skills", link: "#skills" },
         { text: "Websites", link: "#websites" },
     ];
@@ -21,7 +21,7 @@
         >
         <MediaQuery breakpoint="md">
             <svelte:fragment slot="above">
-                <div class="flex gap-20">
+                <div class="flex gap-8 lg:gap-20">
                     {#each links as link}
                         <a
                             class="btn btn-ghost hover:bg-transparent hover:text-primary"
@@ -34,7 +34,7 @@
 
                 <a
                     href="mailto:leon.oberm@gmail.com"
-                    class="mt-2 btn btn-sm hover:bg-primary hover:border-primary"
+                    class="mt-2 mr-5 btn btn-sm hover:bg-primary hover:border-primary"
                 >
                     Contact me
                 </a>
