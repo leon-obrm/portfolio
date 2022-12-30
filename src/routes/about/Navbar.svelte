@@ -57,8 +57,10 @@
                         />
                     </svg>
                 </label>
+                <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
                 <ul
-                    class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 border border-gray-200"
+                    tabindex="0"
+                    class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 border border-gray-200"
                 >
                     {#each links as link}
                         <li>
