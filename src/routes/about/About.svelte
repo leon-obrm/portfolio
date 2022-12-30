@@ -42,7 +42,7 @@
     <div
         id="about"
         slot="below"
-        class="w-full mt-2 pb-10 flex flex-col justify-start content-center items-center gap-5"
+        class="w-full pt-6 pb-10 flex flex-col justify-start content-center items-center gap-5"
     >
         <Headline />
         <Portrait />
