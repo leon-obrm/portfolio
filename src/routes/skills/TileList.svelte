@@ -1,3 +1,8 @@
+<!--
+  @component
+
+  Contains list of skills in tile form
+-->
 <script lang="ts">
     import TileListItem from "./TileListItem.svelte";
 

@@ -1,10 +1,14 @@
+<!--
+  @component
+
+  Contains hexagon lottie from Ision Industries ({@link https://lottiefiles.com/21180-impossible-hexagon})
+  @param {string} color - Color of inside of hexagon
+  @param {string} link - Link to open when portal is clicked
+-->
 <script lang="ts">
     import { onMount } from "svelte";
     import lottie from "lottie-web";
     import animationData from "./lottiePortal.json";
-
-    import OnViewTransition from "../../lib/OnViewTransition.svelte";
-    import { scale } from "svelte/transition";
 
     export let color: string;
     export let link: string;
@@ -19,8 +23,6 @@
             animationData: animationData,
         });
     });
-
-    // TODO?: Find out why scale animation does not work on view
 </script>
 
 <a

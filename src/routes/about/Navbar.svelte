@@ -1,3 +1,8 @@
+<!--
+  @component
+
+  Contains navbar with logo, links to sections and email button
+-->
 <script lang="ts">
     import MediaQuery from "../../lib/MediaQuery.svelte";
 

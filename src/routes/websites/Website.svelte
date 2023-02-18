@@ -1,3 +1,10 @@
+<!--
+  @component
+
+  Contains single website item
+  @param {WebsiteProps} website - Website to display information about
+  @param {boolean} isLast - Indicates whether this is the last website in the list
+-->
 <script lang="ts">
     import type { WebsiteProps } from "../../lib/interfaces";
     import Learning from "./Learning.svelte";

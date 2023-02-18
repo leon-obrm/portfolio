@@ -1,3 +1,8 @@
+<!--
+  @component
+
+  Contains buttons with links to LinkedIn, GitHub and email
+-->
 <script lang="ts">
     import OnViewTransition from "../../lib/OnViewTransition.svelte";
     import { scale } from "svelte/transition";

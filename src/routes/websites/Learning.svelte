@@ -1,3 +1,9 @@
+<!--
+  @component
+
+  Contains single learning
+  @param {string} learning - Learning to display
+-->
 <script lang="ts">
     import type { SkillProps } from "../../lib/interfaces";
     import { skills } from "../skills/skills";

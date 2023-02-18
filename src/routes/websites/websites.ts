@@ -1,5 +1,6 @@
 import type { WebsiteProps } from "../../lib/interfaces";
 
+/** A list of my current websites */
 export const websites: WebsiteProps[] = [
     {
         title: "My second frontend framework",

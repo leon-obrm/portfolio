@@ -1,3 +1,10 @@
+<!--
+  @component
+
+  Contains button group for toggling between list types
+  @param {number} currentIndex - Index of current list type
+  @param {(index: number) => void} changeIndex - Function to change index of current list type
+-->
 <script lang="ts">
     import ViewModule from "svelte-material-icons/ViewModule.svelte";
     import ViewList from "svelte-material-icons/ViewList.svelte";

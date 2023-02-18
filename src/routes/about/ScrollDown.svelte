@@ -1,3 +1,8 @@
+<!--
+  @component
+
+  Contains scroll down lottie from MJ Mohiddin ({@link https://lottiefiles.com/11514-swipe-down-arrows})
+-->
 <script lang="ts">
     import { onMount } from "svelte";
     import lottie from "lottie-web";

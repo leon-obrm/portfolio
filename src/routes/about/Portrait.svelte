@@ -1,3 +1,8 @@
+<!--
+  @component
+
+  Contains portrait of Leon Obermann and some hexagon eye candy
+-->
 <script lang="ts">
     import { scale } from "svelte/transition";
 

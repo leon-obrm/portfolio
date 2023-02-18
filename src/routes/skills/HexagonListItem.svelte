@@ -1,3 +1,9 @@
+<!--
+  @component
+
+  Contains single skill in hexagon form
+  @param {SkillProps} skill - Skill to display
+-->
 <script lang="ts">
     import type { SkillProps } from "../../lib/interfaces";
     export let skill: SkillProps;

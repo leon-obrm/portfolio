@@ -1,3 +1,11 @@
+<!--
+  @component
+
+  Shows content in slot after page is loaded.
+  This automatically triggers all defined svelte "in" transitions.
+
+  @slot - Content to show after mounting
+-->
 <script lang="ts">
     import { onMount } from "svelte";
 

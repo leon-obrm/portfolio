@@ -1,3 +1,8 @@
+<!--
+  @component
+
+  Contains websites section
+-->
 <script lang="ts">
     import { websites } from "./websites";
     import Website from "./Website.svelte";

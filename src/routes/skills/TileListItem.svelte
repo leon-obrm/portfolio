@@ -1,3 +1,9 @@
+<!--
+  @component
+
+  Contains single skill in tile form
+  @param {SkillProps} skill - Skill to display
+-->
 <script lang="ts">
     import type { SkillProps } from "../../lib/interfaces";
     import OnViewTransition from "../../lib/OnViewTransition.svelte";

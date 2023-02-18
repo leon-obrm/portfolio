@@ -1,3 +1,8 @@
+<!--
+  @component
+
+  Contains skill section, including button group for toggling between list types and the currently selected list
+-->
 <script lang="ts">
     import ListSelect from "./ListSelect.svelte";
 

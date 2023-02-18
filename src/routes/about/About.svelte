@@ -1,3 +1,8 @@
+<!--
+  @component
+
+  Contains about section, including the navbar
+-->
 <script lang="ts">
     import { scale } from "svelte/transition";
 
