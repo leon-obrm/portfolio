@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-    <Portal color={website.color} link={website.link} />
+    <Portal color={website.color} hoverColor={website.hoverColor} link={website.link} />
 </div>
 
 {#if !isLast}

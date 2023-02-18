@@ -16,5 +16,6 @@ export interface WebsiteProps {
     description: string;
     learnings: string[];
     color: string;
+    hoverColor: string;
     link: string;
 }
