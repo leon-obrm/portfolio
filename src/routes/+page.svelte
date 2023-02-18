@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-    <title>Leon Obermann</title>
+    <title>Leon's portfolio</title>
 </svelte:head>
 
 <About />
