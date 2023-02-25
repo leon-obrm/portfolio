@@ -4,7 +4,7 @@
   Contains about section, including the navbar
 -->
 <script lang="ts">
-    import { scale } from "svelte/transition";
+    import ScaleAnimation from "../../lib/ScaleAnimation.svelte";
 
     import MediaQuery from "../../lib/MediaQuery.svelte";
     import Navbar from "./Navbar.svelte";
@@ -13,8 +13,6 @@
     import Portrait from "./Portrait.svelte";
     import MediaLinks from "./MediaLinks.svelte";
     import ScrollDown from "./ScrollDown.svelte";
-
-    import OnLoadTransition from "../../lib/OnLoadTransition.svelte";
 </script>
 
 <Navbar />
@@ -25,16 +23,11 @@
         class="pt-16 pb-4 px-14 w-full flex flex-col justify-center items-center content-center gap-8"
     >
         <div class="w-full max-w-7xl flex justify-center items-center content-center gap-20">
-            <OnLoadTransition>
-                <div
-                    class="flex flex-col justify-center items-center content-center gap-10"
-                    in:scale={{ duration: 500 }}
-                >
-                    <Headline />
-                    <Description />
-                    <MediaLinks />
-                </div>
-            </OnLoadTransition>
+            <div class="flex flex-col justify-center items-center content-center gap-10">
+                <Headline />
+                <Description />
+                <MediaLinks />
+            </div>
 
             <div class="-m-7">
                 <Portrait />
