@@ -17,7 +17,8 @@
     <a
         class="btn normal-case hover:bg-gray-100 border-0 w-full p-1 bg-white rounded-md flex justify-start content-center items-center transition-scale hover:scale-[102%] md:py-7"
         href={`https://${skill.link}`}
-        target="new"
+        target="_blank"
+        rel="noopener noreferrer"
         in:scale
     >
         {#if skill.hasLogo}

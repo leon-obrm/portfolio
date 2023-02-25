@@ -35,7 +35,8 @@
         bind:this={animationContainer}
         class="hex btn bg-transparent border-0 hover:bg-transparent w-60 h-60 flex justify-center items-center content-center -mb-6 md:-mr-10 md:mb-0"
         href={link}
-        target="new"
+        target="_blank"
+        rel="noopener noreferrer"
         on:mouseenter={() => {
             finalColor = hoverColor;
         }}

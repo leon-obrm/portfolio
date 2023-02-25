@@ -37,7 +37,8 @@
                     <a
                         class="btn btn-square btn-secondary mask mask-hexagon"
                         href={link.link}
-                        target="new"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
                         <svelte:component this={link.icon} size="1.75em" color="#000" />
                     </a>

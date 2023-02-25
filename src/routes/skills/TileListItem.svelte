@@ -16,7 +16,8 @@
     <a
         class="btn btn-md normal-case hover:bg-gray-100 border-0 w-36 lg:w-40 h-56 p-4 px-1.5 flex flex-col justify-between items-center content-center bg-white rounded-md gap-4 text-black font-normal transition-scale hover:scale-[103%] lg:h-60"
         href={`https://${skill.link}`}
-        target="new"
+        target="_blank"
+        rel="noopener noreferrer"
         in:scale
     >
         <div class="flex flex-col justify-center items-center content-center gap-3">
@@ -41,7 +42,8 @@
 
         <a
             href={`https://${skill.link}`}
-            target="new"
+            target="_blank"
+            rel="noopener noreferrer"
             class="link link-primary text-[0.65rem] lg:text-xs"
         >
             {skill.link}

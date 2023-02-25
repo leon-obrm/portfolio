@@ -21,7 +21,8 @@
         <a
             class="btn hover:bg-gray-100 border-0 w-20 h-[5.6rem] bg-white image-hex flex justify-center items-center content-center transition-scale ease-out duration-300 hover:scale-110 md:w-24 md:h-[104px]"
             href={`https://${skill.link}`}
-            target="new"
+            target="_blank"
+            rel="noopener noreferrer"
         >
             {#if skill.hasLogo}
                 <img
