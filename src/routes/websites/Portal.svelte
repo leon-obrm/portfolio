@@ -33,7 +33,7 @@
     <a
         use:motion
         bind:this={animationContainer}
-        class="hex btn bg-transparent border-0 hover:bg-transparent w-60 h-60 flex justify-center items-center content-center -mb-6 md:-mr-10 md:mb-0"
+        class="hex btn no-animation bg-transparent border-0 hover:bg-transparent w-60 h-60 flex justify-center items-center content-center -mb-6 md:-mr-10 md:mb-0"
         href={link}
         target="_blank"
         rel="noopener noreferrer"

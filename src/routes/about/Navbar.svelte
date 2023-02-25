@@ -53,7 +53,7 @@
                     <a
                         use:motion
                         href="mailto:leon.oberm@gmail.com"
-                        class="mt-2 mr-5 btn btn-sm hover:bg-primary hover:border-primary"
+                        class="mt-2 mr-5 btn no-animation btn-sm hover:bg-primary hover:border-primary"
                     >
                         Contact me
                     </a>
