@@ -22,24 +22,41 @@
         "2xl": "1536",
     };
 
+    let wasMounted = false;
+    let matches = true;
+
     let query: string;
     $: query = `(min-width: ${breakpoints[breakpoint]}px)`;
 
-    let wasMounted: boolean = false;
-    let matches: boolean = true;
+    let mql: MediaQueryList;
+    let mqlListener: (event: any) => void;
 
     onMount(() => {
         wasMounted = true;
-
-        const mql: MediaQueryList = window.matchMedia(query);
-        const mqlListener: any = mql.addEventListener("change", (event) => {
-            matches = event.matches;
-        });
-
         return () => {
-            mql.removeEventListener("change", mqlListener);
+            removeActiveListener();
         };
     });
+
+    function addNewListener(query: string) {
+        mql = matchMedia(query);
+        mqlListener = (event) => (matches = event.matches);
+        mql.addEventListener("change", mqlListener);
+        matches = mql.matches;
+    }
+
+    function removeActiveListener() {
+        if (mql && mqlListener) {
+            mql.removeEventListener("change", mqlListener);
+        }
+    }
+
+    $: {
+        if (wasMounted) {
+            removeActiveListener();
+            addNewListener(query);
+        }
+    }
 </script>
 
 <!-- Determines what slot to show based on breakpoint -->
