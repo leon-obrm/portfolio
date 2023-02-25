@@ -4,8 +4,7 @@
   Contains buttons with links to LinkedIn, GitHub and email
 -->
 <script lang="ts">
-    import OnViewTransition from "../../lib/OnViewTransition.svelte";
-    import { scale } from "svelte/transition";
+    import SpinAnimation from "../../lib/SpinAnimation.svelte";
 
     import Linkedin from "svelte-material-icons/Linkedin.svelte";
     import Github from "svelte-material-icons/Github.svelte";
@@ -28,23 +27,22 @@
     ];
 </script>
 
-<OnViewTransition
-    containerClass="w-3/4 max-w-md flex flex-col justify-center items-center content-center md:w-full md:max-w-lg"
+<div
+    class="w-3/4 max-w-md flex flex-col justify-center items-center content-center md:w-full md:max-w-lg"
 >
-    <div
-        class="w-full flex justify-between content-center items-center"
-        in:scale={{ duration: 500 }}
-    >
+    <div class="w-full flex justify-between content-center items-center">
         {#each links as link}
-            <div class="tooltip" data-tip={link.name}>
-                <a
-                    class="btn btn-square btn-secondary mask mask-hexagon"
-                    href={link.link}
-                    target="new"
-                >
-                    <svelte:component this={link.icon} size="1.75em" color="#000" />
-                </a>
-            </div>
+            <SpinAnimation delay={0.3}>
+                <div class="tooltip" data-tip={link.name}>
+                    <a
+                        class="btn btn-square btn-secondary mask mask-hexagon"
+                        href={link.link}
+                        target="new"
+                    >
+                        <svelte:component this={link.icon} size="1.75em" color="#000" />
+                    </a>
+                </div>
+            </SpinAnimation>
         {/each}
     </div>
-</OnViewTransition>
+</div>

@@ -4,10 +4,6 @@
   Contains portrait of Leon Obermann and some hexagon eye candy
 -->
 <script lang="ts">
-    import { scale } from "svelte/transition";
-    import { Motion } from "svelte-motion";
-
-    import OnLoadTransition from "../../lib/OnLoadTransition.svelte";
     import SpinAnimation from "../../lib/SpinAnimation.svelte";
 </script>
 
