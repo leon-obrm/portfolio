@@ -14,7 +14,7 @@
 
 <OnViewTransition containerClass="w-36 lg:w-40" repeat={true}>
     <a
-        class="btn btn-md normal-case hover:bg-gray-100 border-0 w-36 lg:w-40 h-56 p-4 px-1.5 flex flex-col justify-between items-center content-center bg-white rounded-md gap-4 text-black font-normal lg:h-60"
+        class="btn btn-md normal-case hover:bg-gray-100 border-0 w-36 lg:w-40 h-56 p-4 px-1.5 flex flex-col justify-between items-center content-center bg-white rounded-md gap-4 text-black font-normal transition-scale hover:scale-[103%] lg:h-60"
         href={`https://${skill.link}`}
         target="new"
         in:scale
