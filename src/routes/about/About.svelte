@@ -4,8 +4,6 @@
   Contains about section, including the navbar
 -->
 <script lang="ts">
-    import ScaleAnimation from "../../lib/ScaleAnimation.svelte";
-
     import MediaQuery from "../../lib/MediaQuery.svelte";
     import Navbar from "./Navbar.svelte";
     import Headline from "./Headline.svelte";
