@@ -20,7 +20,7 @@
         slot="above"
         class="pt-16 pb-4 px-14 w-full flex flex-col justify-center items-center content-center gap-8"
     >
-        <div class="w-full max-w-7xl flex justify-center items-center content-center gap-20">
+        <div class="w-full max-w-4xl flex justify-between items-center content-center gap-20">
             <div class="flex flex-col justify-center items-center content-center gap-10">
                 <Headline />
                 <Description />

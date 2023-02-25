@@ -15,7 +15,7 @@
         <SpinAnimation delay={0.3} className="w-9 h-9 absolute top-0 left-3/4 bg-primary hex" />
     </div>
 
-    <div class="w-[85%]">
+    <div class="w-[85%] max-w-sm">
         <SpinAnimation className="w-full relative flex flex-col items-center">
             <div class="w-3/5 max-w-xs h-full absolute bg-primary bg-hex md:w-11/12" />
             <img
