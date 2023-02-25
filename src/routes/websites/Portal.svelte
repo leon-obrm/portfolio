@@ -11,6 +11,8 @@
     import lottie from "lottie-web";
     import animationData from "./lottiePortal.json";
 
+    import { Motion } from "svelte-motion";
+
     export let color: string;
     export let hoverColor: string;
     export let link: string;
@@ -27,21 +29,26 @@
     });
 </script>
 
-<a
-    bind:this={animationContainer}
-    class="hex btn bg-transparent border-0 hover:bg-transparent w-60 h-60 flex justify-center items-center content-center -mb-6 md:-mr-10 md:mb-0"
-    href={link}
-    target="new"
-    on:mouseenter={() => {
-        finalColor = hoverColor;
-    }}
-    on:mouseleave={() => {
-        finalColor = color;
-    }}
->
-    <div class="absolute w-40 h-40 hex {finalColor} transition-colors duration-300" />
-    <p class="absolute w-20 text-center text-lg text-white font-normal normal-case">Take a look</p>
-</a>
+<Motion let:motion whileHover={{ scale: 1.05 }}>
+    <a
+        use:motion
+        bind:this={animationContainer}
+        class="hex btn bg-transparent border-0 hover:bg-transparent w-60 h-60 flex justify-center items-center content-center -mb-6 md:-mr-10 md:mb-0"
+        href={link}
+        target="new"
+        on:mouseenter={() => {
+            finalColor = hoverColor;
+        }}
+        on:mouseleave={() => {
+            finalColor = color;
+        }}
+    >
+        <div class="absolute w-40 h-40 hex {finalColor} transition-colors duration-300" />
+        <p class="absolute w-20 text-center text-lg text-white font-normal normal-case">
+            Take a look
+        </p>
+    </a>
+</Motion>
 
 <style>
     .hex {
