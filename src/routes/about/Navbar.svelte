@@ -5,6 +5,7 @@
 -->
 <script lang="ts">
     import MediaQuery from "../../lib/MediaQuery.svelte";
+    import { Motion } from "svelte-motion";
 
     interface LinkProps {
         text: string;
@@ -37,12 +38,26 @@
                     {/each}
                 </div>
 
-                <a
-                    href="mailto:leon.oberm@gmail.com"
-                    class="mt-2 mr-5 btn btn-sm hover:bg-primary hover:border-primary"
+                <Motion
+                    let:motion
+                    initial={{ rotate: 0, scale: 1 }}
+                    animate={{ rotate: [0, 100, -120, 80, 0], scale: [1, 1.1, 1.1, 1, 1] }}
+                    transition={{
+                        ease: "easeInOut",
+                        delay: 5,
+                        repeat: Infinity,
+                        repeatType: "loop",
+                        repeatDelay: 10,
+                    }}
                 >
-                    Contact me
-                </a>
+                    <a
+                        use:motion
+                        href="mailto:leon.oberm@gmail.com"
+                        class="mt-2 mr-5 btn btn-sm hover:bg-primary hover:border-primary"
+                    >
+                        Contact me
+                    </a>
+                </Motion>
             </svelte:fragment>
 
             <div slot="below" class="dropdown dropdown-end">
