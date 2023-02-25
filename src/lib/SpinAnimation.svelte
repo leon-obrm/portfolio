@@ -11,10 +11,10 @@
     animate={{ rotate: 360, scale: 1 }}
     transition={{
         type: "spring",
-        stiffness: 200,
+        stiffness: 100,
         damping: 20,
         delay,
-        mass: 2,
+        mass: 3,
     }}
     whileHover={{ scale: 1.05 }}
 >

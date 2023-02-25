@@ -32,7 +32,7 @@
 >
     <div class="w-full flex justify-between content-center items-center">
         {#each links as link}
-            <SpinAnimation delay={0.3}>
+            <SpinAnimation delay={0.5}>
                 <div class="tooltip" data-tip={link.name}>
                     <a
                         class="btn btn-square btn-secondary mask mask-hexagon"
