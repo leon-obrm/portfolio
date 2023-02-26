@@ -41,7 +41,7 @@
                 <Motion
                     let:motion
                     initial={{ rotate: 0, scale: 1 }}
-                    animate={{ rotate: [0, 100, -120, 80, 0], scale: [1, 1.1, 1.1, 1, 1] }}
+                    animate={{ rotate: [0, 5, -7.5, 2.5, 0], scale: [1, 1.02, 1.01, 1] }}
                     transition={{
                         ease: "easeInOut",
                         delay: 5,
@@ -50,13 +50,14 @@
                         repeatDelay: 10,
                     }}
                 >
-                    <a
-                        use:motion
-                        href="mailto:leon.oberm@gmail.com"
-                        class="mt-2 mr-5 btn no-animation btn-sm hover:bg-primary hover:border-primary"
-                    >
-                        Contact me
-                    </a>
+                    <div use:motion>
+                        <a
+                            href="mailto:leon.oberm@gmail.com"
+                            class="mt-2 mr-5 btn no-animation btn-sm hover:bg-primary hover:border-primary"
+                        >
+                            Contact me
+                        </a>
+                    </div>
                 </Motion>
             </svelte:fragment>
 
