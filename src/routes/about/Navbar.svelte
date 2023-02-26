@@ -41,19 +41,21 @@
                 <Motion
                     let:motion
                     initial={{ rotate: 0, scale: 1 }}
-                    animate={{ rotate: [0, 5, -7.5, 2.5, 0], scale: [1, 1.02, 1.01, 1] }}
+                    animate={{ rotate: [0, 2.5, -5, 1.25, 0], scale: [1, 1.01, 1.02, 1, 1] }}
                     transition={{
-                        ease: "easeInOut",
+                        type: "spring",
+                        stiffness: 50,
+                        damping: 10,
                         delay: 5,
                         repeat: Infinity,
                         repeatType: "loop",
                         repeatDelay: 10,
                     }}
                 >
-                    <div use:motion>
+                    <div use:motion class="mt-2 mr-5">
                         <a
                             href="mailto:leon.oberm@gmail.com"
-                            class="mt-2 mr-5 btn no-animation btn-sm hover:bg-primary hover:border-primary"
+                            class="btn no-animation btn-sm hover:bg-primary hover:border-primary"
                         >
                             Contact me
                         </a>
