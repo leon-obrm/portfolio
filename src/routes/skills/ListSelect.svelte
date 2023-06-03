@@ -19,7 +19,7 @@
 <div class="btn-group">
     {#each icons as icon, i}
         <button
-            class="btn btn-square btn-sm"
+            class="btn btn-square btn-sm no-animation"
             class:btn-active={currentIndex === i}
             on:click={() => changeIndex(i)}
         >
