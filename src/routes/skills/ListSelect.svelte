@@ -16,7 +16,7 @@
     const icons: any[] = [ViewModule, ViewList, ViewColumn];
 </script>
 
-<div class="btn-group">
+<div class="btn-group drop-shadow">
     {#each icons as icon, i}
         <button
             class="btn btn-square btn-sm no-animation"

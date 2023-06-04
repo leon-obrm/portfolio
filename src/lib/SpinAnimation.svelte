@@ -3,6 +3,7 @@
 
     export let delay: number = 0;
     export let className: string = "";
+    export let hoverAnimation: boolean = true;
 </script>
 
 <Motion
@@ -16,7 +17,14 @@
         delay,
         mass: 1,
     }}
-    whileHover={{ scale: 1.05 }}
+    whileHover={hoverAnimation
+        ? {
+              scale: 1.05,
+              transition: {
+                  delay: 0,
+              },
+          }
+        : {}}
 >
     <div use:motion class={className}>
         <slot />

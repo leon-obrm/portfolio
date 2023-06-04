@@ -29,7 +29,7 @@
         <div class="flex flex-col justify-center items-start content-center gap-3">
             <h3>Learnings</h3>
 
-            <div class="flex justify-start items-center content-center gap-1">
+            <div class="flex justify-start items-center content-center gap-2">
                 {#each website.learnings as learning}
                     <Learning {learning} />
                 {/each}

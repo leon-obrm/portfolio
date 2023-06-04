@@ -34,14 +34,16 @@
         {#each links as link}
             <SpinAnimation delay={0.5}>
                 <div class="tooltip" data-tip={link.name}>
-                    <a
-                        class="btn btn-square btn-secondary mask mask-hexagon"
-                        href={link.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <svelte:component this={link.icon} size="1.75em" color="#000" />
-                    </a>
+                    <div class="drop-shadow-md hover:drop-shadow-lg transition-all">
+                        <a
+                            class="btn btn-secondary mask mask-hexagon transition-scale ease-out duration-300 hover:scale-110 hover:bg-secondary hover:border-none border-none"
+                            href={link.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <svelte:component this={link.icon} size="1.75em" color="#000" />
+                        </a>
+                    </div>
                 </div>
             </SpinAnimation>
         {/each}

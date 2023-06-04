@@ -55,7 +55,7 @@
                     <div use:motion class="mt-2 mr-5">
                         <a
                             href="mailto:leon.oberm@gmail.com"
-                            class="btn no-animation btn-sm hover:bg-primary hover:border-primary"
+                            class="btn no-animation btn-sm shadow hover:bg-primary hover:border-primary hover:shadow-lg transition-scale ease-out duration-300 hover:scale-[105%]"
                         >
                             Contact me
                         </a>

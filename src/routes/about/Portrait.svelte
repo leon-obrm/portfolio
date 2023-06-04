@@ -16,8 +16,14 @@
     </div>
 
     <div class="w-[85%] max-w-sm">
-        <SpinAnimation className="w-full relative flex flex-col items-center">
-            <div class="w-3/5 max-w-xs h-full absolute bg-primary bg-hex md:w-11/12" />
+        <SpinAnimation
+            className="w-full relative flex flex-col items-center"
+            hoverAnimation={false}
+        >
+            <div
+                class="w-3/5 max-w-xs h-full absolute bg-primary bg-hex md:w-11/12 border-b-8 border-black"
+            />
+
             <img
                 src="Portrait-min-small-min.png"
                 alt="Portrait of Leon Obermann"

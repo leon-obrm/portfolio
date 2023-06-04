@@ -22,26 +22,30 @@
 
 <OnViewTransition>
     <div
-        class="tooltip tooltip-primary"
+        class="tooltip"
         data-tip={skill?.abbreviation !== "" ? skill?.abbreviation : skill?.name}
         in:scale
     >
-        <a
-            class="btn btn-sm hover:bg-gray-300 border-0 w-[2.65rem] h-12 bg-gray-200 image-hex flex justify-center items-center content-center"
-            href={`https://${skill?.link}`}
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            {#if skill?.hasLogo}
-                <img
-                    src={`logos/${skill?.name}.png`}
-                    alt={`${skill?.name} logo`}
-                    class="w-10 max-h-6 object-contain"
-                />
-            {:else}
-                <p class="w-10 text-md text-center text-black font-normal">{skill?.abbreviation}</p>
-            {/if}
-        </a>
+        <div class="drop-shadow hover:drop-shadow-lg transition-all">
+            <a
+                class="btn btn-sm hover:bg-gray-100 border-0 w-[2.65rem] h-12 bg-gray-100 image-hex flex justify-center items-center content-center transition-scale ease-out duration-300 hover:scale-110"
+                href={`https://${skill?.link}`}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                {#if skill?.hasLogo}
+                    <img
+                        src={`logos/${skill?.name}.png`}
+                        alt={`${skill?.name} logo`}
+                        class="w-10 max-h-6 object-contain"
+                    />
+                {:else}
+                    <p class="w-10 text-md text-center text-black font-normal">
+                        {skill?.abbreviation}
+                    </p>
+                {/if}
+            </a>
+        </div>
     </div>
 </OnViewTransition>
 
