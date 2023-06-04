@@ -18,7 +18,7 @@
 <MediaQuery breakpoint="md">
     <div
         slot="above"
-        class="pt-16 pb-4 px-14 w-full flex flex-col justify-center items-center content-center gap-8"
+        class="pt-16 pb-6 px-14 w-full flex flex-col justify-between items-center content-center gap-16"
     >
         <div class="w-full max-w-4xl flex justify-between items-center content-center gap-20">
             <div class="flex flex-col justify-center items-center content-center gap-10">

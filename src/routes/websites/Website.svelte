@@ -40,7 +40,7 @@
 </div>
 
 {#if !isLast}
-    <div class="w-11/12 max-w-5xl flex flex-col justify-center items-center content-center">
+    <div class="w-11/12 max-w-5xl flex flex-col justify-center items-center content-center my-4">
         <div class="divider" />
     </div>
 {/if}
