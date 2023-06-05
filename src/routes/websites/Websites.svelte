@@ -9,7 +9,7 @@
 </script>
 
 <div class="relative w-full py-14 flex flex-col justify-start content-center items-center md:gap-3">
-    <div id="websites" class="absolute -top-[71px]" />
+    <div id="websites" class="absolute -top-[63px]" />
 
     <h1 class="w-10/12 max-w-md mb-8 text-2xl md:max-w-4xl md:text-3xl">Websites</h1>
 
