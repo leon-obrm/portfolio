@@ -15,6 +15,17 @@ module.exports = {
                 "primary-200": "#CEF8F1",
                 "primary-100": "#ECFDFC",
 
+                // Secondary
+                "secondary-900": "#570001",
+                "secondary-800": "#880712",
+                "secondary-700": "#B80F25",
+                "secondary-600": "#E51A3C",
+                "secondary-500": "#FF385C",
+                "secondary-400": "#FF6680",
+                "secondary-300": "#FF99A7",
+                "secondary-200": "#FFC7CC",
+                "secondary-100": "#FFEBEB",
+
                 // Gray
                 "gray-900": "#0F1720",
                 "gray-800": "#222933",
@@ -42,7 +53,7 @@ module.exports = {
 
                     // Secondary
                     secondary: "#FF385C",
-                    "secondary-focus": "#E51A3E",
+                    "secondary-focus": "#E51A3C",
                     "secondary-content": "#FFEBEB",
 
                     // Gray
