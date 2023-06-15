@@ -11,7 +11,7 @@
     <div class="w-2/5 max-w-xs relative md:w-4/5">
         <SpinAnimation
             delay={0.9}
-            className="w-3 h-3 absolute bottom-10 left-1/3 bg-primary-300 hex"
+            className="w-3 h-3 absolute bottom-10 left-1/3 bg-primary-200 hex"
         />
         <SpinAnimation
             delay={0.7}
