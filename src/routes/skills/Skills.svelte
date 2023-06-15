@@ -24,7 +24,7 @@
 >
     <div id="skills" class="absolute -top-[64px]" />
 
-    <div class="w-10/12 max-w-4xl flex justify-between items-center content-center">
+    <div class="w-10/12 max-w-4xl font-medium flex justify-between items-center content-center">
         <h1 class="text-2xl md:text-3xl">Skills</h1>
 
         <ListSelect {currentIndex} {changeIndex} />
