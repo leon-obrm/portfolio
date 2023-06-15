@@ -11,10 +11,12 @@
     let animationContainer: HTMLElement;
 
     onMount(() => {
-        lottie.loadAnimation({
-            container: animationContainer,
-            animationData: animationData,
-        });
+        setTimeout(() => {
+            lottie.loadAnimation({
+                container: animationContainer,
+                animationData: animationData,
+            });
+        }, 2500);
     });
 </script>
 
