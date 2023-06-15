@@ -17,6 +17,8 @@
         { text: "Skills", link: "#skills" },
         { text: "Websites", link: "#websites" },
     ];
+
+    let currentIndex: number = -1;
 </script>
 
 <div class="sticky z-50 w-full top-0">
@@ -29,12 +31,20 @@
             <svelte:fragment slot="above">
                 <!-- TODO: Mark currently visited section of page -->
                 <div class="flex gap-8 lg:gap-20">
-                    {#each links as link}
+                    {#each links as link, i}
                         <a
-                            class="btn btn-ghost hover:bg-transparent hover:text-primary"
+                            class="relative btn no-animation btn-ghost hover:bg-transparent hover:text-primary"
+                            class:text-primary-600={currentIndex === i}
                             href={link.link}
+                            on:click={() => (currentIndex = i)}
                         >
                             {link.text}
+
+                            <div
+                                class="absolute -bottom-[9px] w-full h-0.5 bg-primary-500 transition-all duration-500"
+                                class:w-0={currentIndex !== i}
+                                class:w-full={currentIndex === i}
+                            />
                         </a>
                     {/each}
                 </div>
