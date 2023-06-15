@@ -26,14 +26,10 @@
         </div>
         <p class="text-justify text-sm md:text-base">{website.description}</p>
 
-        <div class="flex flex-col justify-center items-start content-center gap-3">
-            <h3>Learnings</h3>
-
-            <div class="flex justify-start items-center content-center gap-2">
-                {#each website.learnings as learning}
-                    <Learning {learning} />
-                {/each}
-            </div>
+        <div class="flex justify-start items-center content-center gap-2">
+            {#each website.learnings as learning}
+                <Learning {learning} />
+            {/each}
         </div>
     </div>
     <Portal color={website.color} hoverColor={website.hoverColor} link={website.link} />

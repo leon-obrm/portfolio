@@ -20,7 +20,7 @@
 </script>
 
 <div
-    class="relative pt-14 pb-16 bg-secondary flex flex-col justify-center items-center content-center gap-10 shadow-inner"
+    class="relative pt-14 pb-16 bg-primary-300 flex flex-col justify-center items-center content-center gap-10 shadow-inner"
 >
     <div id="skills" class="absolute -top-[64px]" />
 

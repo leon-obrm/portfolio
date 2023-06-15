@@ -1,5 +1,5 @@
 import type { WebsiteProps } from "../../lib/interfaces";
-
+// TODO: Choose portal colors
 /** A list of my current websites */
 export const websites: WebsiteProps[] = [
     {
@@ -8,8 +8,10 @@ export const websites: WebsiteProps[] = [
         description:
             "This is the website you are visiting. I chose Svelte as a frontend framework because of the promises that new framework makes when it comes to the way code is written. In addition, I made use of Figma in order to improve my mockup and design skills.",
         learnings: ["Svelte", "Svelte Kit", "Tailwind CSS", "Figma"],
-        color: "bg-[#ff7c52]",
-        hoverColor: "bg-[#ff9d7d]",
+        // color: "bg-[#ff7c52]",
+        // hoverColor: "bg-[#ff9d7d]",
+        color: "bg-secondary",
+        hoverColor: "bg-secondary-500",
         link: "/",
     },
     {
@@ -18,8 +20,10 @@ export const websites: WebsiteProps[] = [
         description:
             "With this website I tried out my very first framework which actually is not even a framework but a library. Here I learned how to write component based source code and how to build overall better web applications.",
         learnings: ["React", "Material UI", "TypeScript", "Node.js", "Express", "matter.js"],
-        color: "bg-[#4db2e8]",
-        hoverColor: "bg-[#7ac4eb]",
+        // color: "bg-[#4db2e8]",
+        // hoverColor: "bg-[#7ac4eb]",
+        color: "bg-secondary",
+        hoverColor: "bg-secondary",
         link: "https://dev.obrm.de/",
     },
     {
@@ -28,8 +32,10 @@ export const websites: WebsiteProps[] = [
         description:
             "This is my first website. I created it after my first lecture on web development sparked my interest. The website contains my first ever projects that I used to learn web technologies.",
         learnings: ["JavaScript", "HTML", "CSS", "SQL", "REST", "p5.js"],
-        color: "bg-[#6be866]",
-        hoverColor: "bg-[#90f58c]",
+        // color: "bg-[#6be866]",
+        // hoverColor: "bg-[#90f58c]",
+        color: "bg-secondary",
+        hoverColor: "bg-secondary",
         link: "https://obrm.de/index.php",
     },
 ];

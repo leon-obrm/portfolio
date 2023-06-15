@@ -4,7 +4,7 @@
             <h1>Hey, I am</h1>
             <h1>Leon Obermann</h1>
         </div>
-        <div class="text-2xl font-semibold text-primary md:text-3xl lg:text-4xl mt-2">
+        <div class="text-2xl font-semibold text-primary-600 md:text-3xl lg:text-4xl mt-2">
             <h1>A software designer</h1>
             <h1>based in Düsseldorf</h1>
         </div>

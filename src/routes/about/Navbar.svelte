@@ -22,11 +22,12 @@
 <div class="sticky z-50 w-full top-0">
     <div class="relative navbar bg-base-100 flex justify-between items-start content-center">
         <a
-            class="btn btn-ghost normal-case text-2xl font-bold hover:bg-transparent hover:text-primary"
+            class="btn btn-ghost normal-case text-2xl font-bold hover:bg-transparent hover:text-primary-600"
             href="/">obermann</a
         >
         <MediaQuery breakpoint="md">
             <svelte:fragment slot="above">
+                <!-- TODO: Mark currently visited section of page -->
                 <div class="flex gap-8 lg:gap-20">
                     {#each links as link}
                         <a
@@ -55,7 +56,7 @@
                     <div use:motion class="mt-2 mr-5">
                         <a
                             href="mailto:leon.oberm@gmail.com"
-                            class="btn no-animation btn-sm shadow hover:bg-primary hover:border-primary hover:shadow-lg transition-scale ease-out duration-300 hover:scale-[105%]"
+                            class="btn btn-secondary no-animation btn-sm text-white shadow hover:border-none hover:shadow-lg transition-scale ease-out duration-300 hover:scale-[105%]"
                         >
                             Contact me
                         </a>
