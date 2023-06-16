@@ -6,7 +6,7 @@ export const websites: WebsiteProps[] = [
         title: "My second frontend framework",
         timeframe: "July 2022 - Now",
         description:
-            "This is the website you are visiting. I chose Svelte as a frontend framework because of the promises that new framework makes when it comes to the way code is written. In addition, I made use of Figma in order to improve my mockup and design skills.",
+            "This is the website you are visiting. I chose Svelte as a frontend framework because of the promises that the new framework makes when it comes to the way code is written. In addition, I made use of Figma in order to improve my mockup and design skills.",
         learnings: ["Svelte", "Svelte Kit", "Tailwind CSS", "Figma"],
         color: "bg-primary-400",
         hoverColor: "bg-primary-300",
