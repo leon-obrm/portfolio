@@ -20,8 +20,8 @@
     {#each icons as icon, i}
         <button
             class="btn btn-square btn-sm no-animation hover:bg-primary-600 hover:border-primary-600"
-            class:bg-primary-700={currentIndex === i}
-            class:border-primary-700={currentIndex === i}
+            class:bg-primary-600={currentIndex === i}
+            class:border-primary-600={currentIndex === i}
             on:click={() => changeIndex(i)}
         >
             <svelte:component this={icon} size="1.75em" />
