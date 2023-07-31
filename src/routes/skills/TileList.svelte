@@ -16,3 +16,21 @@
         <TileListItem {skill} />
     {/each}
 </div>
+
+<style>
+    /* Height */
+    ::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #7bc5ea;
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #52aee0;
+    }
+</style>
