@@ -4,7 +4,7 @@
   Contains buttons with links to LinkedIn, GitHub and email
 -->
 <script lang="ts">
-    import SpinAnimation from "../../lib/SpinAnimation.svelte";
+    import SpinAnimation from "$lib/SpinAnimation.svelte";
 
     import Linkedin from "svelte-material-icons/Linkedin.svelte";
     import Github from "svelte-material-icons/Github.svelte";

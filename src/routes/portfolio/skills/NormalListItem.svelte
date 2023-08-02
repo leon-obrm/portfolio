@@ -5,9 +5,9 @@
   @param {SkillProps} skill - Skill to display
 -->
 <script lang="ts">
-    import type { SkillProps } from "../../lib/interfaces";
+    import type { SkillProps } from "$lib/interfaces";
 
-    import OnViewTransition from "../../lib/OnViewTransition.svelte";
+    import OnViewTransition from "$lib/OnViewTransition.svelte";
     import { scale } from "svelte/transition";
 
     export let skill: SkillProps;

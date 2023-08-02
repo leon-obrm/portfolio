@@ -4,7 +4,7 @@
   Contains navbar with logo, links to sections and email button
 -->
 <script lang="ts">
-    import MediaQuery from "../../lib/MediaQuery.svelte";
+    import MediaQuery from "$lib/MediaQuery.svelte";
     import { Motion } from "svelte-motion";
 
     interface LinkProps {

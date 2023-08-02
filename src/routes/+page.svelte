@@ -1,7 +1,7 @@
 <script lang="ts">
-    import About from "./about/About.svelte";
-    import Skills from "./skills/Skills.svelte";
-    import Websites from "./websites/Websites.svelte";
+    import About from "./portfolio/about/About.svelte";
+    import Skills from "./portfolio/skills/Skills.svelte";
+    import Websites from "./portfolio/websites/Websites.svelte";
 </script>
 
 <svelte:head>
