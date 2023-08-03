@@ -19,3 +19,8 @@ export interface WebsiteProps {
     hoverColor: string;
     link: string;
 }
+
+export interface ActivityProps {
+    duration: string;
+    name: string;
+}
