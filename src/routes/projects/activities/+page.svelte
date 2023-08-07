@@ -1,6 +1,7 @@
 <script lang="ts">
-    import type { ActivityProps } from "$lib/interfaces";
     import { onMount } from "svelte";
+    import type { ActivityProps } from "$lib/interfaces";
+    import { i18n } from "$lib/i18n";
     import { activites } from "./activities";
 
     /** Unbiased shuffle algorithm
@@ -32,7 +33,6 @@
     let currentActivityIndex: number = 0;
 </script>
 
-<div>Hello</div>
 <button
     class="btn"
     on:click={() => {
@@ -45,6 +45,6 @@
 {#if randomizedActivites.length > 0}
     <div>
         <p>{randomizedActivites[currentActivityIndex].duration}</p>
-        <p>{randomizedActivites[currentActivityIndex].name}</p>
+        <p>{$i18n.t(randomizedActivites[currentActivityIndex].key)}</p>
     </div>
 {/if}

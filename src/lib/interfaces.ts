@@ -22,5 +22,6 @@ export interface WebsiteProps {
 
 export interface ActivityProps {
     duration: string;
-    name: string;
+    /** Links to i18n */
+    key: string;
 }
