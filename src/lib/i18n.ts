@@ -14,7 +14,7 @@ i18next // Detect user language
                     brawling: "Brawling",
                     tickling: "Tickling",
                     dancing: "Dancing",
-                    waterFight: "Water Fight",
+                    waterFight: "Water Fighting",
                     massaging: "Massaging",
 
                     // 15 Minutes

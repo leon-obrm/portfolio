@@ -4,4 +4,3 @@
 </script>
 
 <div><slot /></div>
-<Footer />
