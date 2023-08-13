@@ -7,7 +7,7 @@
 </script>
 
 <div class="flex justify-center items-baseline content-center gap-2 w-fit">
-    <div class="text-3xl font-bold" in:fly={{ y: -200, duration: 600, easing: cubicOut }}>
+    <div class="text-3xl font-semibold" in:fly={{ y: -200, duration: 600, easing: cubicOut }}>
         {duration}
     </div>
 

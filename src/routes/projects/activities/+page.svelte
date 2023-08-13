@@ -56,10 +56,12 @@
             <div
                 class="dots w-screen h-screen flex flex-col justify-center gap-14 align-center items-center"
             >
+                <p class="text-4xl font-black fixed top-14 tracking-wider">Activities</p>
+
                 {#if currentActivityIndex === -1}
-                    <div class="text-4xl font-bold animate-pulse">
+                    <p class="text-3xl font-bold animate-pulse">
                         {$i18n.t("tapToStart")}
-                    </div>
+                    </p>
                 {:else}
                     <Time duration={randomizedActivites[currentActivityIndex].duration} />
 
