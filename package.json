@@ -12,7 +12,7 @@
         "format": "prettier --plugin-search-dir . --write ."
     },
     "devDependencies": {
-        "@sveltejs/adapter-auto": "next",
+        "@sveltejs/adapter-auto": "^2.1.0",
         "@sveltejs/kit": "^1.22.4",
         "@tailwindcss/typography": "^0.5.7",
         "@typescript-eslint/eslint-plugin": "^5.27.0",
