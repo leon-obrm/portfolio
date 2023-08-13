@@ -1,12 +1,13 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import type { ActivityProps } from "$lib/interfaces";
-    import { i18n } from "$lib/i18n";
-    import SpinAnimation from "$lib/SpinAnimation.svelte";
+
     import { activites } from "./activities";
     import { tick } from "svelte";
-    import { fly } from "svelte/transition";
-    import { cubicOut } from "svelte/easing";
+
+    import Time from "./Time.svelte";
+    import Activity from "./Activity.svelte";
+    import { i18n } from "$lib/i18n";
 
     /** Unbiased shuffle algorithm
      * Credit: https://stackoverflow.com/a/2450976
@@ -34,12 +35,10 @@
         randomizedActivites = fisherYatesShuffle(activites);
     });
 
-    let currentActivityIndex: number = 0;
+    let currentActivityIndex: number = -1;
     let show: boolean = true;
 
-    // TODO: Add call to action
     // TODO: Add background animation
-    // TODO: Add eye candy
     // TODO: Add a timer that counts down the time left for the current activity
 </script>
 
@@ -54,27 +53,28 @@
         }}
     >
         {#if show}
-            <div class="flex justify-center items-baseline content-center gap-2">
-                <div
-                    class="text-3xl font-bold"
-                    in:fly={{ y: -200, duration: 600, easing: cubicOut }}
-                >
-                    {randomizedActivites[currentActivityIndex].duration}
-                </div>
+            <div
+                class="dots w-screen h-screen flex flex-col justify-center gap-14 align-center items-center"
+            >
+                {#if currentActivityIndex === -1}
+                    <div class="text-4xl font-bold animate-pulse">
+                        {$i18n.t("tapToStart")}
+                    </div>
+                {:else}
+                    <Time duration={randomizedActivites[currentActivityIndex].duration} />
 
-                <div
-                    class="text-xl"
-                    in:fly={{ x: 100, duration: 500, delay: 300, easing: cubicOut }}
-                >
-                    minutes of
-                </div>
+                    <Activity i18nKey={randomizedActivites[currentActivityIndex].key} />
+                {/if}
             </div>
-
-            <SpinAnimation className="" hoverAnimation={false} delay={0.6}>
-                <p class="text-4xl font-bold">
-                    {$i18n.t(randomizedActivites[currentActivityIndex].key)}
-                </p>
-            </SpinAnimation>
         {/if}
     </button>
 {/if}
+
+<style>
+    .dots {
+        background: radial-gradient(rgba(255, 255, 255, 0.1) 8%, transparent 8%);
+
+        background-position: 0% 0%;
+        background-size: 5vmin 5vmin;
+    }
+</style>

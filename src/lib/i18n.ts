@@ -10,6 +10,9 @@ i18next // Detect user language
         resources: {
             en: {
                 translation: {
+                    tapToStart: "Tap to start",
+                    minutesOf: "minutes of",
+
                     // 5 Minutes
                     brawling: "Brawling",
                     tickling: "Tickling",
@@ -26,11 +29,14 @@ i18next // Detect user language
                     cambio: "Cambio",
                     durak: "Durak",
                     twoPlayerGames: "Two Player Games",
+                    braiding: "Braiding",
+                    fiveQuickQuestions: "5 Quick Questions",
 
                     // 30 Minutes
                     iceAndNetflix: "Ice & Netflix",
                     cuddlingAndNetflix: "Cuddling & Netflix",
                     cuddlingAndTalking: "Cuddling & Talking",
+                    cuddlingOutside: "Cuddling outside",
                     sims: "Sims",
                     painting: "Painting",
                     walking: "Walking",
@@ -38,10 +44,14 @@ i18next // Detect user language
                     marioKart: "Mario Kart",
                     phase10: "Phase 10",
                     crafting: "Crafting",
+                    makeup: "Make Up",
                 },
             },
             de: {
                 translation: {
+                    tapToStart: "Tippe zum Starten",
+                    minutesOf: "Minuten",
+
                     // 5 Minutes
                     brawling: "Raufen",
                     tickling: "Kitzeln",
@@ -58,11 +68,14 @@ i18next // Detect user language
                     cambio: "Cambio",
                     durak: "Durak",
                     twoPlayerGames: "Two Player Games",
+                    braiding: "Flechten",
+                    fiveQuickQuestions: "5 schnelle Fragen",
 
                     // 30 Minutes
                     iceAndNetflix: "Eis & Netflix",
                     cuddlingAndNetflix: "Kuscheln & Netflix",
                     cuddlingAndTalking: "Kuscheln & Reden",
+                    cuddlingOutside: "Draußen kuscheln",
                     sims: "Sims",
                     painting: "Malen",
                     walking: "Spazieren",
@@ -70,6 +83,7 @@ i18next // Detect user language
                     marioKart: "Mario Kart",
                     phase10: "Phase 10",
                     crafting: "Basteln",
+                    makeup: "Schminken",
                 },
             },
         },

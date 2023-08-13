@@ -18,11 +18,14 @@ export const activites: ActivityProps[] = [
     { duration: "15", key: "cambio" },
     { duration: "15", key: "durak" },
     { duration: "15", key: "twoPlayerGames" },
+    { duration: "15", key: "braiding" },
+    { duration: "15", key: "fiveQuickQuestions" },
 
     // 30 Minutes
     { duration: "30", key: "iceAndNetflix" },
     { duration: "30", key: "cuddlingAndNetflix" },
     { duration: "30", key: "cuddlingAndTalking" },
+    { duration: "30", key: "cuddlingOutside" },
     { duration: "30", key: "sims" },
     { duration: "30", key: "painting" },
     { duration: "30", key: "walking" },
@@ -30,4 +33,5 @@ export const activites: ActivityProps[] = [
     { duration: "30", key: "marioKart" },
     { duration: "30", key: "phase10" },
     { duration: "30", key: "crafting" },
+    { duration: "30", key: "makeup" },
 ];
