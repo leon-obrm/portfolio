@@ -12,7 +12,7 @@
     /** Unbiased shuffle algorithm
      * Credit: https://stackoverflow.com/a/2450976
      */
-    function fisherYatesShuffle(array: ActivityProps[]) {
+    function fisherYatesShuffle(array: any[]) {
         let currentIndex = array.length;
         let randomIndex;
 
@@ -30,21 +30,36 @@
     }
 
     let randomizedActivites: ActivityProps[] = [];
+    let colors: string[] = [];
 
     onMount(() => {
         randomizedActivites = fisherYatesShuffle(activites);
+        colors = [
+            "7C45C1",
+            ...fisherYatesShuffle([
+                "D73DA7",
+                "FF5882",
+                "FF8C61",
+                "FFAA42",
+                "7894E1",
+                "3953bd",
+                "28C195",
+            ]),
+        ];
     });
 
     let currentActivityIndex: number = -1;
     let show: boolean = true;
 
-    // TODO: Add background animation
     // TODO: Add a timer that counts down the time left for the current activity
 </script>
 
 {#if randomizedActivites.length > 0}
     <button
-        class="bg-[#7C45C1] w-screen h-screen flex flex-col justify-center items-center content-center text-white gap-20"
+        class="w-screen h-screen flex flex-col justify-center items-center content-center text-white gap-20 transition-colors"
+        style="background-color: #{colors[
+            currentActivityIndex === -1 ? 0 : currentActivityIndex % colors.length
+        ]}"
         on:click={async () => {
             currentActivityIndex = (currentActivityIndex + 1) % randomizedActivites.length;
             show = false;
