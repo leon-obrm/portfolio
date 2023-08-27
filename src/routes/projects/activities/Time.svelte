@@ -6,7 +6,7 @@
     export let duration: string;
 </script>
 
-<div class="flex justify-center items-baseline content-center gap-2 w-fit">
+<div class="flex w-fit content-center items-baseline justify-center gap-2">
     <div class="text-3xl font-semibold" in:fly={{ y: -200, duration: 600, easing: cubicOut }}>
         {duration}
     </div>

@@ -9,7 +9,7 @@
 </script>
 
 <div
-    class="w-10/12 max-w-4xl max-h-[420px] p-1 pr-3 overflow-y-scroll grid grid-cols-1 gap-2 md:grid md:grid-cols-2 lg:gap-3 "
+    class="grid max-h-[420px] w-10/12 max-w-4xl grid-cols-1 gap-2 overflow-y-scroll p-1 pr-3 md:grid md:grid-cols-2 lg:gap-3"
 >
     {#each skills as skill}
         <NormalListItem {skill} />

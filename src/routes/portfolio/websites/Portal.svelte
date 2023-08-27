@@ -30,11 +30,11 @@
 </script>
 
 <Motion let:motion whileHover={{ scale: 1.05 }}>
-    <div class="drop-shadow-md hover:drop-shadow-lg transition-all">
+    <div class="drop-shadow-md transition-all hover:drop-shadow-lg">
         <a
             use:motion
             bind:this={animationContainer}
-            class="hex btn no-animation bg-transparent border-0 hover:bg-transparent w-60 h-60 flex justify-center items-center content-center -mb-6 md:-mr-10 md:mb-0"
+            class="hex no-animation btn -mb-6 flex h-60 w-60 content-center items-center justify-center border-0 bg-transparent hover:bg-transparent md:-mr-10 md:mb-0"
             href={link}
             target="_blank"
             rel="noopener noreferrer"
@@ -45,8 +45,8 @@
                 finalColor = color;
             }}
         >
-            <div class="absolute w-40 h-40 hex {finalColor} transition-colors duration-300" />
-            <p class="absolute w-20 text-center text-lg text-white font-normal normal-case">
+            <div class="hex absolute h-40 w-40 {finalColor} transition-colors duration-300" />
+            <p class="absolute w-20 text-center text-lg font-normal normal-case text-white">
                 Take a look
             </p>
         </a>

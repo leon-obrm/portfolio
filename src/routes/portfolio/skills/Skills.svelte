@@ -20,11 +20,11 @@
 </script>
 
 <div
-    class="relative pt-14 pb-16 bg-primary-200 flex flex-col justify-center items-center content-center gap-10 shadow-inner"
+    class="relative flex flex-col content-center items-center justify-center gap-10 bg-primary-200 pt-14 pb-16 shadow-inner"
 >
     <div id="skills" class="absolute -top-[64px]" />
 
-    <div class="w-10/12 max-w-4xl font-medium flex justify-between items-center content-center">
+    <div class="flex w-10/12 max-w-4xl content-center items-center justify-between font-medium">
         <h1 class="text-2xl md:text-3xl">Skills</h1>
 
         <ListSelect {currentIndex} {changeIndex} />

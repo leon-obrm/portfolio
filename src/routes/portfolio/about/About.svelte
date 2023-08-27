@@ -18,10 +18,10 @@
 <MediaQuery breakpoint="md">
     <div
         slot="above"
-        class="pt-16 pb-6 px-14 w-full flex flex-col justify-between items-center content-center gap-16"
+        class="flex w-full flex-col content-center items-center justify-between gap-16 px-14 pt-16 pb-6"
     >
-        <div class="w-full max-w-4xl flex justify-between items-center content-center gap-20">
-            <div class="flex flex-col justify-center items-center content-center gap-10">
+        <div class="flex w-full max-w-4xl content-center items-center justify-between gap-20">
+            <div class="flex flex-col content-center items-center justify-center gap-10">
                 <Headline />
                 <Description />
                 <MediaLinks />
@@ -38,7 +38,7 @@
     <div
         id="about"
         slot="below"
-        class="w-full pt-6 pb-10 flex flex-col justify-start content-center items-center gap-5"
+        class="flex w-full flex-col content-center items-center justify-start gap-5 pt-6 pb-10"
     >
         <Headline />
         <Portrait />

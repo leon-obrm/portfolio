@@ -56,7 +56,7 @@
 
 {#if randomizedActivites.length > 0}
     <button
-        class="w-screen h-screen flex flex-col justify-center items-center content-center text-white gap-20 transition-colors"
+        class="flex h-screen w-screen flex-col content-center items-center justify-center gap-20 text-white transition-colors"
         style="background-color: #{colors[
             currentActivityIndex === -1 ? 0 : currentActivityIndex % colors.length
         ]}"
@@ -69,12 +69,12 @@
     >
         {#if show}
             <div
-                class="dots w-screen h-screen flex flex-col justify-center gap-14 align-center items-center"
+                class="dots align-center flex h-screen w-screen flex-col items-center justify-center gap-14"
             >
-                <p class="text-4xl font-black fixed top-14 tracking-wider">Activities</p>
+                <p class="fixed top-14 text-4xl font-black tracking-wider">Activities</p>
 
                 {#if currentActivityIndex === -1}
-                    <p class="text-3xl font-bold animate-pulse">
+                    <p class="animate-pulse text-3xl font-bold">
                         {$i18n.t("tapToStart")}
                     </p>
                 {:else}

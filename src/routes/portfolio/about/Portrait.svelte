@@ -7,8 +7,8 @@
     import SpinAnimation from "$lib/SpinAnimation.svelte";
 </script>
 
-<div class="w-full relative mt-12 flex flex-col justify-center items-center content-center">
-    <div class="w-2/5 max-w-xs relative md:w-4/5">
+<div class="relative mt-12 flex w-full flex-col content-center items-center justify-center">
+    <div class="relative w-2/5 max-w-xs md:w-4/5">
         <SpinAnimation
             delay={0.9}
             className="w-3 h-3 absolute bottom-10 left-1/3 bg-primary-100 hex"
@@ -30,13 +30,13 @@
             hoverAnimation={false}
         >
             <div
-                class="w-3/5 max-w-xs h-full absolute bg-primary-400 bg-hex md:w-11/12 border-b-8 border-black"
+                class="bg-hex absolute h-full w-3/5 max-w-xs border-b-8 border-black bg-primary-400 md:w-11/12"
             />
 
             <img
                 src="Portrait-min-small-min.png"
                 alt="Portrait of Leon Obermann"
-                class="w-3/5 max-w-xs image-hex md:w-11/12"
+                class="image-hex w-3/5 max-w-xs md:w-11/12"
             />
         </SpinAnimation>
     </div>

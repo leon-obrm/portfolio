@@ -28,15 +28,15 @@
 </script>
 
 <div
-    class="w-3/4 max-w-md flex flex-col justify-center items-center content-center md:w-full md:max-w-lg"
+    class="flex w-3/4 max-w-md flex-col content-center items-center justify-center md:w-full md:max-w-lg"
 >
-    <div class="w-full flex justify-between content-center items-center">
+    <div class="flex w-full content-center items-center justify-between">
         {#each links as link}
             <SpinAnimation delay={0.5}>
                 <div class="tooltip" data-tip={link.name}>
-                    <div class="drop-shadow-md hover:drop-shadow-lg transition-all">
+                    <div class="drop-shadow-md transition-all hover:drop-shadow-lg">
                         <a
-                            class="btn bg-gray-700 mask mask-hexagon transition-scale ease-out duration-300 hover:scale-110 hover:bg-gray-700 hover:border-none border-none"
+                            class="transition-scale mask mask-hexagon btn border-none bg-gray-700 duration-300 ease-out hover:scale-110 hover:border-none hover:bg-gray-700"
                             href={link.link}
                             target="_blank"
                             rel="noopener noreferrer"

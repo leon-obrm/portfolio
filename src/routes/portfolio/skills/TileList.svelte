@@ -10,7 +10,7 @@
 </script>
 
 <div
-    class="w-10/12 max-w-4xl p-1 pb-3 flex justify-start items-center content-center gap-4 overflow-x-scroll overflow-visible"
+    class="flex w-10/12 max-w-4xl content-center items-center justify-start gap-4 overflow-visible overflow-x-scroll p-1 pb-3"
 >
     {#each skills as skill, i}
         <TileListItem {skill} />

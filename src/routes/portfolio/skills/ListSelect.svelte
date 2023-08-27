@@ -19,7 +19,7 @@
 <div class="btn-group drop-shadow">
     {#each icons as icon, i}
         <button
-            class="btn btn-square btn-sm no-animation hover:bg-primary-600 hover:border-primary-600"
+            class="btn no-animation btn-square btn-sm hover:border-primary-600 hover:bg-primary-600"
             class:bg-primary-600={currentIndex === i}
             class:border-primary-600={currentIndex === i}
             on:click={() => changeIndex(i)}

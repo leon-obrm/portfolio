@@ -18,9 +18,9 @@
         data-tip={skill.name.length > 20 ? skill.abbreviation : skill.name}
         in:scale
     >
-        <div class="drop-shadow hover:drop-shadow-lg transition-all">
+        <div class="drop-shadow transition-all hover:drop-shadow-lg">
             <a
-                class="btn no-animation hover:bg-white border-0 w-20 h-[5.6rem] bg-white image-hex flex justify-center items-center content-center transition-scale ease-out duration-300 hover:scale-110 md:w-24 md:h-[104px]"
+                class="image-hex transition-scale no-animation btn flex h-[5.6rem] w-20 content-center items-center justify-center border-0 bg-white duration-300 ease-out hover:scale-110 hover:bg-white md:h-[104px] md:w-24"
                 href={`https://${skill.link}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -29,10 +29,10 @@
                     <img
                         src={`logos/${skill.name}.png`}
                         alt={`${skill.name} logo`}
-                        class="w-12 max-h-12 object-contain md:w-14 md:max-h-14"
+                        class="max-h-12 w-12 object-contain md:max-h-14 md:w-14"
                     />
                 {:else}
-                    <p class="w-12 text-xl text-center text-black font-normal md:w-14 md:text-2xl">
+                    <p class="w-12 text-center text-xl font-normal text-black md:w-14 md:text-2xl">
                         {skill.abbreviation}
                     </p>
                 {/if}

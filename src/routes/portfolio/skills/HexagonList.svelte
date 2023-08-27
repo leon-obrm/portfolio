@@ -53,10 +53,10 @@
 
 <svelte:window bind:outerWidth={width} />
 
-<div class="w-10/12 max-w-4xl flex flex-wrap justify-center items-center content-center">
+<div class="flex w-10/12 max-w-4xl flex-wrap content-center items-center justify-center">
     {#each currentSkillRows as skillRow, i}
         <div
-            class="w-full flex justify-center items-center content-center gap-4 -my-[0.3rem] md:-my-[0.45rem]"
+            class="-my-[0.3rem] flex w-full content-center items-center justify-center gap-4 md:-my-[0.45rem]"
         >
             {#each skillRow as skill, j}
                 <HexagonListItem {skill} />

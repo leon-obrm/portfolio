@@ -1,5 +1,5 @@
-<div class="w-3/4 max-w-md flex flex-col justify-center content-start gap-5 md:w-full md:max-w-lg">
-    <p class="w-full text-justify text-sm md:text-md lg:text-lg">
+<div class="flex w-3/4 max-w-md flex-col content-start justify-center gap-5 md:w-full md:max-w-lg">
+    <p class="md:text-md w-full text-justify text-sm lg:text-lg">
         I graduated with a bachelor’s degree in computer science from the
         <a
             class="link text-primary-700"

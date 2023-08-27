@@ -14,9 +14,9 @@
 </script>
 
 <OnViewTransition containerClass="w-full" rootMargin="-5%">
-    <div class="drop-shadow hover:drop-shadow-md transition-all">
+    <div class="drop-shadow transition-all hover:drop-shadow-md">
         <a
-            class="btn no-animation normal-case hover:bg-white border-0 w-full p-1 bg-white rounded-md flex justify-start content-center items-center transition-scale hover:scale-[102%] md:py-7"
+            class="transition-scale btn no-animation flex w-full content-center items-center justify-start rounded-md border-0 bg-white p-1 normal-case hover:scale-[102%] hover:bg-white md:py-7"
             href={`https://${skill.link}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -26,16 +26,16 @@
                 <img
                     src={`logos/${skill.name}.png`}
                     alt={`${skill.name} logo`}
-                    class="w-8 max-h-8 object-contain ml-2"
+                    class="ml-2 max-h-8 w-8 object-contain"
                 />
             {:else}
-                <p class="w-8 text-md ml-2 text-center text-black font-normal">
+                <p class="text-md ml-2 w-8 text-center font-normal text-black">
                     {skill.abbreviation}
                 </p>
             {/if}
 
             <div class="divider divider-horizontal m-1" />
-            <div class="flex flex-col justify-center items-start content-center">
+            <div class="flex flex-col content-center items-start justify-center">
                 <p class="text-md font-normal text-black md:text-base">{skill.name}</p>
                 <p class="text-xs font-normal text-gray-400 md:text-sm">{skill.description}</p>
             </div>
