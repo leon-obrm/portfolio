@@ -5,11 +5,11 @@
   @param {SkillProps} skill - Skill to display
 -->
 <script lang="ts">
-    import type { SkillProps } from "$lib/interfaces";
-    import OnViewTransition from "$lib/OnViewTransition.svelte";
-    import { scale } from "svelte/transition";
+    import type { SkillProps } from "$lib/interfaces"
+    import OnViewTransition from "$lib/OnViewTransition.svelte"
+    import { scale } from "svelte/transition"
 
-    export let skill: SkillProps;
+    export let skill: SkillProps
 </script>
 
 <OnViewTransition containerClass="w-36 lg:w-40" repeat={true}>

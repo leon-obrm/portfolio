@@ -1,4 +1,4 @@
-import type { SkillProps } from "$lib/interfaces";
+import type { SkillProps } from "$lib/interfaces"
 
 /** A list of my current skills */
 export const skills: SkillProps[] = [
@@ -156,4 +156,4 @@ export const skills: SkillProps[] = [
         hasLogo: true,
         link: "ultimaker.com",
     },
-];
+]

@@ -7,12 +7,12 @@
   @slot - Content to show after mounting
 -->
 <script lang="ts">
-    import { onMount } from "svelte";
+    import { onMount } from "svelte"
 
-    let play: boolean = false;
+    let play: boolean = false
     onMount(() => {
-        play = true;
-    });
+        play = true
+    })
 </script>
 
 {#if play}

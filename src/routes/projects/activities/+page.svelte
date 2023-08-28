@@ -1,39 +1,39 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import type { ActivityProps } from "$lib/interfaces";
+    import { onMount } from "svelte"
+    import type { ActivityProps } from "$lib/interfaces"
 
-    import { activites } from "./activities";
-    import { tick } from "svelte";
+    import { activites } from "./activities"
+    import { tick } from "svelte"
 
-    import Time from "./Time.svelte";
-    import Activity from "./Activity.svelte";
-    import { i18n } from "$lib/i18n";
+    import Time from "./Time.svelte"
+    import Activity from "./Activity.svelte"
+    import { i18n } from "$lib/i18n"
 
     /** Unbiased shuffle algorithm
      * Credit: https://stackoverflow.com/a/2450976
      */
     function fisherYatesShuffle(array: any[]) {
-        let currentIndex = array.length;
-        let randomIndex;
+        let currentIndex = array.length
+        let randomIndex
 
         // While there remain elements to shuffle
         while (currentIndex != 0) {
             // Pick a remaining element
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex--;
+            randomIndex = Math.floor(Math.random() * currentIndex)
+            currentIndex--
 
             // And swap it with the current element
-            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            ;[array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]]
         }
 
-        return array;
+        return array
     }
 
-    let randomizedActivites: ActivityProps[] = [];
-    let colors: string[] = [];
+    let randomizedActivites: ActivityProps[] = []
+    let colors: string[] = []
 
     onMount(() => {
-        randomizedActivites = fisherYatesShuffle(activites);
+        randomizedActivites = fisherYatesShuffle(activites)
         colors = [
             "7C45C1",
             ...fisherYatesShuffle([
@@ -45,11 +45,11 @@
                 "3953bd",
                 "28C195",
             ]),
-        ];
-    });
+        ]
+    })
 
-    let currentActivityIndex: number = -1;
-    let show: boolean = true;
+    let currentActivityIndex: number = -1
+    let show: boolean = true
 
     // TODO: Add a timer that counts down the time left for the current activity
 </script>
@@ -61,10 +61,10 @@
             currentActivityIndex === -1 ? 0 : currentActivityIndex % colors.length
         ]}"
         on:click={async () => {
-            currentActivityIndex = (currentActivityIndex + 1) % randomizedActivites.length;
-            show = false;
-            await tick();
-            show = true;
+            currentActivityIndex = (currentActivityIndex + 1) % randomizedActivites.length
+            show = false
+            await tick()
+            show = true
         }}
     >
         {#if show}

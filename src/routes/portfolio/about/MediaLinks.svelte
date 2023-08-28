@@ -4,16 +4,16 @@
   Contains buttons with links to LinkedIn, GitHub and email
 -->
 <script lang="ts">
-    import SpinAnimation from "$lib/SpinAnimation.svelte";
+    import SpinAnimation from "$lib/SpinAnimation.svelte"
 
-    import Linkedin from "svelte-material-icons/Linkedin.svelte";
-    import Github from "svelte-material-icons/Github.svelte";
-    import Email from "svelte-material-icons/Email.svelte";
+    import Linkedin from "svelte-material-icons/Linkedin.svelte"
+    import Github from "svelte-material-icons/Github.svelte"
+    import Email from "svelte-material-icons/Email.svelte"
 
     interface LinkProps {
-        name: string;
-        icon: any;
-        link: string;
+        name: string
+        icon: any
+        link: string
     }
 
     const links: LinkProps[] = [
@@ -24,7 +24,7 @@
         },
         { name: "GitHub", icon: Github, link: "https://github.com/Jesus-Cries" },
         { name: "Email", icon: Email, link: "mailto:leon.oberm@gmail.com" },
-    ];
+    ]
 </script>
 
 <div

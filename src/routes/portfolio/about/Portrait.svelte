@@ -4,7 +4,7 @@
   Contains portrait of Leon Obermann and some hexagon eye candy
 -->
 <script lang="ts">
-    import SpinAnimation from "$lib/SpinAnimation.svelte";
+    import SpinAnimation from "$lib/SpinAnimation.svelte"
 </script>
 
 <div class="relative mt-12 flex w-full flex-col content-center items-center justify-center">

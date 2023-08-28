@@ -6,12 +6,12 @@
   @param {boolean} isLast - Indicates whether this is the last website in the list
 -->
 <script lang="ts">
-    import type { WebsiteProps } from "$lib/interfaces";
-    import Learning from "./Learning.svelte";
-    import Portal from "./Portal.svelte";
+    import type { WebsiteProps } from "$lib/interfaces"
+    import Learning from "./Learning.svelte"
+    import Portal from "./Portal.svelte"
 
-    export let website: WebsiteProps;
-    export let isLast: boolean;
+    export let website: WebsiteProps
+    export let isLast: boolean
 </script>
 
 <div

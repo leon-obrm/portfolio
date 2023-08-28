@@ -5,19 +5,19 @@
   @param {string} learning - Learning to display
 -->
 <script lang="ts">
-    import type { SkillProps } from "$lib/interfaces";
-    import { skills } from "../skills/skills";
-    import { dismissedSkills } from "../skills/dismissedSkills";
+    import type { SkillProps } from "$lib/interfaces"
+    import { skills } from "../skills/skills"
+    import { dismissedSkills } from "../skills/dismissedSkills"
 
-    import OnViewTransition from "$lib/OnViewTransition.svelte";
-    import { scale } from "svelte/transition";
+    import OnViewTransition from "$lib/OnViewTransition.svelte"
+    import { scale } from "svelte/transition"
 
-    export let learning: string;
+    export let learning: string
 
     const skill: SkillProps | undefined =
         // Search for skill in both active and dismissed skills
         skills.find((skill) => skill.name === learning || skill.abbreviation === learning) ||
-        dismissedSkills.find((skill) => skill.name === learning || skill.abbreviation === learning);
+        dismissedSkills.find((skill) => skill.name === learning || skill.abbreviation === learning)
 </script>
 
 <OnViewTransition>

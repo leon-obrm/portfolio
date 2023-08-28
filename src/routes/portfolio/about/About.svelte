@@ -4,13 +4,13 @@
   Contains about section, including the navbar
 -->
 <script lang="ts">
-    import MediaQuery from "$lib/MediaQuery.svelte";
-    import Navbar from "./Navbar.svelte";
-    import Headline from "./Headline.svelte";
-    import Description from "./Description.svelte";
-    import Portrait from "./Portrait.svelte";
-    import MediaLinks from "./MediaLinks.svelte";
-    import ScrollDown from "./ScrollDown.svelte";
+    import MediaQuery from "$lib/MediaQuery.svelte"
+    import Navbar from "./Navbar.svelte"
+    import Headline from "./Headline.svelte"
+    import Description from "./Description.svelte"
+    import Portrait from "./Portrait.svelte"
+    import MediaLinks from "./MediaLinks.svelte"
+    import ScrollDown from "./ScrollDown.svelte"
 </script>
 
 <Navbar />

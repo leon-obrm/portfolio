@@ -5,18 +5,18 @@
   @param {SkillProps} skill - Skill to display
 -->
 <script lang="ts">
-    import type { SkillProps } from "$lib/interfaces";
+    import type { SkillProps } from "$lib/interfaces"
 
-    import OnViewTransition from "$lib/OnViewTransition.svelte";
-    import { scale } from "svelte/transition";
+    import OnViewTransition from "$lib/OnViewTransition.svelte"
+    import { scale } from "svelte/transition"
 
-    export let skill: SkillProps;
+    export let skill: SkillProps
 </script>
 
 <OnViewTransition containerClass="w-full" rootMargin="-5%">
     <div class="drop-shadow transition-all hover:drop-shadow-md">
         <a
-            class="transition-scale btn no-animation flex w-full content-center items-center justify-start rounded-md border-0 bg-white p-1 normal-case hover:scale-[102%] hover:bg-white md:py-7"
+            class="transition-scale no-animation btn flex w-full content-center items-center justify-start rounded-md border-0 bg-white p-1 normal-case hover:scale-[102%] hover:bg-white md:py-7"
             href={`https://${skill.link}`}
             target="_blank"
             rel="noopener noreferrer"

@@ -1,4 +1,4 @@
-import type { SkillProps } from "$lib/interfaces";
+import type { SkillProps } from "$lib/interfaces"
 
 /** Skills that are not to be displayed in list, but may be displayed as a learning */
 export const dismissedSkills: SkillProps[] = [
@@ -23,4 +23,4 @@ export const dismissedSkills: SkillProps[] = [
         hasLogo: true,
         link: "w3.org/style/css",
     },
-];
+]

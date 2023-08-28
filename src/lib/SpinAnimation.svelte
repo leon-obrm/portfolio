@@ -1,9 +1,9 @@
 <script lang="ts">
-    import { Motion } from "svelte-motion";
+    import { Motion } from "svelte-motion"
 
-    export let delay: number = 0;
-    export let className: string = "";
-    export let hoverAnimation: boolean = true;
+    export let delay: number = 0
+    export let className: string = ""
+    export let hoverAnimation: boolean = true
 </script>
 
 <Motion

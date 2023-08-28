@@ -4,21 +4,21 @@
   Contains navbar with logo, links to sections and email button
 -->
 <script lang="ts">
-    import MediaQuery from "$lib/MediaQuery.svelte";
-    import { Motion } from "svelte-motion";
+    import MediaQuery from "$lib/MediaQuery.svelte"
+    import { Motion } from "svelte-motion"
 
     interface LinkProps {
-        text: string;
-        link: string;
+        text: string
+        link: string
     }
 
     const links: LinkProps[] = [
         { text: "About", link: "/" },
         { text: "Skills", link: "#skills" },
         { text: "Websites", link: "#websites" },
-    ];
+    ]
 
-    let currentIndex: number = -1;
+    let currentIndex: number = -1
 </script>
 
 <div class="sticky top-0 z-50 w-full">

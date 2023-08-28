@@ -4,19 +4,19 @@
   Contains skill section, including button group for toggling between list types and the currently selected list
 -->
 <script lang="ts">
-    import ListSelect from "./ListSelect.svelte";
+    import ListSelect from "./ListSelect.svelte"
 
-    import HexagonList from "./HexagonList.svelte";
-    import NormalList from "./NormalList.svelte";
-    import TileList from "./TileList.svelte";
+    import HexagonList from "./HexagonList.svelte"
+    import NormalList from "./NormalList.svelte"
+    import TileList from "./TileList.svelte"
 
-    let currentIndex: number = 0;
+    let currentIndex: number = 0
 
     function changeIndex(index: number) {
-        currentIndex = index;
+        currentIndex = index
     }
 
-    const lists: any[] = [HexagonList, NormalList, TileList];
+    const lists: any[] = [HexagonList, NormalList, TileList]
 </script>
 
 <div

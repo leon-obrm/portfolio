@@ -4,8 +4,8 @@
   Contains list of skills in normal form
 -->
 <script lang="ts">
-    import { skills } from "./skills";
-    import NormalListItem from "./NormalListItem.svelte";
+    import { skills } from "./skills"
+    import NormalListItem from "./NormalListItem.svelte"
 </script>
 
 <div

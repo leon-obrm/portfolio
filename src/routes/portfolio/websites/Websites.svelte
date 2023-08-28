@@ -4,8 +4,8 @@
   Contains websites section
 -->
 <script lang="ts">
-    import { websites } from "./websites";
-    import Website from "./Website.svelte";
+    import { websites } from "./websites"
+    import Website from "./Website.svelte"
 </script>
 
 <div class="relative flex w-full flex-col content-center items-center justify-start py-14 md:gap-3">

@@ -4,9 +4,9 @@
   Contains list of skills in tile form
 -->
 <script lang="ts">
-    import TileListItem from "./TileListItem.svelte";
+    import TileListItem from "./TileListItem.svelte"
 
-    import { skills } from "./skills";
+    import { skills } from "./skills"
 </script>
 
 <div

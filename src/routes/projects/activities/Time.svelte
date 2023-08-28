@@ -1,9 +1,9 @@
 <script lang="ts">
-    import { fly } from "svelte/transition";
-    import { cubicOut } from "svelte/easing";
-    import { i18n } from "$lib/i18n";
+    import { fly } from "svelte/transition"
+    import { cubicOut } from "svelte/easing"
+    import { i18n } from "$lib/i18n"
 
-    export let duration: string;
+    export let duration: string
 </script>
 
 <div class="flex w-fit content-center items-baseline justify-center gap-2">

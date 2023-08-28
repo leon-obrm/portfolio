@@ -10,19 +10,19 @@
   @param {string} rootMargin - Offset to delay the trigger of the transition ({@link https://github.com/maciekgrzybek/svelte-inview#animations})
 -->
 <script lang="ts">
-    import { inview } from "svelte-inview";
+    import { inview } from "svelte-inview"
 
-    export let repeat: boolean = false;
-    export let containerClass: string = "";
-    export let rootMargin: string = "-10%";
+    export let repeat: boolean = false
+    export let containerClass: string = ""
+    export let rootMargin: string = "-10%"
 
-    let isInView: boolean = false;
+    let isInView: boolean = false
 </script>
 
 <div
     use:inview={{ unobserveOnEnter: !repeat, rootMargin: rootMargin }}
     on:change={({ detail }) => {
-        isInView = detail.inView;
+        isInView = detail.inView
     }}
     class={containerClass}
 >

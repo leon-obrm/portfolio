@@ -1,4 +1,4 @@
-import type { ActivityProps } from "$lib/interfaces";
+import type { ActivityProps } from "$lib/interfaces"
 
 /** A list of my current skills */
 export const activites: ActivityProps[] = [
@@ -34,4 +34,4 @@ export const activites: ActivityProps[] = [
     { duration: "30", key: "phase10" },
     { duration: "30", key: "crafting" },
     { duration: "30", key: "makeup" },
-];
+]

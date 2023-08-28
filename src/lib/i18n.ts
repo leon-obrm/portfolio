@@ -1,6 +1,6 @@
-import i18next from "i18next";
-import { createI18nStore } from "svelte-i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
+import i18next from "i18next"
+import { createI18nStore } from "svelte-i18next"
+import LanguageDetector from "i18next-browser-languagedetector"
 
 i18next // Detect user language
     // Learn more: https://github.com/i18next/i18next-browser-languageDetector
@@ -90,6 +90,6 @@ i18next // Detect user language
         interpolation: {
             escapeValue: false, // not needed for svelte as it escapes by default
         },
-    });
+    })
 
-export const i18n = createI18nStore(i18next);
+export const i18n = createI18nStore(i18next)

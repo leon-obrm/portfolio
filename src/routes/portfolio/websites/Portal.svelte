@@ -7,26 +7,26 @@
   @param {string} link - Link to open when portal is clicked
 -->
 <script lang="ts">
-    import { onMount } from "svelte";
-    import lottie from "lottie-web";
-    import animationData from "./lottiePortal.json";
+    import { onMount } from "svelte"
+    import lottie from "lottie-web"
+    import animationData from "./lottiePortal.json"
 
-    import { Motion } from "svelte-motion";
+    import { Motion } from "svelte-motion"
 
-    export let color: string;
-    export let hoverColor: string;
-    export let link: string;
+    export let color: string
+    export let hoverColor: string
+    export let link: string
 
-    let finalColor: string = color;
+    let finalColor: string = color
 
-    let animationContainer: HTMLElement;
+    let animationContainer: HTMLElement
 
     onMount(() => {
         lottie.loadAnimation({
             container: animationContainer,
             animationData: animationData,
-        });
-    });
+        })
+    })
 </script>
 
 <Motion let:motion whileHover={{ scale: 1.05 }}>
@@ -39,10 +39,10 @@
             target="_blank"
             rel="noopener noreferrer"
             on:mouseenter={() => {
-                finalColor = hoverColor;
+                finalColor = hoverColor
             }}
             on:mouseleave={() => {
-                finalColor = color;
+                finalColor = color
             }}
         >
             <div class="hex absolute h-40 w-40 {finalColor} transition-colors duration-300" />

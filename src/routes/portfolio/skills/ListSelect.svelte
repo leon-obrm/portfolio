@@ -6,14 +6,14 @@
   @param {(index: number) => void} changeIndex - Function to change index of current list type
 -->
 <script lang="ts">
-    import ViewModule from "svelte-material-icons/ViewModule.svelte";
-    import ViewList from "svelte-material-icons/ViewList.svelte";
-    import ViewColumn from "svelte-material-icons/ViewColumn.svelte";
+    import ViewModule from "svelte-material-icons/ViewModule.svelte"
+    import ViewList from "svelte-material-icons/ViewList.svelte"
+    import ViewColumn from "svelte-material-icons/ViewColumn.svelte"
 
-    export let currentIndex: number;
-    export let changeIndex: (index: number) => void;
+    export let currentIndex: number
+    export let changeIndex: (index: number) => void
 
-    const icons: any[] = [ViewModule, ViewList, ViewColumn];
+    const icons: any[] = [ViewModule, ViewList, ViewColumn]
 </script>
 
 <div class="btn-group drop-shadow">

@@ -1,4 +1,4 @@
-import type { WebsiteProps } from "$lib/interfaces";
+import type { WebsiteProps } from "$lib/interfaces"
 
 /** A list of my current websites */
 export const websites: WebsiteProps[] = [
@@ -32,4 +32,4 @@ export const websites: WebsiteProps[] = [
         hoverColor: "bg-primary-300",
         link: "https://obrm.de/index.php",
     },
-];
+]
