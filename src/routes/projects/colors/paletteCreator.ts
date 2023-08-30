@@ -60,7 +60,8 @@ export class paletteCreator {
      */
     static createModifiedHues(
         mainHue: number,
-        hueRotationAmount: "none" | "small" | "medium" | "large"
+        hueRotationAmount: "none" | "small" | "medium" | "large",
+        changeHueDirection = false
     ): number[] {
         // Hue modifiers to choose from that are added to main hue
         const noHueModifiers: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -94,6 +95,8 @@ export class paletteCreator {
                 else if (distance > 0) hueRotationDirection = HueRotationDirection.Down
             }
         })
+
+        if (changeHueDirection) hueRotationDirection *= -1
 
         // Chooses hue modifiers based on amount of hue rotation
         let chosenHueModifiers: number[] = []
@@ -179,16 +182,23 @@ export class paletteCreator {
         return lightnesses
     }
 
+    /** Creates a more balanced color palette */
     static createDividedPalette(
         mainColor: ColorProps,
-        hueRotationAmount: "none" | "small" | "medium" | "large"
+        hueRotationAmount: "none" | "small" | "medium" | "large",
+        changeHueDirection?: boolean
     ): ColorProps[] {
-        const hues: number[] = this.createModifiedHues(mainColor.hue, hueRotationAmount)
+        const hues: number[] = this.createModifiedHues(
+            mainColor.hue,
+            hueRotationAmount,
+            changeHueDirection
+        )
         const saturations: number[] = this.createdModifiedSaturations(mainColor.saturation)
         const lightnesses: number[] = this.createdModifiedLightnesses(mainColor.lightness)
 
         const colorPalette: ColorProps[] = []
 
+        // Creates color palette based on modified hues, saturations and lightnesses
         const amountofColors = 9
         for (let i = 0; i < amountofColors; i++) {
             colorPalette.push({
@@ -201,7 +211,8 @@ export class paletteCreator {
         return colorPalette
     }
 
-    static createTestPalettes(): ColorProps[][] {
+    /** Creates every kind of palette for a certain amount of colors */
+    static createTestPalettes(changeHueDirection: boolean): ColorProps[][] {
         const mainColors: ColorProps[] = [
             // Blue
             {
@@ -245,15 +256,27 @@ export class paletteCreator {
                 saturation: 50,
                 lightness: 50,
             },
+            // Purple
+            {
+                hue: 278,
+                saturation: 82,
+                lightness: 47,
+            },
+            // Red
+            {
+                hue: 360,
+                saturation: 80,
+                lightness: 47,
+            },
         ]
 
         const testPalettes: ColorProps[][] = mainColors.flatMap((mainColor: ColorProps) => [
             this.createAbsolutePalette(mainColor),
             this.createRelativePalette(mainColor),
-            this.createDividedPalette(mainColor, "none"),
-            this.createDividedPalette(mainColor, "small"),
-            this.createDividedPalette(mainColor, "medium"),
-            this.createDividedPalette(mainColor, "large"),
+            this.createDividedPalette(mainColor, "none", changeHueDirection),
+            this.createDividedPalette(mainColor, "small", changeHueDirection),
+            this.createDividedPalette(mainColor, "medium", changeHueDirection),
+            this.createDividedPalette(mainColor, "large", changeHueDirection),
         ])
 
         return testPalettes
