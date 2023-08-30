@@ -2,6 +2,7 @@ export interface Hash {
     [details: string]: string
 }
 
+/** Describes a single skill */
 export interface SkillProps {
     name: string
     abbreviation: string
@@ -10,6 +11,7 @@ export interface SkillProps {
     link: string
 }
 
+/** Describes a single website */
 export interface WebsiteProps {
     title: string
     timeframe: string
@@ -20,12 +22,14 @@ export interface WebsiteProps {
     link: string
 }
 
+/** Describes a single activity */
 export interface ActivityProps {
     duration: string
     /** Links to i18n */
     key: string
 }
 
+/** Describes a single color using HSL */
 export interface ColorProps {
     /** Degree on color wheel: 0 - 360 */
     hue: number
@@ -33,4 +37,11 @@ export interface ColorProps {
     saturation: number
     /** Amount of light: 0 - 100 */
     lightness: number
+}
+
+/** Describes the information needed for creating a color palette */
+export interface PaletteConfig {
+    mainColor: ColorProps
+    hueRotationAmount: "none" | "small" | "medium" | "large"
+    invertHueDirection?: boolean
 }

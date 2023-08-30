@@ -1,4 +1,4 @@
-import type { ColorProps } from "$lib/interfaces"
+import type { ColorProps, PaletteConfig } from "$lib/interfaces"
 
 /** Provides color palettes based on a main color */
 export class paletteCreator {
@@ -58,11 +58,7 @@ export class paletteCreator {
      * @param mainHue Hue of main color
      * @param hueRotationAmount Amount of hue rotation
      */
-    static createModifiedHues(
-        mainHue: number,
-        hueRotationAmount: "none" | "small" | "medium" | "large",
-        changeHueDirection = false
-    ): number[] {
+    static createModifiedHues(config: PaletteConfig): number[] {
         // Hue modifiers to choose from that are added to main hue
         const noHueModifiers: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         const smallHueModifiers: number[] = [3, 2, 1, 0, 0, 0, 1, 2, 3]
@@ -70,9 +66,9 @@ export class paletteCreator {
         const largeHueModifiers: number[] = [12, 8, 4, 2, 0, 2, 4, 8, 12]
 
         // Distances to nearest bright hues
-        const distanceToYellow: number = mainHue - 60
-        const distanceToCyan: number = mainHue - 180
-        const distanceToMagenta: number = mainHue - 300
+        const distanceToYellow: number = config.mainColor.hue - 60
+        const distanceToCyan: number = config.mainColor.hue - 180
+        const distanceToMagenta: number = config.mainColor.hue - 300
         const distances: number[] = [distanceToYellow, distanceToCyan, distanceToMagenta]
 
         /** Determines if nearest bright hue is up or down from main hue */
@@ -96,12 +92,12 @@ export class paletteCreator {
             }
         })
 
-        if (changeHueDirection) hueRotationDirection *= -1
+        if (config.invertHueDirection) hueRotationDirection *= -1
 
         // Chooses hue modifiers based on amount of hue rotation
         let chosenHueModifiers: number[] = []
 
-        switch (hueRotationAmount) {
+        switch (config.hueRotationAmount) {
             case "none":
                 chosenHueModifiers = noHueModifiers
                 break
@@ -121,7 +117,7 @@ export class paletteCreator {
 
         // Creates hues based on amount of hue rotation and rotation direction
         const hues: number[] = chosenHueModifiers.map(
-            (hueModifier: number) => mainHue + hueModifier * hueRotationDirection
+            (hueModifier: number) => config.mainColor.hue + hueModifier * hueRotationDirection
         )
 
         return hues
@@ -183,18 +179,10 @@ export class paletteCreator {
     }
 
     /** Creates a more balanced color palette */
-    static createDividedPalette(
-        mainColor: ColorProps,
-        hueRotationAmount: "none" | "small" | "medium" | "large",
-        changeHueDirection?: boolean
-    ): ColorProps[] {
-        const hues: number[] = this.createModifiedHues(
-            mainColor.hue,
-            hueRotationAmount,
-            changeHueDirection
-        )
-        const saturations: number[] = this.createdModifiedSaturations(mainColor.saturation)
-        const lightnesses: number[] = this.createdModifiedLightnesses(mainColor.lightness)
+    static createBalancedPalette(config: PaletteConfig): ColorProps[] {
+        const hues: number[] = this.createModifiedHues(config)
+        const saturations: number[] = this.createdModifiedSaturations(config.mainColor.saturation)
+        const lightnesses: number[] = this.createdModifiedLightnesses(config.mainColor.lightness)
 
         const colorPalette: ColorProps[] = []
 
@@ -212,7 +200,7 @@ export class paletteCreator {
     }
 
     /** Creates every kind of palette for a certain amount of colors */
-    static createTestPalettes(changeHueDirection: boolean): ColorProps[][] {
+    static createTestPalettes(invertHueDirection: boolean): ColorProps[][] {
         const mainColors: ColorProps[] = [
             // Blue
             {
@@ -273,10 +261,26 @@ export class paletteCreator {
         const testPalettes: ColorProps[][] = mainColors.flatMap((mainColor: ColorProps) => [
             this.createAbsolutePalette(mainColor),
             this.createRelativePalette(mainColor),
-            this.createDividedPalette(mainColor, "none", changeHueDirection),
-            this.createDividedPalette(mainColor, "small", changeHueDirection),
-            this.createDividedPalette(mainColor, "medium", changeHueDirection),
-            this.createDividedPalette(mainColor, "large", changeHueDirection),
+            this.createBalancedPalette({
+                mainColor,
+                hueRotationAmount: "none",
+                invertHueDirection,
+            }),
+            this.createBalancedPalette({
+                mainColor,
+                hueRotationAmount: "small",
+                invertHueDirection,
+            }),
+            this.createBalancedPalette({
+                mainColor,
+                hueRotationAmount: "medium",
+                invertHueDirection,
+            }),
+            this.createBalancedPalette({
+                mainColor,
+                hueRotationAmount: "large",
+                invertHueDirection,
+            }),
         ])
 
         return testPalettes
