@@ -1,62 +1,11 @@
 import type { ColorProps, PaletteConfig } from "$lib/interfaces"
 
-/** Provides color palettes based on a main color */
+/** Provides color palette based on a main color */
 export class paletteCreator {
-    /** Creates color palette based on absolute scale */
-    static createAbsolutePalette(mainColor: ColorProps): ColorProps[] {
-        const absoluteColorModifiers: ColorProps[] = [
-            { hue: 4, saturation: 19, lightness: -45 },
-            { hue: 2, saturation: 10, lightness: -39 },
-            { hue: 2, saturation: 5, lightness: -27 },
-            { hue: 0, saturation: 2, lightness: -14 },
-            { hue: 0, saturation: 0, lightness: 0 },
-            { hue: 0, saturation: 2, lightness: 16 },
-            { hue: 1, saturation: 5, lightness: 24 },
-            { hue: 3, saturation: 10, lightness: 32 },
-            { hue: 5, saturation: 19, lightness: 37 },
-        ]
-
-        const colorPalette: ColorProps[] = absoluteColorModifiers.map((modifier: ColorProps) => {
-            return {
-                hue: mainColor.hue + modifier.hue,
-                saturation: mainColor.saturation + modifier.saturation,
-                lightness: mainColor.lightness + modifier.lightness,
-            }
-        })
-
-        return colorPalette
-    }
-
-    /** Creates color palette based on relative scale */
-    static createRelativePalette(mainColor: ColorProps): ColorProps[] {
-        const relativeColorModifiers: ColorProps[] = [
-            { hue: 4, saturation: 0.235, lightness: -0.763 },
-            { hue: 2, saturation: 0.123, lightness: -0.661 },
-            { hue: 2, saturation: 0.062, lightness: -0.458 },
-            { hue: 0, saturation: 0.025, lightness: -0.237 },
-            { hue: 0, saturation: 0.0, lightness: 0.0 },
-            { hue: 0, saturation: 0.025, lightness: 0.271 },
-            { hue: 1, saturation: 0.062, lightness: 0.407 },
-            { hue: 3, saturation: 0.123, lightness: 0.542 },
-            { hue: 5, saturation: 0.235, lightness: 0.627 },
-        ]
-
-        const colorPalette: ColorProps[] = relativeColorModifiers.map((modifier: ColorProps) => {
-            return {
-                hue: mainColor.hue + modifier.hue,
-                saturation: mainColor.saturation + mainColor.saturation * modifier.saturation,
-                lightness: mainColor.lightness + mainColor.lightness * modifier.lightness,
-            }
-        })
-
-        return colorPalette
-    }
-
     /** Creates hue palette based on hue of main color
      * Rotates hue to nearest bright hue
      *
-     * @param mainHue Hue of main color
-     * @param hueRotationAmount Amount of hue rotation
+     * @param config Configuration for palette creation
      */
     static createModifiedHues(config: PaletteConfig): number[] {
         // Hue modifiers to choose from that are added to main hue
@@ -197,92 +146,5 @@ export class paletteCreator {
         }
 
         return colorPalette
-    }
-
-    /** Creates every kind of palette for a certain amount of colors */
-    static createTestPalettes(invertHueDirection: boolean): ColorProps[][] {
-        const mainColors: ColorProps[] = [
-            // Blue
-            {
-                hue: 188,
-                saturation: 81,
-                lightness: 59,
-            },
-            // Orange
-            {
-                hue: 36,
-                saturation: 100,
-                lightness: 60,
-            },
-            // Orange 2
-            {
-                hue: 13,
-                saturation: 88,
-                lightness: 54,
-            },
-            // Pink
-            {
-                hue: 342,
-                saturation: 99,
-                lightness: 57,
-            },
-            // Mint
-            {
-                hue: 162,
-                saturation: 92,
-                lightness: 43,
-            },
-            // Green
-            {
-                hue: 128,
-                saturation: 51,
-                lightness: 47,
-            },
-            // Cyan
-            {
-                hue: 180,
-                saturation: 50,
-                lightness: 50,
-            },
-            // Purple
-            {
-                hue: 278,
-                saturation: 82,
-                lightness: 47,
-            },
-            // Red
-            {
-                hue: 360,
-                saturation: 80,
-                lightness: 47,
-            },
-        ]
-
-        const testPalettes: ColorProps[][] = mainColors.flatMap((mainColor: ColorProps) => [
-            this.createAbsolutePalette(mainColor),
-            this.createRelativePalette(mainColor),
-            this.createBalancedPalette({
-                mainColor,
-                hueRotationAmount: "none",
-                invertHueDirection,
-            }),
-            this.createBalancedPalette({
-                mainColor,
-                hueRotationAmount: "small",
-                invertHueDirection,
-            }),
-            this.createBalancedPalette({
-                mainColor,
-                hueRotationAmount: "medium",
-                invertHueDirection,
-            }),
-            this.createBalancedPalette({
-                mainColor,
-                hueRotationAmount: "large",
-                invertHueDirection,
-            }),
-        ])
-
-        return testPalettes
     }
 }
