@@ -1,14 +1,14 @@
 <script lang="ts">
-    import type { ColorProps, PaletteConfig } from "$lib/interfaces"
+    import type { ColorProps } from "$lib/interfaces"
     import Color from "./Color.svelte"
     import { PaletteCreator } from "./PaletteCreator"
 
-    export let paletteConfig: PaletteConfig
+    import { paletteConfig } from "./paletteConfigStore"
+
     let colors: ColorProps[] = []
     const paletteCreator = new PaletteCreator()
 
-    $: colors = paletteCreator.createPalette(paletteConfig)
-    $: console.log("In component: " + paletteConfig)
+    $: colors = paletteCreator.createPalette($paletteConfig)
 
     // TODO: Improve performance by only updating hues when hue rotation amount changes
 </script>
