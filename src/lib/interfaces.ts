@@ -42,6 +42,6 @@ export interface ColorProps {
 /** Describes the information needed for creating a color palette */
 export interface PaletteConfig {
     mainColor: ColorProps
-    hueRotationAmount: "none" | "small" | "medium" | "large"
-    invertHueDirection?: boolean
+    /** Range: -100 - 100 */
+    hueRotationAmount: number
 }

@@ -54,6 +54,10 @@
     // TODO: Add a timer that counts down the time left for the current activity
 </script>
 
+<svelte:head>
+    <title>Activities</title>
+</svelte:head>
+
 {#if randomizedActivites.length > 0}
     <button
         class="flex h-screen w-screen flex-col content-center items-center justify-center gap-20 text-white transition-colors"

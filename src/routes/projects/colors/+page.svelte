@@ -1,28 +1,45 @@
 <script lang="ts">
-    import type { ColorProps } from "$lib/interfaces"
-    import { paletteCreator } from "./paletteCreator"
-    import Color from "./Color.svelte"
+    import Control from "./Control.svelte"
+    import Palette from "./Palette.svelte"
+    import type { PaletteConfig } from "$lib/interfaces"
 
-    let changeHueDirection: boolean = false
+    /** Returns random int in range */
+    function randomInt(min: number, max: number): number {
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
 
-    let colorPalettes: ColorProps[][] = []
-    $: colorPalettes = paletteCreator.createTestPalettes(changeHueDirection)
+    /** Returns random main color */
+    function randomMainColor() {
+        return {
+            hue: randomInt(0, 360),
+            saturation: randomInt(40, 80),
+            lightness: randomInt(40, 60),
+        }
+    }
+
+    /** Creates random palette config */
+    function createRandomPaletteConfig() {
+        const newPaletteConfig: PaletteConfig = {
+            mainColor: randomMainColor(),
+            hueRotationAmount: 50,
+        }
+
+        paletteConfig = newPaletteConfig
+    }
+
+    /** Default palette config */
+    let paletteConfig: PaletteConfig = {
+        mainColor: randomMainColor(),
+        hueRotationAmount: 50,
+    }
+
+    // TODO: Use i18n for color page
 </script>
 
-<button
-    class={`btn fixed top-0 right-0 ${!changeHueDirection ? "bg-green-500" : "bg-red-500"}`}
-    on:click={() => {
-        changeHueDirection = !changeHueDirection
-    }}>Toggle</button
->
-<div class="flex w-full flex-col items-center justify-center gap-x-8">
-    {#each colorPalettes as colorPalette, index}
-        <div class={`flex flex-col ${index % 6 == 0 && "mt-8"}`}>
-            <div class="flex">
-                {#each colorPalette as color}
-                    <Color {color} />
-                {/each}
-            </div>
-        </div>
-    {/each}
-</div>
+<svelte:head>
+    <title>Colors</title>
+</svelte:head>
+
+<p class="text-xl font-bold">Amazing colors</p>
+<Palette {paletteConfig} />
+<Control {createRandomPaletteConfig} />
