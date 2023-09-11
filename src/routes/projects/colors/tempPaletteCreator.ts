@@ -7,6 +7,7 @@ enum HueRotationDirection {
     "Down" = -1,
 }
 
+/** Creates color palettes based on palette configs */
 export class PaletteCreator {
     /** Determines direction to nearest bright hue */
     getHueRotationDirection(mainColor: ColorProps): HueRotationDirection {
