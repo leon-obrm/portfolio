@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { ColorProps } from "$lib/interfaces"
     import Color from "./Color.svelte"
-    import { PaletteCreator } from "./tempPaletteCreator"
+    import { PaletteCreator } from "./PaletteCreator"
 
     import { paletteConfig } from "./paletteConfigStore"
 
