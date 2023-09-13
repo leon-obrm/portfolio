@@ -13,7 +13,7 @@
     // TODO: Improve performance by only updating hues when hue rotation amount changes
 </script>
 
-<div class="mt-32 flex w-screen">
+<div class="mt-32 flex w-screen items-center">
     {#if colors.length === 0}
         <p>Loading</p>
     {/if}
