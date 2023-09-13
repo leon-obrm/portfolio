@@ -84,6 +84,9 @@
     $: textColor = getTextColor(color)
 
     let isClicked = false
+    // Hides copy success message after change of color
+    $: if (color) isClicked = false
+
     let timeout: NodeJS.Timeout
 </script>
 
