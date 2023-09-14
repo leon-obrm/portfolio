@@ -34,7 +34,10 @@
         else if (e.key === "d" || e.key === "ArrowRight") direction = 1
 
         paletteConfig.update((config) => {
-            config.hueRotationAmount += 10 * direction
+            config.hueRotationAmount = Math.min(
+                100,
+                Math.max(config.hueRotationAmount + 10 * direction, -100)
+            )
             return config
         })
     }}
