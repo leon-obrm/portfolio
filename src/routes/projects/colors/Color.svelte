@@ -1,48 +1,14 @@
 <script lang="ts">
+    import convert from "color-convert"
     import { Copy } from "lucide-svelte"
+    import { ntc } from "$lib/ntc"
     import type { ColorProps } from "$lib/interfaces"
 
     export let color: ColorProps
     export let index: number
 
     let colorHex: string
-    $: colorHex = hslToHex(color)
-
-    /** Transforms HSL values to hex
-     * Credit: https://stackoverflow.com/a/44134328
-     * */
-    function hslToHex(colorHsl: ColorProps) {
-        let { hue, saturation, lightness } = colorHsl
-
-        lightness /= 100
-        const a = (saturation * Math.min(lightness, 1 - lightness)) / 100
-        const f = (n: number) => {
-            const k = (n + hue / 30) % 12
-            const color = lightness - a * Math.max(Math.min(k - 3, 9 - k, 1), -1)
-            return Math.round(255 * color)
-                .toString(16)
-                .padStart(2, "0") // convert to Hex and prefix "0" if needed
-        }
-        return `#${f(0)}${f(8)}${f(4)}`.toUpperCase()
-    }
-
-    /** Transforms hex values to RGB values */
-    function hexToRgb(hex: string): number[] {
-        // Remove # from hex string
-        hex = hex.replace(/^#/, "")
-
-        // Check if hex string valid
-        if (!/^[0-9A-Fa-f]{6}$/.test(hex)) {
-            return [0, 0, 0]
-        }
-
-        // Parse hex string into RGB values
-        const r = parseInt(hex.slice(0, 2), 16)
-        const g = parseInt(hex.slice(2, 4), 16)
-        const b = parseInt(hex.slice(4, 6), 16)
-
-        return [r, g, b]
-    }
+    $: colorHex = convert.hsl.hex([color.hue, color.saturation, color.lightness])
 
     /** Calculates contrast ratio between two colors
      * Credit: https://stackoverflow.com/a/9733420
@@ -62,7 +28,9 @@
             return a[0] * RED + a[1] * GREEN + a[2] * BLUE
         }
 
-        var lum1 = luminance(hexToRgb(hslToHex(currentColor)))
+        var lum1 = luminance(
+            convert.hsl.rgb([currentColor.hue, currentColor.saturation, currentColor.lightness])
+        )
         var lum2 = luminance(testColor)
         var brightest = Math.max(lum1, lum2)
         var darkest = Math.min(lum1, lum2)
@@ -100,13 +68,13 @@
                 isClicked && "opacity-100"
             }`}
             style:color={textColor}
-        >
+            >#1E0033
             <input
                 type="checkbox"
                 bind:checked={isClicked}
                 on:change={() => {
                     // Copies hex value of color to clipboard
-                    navigator.clipboard.writeText(colorHex)
+                    navigator.clipboard.writeText("#" + colorHex)
 
                     // Shows "Copied!" for 1 second when clicked
                     isClicked = true
@@ -123,6 +91,9 @@
         </label>
     </div>
     <p class={`text-lg ${index !== 4 ? "text-gray-500" : "font-bold"}`}>
-        {colorHex.replace("#", "")}
+        {colorHex}
+    </p>
+    <p class={`${index !== 4 ? "text-gray-500" : "font-bold"}`}>
+        {ntc.name(colorHex)[1]}
     </p>
 </div>
