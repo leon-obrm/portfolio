@@ -45,3 +45,8 @@ export interface PaletteConfig {
     /** Range: -100 - 100 */
     hueRotationAmount: number
 }
+
+/** Describes interface settings for color page */
+export interface ColorSettings {
+    showGap: boolean
+}

@@ -1,9 +1,9 @@
 <script lang="ts">
     import type { ColorProps } from "$lib/interfaces"
-    import Color from "./Color.svelte"
-    import { PaletteCreator } from "./PaletteCreator"
-
     import { paletteConfig } from "./paletteConfigStore"
+    import { colorSettings } from "./settingsStore"
+    import { PaletteCreator } from "./PaletteCreator"
+    import Color from "./Color.svelte"
 
     let colors: ColorProps[] = []
     const paletteCreator = new PaletteCreator()
@@ -13,7 +13,7 @@
     // TODO: Improve performance by only updating hues when hue rotation amount changes
 </script>
 
-<div class="mt-32 flex w-screen items-center">
+<div class={`mt-32 flex w-screen items-start ${$colorSettings.showGap && "gap-2"}`}>
     {#if colors.length === 0}
         <p>Loading</p>
     {/if}

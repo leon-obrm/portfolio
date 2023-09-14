@@ -34,3 +34,8 @@
 >
     <Dice5 size={32} />
 </button>
+<svelte:window
+    on:keydown={(e) => {
+        if (e.key === " ") createRandomPaletteConfig()
+    }}
+/>

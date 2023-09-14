@@ -26,6 +26,20 @@
     />
 </div>
 
+<svelte:window
+    on:keydown={(e) => {
+        let direction = 0
+
+        if (e.key === "a" || e.key === "ArrowLeft") direction = -1
+        else if (e.key === "d" || e.key === "ArrowRight") direction = 1
+
+        paletteConfig.update((config) => {
+            config.hueRotationAmount += 10 * direction
+            return config
+        })
+    }}
+/>
+
 <style>
     /* 
     Custom slider styling
