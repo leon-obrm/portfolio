@@ -1,40 +1,7 @@
 import type { ColorProps, PaletteConfig } from "$lib/interfaces"
 
-/** Determines if nearest bright hue is up or down from main hue */
-enum HueRotationDirection {
-    "Up" = 1,
-    "None" = 0,
-    "Down" = -1,
-}
-
 /** Creates color palettes based on palette configs */
 export class PaletteCreator {
-    /** Determines direction to nearest bright hue */
-    getHueRotationDirection(mainColor: ColorProps): HueRotationDirection {
-        // Distances to nearest bright hues
-        const distanceToYellow: number = mainColor.hue - 60
-        const distanceToCyan: number = mainColor.hue - 180
-        const distanceToMagenta: number = mainColor.hue - 300
-        const distances: number[] = [distanceToYellow, distanceToCyan, distanceToMagenta]
-
-        let hueRotationDirection: HueRotationDirection = HueRotationDirection.None
-
-        /** Currently smallest distance to nearest bright hue */
-        let smallestDistance = 360
-
-        // Finds smallest distance and sets correct hue rotation direction
-        distances.forEach((distance: number) => {
-            if (Math.abs(distance) < Math.abs(smallestDistance)) {
-                smallestDistance = distance
-                if (distance === 0) hueRotationDirection = HueRotationDirection.None
-                else if (distance < 0) hueRotationDirection = HueRotationDirection.Up
-                else if (distance > 0) hueRotationDirection = HueRotationDirection.Down
-            }
-        })
-
-        return hueRotationDirection
-    }
-
     /** Creates hue palette based on hue of main color
      * Rotates hue to nearest bright hue
      */
@@ -42,15 +9,10 @@ export class PaletteCreator {
         // Hue modifiers to choose from that are added to main hue
         const maxHueModifiers: number[] = [20, 10, 5, 2, 0, 2, 5, 10, 20]
 
-        const hueRotationDirection: HueRotationDirection = this.getHueRotationDirection(
-            paletteConfig.mainColor
-        )
-
         // Creates hues based on amount of hue rotation and rotation direction
         const hues: number[] = maxHueModifiers.map(
             (hueModifier: number) =>
-                paletteConfig.mainColor.hue +
-                (hueModifier / 100) * paletteConfig.hueRotationAmount * hueRotationDirection
+                paletteConfig.mainColor.hue + (hueModifier / 100) * paletteConfig.hueRotationAmount
         )
 
         return hues
