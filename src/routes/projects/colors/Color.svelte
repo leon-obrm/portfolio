@@ -3,6 +3,7 @@
     import { Copy } from "lucide-svelte"
     import { ntc } from "$lib/ntc"
     import type { ColorProps } from "$lib/interfaces"
+    import { paletteConfig } from "./paletteConfigStore"
 
     export let color: ColorProps
     export let index: number
@@ -56,19 +57,43 @@
     $: if (color) isClicked = false
 
     let timeout: NodeJS.Timeout
+
+    /** Converts hex color from input to hsl and updates palette config */
+    function setNewColor(e: Event) {
+        const inputElement = e.target as HTMLInputElement
+        if (inputElement === null) return
+        if (inputElement.value.length < 6) return
+        let allowedCharacters = /^[A-Fa-f0-9]+$/
+        if (!allowedCharacters.test(inputElement.value)) return
+
+        // TODO: Check for invalid hex values
+        const hsl: number[] = convert.hex.hsl(inputElement.value)
+
+        paletteConfig.update((config) => {
+            config.mainColor = {
+                hue: hsl[0],
+                saturation: hsl[1],
+                lightness: hsl[2],
+            }
+            return config
+        })
+    }
 </script>
 
 <div class={`flex flex-col items-center gap-2 ${index !== 4 ? "w-[10.5%]" : "w-[16%]"}`}>
     <div
-        class="h-96 w-full"
+        class="flex h-96 w-full flex-col items-center justify-center"
         style="background-color: hsl({color.hue}, {color.saturation}%, {color.lightness}%);"
     >
+        <p class="relative top-6 z-50 font-medium" style:color={textColor}>
+            {ntc.name(colorHex)[1]}
+        </p>
         <label
             class={`swap swap-rotate h-full w-full opacity-0 transition-opacity duration-150 hover:opacity-100 ${
                 isClicked && "opacity-100"
             }`}
             style:color={textColor}
-            >#1E0033
+        >
             <input
                 type="checkbox"
                 bind:checked={isClicked}
@@ -90,10 +115,17 @@
             <div class="swap-on text-lg">Copied!</div>
         </label>
     </div>
-    <p class={`text-lg ${index !== 4 ? "text-gray-500" : "font-bold"}`}>
-        {colorHex}
-    </p>
-    <p class={`${index !== 4 ? "text-gray-500" : "font-bold"}`}>
-        {ntc.name(colorHex)[1]}
-    </p>
+    {#if index === 4}
+        <input
+            type="text"
+            class="input-bordered input-primary input m-0 h-7 w-24 max-w-xs p-0 text-center text-lg"
+            maxlength="6"
+            value={colorHex}
+            on:input={setNewColor}
+        />
+    {:else}
+        <p class={`text-lg ${index !== 4 ? "text-gray-500" : "font-bold"}`}>
+            {colorHex}
+        </p>
+    {/if}
 </div>
