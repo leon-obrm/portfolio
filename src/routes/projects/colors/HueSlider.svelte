@@ -1,4 +1,5 @@
 <script lang="ts">
+    import convert from "color-convert"
     import { paletteConfig } from "./paletteConfigStore"
 
     function setHueRotationAmount(e: Event) {
@@ -10,14 +11,17 @@
             return config
         })
     }
+
+    let mainHue: number
+    $: mainHue = convert.hex.hsl($paletteConfig.mainColor)[0]
 </script>
 
 <div class="flex w-full max-w-md flex-col gap-2">
     <label for="hue-rotation-amount" class="font-semibold">Tint</label>
     <input
         class="slider h-3 w-full rounded-full"
-        style="background: linear-gradient(90deg, hsl({$paletteConfig.mainColor.hue -
-            30}, 100%, 65%) 0%, hsl({$paletteConfig.mainColor.hue + 30}, 100%, 65%) 100%);"
+        style="background: linear-gradient(90deg, hsl({mainHue - 30}, 100%, 65%) 0%, hsl({mainHue +
+            30}, 100%, 65%) 100%);"
         type="range"
         min="-100"
         max="100"

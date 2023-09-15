@@ -1,11 +1,10 @@
 <script lang="ts">
-    import type { ColorProps } from "$lib/interfaces"
     import { paletteConfig } from "./paletteConfigStore"
     import { colorSettings } from "./settingsStore"
     import { PaletteCreator } from "./PaletteCreator"
     import Color from "./Color.svelte"
 
-    let colors: ColorProps[] = []
+    let colors: string[] = []
     const paletteCreator = new PaletteCreator()
 
     $: colors = paletteCreator.createPalette($paletteConfig)

@@ -1,4 +1,5 @@
 <script lang="ts">
+    import convert from "color-convert"
     import { Dice5 } from "lucide-svelte"
     import type { PaletteConfig } from "$lib/interfaces"
     import { paletteConfig } from "./paletteConfigStore"
@@ -9,12 +10,12 @@
     }
 
     /** Returns random main color */
-    function randomMainColor() {
-        return {
-            hue: randomInt(0, 360),
-            saturation: randomInt(60, 80),
-            lightness: randomInt(40, 60),
-        }
+    function randomMainColor(): string {
+        const hue: number = randomInt(0, 360)
+        const saturation: number = randomInt(60, 80)
+        const lightness: number = randomInt(40, 60)
+
+        return convert.hsl.hex([hue, saturation, lightness])
     }
 
     /** Creates random palette config */

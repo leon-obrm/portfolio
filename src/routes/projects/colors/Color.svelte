@@ -2,19 +2,15 @@
     import convert from "color-convert"
     import { Copy } from "lucide-svelte"
     import { ntc } from "$lib/ntc"
-    import type { ColorProps } from "$lib/interfaces"
     import { paletteConfig } from "./paletteConfigStore"
 
-    export let color: ColorProps
+    export let color: string
     export let index: number
-
-    let colorHex: string
-    $: colorHex = convert.hsl.hex([color.hue, color.saturation, color.lightness])
 
     /** Calculates contrast ratio between two colors
      * Credit: https://stackoverflow.com/a/9733420
      */
-    function getContrast(currentColor: ColorProps, testColor: number[]): number {
+    function getContrast(currentColor: string, testColor: number[]): number {
         function luminance(rgb: number[]) {
             const RED = 0.2126
             const GREEN = 0.7152
@@ -29,9 +25,7 @@
             return a[0] * RED + a[1] * GREEN + a[2] * BLUE
         }
 
-        var lum1 = luminance(
-            convert.hsl.rgb([currentColor.hue, currentColor.saturation, currentColor.lightness])
-        )
+        var lum1 = luminance(convert.hex.rgb(currentColor))
         var lum2 = luminance(testColor)
         var brightest = Math.max(lum1, lum2)
         var darkest = Math.min(lum1, lum2)
@@ -39,7 +33,7 @@
     }
 
     /** Returns text color with most contrast out of white and black */
-    function getTextColor(currentColor: ColorProps): string {
+    function getTextColor(currentColor: string): string {
         const contrastWhite: number = getContrast(currentColor, [255, 255, 255])
         const contrastBlack: number = getContrast(currentColor, [0, 0, 0])
 
@@ -58,7 +52,7 @@
 
     let timeout: NodeJS.Timeout
 
-    /** Converts hex color from input to hsl and updates palette config */
+    /** Updates main color of palette config */
     function setNewColor(e: Event) {
         const inputElement = e.target as HTMLInputElement
         if (inputElement === null) return
@@ -67,14 +61,10 @@
         if (!allowedCharacters.test(inputElement.value)) return
 
         // TODO: Check for invalid hex values
-        const hsl: number[] = convert.hex.hsl(inputElement.value)
+        // TODO: Also update hue rotation amount
 
         paletteConfig.update((config) => {
-            config.mainColor = {
-                hue: hsl[0],
-                saturation: hsl[1],
-                lightness: hsl[2],
-            }
+            config.mainColor = inputElement.value
             return config
         })
     }
@@ -83,10 +73,10 @@
 <div class={`flex flex-col items-center gap-2 ${index !== 4 ? "w-[10.5%]" : "w-[16%]"}`}>
     <div
         class="flex h-96 w-full flex-col items-center justify-center"
-        style="background-color: hsl({color.hue}, {color.saturation}%, {color.lightness}%);"
+        style="background-color: #{color};"
     >
         <p class="relative top-6 z-50 font-medium" style:color={textColor}>
-            {ntc.name(colorHex)[1]}
+            {ntc.name(color)[1]}
         </p>
         <label
             class={`swap swap-rotate h-full w-full opacity-0 transition-opacity duration-150 hover:opacity-100 ${
@@ -99,7 +89,7 @@
                 bind:checked={isClicked}
                 on:change={() => {
                     // Copies hex value of color to clipboard
-                    navigator.clipboard.writeText("#" + colorHex)
+                    navigator.clipboard.writeText("#" + color)
 
                     // Shows "Copied!" for 1 second when clicked
                     isClicked = true
@@ -120,12 +110,12 @@
             type="text"
             class="input-bordered input-primary input m-0 h-7 w-24 max-w-xs p-0 text-center text-lg"
             maxlength="6"
-            value={colorHex}
+            value={color}
             on:input={setNewColor}
         />
     {:else}
         <p class={`text-lg ${index !== 4 ? "text-gray-500" : "font-bold"}`}>
-            {colorHex}
+            {color}
         </p>
     {/if}
 </div>

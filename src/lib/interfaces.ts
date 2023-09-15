@@ -29,19 +29,10 @@ export interface ActivityProps {
     key: string
 }
 
-/** Describes a single color using HSL */
-export interface ColorProps {
-    /** Degree on color wheel: 0 - 360 */
-    hue: number
-    /** Intensity of color: 0 - 100 */
-    saturation: number
-    /** Amount of light: 0 - 100 */
-    lightness: number
-}
-
 /** Describes the information needed for creating a color palette */
 export interface PaletteConfig {
-    mainColor: ColorProps
+    /** Main / middle color of color palette in hex (without #) */
+    mainColor: string
     /** Range: -100 - 100 */
     hueRotationAmount: number
 }
