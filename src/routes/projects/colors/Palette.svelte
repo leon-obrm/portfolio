@@ -1,6 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores"
-    import { colorSettings } from "./settingsStore"
+    import { colorSettings } from "./store"
     import { PaletteCreator } from "./PaletteCreator"
     import Color from "./Color.svelte"
 

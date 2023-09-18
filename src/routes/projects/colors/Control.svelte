@@ -1,10 +1,12 @@
 <script lang="ts">
-    import { colorSettings } from "./settingsStore"
+    import { colorSettings } from "./store"
     import DiceButton from "./DiceButton.svelte"
     import HueSlider from "./HueSlider.svelte"
+    import UndoRedo from "./UndoRedo.svelte"
 </script>
 
 <div class="fixed bottom-6 flex w-screen items-center justify-center gap-12 bg-gray-100">
+    <UndoRedo />
     <HueSlider />
 
     <DiceButton />
