@@ -1,8 +1,11 @@
 <script lang="ts">
     import convert from "color-convert"
     import { Dice5 } from "lucide-svelte"
-    import type { PaletteConfig } from "$lib/interfaces"
-    import { paletteConfig } from "./paletteConfigStore"
+
+    import { getContext } from "svelte"
+
+    const navigate: (mainColor?: string, hueRotationAmount?: number) => void =
+        getContext("navigate")
 
     /** Returns random int in range */
     function randomInt(min: number, max: number): number {
@@ -20,21 +23,14 @@
 
     /** Creates random palette config */
     function createRandomPaletteConfig() {
-        const newPaletteConfig: PaletteConfig = {
-            mainColor: randomMainColor(),
-            hueRotationAmount: randomInt(-100, 100),
-        }
-
-        paletteConfig.set(newPaletteConfig)
+        navigate(randomMainColor(), randomInt(-100, 100))
     }
 </script>
 
-<button
-    class="btn-primary btn-circle btn h-20 w-20 -translate-y-10"
-    on:click={createRandomPaletteConfig}
->
+<button class="btn-primary btn-circle btn h-20 w-20" on:click={createRandomPaletteConfig}>
     <Dice5 size={32} />
 </button>
+
 <svelte:window
     on:keydown={(e) => {
         if (e.key === " ") createRandomPaletteConfig()

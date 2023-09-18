@@ -1,5 +1,4 @@
 import convert from "color-convert"
-import type { PaletteConfig } from "$lib/interfaces"
 
 /** Creates color palettes based on palette configs */
 export class PaletteCreator {
@@ -69,11 +68,14 @@ export class PaletteCreator {
         return lightnesses
     }
 
-    /** Creates a more balanced color palette */
-    createPalette(paletteConfig: PaletteConfig): string[] {
-        const mainHsl: number[] = convert.hex.hsl(paletteConfig.mainColor)
+    /** Creates a more balanced color palette
+     * @param mainColor Main / middle color of color palette in hex (without #)
+     * @param hueRotationAmount Range: -100 - 100
+     */
+    createPalette(mainColor: string, hueRotationAmount: number): string[] {
+        const mainHsl: number[] = convert.hex.hsl(mainColor)
 
-        const hues: number[] = this.modifyHues(mainHsl[0], paletteConfig.hueRotationAmount)
+        const hues: number[] = this.modifyHues(mainHsl[0], hueRotationAmount)
         const saturations: number[] = this.modifySaturations(mainHsl[1])
         const lightnesses: number[] = this.modifyLightnesses(mainHsl[2])
 

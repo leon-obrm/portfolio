@@ -1,19 +1,20 @@
 <script lang="ts">
     import convert from "color-convert"
-    import { paletteConfig } from "./paletteConfigStore"
+    import { page } from "$app/stores"
+    import { getContext } from "svelte"
+
+    const navigate: (mainColor?: string, hueRotationAmount?: number) => void =
+        getContext("navigate")
 
     function setHueRotationAmount(e: Event) {
         const inputElement = e.target as HTMLInputElement
         if (inputElement === null) return
 
-        paletteConfig.update((config) => {
-            config.hueRotationAmount = parseInt(inputElement.value)
-            return config
-        })
+        navigate(undefined, parseInt(inputElement.value))
     }
 
     let mainHue: number
-    $: mainHue = convert.hex.hsl($paletteConfig.mainColor)[0]
+    $: mainHue = convert.hex.hsl($page.data.mainColor)[0]
 </script>
 
 <div class="flex w-full max-w-md flex-col gap-2">
@@ -25,27 +26,11 @@
         type="range"
         min="-100"
         max="100"
+        step="10"
         on:input={setHueRotationAmount}
-        value={$paletteConfig.hueRotationAmount}
+        value={$page.data.hueRotationAmount}
     />
 </div>
-
-<svelte:window
-    on:keydown={(e) => {
-        let direction = 0
-
-        if (e.key === "a" || e.key === "ArrowLeft") direction = -1
-        else if (e.key === "d" || e.key === "ArrowRight") direction = 1
-
-        paletteConfig.update((config) => {
-            config.hueRotationAmount = Math.min(
-                100,
-                Math.max(config.hueRotationAmount + 10 * direction, -100)
-            )
-            return config
-        })
-    }}
-/>
 
 <style>
     /* 

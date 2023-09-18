@@ -29,14 +29,6 @@ export interface ActivityProps {
     key: string
 }
 
-/** Describes the information needed for creating a color palette */
-export interface PaletteConfig {
-    /** Main / middle color of color palette in hex (without #) */
-    mainColor: string
-    /** Range: -100 - 100 */
-    hueRotationAmount: number
-}
-
 /** Describes interface settings for color page */
 export interface ColorSettings {
     showGap: boolean

@@ -2,10 +2,13 @@
     import convert from "color-convert"
     import { Copy } from "lucide-svelte"
     import { ntc } from "$lib/ntc"
-    import { paletteConfig } from "./paletteConfigStore"
+    import { getContext } from "svelte"
 
     export let color: string
     export let index: number
+
+    const navigate: (mainColor?: string, hueRotationAmount?: number) => void =
+        getContext("navigate")
 
     /** Calculates contrast ratio between two colors
      * Credit: https://stackoverflow.com/a/9733420
@@ -63,10 +66,9 @@
         // TODO: Check for invalid hex values
         // TODO: Also update hue rotation amount
 
-        paletteConfig.update((config) => {
-            config.mainColor = inputElement.value
-            return config
-        })
+        console.log(inputElement.value)
+
+        navigate(inputElement.value)
     }
 </script>
 

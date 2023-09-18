@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { paletteConfig } from "./paletteConfigStore"
+    import { page } from "$app/stores"
     import { colorSettings } from "./settingsStore"
     import { PaletteCreator } from "./PaletteCreator"
     import Color from "./Color.svelte"
@@ -7,7 +7,7 @@
     let colors: string[] = []
     const paletteCreator = new PaletteCreator()
 
-    $: colors = paletteCreator.createPalette($paletteConfig)
+    $: colors = paletteCreator.createPalette($page.data.mainColor, $page.data.hueRotationAmount)
 
     // TODO: Improve performance by only updating hues when hue rotation amount changes
 </script>
