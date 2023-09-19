@@ -15,6 +15,17 @@
 
         goto(newUrl)
 
+        // If change is only in hueRotationAmount, remove last item from historyBack
+        // This way, the history is not cluttered with every change in hue rotation
+        if ($historyBack.length > 0) {
+            const prevMainColor: string = $historyBack[$historyBack.length - 1]
+                .split("=")[1]
+                .split("&")[0]
+
+            if (mainColor === undefined || prevMainColor === mainColor)
+                historyBack.update((prev) => prev.slice(0, prev.length - 1))
+        }
+
         // Add new url to historyBack and clear historyForward
         historyBack.update((prev) => [...prev, newUrl])
         historyForward.set([])
