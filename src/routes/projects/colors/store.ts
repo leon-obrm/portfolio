@@ -7,3 +7,5 @@ export const colorSettings: Writable<ColorSettings> = writable({
 
 export const historyBack: Writable<string[]> = writable([])
 export const historyForward: Writable<string[]> = writable([])
+
+export const colors: Writable<string[]> = writable([])

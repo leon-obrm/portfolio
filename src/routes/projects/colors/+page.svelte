@@ -63,7 +63,6 @@
     setContext("moveHistory", moveHistory)
     navigate()
 
-    // TODO: Implement exports (Maybe also to realtimecolors)
     // TODO: Beautify controls
     // TODO: Make responsive
     // TODO: Choose website name
