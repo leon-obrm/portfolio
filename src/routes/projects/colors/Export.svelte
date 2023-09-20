@@ -62,9 +62,9 @@
     // TODO: Add export to realtimecolors
 </script>
 
-<div class="dropdown-top dropdown">
-    <button tabindex="0" class="btn m-1">Export</button>
-    <div class="dropdown-content menu rounded-box z-[1] bg-base-100 p-2 shadow">
+<div class="dropdown-top dropdown w-full">
+    <button tabindex="0" class="btn w-full">Export</button>
+    <div class="dropdown-content menu rounded-box z-[1] w-full bg-base-100 p-2 shadow">
         {#each exportOptions as exportOption}
             <li>
                 <button class="whitespace-nowrap" on:click={exportOption.copy}

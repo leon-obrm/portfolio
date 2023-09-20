@@ -1,10 +1,11 @@
 <script lang="ts">
-    import Control from "./Control.svelte"
     import Palette from "./Palette.svelte"
     import { goto } from "$app/navigation"
     import { setContext } from "svelte"
     import { historyBack, historyForward } from "./store"
     import Logo from "./Logo.svelte"
+    import BottomControl from "./BottomControl.svelte"
+    import SideControl from "./SideControl.svelte"
 
     /** Data from +page.ts (URL parameters) */
     export let data
@@ -69,7 +70,11 @@
     // TODO: Use theme colors
 </script>
 
-<Logo />
-
-<Palette />
-<Control />
+<div class="flex h-screen w-screen">
+    <div class="flex w-4/5 flex-col justify-between">
+        <Logo />
+        <Palette />
+        <BottomControl />
+    </div>
+    <SideControl />
+</div>
