@@ -4,6 +4,7 @@
     import { goto } from "$app/navigation"
     import { setContext } from "svelte"
     import { historyBack, historyForward } from "./store"
+    import Logo from "./Logo.svelte"
 
     /** Data from +page.ts (URL parameters) */
     export let data
@@ -65,16 +66,10 @@
 
     // TODO: Beautify controls
     // TODO: Make responsive
-    // TODO: Choose website name
-    // TODO: Add favicon
     // TODO: Use theme colors
 </script>
 
-<svelte:head>
-    <title>Colors</title>
-</svelte:head>
-
-<p class="text-xl font-bold">Amazing colors</p>
+<Logo />
 
 <Palette />
 <Control />
