@@ -11,11 +11,13 @@
     // TODO: Improve performance by only updating hues when hue rotation amount changes
 </script>
 
-<div class={`flex w-full items-start ${$colorSettings.showGap && "gap-2"}`}>
-    {#if $colors.length === 0}
-        <p>Loading</p>
-    {/if}
-    {#each $colors as color, index}
-        <Color {color} {index} />
-    {/each}
+<div class="m-3">
+    <div class={`flex w-full items-start ${$colorSettings.showGap && "gap-2"}`}>
+        {#if $colors.length === 0}
+            <p>Loading</p>
+        {/if}
+        {#each $colors as color, index}
+            <Color {color} {index} />
+        {/each}
+    </div>
 </div>

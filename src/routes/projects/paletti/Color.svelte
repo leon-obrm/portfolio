@@ -74,7 +74,9 @@
 
 <div class={`flex flex-col items-center gap-2 ${index !== 4 ? "w-[10.5%]" : "w-[16%]"}`}>
     <div
-        class="flex h-96 w-full flex-col items-center justify-center"
+        class={`flex h-96 w-full flex-col items-center justify-center ${
+            index === 0 && "rounded-l-xl"
+        } ${index === 8 && "rounded-r-xl"}`}
         style="background-color: #{color};"
     >
         <p class="relative top-6 z-50 font-medium" style:color={textColor}>

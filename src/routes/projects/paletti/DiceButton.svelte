@@ -27,8 +27,8 @@
     }
 </script>
 
-<button class="btn-primary btn-circle btn h-20 w-20" on:click={createRandomPaletteConfig}>
-    <Dice5 size={32} />
+<button class="btn-primary btn-circle btn h-16 w-16" on:click={createRandomPaletteConfig}>
+    <Dice5 size={30} />
 </button>
 
 <svelte:window
