@@ -34,7 +34,7 @@ Furthermore, Svelte's component-based syntax is simple and easy to learn, and it
 
 [SvelteKit](https://kit.svelte.dev/) is a framework built on top of the Svelte compiler that provides additional functionality for building web applications, such as server-side rendering, routing, and building for different platforms.
 
-## TailWind CSS
+## Tailwind CSS
 
 [Tailwind CSS](https://tailwindcss.com/) is a so called utility-first CSS framework. This means that it does not provide classes for specific components, but rather provides classes with short names for singular CSS properties and therefore a shorter way of writing CSS.
 
