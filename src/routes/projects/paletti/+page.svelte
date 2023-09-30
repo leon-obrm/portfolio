@@ -65,6 +65,7 @@
     setContext("moveHistory", moveHistory)
     navigate()
 
+    // TODO: Rework "color picker"
     // TODO: Beautify controls
     // TODO: Make responsive
     // TODO: Use theme colors
