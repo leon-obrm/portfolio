@@ -68,6 +68,9 @@
     // TODO: Beautify controls
     // TODO: Make responsive
     // TODO: Use theme colors
+    // TODO: Add tooltips
+    // TODO: Make amount of colors per palette customizable
+    // TODO: Add some sort of fullscreen option
 </script>
 
 <div class="flex h-screen w-screen">

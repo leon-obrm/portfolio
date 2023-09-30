@@ -8,3 +8,8 @@
         <input type="checkbox" class="toggle border-2" bind:checked={$colorSettings.showGap} />
     </label>
 </div>
+
+<div class="join">
+    <input class="join-item btn" type="radio" name="options" aria-label="Radio 1" />
+    <input class="join-item btn" type="radio" name="options" aria-label="Radio 2" />
+</div>
