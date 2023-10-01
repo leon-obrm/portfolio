@@ -58,12 +58,13 @@
         { name: "Copy as array", copy: copyAsArray },
     ]
 
+    // TODO: Adapt tailwind export to object format
     // TODO: Add help links to each export option
     // TODO: Add export to realtimecolors
 </script>
 
 <div class="dropdown-top dropdown w-full">
-    <button tabindex="0" class="btn w-full">Export</button>
+    <button tabindex="0" class="btn-primary btn w-full">Export</button>
     <div class="dropdown-content menu rounded-box z-[1] w-full bg-base-100 p-2 shadow">
         {#each exportOptions as exportOption}
             <li>

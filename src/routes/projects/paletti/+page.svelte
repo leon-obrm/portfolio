@@ -65,17 +65,18 @@
     setContext("moveHistory", moveHistory)
     navigate()
 
+    // TODO: Rework gap toggle
     // TODO: Rework "color picker"
-    // TODO: Beautify controls
-    // TODO: Make responsive
-    // TODO: Use theme colors
-    // TODO: Add tooltips
     // TODO: Make amount of colors per palette customizable
     // TODO: Add some sort of fullscreen option
+    // TODO: Beautify controls
+    // TODO: Fix palette generation for grays
+    // TODO: Make responsive
+    // TODO: Add tooltips
     // TODO: Move to own repository (Would make favicon setup more accessible)
 </script>
 
-<div class="flex h-screen w-screen">
+<div class="flex h-screen w-screen" data-theme="paletti">
     <div class="flex w-4/5 flex-col justify-between">
         <Logo />
         <Palette />
