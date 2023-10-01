@@ -3,29 +3,40 @@
     import { getContext } from "svelte"
     import { historyBack, historyForward } from "./store"
 
-    export let direction: "forward" | "back"
+    export let direction: "back" | "forward"
 
-    const moveHistory: (direction: "forward" | "back") => void = getContext("moveHistory")
+    const moveHistory: (direction: "back" | "forward") => void = getContext("moveHistory")
+
+    const buttons = {
+        back: {
+            tooltip: "Go to previous palette [Ctrl + z]",
+            icon: Undo,
+        },
+        forward: {
+            tooltip: "Go to next palette [Ctrl + y]",
+            icon: Redo,
+        },
+    }
 </script>
 
-{#if direction === "back"}
+<div
+    class="tooltip"
+    data-tip={direction === "back"
+        ? "Go to previous palette [Ctrl + z]"
+        : "Go to next palette [Ctrl + y]"}
+>
     <button
         class="btn-circle btn"
-        disabled={$historyBack.length < 2}
+        disabled={(direction === "back" && $historyBack.length < 2) ||
+            (direction === "forward" && $historyForward.length === 0)}
         on:click={() => {
-            moveHistory("back")
+            moveHistory(direction)
         }}
     >
-        <Undo />
+        {#if direction === "back"}
+            <Undo />
+        {:else}
+            <Redo />
+        {/if}
     </button>
-{:else}
-    <button
-        class="btn-circle btn"
-        disabled={$historyForward.length === 0}
-        on:click={() => {
-            moveHistory("forward")
-        }}
-    >
-        <Redo />
-    </button>
-{/if}
+</div>

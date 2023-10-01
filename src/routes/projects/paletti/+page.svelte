@@ -72,7 +72,6 @@
     // TODO: Beautify controls
     // TODO: Fix palette generation for grays
     // TODO: Make responsive
-    // TODO: Add tooltips
     // TODO: Move to own repository (Would make favicon setup more accessible)
 </script>
 

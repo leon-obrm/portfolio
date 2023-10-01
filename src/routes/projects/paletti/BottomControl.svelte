@@ -1,7 +1,19 @@
 <script lang="ts">
     import UndoRedo from "./UndoRedo.svelte"
     import DiceButton from "./DiceButton.svelte"
+    import { getContext } from "svelte"
+
+    const moveHistory: (direction: "forward" | "back") => void = getContext("moveHistory")
 </script>
+
+<svelte:window
+    on:keydown={(e) => {
+        if (!e.ctrlKey) return
+
+        if (e.key === "z") moveHistory("back")
+        else if (e.key === "y") moveHistory("forward")
+    }}
+/>
 
 <div class="mb-6 flex w-full justify-center">
     <div
