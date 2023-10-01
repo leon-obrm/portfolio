@@ -72,6 +72,7 @@
     // TODO: Add tooltips
     // TODO: Make amount of colors per palette customizable
     // TODO: Add some sort of fullscreen option
+    // TODO: Move to own repository (Would make favicon setup more accessible)
 </script>
 
 <div class="flex h-screen w-screen">

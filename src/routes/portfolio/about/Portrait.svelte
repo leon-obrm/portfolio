@@ -34,7 +34,7 @@
             />
 
             <img
-                src="Portrait-min-small-min.png"
+                src="Portrait.png"
                 alt="Portrait of Leon Obermann"
                 class="image-hex w-3/5 max-w-xs md:w-11/12"
             />
