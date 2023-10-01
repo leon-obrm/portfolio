@@ -65,7 +65,7 @@
     setContext("moveHistory", moveHistory)
     navigate()
 
-    // TODO: Rework gap toggle
+    // TODO: Create setting wrapper
     // TODO: Rework "color picker"
     // TODO: Make amount of colors per palette customizable
     // TODO: Add some sort of fullscreen option
