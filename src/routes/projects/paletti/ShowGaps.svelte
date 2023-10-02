@@ -27,10 +27,10 @@
     <div class="flex w-full gap-2">
         {#each buttons as button}
             <button
-                class={`btn flex h-fit flex-1 flex-col gap-3 py-3 active:bg-paletti-500 active:text-white ${
+                class={`btn flex h-fit flex-1 flex-col gap-2 border-2 border-gray-200 bg-white py-2.5 hover:bg-white active:text-paletti-600 ${
                     $colorSettings.showGap === button.value
-                        ? "scale-95 bg-paletti-500 text-white shadow-inner hover:bg-paletti-500"
-                        : "shadow-md"
+                        ? "scale-95 text-paletti-600 shadow-inner"
+                        : "shadow-lg active:shadow-inner"
                 }`}
                 on:click={() => {
                     colorSettings.update((settings) => ({
@@ -42,7 +42,7 @@
                 <div class="drop-shadow-lg">
                     <svelte:component this={button.icon} size={28}></svelte:component>
                 </div>
-                <p>{button.text}</p>
+                <p class="text-xs">{button.text}</p>
             </button>
         {/each}
     </div>
