@@ -1,6 +1,7 @@
 <script lang="ts">
     import { Columns, StretchVertical } from "lucide-svelte"
     import { colorSettings } from "./store"
+    import SettingWrapper from "./SettingWrapper.svelte"
 
     interface ButtonProps {
         icon: typeof Columns | typeof StretchVertical
@@ -22,8 +23,7 @@
     ]
 </script>
 
-<div class="flex w-full max-w-md flex-col gap-2">
-    <label for="hue-rotation-amount" class="font-semibold">Spacing</label>
+<SettingWrapper label="Spacing">
     <div class="flex w-full gap-2">
         {#each buttons as button}
             <button
@@ -46,4 +46,4 @@
             </button>
         {/each}
     </div>
-</div>
+</SettingWrapper>

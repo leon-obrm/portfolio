@@ -2,6 +2,7 @@
     import convert from "color-convert"
     import { page } from "$app/stores"
     import { getContext } from "svelte"
+    import SettingWrapper from "./SettingWrapper.svelte"
 
     const navigate: (mainColor?: string, hueRotationAmount?: number) => void =
         getContext("navigate")
@@ -17,8 +18,7 @@
     $: mainHue = convert.hex.hsl($page.data.mainColor)[0]
 </script>
 
-<div class="flex w-full max-w-md flex-col gap-2">
-    <label for="hue-rotation-amount" class="font-semibold">Hue</label>
+<SettingWrapper label="Hue">
     <input
         class="slider h-3 w-full rounded-full"
         style="background: linear-gradient(90deg, hsl({mainHue - 30}, 100%, 65%) 0%, hsl({mainHue +
@@ -30,7 +30,7 @@
         on:input={setHueRotationAmount}
         value={$page.data.hueRotationAmount}
     />
-</div>
+</SettingWrapper>
 
 <style>
     /* 

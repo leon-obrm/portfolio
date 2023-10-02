@@ -67,7 +67,6 @@
 
     // TODO: Add settings to url state
     // TODO: Refactor export into modal with code preview
-    // TODO: Create setting wrapper
     // TODO: Rework "color picker"
     // TODO: Make amount of colors per palette customizable
     // TODO: Add some sort of fullscreen option
