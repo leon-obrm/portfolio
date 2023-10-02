@@ -6,17 +6,6 @@
     export let direction: "back" | "forward"
 
     const moveHistory: (direction: "back" | "forward") => void = getContext("moveHistory")
-
-    const buttons = {
-        back: {
-            tooltip: "Go to previous palette [Ctrl + z]",
-            icon: Undo,
-        },
-        forward: {
-            tooltip: "Go to next palette [Ctrl + y]",
-            icon: Redo,
-        },
-    }
 </script>
 
 <div
@@ -26,7 +15,7 @@
         : "Go to next palette [Ctrl + y]"}
 >
     <button
-        class="btn-circle btn"
+        class="btn-ghost btn-circle btn"
         disabled={(direction === "back" && $historyBack.length < 2) ||
             (direction === "forward" && $historyForward.length === 0)}
         on:click={() => {

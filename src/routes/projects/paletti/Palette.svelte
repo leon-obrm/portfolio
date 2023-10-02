@@ -12,7 +12,11 @@
 </script>
 
 <div class="m-3">
-    <div class={`flex w-full items-start ${$colorSettings.showGap && "gap-2"}`}>
+    <div
+        class={`flex w-full items-start gap-0 transition-[gap] ${
+            $colorSettings.showGap && "!gap-2"
+        }`}
+    >
         {#if $colors.length === 0}
             <p>Loading</p>
         {/if}
@@ -21,3 +25,8 @@
         {/each}
     </div>
 </div>
+
+<style>
+    .test {
+    }
+</style>

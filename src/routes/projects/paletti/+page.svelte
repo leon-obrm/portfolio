@@ -65,14 +65,12 @@
     setContext("moveHistory", moveHistory)
     navigate()
 
+    // TODO: Add settings to url state
     // TODO: Refactor export into modal with code preview
-    // TODO: Rework background color design
-    // TODO: Add smooth transition to gap toggle
     // TODO: Create setting wrapper
     // TODO: Rework "color picker"
     // TODO: Make amount of colors per palette customizable
     // TODO: Add some sort of fullscreen option
-    // TODO: Beautify controls
     // TODO: Fix palette generation for grays
     // TODO: Make responsive
     // TODO: Move to own repository (Would make favicon setup more accessible)

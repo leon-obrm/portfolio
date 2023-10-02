@@ -79,7 +79,10 @@
         } ${index === 8 && "rounded-r-xl"}`}
         style="background-color: #{color};"
     >
-        <p class="relative top-6 z-50 px-2 text-center text-sm font-medium" style:color={textColor}>
+        <p
+            class="relative top-6 z-50 w-4/5 overflow-hidden overflow-ellipsis whitespace-nowrap text-center text-sm font-medium"
+            style:color={textColor}
+        >
             {ntc.name(color)[1]}
         </p>
         <label
