@@ -65,6 +65,10 @@
     setContext("moveHistory", moveHistory)
     navigate()
 
+    // TODO: Refactor export into modal with code preview
+    // TODO: Rework background color design
+    // TODO: Add border to gap toggle
+    // TODO: Add smooth transition to gap toggle
     // TODO: Create setting wrapper
     // TODO: Rework "color picker"
     // TODO: Make amount of colors per palette customizable
