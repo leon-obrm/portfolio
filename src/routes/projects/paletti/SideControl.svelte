@@ -1,9 +1,8 @@
 <script lang="ts">
+    import ColorPicker from "./ColorPicker.svelte"
     import HueSlider from "./HueSlider.svelte"
     import ShowGaps from "./ShowGaps.svelte"
     import Export from "./Export.svelte"
-
-    // TODO: Normalize labels
 </script>
 
 <div
@@ -11,6 +10,8 @@
 >
     <div class="flex w-full flex-col items-start gap-8">
         <p class="-mb-4 text-lg font-bold">Settings</p>
+
+        <ColorPicker />
 
         <HueSlider />
 

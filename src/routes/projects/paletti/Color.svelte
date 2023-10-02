@@ -1,14 +1,11 @@
 <script lang="ts">
+    import { page } from "$app/stores"
     import convert from "color-convert"
     import { Copy } from "lucide-svelte"
     import { ntc } from "$lib/ntc"
-    import { getContext } from "svelte"
 
     export let color: string
     export let index: number
-
-    const navigate: (mainColor?: string, hueRotationAmount?: number) => void =
-        getContext("navigate")
 
     /** Calculates contrast ratio between two colors
      * Credit: https://stackoverflow.com/a/9733420
@@ -54,22 +51,6 @@
     $: if (color) isClicked = false
 
     let timeout: NodeJS.Timeout
-
-    /** Updates main color of palette config */
-    function setNewColor(e: Event) {
-        const inputElement = e.target as HTMLInputElement
-        if (inputElement === null) return
-        if (inputElement.value.length < 6) return
-        let allowedCharacters = /^[A-Fa-f0-9]+$/
-        if (!allowedCharacters.test(inputElement.value)) return
-
-        // TODO: Check for invalid hex values
-        // TODO: Also update hue rotation amount
-
-        console.log(inputElement.value)
-
-        navigate(inputElement.value)
-    }
 </script>
 
 <div class={`flex flex-col items-center gap-2 ${index !== 4 ? "w-[10.5%]" : "w-[16%]"}`}>
@@ -112,17 +93,8 @@
             <div class="swap-on text-lg">Copied!</div>
         </label>
     </div>
-    {#if index === 4}
-        <input
-            type="text"
-            class="input-bordered input-primary input m-0 h-7 w-24 max-w-xs p-0 text-center text-lg"
-            maxlength="6"
-            value={color}
-            on:input={setNewColor}
-        />
-    {:else}
-        <p class={`text-lg ${index !== 4 ? "text-gray-500" : "font-bold"}`}>
-            {color}
-        </p>
-    {/if}
+
+    <p class={`text-lg ${index !== 4 ? "text-gray-500" : "font-bold"}`}>
+        {color}
+    </p>
 </div>

@@ -21,7 +21,7 @@
             <p>Loading</p>
         {/if}
         {#each $colors as color, index}
-            <Color {color} {index} />
+            <Color color={index === 4 ? $page.data.mainColor : color} {index} />
         {/each}
     </div>
 </div>
