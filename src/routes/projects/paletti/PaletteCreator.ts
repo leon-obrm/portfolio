@@ -21,22 +21,22 @@ export class PaletteCreator {
      * Divides remaining saturation space evenly between main saturation and max saturation
      */
     modifySaturations(mainSaturation: number): number[] {
-        const maxSaturation = 100
-        // Distances to max saturation
-        const mainToMax = maxSaturation - mainSaturation
+        const maxSaturation = Math.min(30, mainSaturation * 2)
 
         // Divides remaining saturation space evenly between main saturation and max saturation
         const saturations: number[] = [
-            maxSaturation,
-            mainSaturation + mainToMax * 0.75,
-            mainSaturation + mainToMax * 0.5,
-            mainSaturation + mainToMax * 0.25,
-            mainSaturation,
-            mainSaturation + mainToMax * 0.25,
-            mainSaturation + mainToMax * 0.5,
-            mainSaturation + mainToMax * 0.75,
-            maxSaturation,
+            Math.min(100, mainSaturation + maxSaturation),
+            Math.min(100, mainSaturation + maxSaturation * 0.75),
+            Math.min(100, mainSaturation + maxSaturation * 0.5),
+            Math.min(100, mainSaturation + maxSaturation * 0.25),
+            Math.min(100, mainSaturation),
+            Math.min(100, mainSaturation + maxSaturation * 0.25),
+            Math.min(100, mainSaturation + maxSaturation * 0.5),
+            Math.min(100, mainSaturation + maxSaturation * 0.75),
+            Math.min(100, mainSaturation + maxSaturation),
         ]
+
+        console.log(...saturations)
 
         return saturations
     }

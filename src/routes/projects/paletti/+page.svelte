@@ -68,7 +68,6 @@
     setContext("moveHistory", moveHistory)
     navigate()
 
-    // TODO: Fix palette generation for grays
     // TODO: Make amount of colors per palette customizable
     // TODO: Add animation to dice button
     // TODO: Add settings to url state
