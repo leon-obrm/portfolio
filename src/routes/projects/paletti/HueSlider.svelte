@@ -3,6 +3,7 @@
     import { page } from "$app/stores"
     import { getContext } from "svelte"
     import Slider from "./Slider.svelte"
+    import SettingWrapper from "./SettingWrapper.svelte"
 
     const navigate: (mainColor?: string, hueRotationAmount?: number) => void =
         getContext("navigate")
@@ -18,12 +19,14 @@
     $: mainHue = convert.hex.hsl($page.data.mainColor)[0]
 </script>
 
-<Slider
-    style="background: linear-gradient(90deg, hsl({mainHue - 30}, 100%, 65%) 0%, hsl({mainHue +
-        30}, 100%, 65%) 100%);"
-    min={-100}
-    max={100}
-    step={10}
-    value={$page.data.hueRotationAmount}
-    onInput={setHueRotationAmount}
-/>
+<SettingWrapper label="Hue Rotation">
+    <Slider
+        style="background: linear-gradient(90deg, hsl({mainHue - 30}, 100%, 65%) 0%, hsl({mainHue +
+            30}, 100%, 65%) 100%);"
+        min={-100}
+        max={100}
+        step={10}
+        value={$page.data.hueRotationAmount}
+        onInput={setHueRotationAmount}
+    />
+</SettingWrapper>

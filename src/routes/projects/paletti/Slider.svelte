@@ -9,18 +9,16 @@
     export let onInput: (e: Event) => void
 </script>
 
-<SettingWrapper label="Hue">
-    <input
-        type="range"
-        class="slider h-3 w-full rounded-full"
-        {style}
-        {min}
-        {max}
-        {step}
-        {value}
-        on:input={onInput}
-    />
-</SettingWrapper>
+<input
+    type="range"
+    class="slider h-3 w-full rounded-full border border-gray-200 shadow-inner"
+    {style}
+    {min}
+    {max}
+    {step}
+    {value}
+    on:input={onInput}
+/>
 
 <style>
     /* 

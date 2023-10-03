@@ -25,8 +25,3 @@
         {/each}
     </div>
 </div>
-
-<style>
-    .test {
-    }
-</style>
