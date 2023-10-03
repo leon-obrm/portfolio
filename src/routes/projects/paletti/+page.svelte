@@ -68,14 +68,14 @@
     setContext("moveHistory", moveHistory)
     navigate()
 
-    // TODO: Fix bug with hex to hsl translation moving hsl sliders
-    // TODO: Make amount of colors per palette customizable
     // TODO: Add animation to dice button
+    // TODO: Make amount of colors per palette customizable
     // TODO: Add settings to url state
     // TODO: Refactor export into modal with code preview
     // TODO: Make responsive
     // TODO: Add some sort of fullscreen option
     // TODO: Make HSL values editable
+    // TODO: Check if saturation logic is still working correctly
     // TODO: Check for compatibility with other browsers
     // TODO: Move to own repository (Would make favicon setup more accessible)
 </script>

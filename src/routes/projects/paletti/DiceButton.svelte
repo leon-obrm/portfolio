@@ -37,7 +37,10 @@
 </script>
 
 <div class="tooltip" data-tip="Create random palette">
-    <button class="btn-primary btn-circle btn h-16 w-16" on:click={createRandomPaletteConfig}>
+    <button
+        class="btn-primary btn-circle btn h-16 w-16 hover:scale-110"
+        on:click={createRandomPaletteConfig}
+    >
         <Dice5 size={30} />
     </button>
 </div>
