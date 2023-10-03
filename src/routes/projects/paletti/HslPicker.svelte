@@ -1,7 +1,7 @@
 <script lang="ts">
     import convert from "color-convert"
-    import { getContext } from "svelte"
-    import { slide, fade, blur, fly, scale } from "svelte/transition"
+    import { getContext, onMount } from "svelte"
+    import { slide } from "svelte/transition"
     import { page } from "$app/stores"
     import SettingWrapper from "./SettingWrapper.svelte"
     import Slider from "./Slider.svelte"
@@ -12,9 +12,37 @@
         addToHistory?: boolean
     ) => void = getContext("navigate")
 
-    $: hue = convert.hex.hsl($page.data.mainColor)[0]
-    $: saturation = convert.hex.hsl($page.data.mainColor)[1]
-    $: lightness = convert.hex.hsl($page.data.mainColor)[2]
+    // Initially load hsl values from url
+    const hslValues: number[] = convert.hex.hsl($page.data.mainColor)
+
+    let hue: number = hslValues[0]
+    let saturation: number = hslValues[1]
+    let lightness: number = hslValues[2]
+
+    // Update hsl values when new random palette is created
+    onMount(() => {
+        function handleNewRandomPalette(e: Event) {
+            interface PaletteDetail {
+                newHue: number
+                newSaturation: number
+                newLightness: number
+            }
+
+            const paletteEvent = e as CustomEvent<PaletteDetail>
+
+            const { newHue, newSaturation, newLightness } = paletteEvent.detail
+
+            hue = newHue
+            saturation = newSaturation
+            lightness = newLightness
+        }
+
+        document.addEventListener("randomPaletteCreated", handleNewRandomPalette)
+
+        return () => {
+            document.removeEventListener("randomPaletteCreated", handleNewRandomPalette)
+        }
+    })
 
     /** Updates values in url but does not save them to history to avoid cluttering */
     function updateValues(e: Event, type: "hue" | "saturation" | "lightness") {

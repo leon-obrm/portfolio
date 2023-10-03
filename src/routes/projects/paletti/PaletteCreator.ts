@@ -36,8 +36,6 @@ export class PaletteCreator {
             Math.min(100, mainSaturation + maxSaturation),
         ]
 
-        console.log(...saturations)
-
         return saturations
     }
 

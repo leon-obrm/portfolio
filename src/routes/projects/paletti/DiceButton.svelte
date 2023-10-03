@@ -17,11 +17,17 @@
 
     /** Returns random main color */
     function randomMainColor(): string {
-        const hue: number = randomInt(0, 360)
-        const saturation: number = randomInt(60, 80)
-        const lightness: number = randomInt(40, 60)
+        const newHue: number = randomInt(0, 360)
+        const newSaturation: number = randomInt(60, 80)
+        const newLightness: number = randomInt(40, 60)
 
-        return convert.hsl.hex([hue, saturation, lightness])
+        document.dispatchEvent(
+            new CustomEvent("randomPaletteCreated", {
+                detail: { newHue, newSaturation, newLightness },
+            })
+        )
+
+        return convert.hsl.hex([newHue, newSaturation, newLightness])
     }
 
     /** Creates random palette config */

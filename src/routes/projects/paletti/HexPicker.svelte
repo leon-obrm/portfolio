@@ -1,6 +1,6 @@
 <script lang="ts">
     import { getContext } from "svelte"
-    import { slide, fade, blur, fly, scale } from "svelte/transition"
+    import { fade } from "svelte/transition"
     import { page } from "$app/stores"
 
     const navigate: (
@@ -20,8 +20,6 @@
 
         let newMainColor: string = inputElement.value.replaceAll("#", "")
         if (newMainColor.length !== 6) return
-
-        // TODO: Also update hue rotation amount
 
         newMainColor = newMainColor.toUpperCase()
         navigate(newMainColor)
