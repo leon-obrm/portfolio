@@ -1,6 +1,7 @@
 <script lang="ts">
     import convert from "color-convert"
     import { getContext } from "svelte"
+    import { slide, fade, blur, fly, scale } from "svelte/transition"
     import { page } from "$app/stores"
     import SettingWrapper from "./SettingWrapper.svelte"
     import Slider from "./Slider.svelte"
@@ -20,7 +21,7 @@
         const inputElement = e.target as HTMLInputElement
         if (inputElement === null) return
 
-        const value = parseInt(inputElement.value)
+        const value: number = parseInt(inputElement.value)
 
         // Updates corresponding variable
         switch (type) {
@@ -35,7 +36,7 @@
                 break
         }
 
-        const newColor = convert.hsl.hex([hue, saturation, lightness])
+        const newColor: string = convert.hsl.hex([hue, saturation, lightness])
 
         // Updates value in url without saving it to history
         navigate(newColor, undefined, false)
@@ -51,7 +52,13 @@
     }
 </script>
 
-<div class="flex flex-col gap-4" on:mouseup={addToHistory} on:touchend={addToHistory}>
+<div
+    in:slide
+    out:slide={{ duration: 350 }}
+    class="col-start-1 row-start-1 flex flex-col gap-4 pb-2"
+    on:mouseup={addToHistory}
+    on:touchend={addToHistory}
+>
     <SettingWrapper label="Hue" labelSize="small" value={hue}>
         <Slider
             style="background: linear-gradient(to right, hsl(0, 100%, 50%), hsl(60, 100%, 50%), hsl(120, 100%, 50%), hsl(180, 100%, 50%), hsl(240, 100%, 50%), hsl(300, 100%, 50%), hsl(360, 100%, 50%));"

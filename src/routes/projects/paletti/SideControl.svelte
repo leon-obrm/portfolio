@@ -17,8 +17,6 @@
 
         <HueSlider />
 
-        <!-- <div class="divider" /> -->
-
         <ShowGaps />
     </div>
 

@@ -70,11 +70,13 @@
 
     // TODO: Fix palette generation for grays
     // TODO: Make amount of colors per palette customizable
+    // TODO: Add animation to dice button
     // TODO: Add settings to url state
     // TODO: Refactor export into modal with code preview
-    // TODO: Make HSL values editable
     // TODO: Make responsive
     // TODO: Add some sort of fullscreen option
+    // TODO: Make HSL values editable
+    // TODO: Check for compatibility with other browsers
     // TODO: Move to own repository (Would make favicon setup more accessible)
 </script>
 

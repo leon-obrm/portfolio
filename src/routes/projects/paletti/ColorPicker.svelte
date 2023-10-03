@@ -20,9 +20,11 @@
             </button>
         {/each}
     </div>
-    {#if colorMode === "HEX"}
-        <HexPicker />
-    {:else if colorMode === "HSL"}
-        <HslPicker />
-    {/if}
+    <div class="grid w-full grid-cols-1">
+        {#if colorMode === "HEX"}
+            <HexPicker />
+        {:else if colorMode === "HSL"}
+            <HslPicker />
+        {/if}
+    </div>
 </SettingWrapper>
