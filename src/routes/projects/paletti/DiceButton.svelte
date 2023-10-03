@@ -4,8 +4,11 @@
 
     import { getContext } from "svelte"
 
-    const navigate: (mainColor?: string, hueRotationAmount?: number) => void =
-        getContext("navigate")
+    const navigate: (
+        mainColor?: string,
+        hueRotationAmount?: number,
+        addToHistory?: boolean
+    ) => void = getContext("navigate")
 
     /** Returns random int in range */
     function randomInt(min: number, max: number): number {

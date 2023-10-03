@@ -1,15 +1,57 @@
 <script lang="ts">
+    import convert from "color-convert"
+    import { getContext } from "svelte"
+    import { page } from "$app/stores"
     import SettingWrapper from "./SettingWrapper.svelte"
     import Slider from "./Slider.svelte"
 
-    let hue: number = 0
-    let saturation: number = 100
-    let lightness: number = 50
+    const navigate: (
+        mainColor?: string,
+        hueRotationAmount?: number,
+        addToHistory?: boolean
+    ) => void = getContext("navigate")
 
-    $: console.log(hue, saturation, lightness)
+    $: hue = convert.hex.hsl($page.data.mainColor)[0]
+    $: saturation = convert.hex.hsl($page.data.mainColor)[1]
+    $: lightness = convert.hex.hsl($page.data.mainColor)[2]
+
+    /** Updates values in url but does not save them to history to avoid cluttering */
+    function updateValues(e: Event, type: "hue" | "saturation" | "lightness") {
+        const inputElement = e.target as HTMLInputElement
+        if (inputElement === null) return
+
+        const value = parseInt(inputElement.value)
+
+        // Updates corresponding variable
+        switch (type) {
+            case "hue":
+                hue = value
+                break
+            case "saturation":
+                saturation = value
+                break
+            case "lightness":
+                lightness = value
+                break
+        }
+
+        const newColor = convert.hsl.hex([hue, saturation, lightness])
+
+        // Updates value in url without saving it to history
+        navigate(newColor, undefined, false)
+    }
+
+    /** Adds current color to history
+     * Is triggered on mouseup and touchend to avoid cluttering history with every small change in color during sliding
+     */
+    function addToHistory() {
+        const newColor = convert.hsl.hex([hue, saturation, lightness])
+
+        navigate(newColor)
+    }
 </script>
 
-<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-4" on:mouseup={addToHistory} on:touchend={addToHistory}>
     <SettingWrapper label="Hue" labelSize="small" value={hue}>
         <Slider
             style="background: linear-gradient(to right, hsl(0, 100%, 50%), hsl(60, 100%, 50%), hsl(120, 100%, 50%), hsl(180, 100%, 50%), hsl(240, 100%, 50%), hsl(300, 100%, 50%), hsl(360, 100%, 50%));"
@@ -17,7 +59,9 @@
             max={360}
             step={1}
             value={hue}
-            onInput={(e) => (hue = parseInt(e.target.value))}
+            onInput={(e) => {
+                updateValues(e, "hue")
+            }}
         />
     </SettingWrapper>
 
@@ -28,7 +72,9 @@
             max={100}
             step={1}
             value={saturation}
-            onInput={(e) => (saturation = parseInt(e.target.value))}
+            onInput={(e) => {
+                updateValues(e, "saturation")
+            }}
         />
     </SettingWrapper>
 
@@ -39,7 +85,9 @@
             max={100}
             step={1}
             value={lightness}
-            onInput={(e) => (lightness = parseInt(e.target.value))}
+            onInput={(e) => {
+                updateValues(e, "lightness")
+            }}
         />
     </SettingWrapper>
 </div>

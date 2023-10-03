@@ -5,8 +5,11 @@
     import Slider from "./Slider.svelte"
     import SettingWrapper from "./SettingWrapper.svelte"
 
-    const navigate: (mainColor?: string, hueRotationAmount?: number) => void =
-        getContext("navigate")
+    const navigate: (
+        mainColor?: string,
+        hueRotationAmount?: number,
+        addToHistory?: boolean
+    ) => void = getContext("navigate")
 
     function setHueRotationAmount(e: Event) {
         const inputElement = e.target as HTMLInputElement

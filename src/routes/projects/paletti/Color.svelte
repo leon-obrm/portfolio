@@ -94,7 +94,7 @@
         </label>
     </div>
 
-    <p class={`text-lg ${index !== 4 ? "text-gray-500" : "font-bold"}`}>
+    <p class={index !== 4 ? "text-gray-500" : "font-bold"}>
         {color}
     </p>
 </div>

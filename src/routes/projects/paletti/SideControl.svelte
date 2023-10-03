@@ -13,7 +13,11 @@
 
         <ColorPicker />
 
+        <div class="divider -my-4" />
+
         <HueSlider />
+
+        <!-- <div class="divider" /> -->
 
         <ShowGaps />
     </div>

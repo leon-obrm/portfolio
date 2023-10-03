@@ -2,8 +2,11 @@
     import { getContext } from "svelte"
     import { page } from "$app/stores"
 
-    const navigate: (mainColor?: string, hueRotationAmount?: number) => void =
-        getContext("navigate")
+    const navigate: (
+        mainColor?: string,
+        hueRotationAmount?: number,
+        addToHistory?: boolean
+    ) => void = getContext("navigate")
 
     /** Updates main color of palette config */
     function setNewColor(e: Event) {
@@ -26,7 +29,7 @@
 
 <input
     type="text"
-    class="input-bordered input-primary input m-0 h-7 w-24 max-w-xs p-0 text-center text-lg"
+    class="input-bordered input h-8 w-full max-w-xs p-0 text-center text-lg"
     maxlength="7"
     value={$page.data.mainColor}
     on:input={setNewColor}

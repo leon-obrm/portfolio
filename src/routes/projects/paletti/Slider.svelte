@@ -1,6 +1,4 @@
 <script lang="ts">
-    import SettingWrapper from "./SettingWrapper.svelte"
-
     export let style: string
     export let min: number
     export let max: number

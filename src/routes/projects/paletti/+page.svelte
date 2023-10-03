@@ -10,12 +10,15 @@
     /** Data from +page.ts (URL parameters) */
     export let data
 
-    function navigate(mainColor?: string, hueRotationAmount?: number) {
+    function navigate(mainColor?: string, hueRotationAmount?: number, addToHistory?: boolean) {
         const newUrl: string = `?mainColor=${mainColor ?? data.mainColor}&hueRotationAmount=${
             hueRotationAmount ?? data.hueRotationAmount
         }`
 
         goto(newUrl)
+
+        // Do not alter history
+        if (addToHistory === false) return
 
         // If change is only in hueRotationAmount, remove last item from historyBack
         // This way, the history is not cluttered with every change in hue rotation
