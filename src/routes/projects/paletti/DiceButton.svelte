@@ -21,18 +21,13 @@
         const newSaturation: number = randomInt(10, 90)
         const newLightness: number = randomInt(45, 55)
 
-        document.dispatchEvent(
-            new CustomEvent("randomPaletteCreated", {
-                detail: { newHue, newSaturation, newLightness },
-            })
-        )
-
         return convert.hsl.hex([newHue, newSaturation, newLightness])
     }
 
     /** Creates random palette config */
     function createRandomPaletteConfig() {
         navigate(randomMainColor(), randomInt(-100, 100))
+        document.dispatchEvent(new Event("colorChange"))
     }
 </script>
 

@@ -19,28 +19,22 @@
     let saturation: number = hslValues[1]
     let lightness: number = hslValues[2]
 
-    // Update hsl values when new random palette is created
+    // Update hsl values when color is updated somewhere else
     onMount(() => {
-        function handleNewRandomPalette(e: Event) {
-            interface PaletteDetail {
-                newHue: number
-                newSaturation: number
-                newLightness: number
-            }
+        function handleColorChange(e: Event) {
+            setTimeout(() => {
+                const hslValues: number[] = convert.hex.hsl($page.data.mainColor)
 
-            const paletteEvent = e as CustomEvent<PaletteDetail>
-
-            const { newHue, newSaturation, newLightness } = paletteEvent.detail
-
-            hue = newHue
-            saturation = newSaturation
-            lightness = newLightness
+                hue = hslValues[0]
+                saturation = hslValues[1]
+                lightness = hslValues[2]
+            }, 30)
         }
 
-        document.addEventListener("randomPaletteCreated", handleNewRandomPalette)
+        document.addEventListener("colorChange", handleColorChange)
 
         return () => {
-            document.removeEventListener("randomPaletteCreated", handleNewRandomPalette)
+            document.removeEventListener("colorChange", handleColorChange)
         }
     })
 

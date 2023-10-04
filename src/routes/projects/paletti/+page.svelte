@@ -62,18 +62,19 @@
             // Go to next page
             goto(nextUrl)
         }
+        document.dispatchEvent(new Event("colorChange"))
     }
 
     setContext("navigate", navigate)
     setContext("moveHistory", moveHistory)
     navigate()
 
-    // TODO: Fix bug with hsl not being updated when navigating through history
     // TODO: Add animation to dice button
-    // TODO: Make amount of colors per palette customizable
     // TODO: Add settings to url state
     // TODO: Refactor export into modal with code preview
     // TODO: Make responsive
+    // TODO: Make it possible to have multiple color palettes
+    // TODO: Make amount of colors per palette customizable
     // TODO: Add some sort of fullscreen option
     // TODO: Make HSL values editable
     // TODO: Check if saturation logic is still working correctly

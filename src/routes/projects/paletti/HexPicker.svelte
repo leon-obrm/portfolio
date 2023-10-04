@@ -30,7 +30,7 @@
     in:fade={{ duration: 250 }}
     out:fade={{ duration: 250 }}
     type="text"
-    class="input-bordered input col-start-1 row-start-1 h-8 w-full max-w-xs p-0 text-center text-lg"
+    class="input-bordered input col-start-1 row-start-1 h-8 w-full p-0 text-center text-lg"
     maxlength="7"
     value={$page.data.mainColor}
     on:input={setNewColor}
