@@ -69,20 +69,27 @@
     setContext("moveHistory", moveHistory)
     navigate()
 
-    // TODO: Add animation to dice button
+    // Features
     // TODO: Add settings to url state
-    // TODO: Make responsive
     // TODO: Make it possible to have multiple color palettes
     // TODO: Make amount of colors per palette customizable
     // TODO: Add some sort of fullscreen option
     // TODO: Make HSL values editable
+
+    // Polishing
+    // TODO: Add animation to dice button
+    // TODO: Make responsive
+
+    // Testing
     // TODO: Check if saturation logic is still working correctly
     // TODO: Check for compatibility with other browsers
+
+    // Other
     // TODO: Move to own repository (Would make favicon setup more accessible)
 </script>
 
 <div class="flex h-screen w-screen" data-theme="paletti">
-    <div class="flex w-4/5 flex-col justify-between">
+    <div class="flex w-5/6 flex-col justify-between">
         <Logo />
         <Palette />
         <BottomControl />
