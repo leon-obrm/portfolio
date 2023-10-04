@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Columns, StretchVertical } from "lucide-svelte"
-    import { colorSettings } from "./store"
+    import { colorSettings } from "../store"
     import SettingWrapper from "./SettingWrapper.svelte"
 
     interface ButtonProps {

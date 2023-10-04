@@ -4,8 +4,8 @@
     import { setContext } from "svelte"
     import { historyBack, historyForward } from "./store"
     import Logo from "./Logo.svelte"
-    import BottomControl from "./BottomControl.svelte"
-    import SideControl from "./SideControl.svelte"
+    import BottomControl from "./bottomcontrol/BottomControl.svelte"
+    import SideControl from "./sidecontrol/SideControl.svelte"
 
     /** Data from +page.ts (URL parameters) */
     export let data

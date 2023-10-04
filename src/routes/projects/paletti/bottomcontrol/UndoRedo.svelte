@@ -1,7 +1,7 @@
 <script lang="ts">
     import { Redo, Undo } from "lucide-svelte"
     import { getContext } from "svelte"
-    import { historyBack, historyForward } from "./store"
+    import { historyBack, historyForward } from "../store"
 
     export let direction: "back" | "forward"
 

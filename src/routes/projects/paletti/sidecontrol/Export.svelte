@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { colors } from "./store"
+    import { colors } from "../store"
 
     interface ExportOption {
         name: string
