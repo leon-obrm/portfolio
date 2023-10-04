@@ -1,77 +1,139 @@
 <script lang="ts">
+    import { Copy } from "lucide-svelte"
     import { colors } from "../store"
+
+    /** Ref to modal element */
+    let modal: any
+    let currentOption: number = 0
 
     interface ExportOption {
         name: string
-        copy: () => void
+        lines: string[]
+        fileName?: string
     }
 
-    function copyAsLink() {
-        const link: string = window.location.href
-        navigator.clipboard.writeText(link)
+    let exportLink: string[] = []
+    $: {
+        $colors
+        exportLink = [window.location.href]
     }
-
-    function copyAsCssVariables() {
+    let exportCssVariables: string[] = []
+    $: {
         let count: number = 9
 
-        let cssVariables: string = ":root {\n"
+        let cssVariables: string[] = [":root {\n"]
 
         $colors.forEach((color: string) => {
-            cssVariables += `    --primary-${count}00: #${color};\n`
+            cssVariables = [...cssVariables, `    --primary-${count}00: #${color};\n`]
             count--
         })
 
-        cssVariables += "}"
+        cssVariables = [...cssVariables, "}"]
 
-        console.log(cssVariables)
-
-        navigator.clipboard.writeText(cssVariables)
+        exportCssVariables = cssVariables
     }
-
-    function copyAsTailwindCssTheme() {
+    let exportTailwindTheme: string[] = []
+    $: {
         let count: number = 9
 
-        let tailwindTheme: string = "theme: {\n"
-        tailwindTheme += "    extend: {\n"
-        tailwindTheme += "        colors: {\n"
+        let tailwindTheme: string[] = ["theme: {\n", "    extend: {\n", "        colors: {\n"]
 
         $colors.forEach((color: string) => {
-            tailwindTheme += `            "primary-${count}00": "#${color}",\n`
+            tailwindTheme = [...tailwindTheme, `            "primary-${count}00": "#${color}",\n`]
             count--
         })
 
-        tailwindTheme += "        },\n"
-        tailwindTheme += "    },\n"
-        tailwindTheme += "},"
+        tailwindTheme = [...tailwindTheme, "        },\n", "    },\n", "},"]
 
-        navigator.clipboard.writeText(tailwindTheme)
+        exportTailwindTheme = tailwindTheme
     }
+    let exportArray: string[] = []
+    $: exportArray = [`const colors: string[] = [${$colors.join(", ")}]`]
 
-    function copyAsArray() {
-        navigator.clipboard.writeText(JSON.stringify($colors))
-    }
-
-    const exportOptions: ExportOption[] = [
-        { name: "Copy as link", copy: copyAsLink },
-        { name: "Copy as CSS variables", copy: copyAsCssVariables },
-        { name: "Copy as Tailwind CSS theme", copy: copyAsTailwindCssTheme },
-        { name: "Copy as array", copy: copyAsArray },
+    let exportOptions: ExportOption[] = []
+    $: exportOptions = [
+        { name: "CSS Variables", lines: exportCssVariables },
+        { name: "Tailwind CSS Theme", lines: exportTailwindTheme, fileName: "tailwind.config.js" },
+        { name: "Link", lines: exportLink },
+        { name: "Array", lines: exportArray },
     ]
 
     // TODO: Adapt tailwind export to object format
     // TODO: Add help links to each export option
     // TODO: Add export to realtimecolors
+
+    let copyIsClicked = false
+    let timeout: NodeJS.Timeout
 </script>
 
-<div class="dropdown-top dropdown w-full">
-    <button tabindex="0" class="btn-primary btn w-full">Export</button>
-    <div class="dropdown-content menu rounded-box z-[1] w-full bg-base-100 p-2 shadow">
-        {#each exportOptions as exportOption}
-            <li>
-                <button class="whitespace-nowrap" on:click={exportOption.copy}
-                    >{exportOption.name}</button
+<svelte:window
+    on:keydown={(e) => {
+        if (e.key !== "e") return
+        if (!modal.open) modal.showModal()
+        else modal.close()
+    }}
+/>
+
+<button
+    class="btn-primary btn w-full"
+    on:click={() => {
+        modal.showModal()
+    }}
+>
+    Export
+</button>
+<dialog bind:this={modal} class="modal">
+    <form method="dialog" class="modal-backdrop">
+        <button></button>
+    </form>
+    <div class="modal-box fixed top-[10%] w-full max-w-5xl">
+        <form method="dialog">
+            <button class="btn-ghost btn-sm btn-circle btn absolute right-2 top-2">✕</button>
+        </form>
+        <h3 class="pb-4 text-lg font-bold">Export options</h3>
+        <div class="tabs tabs-boxed bg-white">
+            {#each exportOptions as exportOption, index}
+                <button
+                    class={`tab ${currentOption === index && "tab-active"}`}
+                    on:click={() => {
+                        currentOption = index
+                    }}>{exportOption.name}</button
                 >
-            </li>
-        {/each}
+            {/each}
+        </div>
+        <div class="mockup-code">
+            <label class="swap swap-rotate absolute right-4 top-5">
+                <input
+                    type="checkbox"
+                    bind:checked={copyIsClicked}
+                    on:change={() => {
+                        // Copies export option to clipboard
+                        navigator.clipboard.writeText(exportOptions[currentOption].lines.join(""))
+
+                        // Shows "Copied!" for 1 second when clicked
+                        copyIsClicked = true
+                        clearTimeout(timeout)
+                        timeout = setTimeout(() => {
+                            copyIsClicked = false
+                        }, 1000)
+                    }}
+                />
+                <div class="swap-off flex content-center items-center justify-center">
+                    <Copy size={28} />
+                </div>
+                <div class="swap-on">Copied!</div>
+            </label>
+
+            <div class="-mb-5 overflow-x-auto pb-5">
+                {#if exportOptions[currentOption].fileName !== undefined}
+                    <pre><code class="text-xs text-gray-300"
+                            >{exportOptions[currentOption].fileName}</code
+                        ></pre>
+                {/if}
+                {#each exportOptions[currentOption].lines as line, index}
+                    <pre data-prefix={index + 1}><code>{line}</code></pre>
+                {/each}
+            </div>
+        </div>
     </div>
-</div>
+</dialog>

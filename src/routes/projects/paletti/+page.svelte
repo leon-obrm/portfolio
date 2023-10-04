@@ -71,7 +71,6 @@
 
     // TODO: Add animation to dice button
     // TODO: Add settings to url state
-    // TODO: Refactor export into modal with code preview
     // TODO: Make responsive
     // TODO: Make it possible to have multiple color palettes
     // TODO: Make amount of colors per palette customizable
