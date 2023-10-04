@@ -68,6 +68,7 @@
     setContext("moveHistory", moveHistory)
     navigate()
 
+    // TODO: Fix bug with hsl not being updated when navigating through history
     // TODO: Add animation to dice button
     // TODO: Make amount of colors per palette customizable
     // TODO: Add settings to url state

@@ -14,7 +14,7 @@
 <div class="m-3">
     <div
         class={`flex w-full items-start gap-0 transition-[gap] ${
-            $colorSettings.showGap && "!gap-2"
+            $colorSettings.showGap && "!gap-1.5"
         }`}
     >
         {#if $colors.length === 0}

@@ -18,8 +18,8 @@
     /** Returns random main color */
     function randomMainColor(): string {
         const newHue: number = randomInt(0, 360)
-        const newSaturation: number = randomInt(60, 80)
-        const newLightness: number = randomInt(40, 60)
+        const newSaturation: number = randomInt(10, 90)
+        const newLightness: number = randomInt(45, 55)
 
         document.dispatchEvent(
             new CustomEvent("randomPaletteCreated", {
