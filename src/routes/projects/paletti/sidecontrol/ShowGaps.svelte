@@ -23,6 +23,16 @@
     ]
 </script>
 
+<svelte:window
+    on:keydown|stopPropagation={(e) => {
+        if (e.key === "g")
+            colorSettings.update((settings) => ({
+                ...settings,
+                showGap: !$colorSettings.showGap,
+            }))
+    }}
+/>
+
 <SettingWrapper label="Spacing">
     <div class="flex w-full gap-2">
         {#each buttons as button}

@@ -64,24 +64,30 @@
 
     let copyIsClicked = false
     let timeout: NodeJS.Timeout
-</script>
 
-<svelte:window
-    on:keydown={(e) => {
+    function handleKeyDown(e: KeyboardEvent) {
+        const keyAsNumber: number = Number(e.key)
+        if (!isNaN(keyAsNumber) && keyAsNumber <= exportOptions.length && modal.open)
+            currentOption = keyAsNumber - 1
+
         if (e.key !== "e") return
         if (!modal.open) modal.showModal()
         else modal.close()
-    }}
-/>
+    }
+</script>
 
-<button
-    class="btn-primary btn w-full"
-    on:click={() => {
-        modal.showModal()
-    }}
->
-    Export
-</button>
+<svelte:window on:keydown|stopPropagation={handleKeyDown} />
+
+<div class="tooltip" data-tip="Show export options [e]">
+    <button
+        class="btn-primary btn w-full"
+        on:click={() => {
+            modal.showModal()
+        }}
+    >
+        Export
+    </button>
+</div>
 <dialog bind:this={modal} class="modal">
     <form method="dialog" class="modal-backdrop">
         <button></button>

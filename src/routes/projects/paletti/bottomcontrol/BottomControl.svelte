@@ -7,7 +7,7 @@
 </script>
 
 <svelte:window
-    on:keydown={(e) => {
+    on:keydown|stopPropagation={(e) => {
         if (!e.ctrlKey) return
 
         if (e.key === "z") moveHistory("back")

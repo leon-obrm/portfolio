@@ -31,7 +31,13 @@
     }
 </script>
 
-<div class="tooltip" data-tip="Create random palette">
+<svelte:window
+    on:keydown|stopPropagation={(e) => {
+        if (e.key === " ") createRandomPaletteConfig()
+    }}
+/>
+
+<div class="tooltip" data-tip="Create random palette [Spacebar]">
     <button
         class="btn-primary btn-circle btn h-16 w-16 hover:scale-110"
         on:click={createRandomPaletteConfig}
@@ -39,9 +45,3 @@
         <Dice5 size={30} />
     </button>
 </div>
-
-<svelte:window
-    on:keydown={(e) => {
-        if (e.key === " ") createRandomPaletteConfig()
-    }}
-/>
