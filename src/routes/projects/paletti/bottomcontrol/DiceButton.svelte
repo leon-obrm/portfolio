@@ -26,7 +26,9 @@
 
     /** Creates random palette config */
     function createRandomPaletteConfig() {
-        navigate(randomMainColor(), randomInt(-100, 100))
+        const newHueRotationAmount: number = randomInt(-10, 10) * 10
+
+        navigate(randomMainColor(), newHueRotationAmount)
         document.dispatchEvent(new Event("colorChange"))
     }
 
