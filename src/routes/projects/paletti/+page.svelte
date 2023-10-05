@@ -69,6 +69,9 @@
     setContext("moveHistory", moveHistory)
     navigate()
 
+    // Bugs
+    // FIXME: Keydown listeners break at some points --> Make global keydown listener and dispatch events
+
     // Features
     // TODO: Add settings to url state
     // TODO: Make it possible to have multiple color palettes
@@ -77,6 +80,7 @@
     // TODO: Make HSL values editable
 
     // Polishing
+    // TODO: Refactor show gap design
     // TODO: Add animation to dice button
     // TODO: Make responsive
 
