@@ -2,6 +2,7 @@
     import { Columns, StretchVertical } from "lucide-svelte"
     import { colorSettings } from "../store"
     import SettingWrapper from "./SettingWrapper.svelte"
+    import { onMount } from "svelte"
 
     interface ButtonProps {
         icon: typeof Columns | typeof StretchVertical
@@ -21,17 +22,23 @@
             value: true,
         },
     ]
-</script>
 
-<svelte:window
-    on:keydown|stopPropagation={(e) => {
-        if (e.key === "g")
+    // Toggle show gap when receiving corresponding event
+    onMount(() => {
+        function toggleShowGap() {
             colorSettings.update((settings) => ({
                 ...settings,
                 showGap: !$colorSettings.showGap,
             }))
-    }}
-/>
+        }
+
+        document.addEventListener("toggleShowGap", toggleShowGap)
+
+        return () => {
+            document.removeEventListener("toggleShowGap", toggleShowGap)
+        }
+    })
+</script>
 
 <SettingWrapper label="Spacing">
     <div class="flex w-full gap-2">

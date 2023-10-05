@@ -1,7 +1,7 @@
 <script lang="ts">
     import convert from "color-convert"
     import { page } from "$app/stores"
-    import { getContext } from "svelte"
+    import { getContext, onMount } from "svelte"
     import Slider from "./Slider.svelte"
     import SettingWrapper from "./SettingWrapper.svelte"
 
@@ -25,20 +25,34 @@
     let mainHue: number
     $: mainHue = convert.hex.hsl($page.data.mainColor)[0]
 
-    function handleKeyDown(e: KeyboardEvent) {
-        if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return
+    // Update hue rotation amount when receiving corresponding event
+    onMount(() => {
+        function handleKeyDown(multiplier: number) {
+            let newValue: number = parseInt($page.data.hueRotationAmount)
+            newValue += step * multiplier
 
-        let newValue: number = parseInt($page.data.hueRotationAmount)
-        if (e.key === "ArrowRight") newValue += step
-        if (e.key === "ArrowLeft") newValue -= step
+            newValue = Math.min(max, Math.max(min, newValue))
 
-        newValue = Math.min(max, Math.max(min, newValue))
+            navigate(undefined, newValue)
+        }
 
-        navigate(undefined, newValue)
-    }
+        document.addEventListener("ArrowLeft", () => {
+            handleKeyDown(-1)
+        })
+        document.addEventListener("ArrowRight", () => {
+            handleKeyDown(1)
+        })
+
+        return () => {
+            document.removeEventListener("ArrowLeft", () => {
+                handleKeyDown(-1)
+            })
+            document.removeEventListener("ArrowRight", () => {
+                handleKeyDown(1)
+            })
+        }
+    })
 </script>
-
-<svelte:window on:keydown|stopPropagation={handleKeyDown} />
 
 <SettingWrapper label="Hue Rotation">
     <Slider

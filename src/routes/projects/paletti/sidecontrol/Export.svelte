@@ -1,6 +1,7 @@
 <script lang="ts">
     import { Copy } from "lucide-svelte"
     import { colors } from "../store"
+    import { onMount } from "svelte"
 
     /** Ref to modal element */
     let modal: any
@@ -65,18 +66,29 @@
     let copyIsClicked = false
     let timeout: NodeJS.Timeout
 
-    function handleKeyDown(e: KeyboardEvent) {
-        const keyAsNumber: number = Number(e.key)
-        if (!isNaN(keyAsNumber) && keyAsNumber <= exportOptions.length && modal.open)
-            currentOption = keyAsNumber - 1
+    // Change export option when receiving corresponding event
+    onMount(() => {
+        function handleExportOptionChange(e: Event) {
+            const customEvent = e as CustomEvent<any>
 
-        if (e.key !== "e") return
-        if (!modal.open) modal.showModal()
-        else modal.close()
-    }
+            const keyAsNumber: number = customEvent.detail
+            if (keyAsNumber <= exportOptions.length && modal.open) currentOption = keyAsNumber - 1
+        }
+
+        function toggleExport() {
+            if (!modal.open) modal.showModal()
+            else modal.close()
+        }
+
+        document.addEventListener("exportChange", handleExportOptionChange)
+        document.addEventListener("toggleExport", toggleExport)
+
+        return () => {
+            document.removeEventListener("exportChange", handleExportOptionChange)
+            document.removeEventListener("toggleExport", toggleExport)
+        }
+    })
 </script>
-
-<svelte:window on:keydown|stopPropagation={handleKeyDown} />
 
 <div class="tooltip" data-tip="Show export options [e]">
     <button

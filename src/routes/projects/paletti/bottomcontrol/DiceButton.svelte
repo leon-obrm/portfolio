@@ -2,7 +2,7 @@
     import convert from "color-convert"
     import { Dice5 } from "lucide-svelte"
 
-    import { getContext } from "svelte"
+    import { getContext, onMount } from "svelte"
 
     const navigate: (
         mainColor?: string,
@@ -29,13 +29,16 @@
         navigate(randomMainColor(), randomInt(-100, 100))
         document.dispatchEvent(new Event("colorChange"))
     }
-</script>
 
-<svelte:window
-    on:keydown|stopPropagation={(e) => {
-        if (e.key === " ") createRandomPaletteConfig()
-    }}
-/>
+    // Create random palette when receiving corresponding event
+    onMount(() => {
+        document.addEventListener("createRandomPaletteConfig", createRandomPaletteConfig)
+
+        return () => {
+            document.removeEventListener("createRandomPaletteConfig", createRandomPaletteConfig)
+        }
+    })
+</script>
 
 <div class="tooltip" data-tip="Create random palette [Spacebar]">
     <button

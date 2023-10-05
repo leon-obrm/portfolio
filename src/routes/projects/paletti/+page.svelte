@@ -80,7 +80,6 @@
     // TODO: Make HSL values editable
 
     // Polishing
-    // TODO: Refactor show gap design
     // TODO: Add animation to dice button
     // TODO: Make responsive
 
@@ -90,7 +89,25 @@
 
     // Other
     // TODO: Move to own repository (Would make favicon setup more accessible)
+
+    function handleKeyDown(e: KeyboardEvent) {
+        if (!isNaN(Number(e.key)))
+            document.dispatchEvent(new CustomEvent("exportChange", { detail: Number(e.key) }))
+
+        if (e.key === " ") document.dispatchEvent(new Event("createRandomPaletteConfig"))
+        if (e.key === "e") document.dispatchEvent(new Event("toggleExport"))
+        if (e.key === "g") document.dispatchEvent(new Event("toggleShowGap"))
+        if (e.key === "ArrowLeft" || e.key === "ArrowRight")
+            document.dispatchEvent(new Event(e.key))
+
+        if (!e.ctrlKey) return
+
+        if (e.key === "z") moveHistory("back")
+        else if (e.key === "y") moveHistory("forward")
+    }
 </script>
+
+<svelte:window on:keydown={handleKeyDown} />
 
 <div class="flex h-screen w-screen" data-theme="paletti">
     <div class="flex w-5/6 flex-col justify-between">
