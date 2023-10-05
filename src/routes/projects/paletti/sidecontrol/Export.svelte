@@ -66,13 +66,18 @@
     let copyIsClicked = false
     let timeout: NodeJS.Timeout
 
-    // Change export option when receiving corresponding event
+    // Change export option and toggle dialog when receiving corresponding events
     onMount(() => {
         function handleExportOptionChange(e: Event) {
             const customEvent = e as CustomEvent<any>
 
             const keyAsNumber: number = customEvent.detail
-            if (keyAsNumber <= exportOptions.length && modal.open) currentOption = keyAsNumber - 1
+
+            if (keyAsNumber <= 0) return
+            if (keyAsNumber > exportOptions.length) return
+            if (!modal.open) return
+
+            currentOption = keyAsNumber - 1
         }
 
         function toggleExport() {
@@ -120,7 +125,7 @@
             {/each}
         </div>
         <div class="mockup-code">
-            <label class="swap swap-rotate absolute right-4 top-5">
+            <label class="swap-rotate swap absolute right-4 top-5">
                 <input
                     type="checkbox"
                     bind:checked={copyIsClicked}

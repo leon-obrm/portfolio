@@ -70,7 +70,6 @@
     navigate()
 
     // Bugs
-    // FIXME: Keydown listeners break at some points --> Make global keydown listener and dispatch events
 
     // Features
     // TODO: Add settings to url state
@@ -94,7 +93,11 @@
         if (!isNaN(Number(e.key)))
             document.dispatchEvent(new CustomEvent("exportChange", { detail: Number(e.key) }))
 
-        if (e.key === " ") document.dispatchEvent(new Event("createRandomPaletteConfig"))
+        if (e.key === " ") {
+            document.dispatchEvent(new Event("createRandomPaletteConfig"))
+            // This prevents dialoges from closing when pressing spacebar
+            e.preventDefault()
+        }
         if (e.key === "e") document.dispatchEvent(new Event("toggleExport"))
         if (e.key === "g") document.dispatchEvent(new Event("toggleShowGap"))
         if (e.key === "ArrowLeft" || e.key === "ArrowRight")
