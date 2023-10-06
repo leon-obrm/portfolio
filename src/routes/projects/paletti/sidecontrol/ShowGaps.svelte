@@ -46,8 +46,8 @@
             <button
                 class={`btn flex h-fit flex-1 flex-col gap-2 border-2 border-gray-200 bg-white py-2.5 hover:bg-gray-100 active:border-paletti-300 ${
                     $colorSettings.showGap === button.value
-                        ? "scale-95 border-paletti-500 text-gray-900 shadow-inner hover:border-paletti-500"
-                        : "text-gray-400 shadow-md hover:text-gray-900 active:shadow-inner"
+                        ? "border-paletti-500 text-gray-900 shadow-inner hover:border-paletti-500"
+                        : "text-gray-400 shadow hover:text-gray-900 active:shadow-inner"
                 }`}
                 on:click={() => {
                     colorSettings.update((settings) => ({

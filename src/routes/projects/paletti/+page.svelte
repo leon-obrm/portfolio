@@ -80,6 +80,7 @@
 
     // Polishing
     // TODO: Add animation to dice button
+    // TODO: Add more shadows
     // TODO: Make responsive
 
     // Testing
