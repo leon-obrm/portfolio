@@ -92,15 +92,17 @@
 
     function handleKeyDown(e: KeyboardEvent) {
         if (!isNaN(Number(e.key)))
-            document.dispatchEvent(new CustomEvent("exportChange", { detail: Number(e.key) }))
+            document.dispatchEvent(new CustomEvent("changeExportOption", { detail: Number(e.key) }))
 
         if (e.key === " ") {
             document.dispatchEvent(new Event("createRandomPaletteConfig"))
             // This prevents dialoges from closing when pressing spacebar
             e.preventDefault()
         }
+        if (e.key === "c") document.dispatchEvent(new Event("copyExport"))
         if (e.key === "e") document.dispatchEvent(new Event("toggleExport"))
         if (e.key === "g") document.dispatchEvent(new Event("toggleShowGap"))
+        if (e.key === "m") document.dispatchEvent(new Event("toggleColorMode"))
         if (e.key === "ArrowLeft" || e.key === "ArrowRight")
             document.dispatchEvent(new Event(e.key))
 

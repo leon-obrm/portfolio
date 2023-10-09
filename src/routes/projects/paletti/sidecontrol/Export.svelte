@@ -66,9 +66,21 @@
     let copyIsClicked = false
     let timeout: NodeJS.Timeout
 
+    function copyExport() {
+        // Copies export option to clipboard
+        navigator.clipboard.writeText(exportOptions[currentOption].lines.join(""))
+
+        // Shows "Copied!" for 1 second when clicked
+        copyIsClicked = true
+        clearTimeout(timeout)
+        timeout = setTimeout(() => {
+            copyIsClicked = false
+        }, 1000)
+    }
+
     // Change export option and toggle dialog when receiving corresponding events
     onMount(() => {
-        function handleExportOptionChange(e: Event) {
+        function changeExportOption(e: Event) {
             const customEvent = e as CustomEvent<any>
 
             const keyAsNumber: number = customEvent.detail
@@ -85,11 +97,13 @@
             else modal.close()
         }
 
-        document.addEventListener("exportChange", handleExportOptionChange)
+        document.addEventListener("copyExport", copyExport)
+        document.addEventListener("changeExportOption", changeExportOption)
         document.addEventListener("toggleExport", toggleExport)
 
         return () => {
-            document.removeEventListener("exportChange", handleExportOptionChange)
+            document.removeEventListener("copyExport", copyExport)
+            document.removeEventListener("changeExportOption", changeExportOption)
             document.removeEventListener("toggleExport", toggleExport)
         }
     })
@@ -114,7 +128,7 @@
             <button class="btn-ghost btn-sm btn-circle btn absolute right-2 top-2">✕</button>
         </form>
         <h3 class="pb-4 text-lg font-bold">Export options</h3>
-        <div class="tabs tabs-boxed bg-white">
+        <div class="tabs tabs-boxed bg-white px-0 pb-1.5">
             {#each exportOptions as exportOption, index}
                 <button
                     class={`tab ${currentOption === index && "tab-active"}`}
@@ -126,21 +140,7 @@
         </div>
         <div class="mockup-code">
             <label class="swap-rotate swap absolute right-4 top-5">
-                <input
-                    type="checkbox"
-                    bind:checked={copyIsClicked}
-                    on:change={() => {
-                        // Copies export option to clipboard
-                        navigator.clipboard.writeText(exportOptions[currentOption].lines.join(""))
-
-                        // Shows "Copied!" for 1 second when clicked
-                        copyIsClicked = true
-                        clearTimeout(timeout)
-                        timeout = setTimeout(() => {
-                            copyIsClicked = false
-                        }, 1000)
-                    }}
-                />
+                <input type="checkbox" bind:checked={copyIsClicked} on:change={copyExport} />
                 <div class="swap-off flex content-center items-center justify-center">
                     <Copy size={28} />
                 </div>

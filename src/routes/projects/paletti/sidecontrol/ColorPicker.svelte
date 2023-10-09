@@ -2,9 +2,23 @@
     import SettingWrapper from "./SettingWrapper.svelte"
     import HexPicker from "./HexPicker.svelte"
     import HslPicker from "./HslPicker.svelte"
+    import { onMount } from "svelte"
 
     const colorModeOptions: string[] = ["HEX", "HSL"]
     let colorMode: string = colorModeOptions[0]
+
+    // Toggle color mode when receiving corresponding event
+    onMount(() => {
+        function toggleColorMode() {
+            colorMode = colorMode === "HEX" ? "HSL" : "HEX"
+        }
+
+        document.addEventListener("toggleColorMode", toggleColorMode)
+
+        return () => {
+            document.removeEventListener("toggleColorMode", toggleColorMode)
+        }
+    })
 </script>
 
 <SettingWrapper label="Main color">
