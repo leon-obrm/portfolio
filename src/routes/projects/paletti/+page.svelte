@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Palette from "./Palette.svelte"
+    import Palettes from "./Palettes.svelte"
     import { goto } from "$app/navigation"
     import { setContext } from "svelte"
     import { historyBack, historyForward } from "./store"
@@ -82,6 +82,7 @@
     // TODO: Add animation to dice button
     // TODO: Add more shadows
     // TODO: Make responsive
+    // TODO: Remove steps from hue rotation
 
     // Testing
     // TODO: Check if saturation logic is still working correctly
@@ -99,6 +100,7 @@
             // This prevents dialoges from closing when pressing spacebar
             e.preventDefault()
         }
+        if (e.key === "a") document.dispatchEvent(new Event("addPalette"))
         if (e.key === "c") document.dispatchEvent(new Event("copyExport"))
         if (e.key === "e") document.dispatchEvent(new Event("toggleExport"))
         if (e.key === "g") document.dispatchEvent(new Event("toggleShowGap"))
@@ -118,7 +120,7 @@
 <div class="flex h-screen w-screen" data-theme="paletti">
     <div class="flex w-5/6 flex-col justify-between">
         <Logo />
-        <Palette />
+        <Palettes />
         <BottomControl />
     </div>
     <SideControl />

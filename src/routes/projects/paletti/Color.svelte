@@ -1,9 +1,10 @@
 <script lang="ts">
-    import { page } from "$app/stores"
     import convert from "color-convert"
     import { Copy } from "lucide-svelte"
+    import { slide, scale, fade } from "svelte/transition"
     import { ntc } from "$lib/ntc"
 
+    export let isFocused: boolean
     export let color: string
     export let index: number
 
@@ -53,15 +54,21 @@
     let timeout: NodeJS.Timeout
 </script>
 
-<div class={`flex flex-col items-center gap-2 ${index !== 4 ? "w-[10.5%]" : "w-[16%]"}`}>
+<div
+    class={`relative flex h-full flex-col items-center gap-2 ${
+        index !== 4 ? "w-[10.5%]" : "w-[16%]"
+    }`}
+>
     <div
-        class={`flex h-96 w-full flex-col items-center justify-center ${
+        class={`flex h-full w-full flex-col items-center justify-center ${
             index === 0 && "rounded-l-xl"
         } ${index === 8 && "rounded-r-xl"}`}
         style="background-color: #{color};"
     >
         <p
-            class="relative top-6 z-50 w-4/5 overflow-hidden overflow-ellipsis whitespace-nowrap text-center text-sm font-medium"
+            class={`relative top-6 z-50 w-4/5 overflow-hidden overflow-ellipsis whitespace-nowrap text-center text-sm font-medium transition-opacity ${
+                isFocused ? "opacity-100" : "opacity-0"
+            }`}
             style:color={textColor}
         >
             {ntc.name(color)[1]}
@@ -94,7 +101,11 @@
         </label>
     </div>
 
-    <p class={index !== 4 ? "text-gray-500" : "font-bold"}>
+    <p
+        class={`absolute -bottom-8 transition-opacity ${isFocused ? "opacity-100" : "opacity-0"} ${
+            index !== 4 ? "text-gray-500" : "font-bold"
+        }`}
+    >
         {color}
     </p>
 </div>
