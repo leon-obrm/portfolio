@@ -2,12 +2,9 @@
     import { getContext } from "svelte"
     import { fade } from "svelte/transition"
     import { page } from "$app/stores"
+    import type { StateChange } from "$lib/interfaces"
 
-    const navigate: (
-        mainColor?: string,
-        hueRotationAmount?: number,
-        addToHistory?: boolean
-    ) => void = getContext("navigate")
+    const navigate: (stateChange: StateChange) => void = getContext("navigate")
 
     /** Updates main color of palette config */
     function setNewColor(e: Event) {
@@ -22,7 +19,14 @@
         if (newMainColor.length !== 6) return
 
         newMainColor = newMainColor.toUpperCase()
-        navigate(newMainColor)
+
+        const newStateChange: StateChange = {
+            type: "update",
+            mainColor: newMainColor,
+            focusedPalette: $page.data.focusedPalette,
+        }
+
+        navigate(newStateChange)
     }
 </script>
 
@@ -32,6 +36,6 @@
     type="text"
     class="input-bordered input col-start-1 row-start-1 h-8 w-full p-0 text-center text-lg"
     maxlength="7"
-    value={$page.data.mainColor}
+    value={$page.data.mainColor[$page.data.focusedPalette]}
     on:input={setNewColor}
 />

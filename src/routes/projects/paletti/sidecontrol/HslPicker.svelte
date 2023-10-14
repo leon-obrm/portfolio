@@ -5,15 +5,12 @@
     import { page } from "$app/stores"
     import SettingWrapper from "./SettingWrapper.svelte"
     import Slider from "./Slider.svelte"
+    import type { StateChange } from "$lib/interfaces"
 
-    const navigate: (
-        mainColor?: string,
-        hueRotationAmount?: number,
-        addToHistory?: boolean
-    ) => void = getContext("navigate")
+    const navigate: (stateChange: StateChange) => void = getContext("navigate")
 
     // Initially load hsl values from url
-    const hslValues: number[] = convert.hex.hsl($page.data.mainColor)
+    const hslValues: number[] = convert.hex.hsl($page.data.mainColor[$page.data.focusedPalette])
 
     let hue: number = hslValues[0]
     let saturation: number = hslValues[1]
@@ -23,7 +20,9 @@
     onMount(() => {
         function handleColorChange(e: Event) {
             setTimeout(() => {
-                const hslValues: number[] = convert.hex.hsl($page.data.mainColor)
+                const hslValues: number[] = convert.hex.hsl(
+                    $page.data.mainColor[$page.data.focusedPalette]
+                )
 
                 hue = hslValues[0]
                 saturation = hslValues[1]
@@ -61,7 +60,13 @@
         const newColor: string = convert.hsl.hex([hue, saturation, lightness])
 
         // Updates value in url without saving it to history
-        navigate(newColor, undefined, false)
+        const newStateChange: StateChange = {
+            type: "update",
+            mainColor: newColor,
+            focusedPalette: $page.data.focusedPalette,
+            addToHistory: false,
+        }
+        navigate(newStateChange)
     }
 
     /** Adds current color to history
@@ -69,8 +74,13 @@
      */
     function addToHistory() {
         const newColor = convert.hsl.hex([hue, saturation, lightness])
+        const newStateChange: StateChange = {
+            type: "update",
+            mainColor: newColor,
+            focusedPalette: $page.data.focusedPalette,
+        }
 
-        navigate(newColor)
+        navigate(newStateChange)
     }
 </script>
 

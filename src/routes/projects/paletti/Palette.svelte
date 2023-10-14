@@ -6,10 +6,12 @@
     import Color from "./Color.svelte"
 
     export let isFocused: boolean
+    export let mainColor: string
+    export let hueRotationAmount: number
 
     const paletteCreator = new PaletteCreator()
 
-    $: colors.set(paletteCreator.createPalette($page.data.mainColor, $page.data.hueRotationAmount))
+    $: colors.set(paletteCreator.createPalette(mainColor, hueRotationAmount))
 
     // TODO: Improve performance by only updating hues when hue rotation amount changes
 </script>
@@ -26,7 +28,7 @@
         {/if}
 
         {#each $colors as color, index}
-            <Color {isFocused} color={index === 4 ? $page.data.mainColor : color} {index} />
+            <Color {isFocused} color={index === 4 ? mainColor : color} {index} />
         {/each}
     </div>
 </div>

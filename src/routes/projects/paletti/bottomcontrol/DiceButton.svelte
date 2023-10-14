@@ -1,14 +1,12 @@
 <script lang="ts">
     import convert from "color-convert"
     import { Dice5 } from "lucide-svelte"
+    import { page } from "$app/stores"
+    import type { StateChange } from "$lib/interfaces"
 
     import { getContext, onMount } from "svelte"
 
-    const navigate: (
-        mainColor?: string,
-        hueRotationAmount?: number,
-        addToHistory?: boolean
-    ) => void = getContext("navigate")
+    const navigate: (stateChange: StateChange) => void = getContext("navigate")
 
     /** Returns random int in range */
     function randomInt(min: number, max: number): number {
@@ -28,7 +26,14 @@
     function createRandomPaletteConfig() {
         const newHueRotationAmount: number = randomInt(-10, 10) * 10
 
-        navigate(randomMainColor(), newHueRotationAmount)
+        const newStateChange: StateChange = {
+            type: "update",
+            mainColor: randomMainColor(),
+            hueRotationAmount: newHueRotationAmount,
+            focusedPalette: $page.data.focusedPalette,
+        }
+
+        navigate(newStateChange)
         document.dispatchEvent(new Event("colorChange"))
     }
 

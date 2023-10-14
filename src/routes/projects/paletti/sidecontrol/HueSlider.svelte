@@ -4,22 +4,25 @@
     import { getContext, onMount } from "svelte"
     import Slider from "./Slider.svelte"
     import SettingWrapper from "./SettingWrapper.svelte"
+    import type { StateChange } from "$lib/interfaces"
 
     const min: number = -100
     const max: number = 100
     const step: number = 10
 
-    const navigate: (
-        mainColor?: string,
-        hueRotationAmount?: number,
-        addToHistory?: boolean
-    ) => void = getContext("navigate")
+    const navigate: (stateChange: StateChange) => void = getContext("navigate")
 
     function setHueRotationAmount(e: Event) {
         const inputElement = e.target as HTMLInputElement
         if (inputElement === null) return
 
-        navigate(undefined, parseInt(inputElement.value))
+        const newStateChange: StateChange = {
+            type: "update",
+            hueRotationAmount: parseInt(inputElement.value),
+            focusedPalette: $page.data.focusedPalette,
+        }
+
+        navigate(newStateChange)
     }
 
     let mainHue: number
@@ -33,7 +36,12 @@
 
             newValue = Math.min(max, Math.max(min, newValue))
 
-            navigate(undefined, newValue)
+            const newStateChange: StateChange = {
+                type: "update",
+                hueRotationAmount: newValue,
+                focusedPalette: $page.data.focusedPalette,
+            }
+            navigate(newStateChange)
         }
 
         document.addEventListener("ArrowLeft", () => {
