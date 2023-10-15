@@ -5,9 +5,13 @@
     import { page } from "$app/stores"
     import SettingWrapper from "./SettingWrapper.svelte"
     import Slider from "./Slider.svelte"
-    import type { StateChange } from "$lib/interfaces"
 
-    const navigate: (stateChange: StateChange) => void = getContext("navigate")
+    const updatePalette: (
+        index: number,
+        mainColor?: string,
+        hueRotationAmount?: number,
+        addToHistory?: boolean
+    ) => void = getContext("updatePalette")
 
     // Initially load hsl values from url
     const hslValues: number[] = convert.hex.hsl($page.data.mainColor[$page.data.focusedPalette])
@@ -57,30 +61,18 @@
                 break
         }
 
-        const newColor: string = convert.hsl.hex([hue, saturation, lightness])
+        const mainColor: string = convert.hsl.hex([hue, saturation, lightness])
 
-        // Updates value in url without saving it to history
-        const newStateChange: StateChange = {
-            type: "update",
-            mainColor: newColor,
-            focusedPalette: $page.data.focusedPalette,
-            addToHistory: false,
-        }
-        navigate(newStateChange)
+        updatePalette($page.data.focusedPalette, mainColor, undefined, false)
     }
 
     /** Adds current color to history
      * Is triggered on mouseup and touchend to avoid cluttering history with every small change in color during sliding
      */
     function addToHistory() {
-        const newColor = convert.hsl.hex([hue, saturation, lightness])
-        const newStateChange: StateChange = {
-            type: "update",
-            mainColor: newColor,
-            focusedPalette: $page.data.focusedPalette,
-        }
+        const mainColor = convert.hsl.hex([hue, saturation, lightness])
 
-        navigate(newStateChange)
+        updatePalette($page.data.focusedPalette, mainColor)
     }
 </script>
 

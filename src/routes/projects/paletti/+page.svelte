@@ -6,7 +6,6 @@
     import Logo from "./Logo.svelte"
     import BottomControl from "./bottomcontrol/BottomControl.svelte"
     import SideControl from "./sidecontrol/SideControl.svelte"
-    import type { StateChange } from "$lib/interfaces"
 
     /** Data from +page.ts (URL parameters) */
     export let data
@@ -17,14 +16,29 @@
         )}&focusedPalette=${focusedPalette}`
     }
 
-    function updatePalette(index: number, mainColor?: string, hueRotationAmount?: number) {
+    function updatePalette(
+        index: number,
+        mainColor?: string,
+        hueRotationAmount?: number,
+        addToHistory?: boolean
+    ) {
         const newMainColor: string[] = [...data.mainColor]
         const newHueRotationAmount: number[] = [...data.hueRotationAmount]
 
         if (mainColor !== undefined) newMainColor[index] = mainColor
         if (hueRotationAmount !== undefined) newHueRotationAmount[index] = hueRotationAmount
 
-        return createUrl(newMainColor, newHueRotationAmount, index)
+        // If change is only in hueRotationAmount, remove last item from historyBack
+        // This way, the history is not cluttered with every change in hue rotation
+        if ($historyBack.length > 0 && mainColor === undefined)
+            historyBack.update((prev) => prev.slice(0, prev.length - 1))
+
+        if (addToHistory === undefined || addToHistory === true) addToHistory = true
+        else addToHistory = false
+
+        const newUrl: string = createUrl(newMainColor, newHueRotationAmount, index)
+
+        navigate(newUrl, addToHistory)
     }
 
     function addPalette(mainColor: string, hueRotationAmount: number) {
@@ -32,7 +46,9 @@
         const newHueRotationAmount: number[] = [...data.hueRotationAmount, hueRotationAmount]
         const newIndex: number = data.mainColor.length
 
-        return createUrl(newMainColor, newHueRotationAmount, newIndex)
+        const newUrl: string = createUrl(newMainColor, newHueRotationAmount, newIndex)
+
+        navigate(newUrl)
     }
 
     function deletePalette(index: number) {
@@ -46,67 +62,25 @@
         ]
         const newIndex: number = data.focusedPalette > 0 ? data.focusedPalette - 1 : 0
 
-        return createUrl(newMainColor, newHueRotationAmount, newIndex)
+        const newUrl: string = createUrl(newMainColor, newHueRotationAmount, newIndex)
+
+        navigate(newUrl)
     }
 
-    function navigate(stateChange: StateChange) {
-        let newUrl: string = ""
+    function changeFocus(index: number) {
+        const newUrl: string = createUrl(data.mainColor, data.hueRotationAmount, index)
 
-        switch (stateChange.type) {
-            case "update":
-                if (
-                    (stateChange.mainColor !== undefined ||
-                        stateChange.hueRotationAmount !== undefined) &&
-                    stateChange.focusedPalette !== undefined
-                )
-                    newUrl = updatePalette(
-                        stateChange.focusedPalette,
-                        stateChange.mainColor,
-                        stateChange.hueRotationAmount
-                    )
-                break
-            case "add":
-                if (
-                    stateChange.mainColor === undefined ||
-                    stateChange.hueRotationAmount === undefined
-                )
-                    return
-                newUrl = addPalette(stateChange.mainColor, stateChange.hueRotationAmount)
-                break
-            case "remove":
-                if (stateChange.focusedPalette === undefined) return
-                newUrl = deletePalette(stateChange.focusedPalette)
-                break
-            case "focus":
-                if (stateChange.focusedPalette === undefined) return
-                newUrl = createUrl(
-                    data.mainColor,
-                    data.hueRotationAmount,
-                    stateChange.focusedPalette
-                )
-                break
-        }
+        navigate(newUrl)
+    }
 
-        goto(newUrl)
+    function navigate(url: string, addToHistory: boolean = true) {
+        goto(url)
 
         // Do not alter history
-        if (stateChange.addToHistory === false) return
-
-        // If change is only in hueRotationAmount, remove last item from historyBack
-        // This way, the history is not cluttered with every change in hue rotation
-        if ($historyBack.length > 0) {
-            // FIXME: This will probably not work with multiple palettes
-            // const prevMainColor: string = $historyBack[$historyBack.length - 1]
-            //     .split("=")[1]
-            //     .split("&")[0]
-
-            // if (stateChange.mainColor === undefined || prevMainColor === stateChange.mainColor)
-            if (stateChange.mainColor === undefined)
-                historyBack.update((prev) => prev.slice(0, prev.length - 1))
-        }
+        if (addToHistory === false) return
 
         // Add new url to historyBack and clear historyForward
-        historyBack.update((prev) => [...prev, newUrl])
+        historyBack.update((prev) => [...prev, url])
         historyForward.set([])
     }
 
@@ -141,6 +115,10 @@
 
     setContext("navigate", navigate)
     setContext("moveHistory", moveHistory)
+    setContext("updatePalette", updatePalette)
+    setContext("addPalette", addPalette)
+    setContext("deletePalette", deletePalette)
+    setContext("changeFocus", changeFocus)
 
     // Bugs
     // FIXME: Lightnesses of 0 and 100 turn hue rotation red
@@ -194,14 +172,7 @@
 
     // Makes sure the url is updated when the page is loaded without url parameters
     onMount(() => {
-        if (data.mainColor.length === 1)
-            navigate({
-                type: "update",
-                mainColor: data.mainColor[0],
-                hueRotationAmount: data.hueRotationAmount[0],
-                focusedPalette: 0,
-                addToHistory: false,
-            })
+        if (data.mainColor.length === 1) updatePalette(0)
     })
 </script>
 

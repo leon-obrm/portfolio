@@ -1,13 +1,12 @@
 <script lang="ts">
-    import { getContext } from "svelte"
+    import { getContext, onMount } from "svelte"
     import { slide, scale, fade } from "svelte/transition"
     import { page } from "$app/stores"
     import { colorSettings, palettes } from "./store"
     import { PaletteCreator } from "./PaletteCreator"
     import Color from "./Color.svelte"
-    import type { StateChange } from "$lib/interfaces"
 
-    const navigate: (stateChange: StateChange) => void = getContext("navigate")
+    const changeFocus: (index: number) => void = getContext("changeFocus")
 
     export let index: number
 
@@ -16,29 +15,39 @@
     const paletteCreator = new PaletteCreator()
 
     $: palettes.update((prev) => {
-        return {
-            ...prev,
-            [index]: paletteCreator.createPalette(
-                $page.data.mainColor[index],
-                $page.data.hueRotationAmount[index]
-            ),
-        }
+        const newPalette: string[] = paletteCreator.createPalette(
+            $page.data.mainColor[index],
+            $page.data.hueRotationAmount[index]
+        )
+
+        prev[index] = newPalette
+
+        console.log(prev.length)
+
+        return prev
     })
 
-    function changeFocusedPalette() {
-        const newStateChange: StateChange = {
-            type: "focus",
-            focusedPalette: index,
-        }
+    onMount(() => {
+        palettes.update((prev) => {
+            const newPalette: string[] = paletteCreator.createPalette(
+                $page.data.mainColor[index],
+                $page.data.hueRotationAmount[index]
+            )
 
-        navigate(newStateChange)
-    }
+            return [...prev, newPalette]
+        })
+    })
 
     // TODO: Improve performance by only updating hues when hue rotation amount changes
 </script>
 
 <div in:slide={{ delay: 550 }} class="m-3 flex flex-col items-start gap-2">
-    <button class="pl-1.5 text-xl font-bold" on:click={changeFocusedPalette}>Primary</button>
+    <button
+        class="pl-1.5 text-xl font-bold"
+        on:click={() => {
+            changeFocus(index)
+        }}>Primary</button
+    >
     <div
         class={`flex w-full items-start gap-0 transition-[height] duration-1000 ${
             isFocused ? "h-80 outline outline-primary" : "h-32"

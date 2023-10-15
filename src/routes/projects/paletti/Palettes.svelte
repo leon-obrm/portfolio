@@ -3,26 +3,23 @@
     import { onMount, getContext } from "svelte"
     import { page } from "$app/stores"
     import Palette from "./Palette.svelte"
-    import type { StateChange } from "$lib/interfaces"
 
-    const navigate: (stateChange: StateChange) => void = getContext("navigate")
+    const addPalette: (mainColor: string, hueRotationAmount: number) => void =
+        getContext("addPalette")
 
-    function addPalette() {
-        const newStateChange: StateChange = {
-            type: "add",
-            mainColor: "EF347C",
-            hueRotationAmount: 50,
-        }
+    function addBasePalette() {
+        const mainColor: string = "EF347C"
+        const hueRotationAmount: number = 50
 
-        navigate(newStateChange)
+        addPalette(mainColor, hueRotationAmount)
     }
 
     // Toggle show gap when receiving corresponding event
     onMount(() => {
-        document.addEventListener("addPalette", addPalette)
+        document.addEventListener("addPalette", addBasePalette)
 
         return () => {
-            document.removeEventListener("addPalette", addPalette)
+            document.removeEventListener("addPalette", addBasePalette)
         }
     })
 </script>
@@ -33,7 +30,7 @@
     {/each}
 
     <div class="tooltip" data-tip="Add new palette [a]">
-        <button class="btn-circle btn-lg btn hover:scale-110" on:click={addPalette}>
+        <button class="btn-circle btn-lg btn hover:scale-110" on:click={addBasePalette}>
             <Plus size={35} />
         </button>
     </div>

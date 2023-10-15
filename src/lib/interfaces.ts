@@ -34,11 +34,3 @@ export interface ColorSettings {
     showGap: boolean
 }
 
-/** Describes url state changes */
-export interface StateChange {
-    type: "update" | "add" | "remove" | "focus"
-    mainColor?: string
-    hueRotationAmount?: number
-    focusedPalette?: number
-    addToHistory?: boolean
-}

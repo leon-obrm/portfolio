@@ -4,25 +4,25 @@
     import { getContext, onMount } from "svelte"
     import Slider from "./Slider.svelte"
     import SettingWrapper from "./SettingWrapper.svelte"
-    import type { StateChange } from "$lib/interfaces"
 
     const min: number = -100
     const max: number = 100
     const step: number = 10
 
-    const navigate: (stateChange: StateChange) => void = getContext("navigate")
+    const updatePalette: (
+        index: number,
+        mainColor?: string,
+        hueRotationAmount?: number,
+        addToHistory?: boolean
+    ) => void = getContext("updatePalette")
 
     function setHueRotationAmount(e: Event) {
         const inputElement = e.target as HTMLInputElement
         if (inputElement === null) return
 
-        const newStateChange: StateChange = {
-            type: "update",
-            hueRotationAmount: parseInt(inputElement.value),
-            focusedPalette: $page.data.focusedPalette,
-        }
+        const hueRotationAmount: number = parseInt(inputElement.value)
 
-        navigate(newStateChange)
+        updatePalette($page.data.focusedPalette, undefined, hueRotationAmount)
     }
 
     let mainHue: number
@@ -31,17 +31,12 @@
     // Update hue rotation amount when receiving corresponding event
     onMount(() => {
         function handleKeyDown(multiplier: number) {
-            let newValue: number = parseInt($page.data.hueRotationAmount)
-            newValue += step * multiplier
+            let hueRotationAmount: number = parseInt($page.data.hueRotationAmount)
+            hueRotationAmount += step * multiplier
 
-            newValue = Math.min(max, Math.max(min, newValue))
+            hueRotationAmount = Math.min(max, Math.max(min, hueRotationAmount))
 
-            const newStateChange: StateChange = {
-                type: "update",
-                hueRotationAmount: newValue,
-                focusedPalette: $page.data.focusedPalette,
-            }
-            navigate(newStateChange)
+            updatePalette($page.data.focusedPalette, undefined, hueRotationAmount)
         }
 
         document.addEventListener("ArrowLeft", () => {
