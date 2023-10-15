@@ -1,7 +1,8 @@
 <script lang="ts">
-    import { Copy } from "lucide-svelte"
-    import { colors } from "../store"
     import { onMount } from "svelte"
+    import { Copy } from "lucide-svelte"
+    import { page } from "$app/stores"
+    import { palettes } from "../store"
 
     /** Ref to modal element */
     let modal: any
@@ -15,7 +16,7 @@
 
     let exportLink: string[] = []
     $: {
-        $colors
+        $palettes
         exportLink = [window.location.href]
     }
     let exportCssVariables: string[] = []
@@ -24,7 +25,7 @@
 
         let cssVariables: string[] = [":root {\n"]
 
-        $colors.forEach((color: string) => {
+        $palettes[$page.data.focusedPalette].forEach((color: string) => {
             cssVariables = [...cssVariables, `    --primary-${count}00: #${color};\n`]
             count--
         })
@@ -39,7 +40,7 @@
 
         let tailwindTheme: string[] = ["theme: {\n", "    extend: {\n", "        colors: {\n"]
 
-        $colors.forEach((color: string) => {
+        $palettes[$page.data.focusedPalette].forEach((color: string) => {
             tailwindTheme = [...tailwindTheme, `            "primary-${count}00": "#${color}",\n`]
             count--
         })
@@ -49,7 +50,9 @@
         exportTailwindTheme = tailwindTheme
     }
     let exportArray: string[] = []
-    $: exportArray = [`const colors: string[] = [${$colors.join(", ")}]`]
+    $: exportArray = [
+        `const colors: string[] = [${$palettes[$page.data.focusedPalette].join(", ")}]`,
+    ]
 
     let exportOptions: ExportOption[] = []
     $: exportOptions = [
@@ -139,7 +142,7 @@
             {/each}
         </div>
         <div class="mockup-code">
-            <label class="swap-rotate swap absolute right-4 top-5">
+            <label class="swap swap-rotate absolute right-4 top-5">
                 <input type="checkbox" bind:checked={copyIsClicked} on:change={copyExport} />
                 <div class="swap-off flex content-center items-center justify-center">
                     <Copy size={28} />

@@ -1,19 +1,38 @@
 <script lang="ts">
-    import { colors } from "./store"
+    import { page } from "$app/stores"
+    import { palettes } from "./store"
 </script>
 
 <svelte:head>
     <title>Paletti</title>
 </svelte:head>
 
-<div class="m-3 ml-7 flex w-fit content-center items-baseline gap-4">
+<a
+    class="m-3 ml-7 flex w-fit content-center items-baseline gap-4"
+    href="/projects/paletti?mainColor=EF347C&hueRotationAmount=50&focusedPalette=0"
+>
     <div class="flex">
-        <div class="museomoderno -mr-8 text-6xl font-black" style="color: #{$colors[1]}">p</div>
-        <div class="museomoderno text-6xl font-black" style="color: #{$colors[4]}">p</div>
-        <div class="museomoderno -ml-8 text-6xl font-black" style="color: #{$colors[7]}">p</div>
+        <div
+            class="museomoderno -mr-8 text-6xl font-black"
+            style="color: #{$palettes[$page.data.focusedPalette][1]}"
+        >
+            p
+        </div>
+        <div
+            class="museomoderno text-6xl font-black"
+            style="color: #{$palettes[$page.data.focusedPalette][4]}"
+        >
+            p
+        </div>
+        <div
+            class="museomoderno -ml-8 text-6xl font-black"
+            style="color: #{$palettes[$page.data.focusedPalette][7]}"
+        >
+            p
+        </div>
     </div>
     <p class="comfortaa none text-3xl font-bold">paletti</p>
-</div>
+</a>
 
 <style>
     .comfortaa {

@@ -22,6 +22,8 @@
         return convert.hsl.hex([newHue, newSaturation, newLightness])
     }
 
+    // $: console.log($page.data.focusedPalette)
+
     /** Creates random palette config */
     function createRandomPaletteConfig() {
         const newHueRotationAmount: number = randomInt(-10, 10) * 10

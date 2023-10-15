@@ -1,7 +1,7 @@
 <script lang="ts">
     import Palettes from "./Palettes.svelte"
     import { goto } from "$app/navigation"
-    import { setContext } from "svelte"
+    import { setContext, onMount } from "svelte"
     import { historyBack, historyForward } from "./store"
     import Logo from "./Logo.svelte"
     import BottomControl from "./bottomcontrol/BottomControl.svelte"
@@ -30,7 +30,7 @@
     function addPalette(mainColor: string, hueRotationAmount: number) {
         const newMainColor: string[] = [...data.mainColor, mainColor]
         const newHueRotationAmount: number[] = [...data.hueRotationAmount, hueRotationAmount]
-        const newIndex: number = newMainColor.length - 1
+        const newIndex: number = data.mainColor.length
 
         return createUrl(newMainColor, newHueRotationAmount, newIndex)
     }
@@ -141,21 +141,17 @@
 
     setContext("navigate", navigate)
     setContext("moveHistory", moveHistory)
-    // Initialize first palette in url
-    navigate({
-        type: "update",
-        mainColor: data.mainColor[0],
-        hueRotationAmount: data.hueRotationAmount[0],
-        focusedPalette: 0,
-        addToHistory: false,
-    })
 
     // Bugs
     // FIXME: Lightnesses of 0 and 100 turn hue rotation red
 
     // Features
+    // TODO: Make it possible to delete palettes
+    // TODO: Add icons for editing and deleting palettes
+    // TODO: Mark focused palette
+    // TODO: Update exports
+    // TODO: Check if everything is still working with multiple palettes
     // TODO: Add settings to url state
-    // TODO: Make it possible to have multiple color palettes
     // TODO: Make amount of colors per palette customizable
     // TODO: Add some sort of fullscreen option
     // TODO: Make HSL values editable
@@ -195,6 +191,18 @@
         if (e.key === "z") moveHistory("back")
         else if (e.key === "y") moveHistory("forward")
     }
+
+    // Makes sure the url is updated when the page is loaded without url parameters
+    onMount(() => {
+        if (data.mainColor.length === 1)
+            navigate({
+                type: "update",
+                mainColor: data.mainColor[0],
+                hueRotationAmount: data.hueRotationAmount[0],
+                focusedPalette: 0,
+                addToHistory: false,
+            })
+    })
 </script>
 
 <svelte:window on:keydown={handleKeyDown} />

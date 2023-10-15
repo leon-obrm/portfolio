@@ -1,10 +1,21 @@
 <script lang="ts">
     import { Plus } from "lucide-svelte"
-    import { onMount } from "svelte"
+    import { onMount, getContext } from "svelte"
     import { page } from "$app/stores"
     import Palette from "./Palette.svelte"
+    import type { StateChange } from "$lib/interfaces"
 
-    function addPalette() {}
+    const navigate: (stateChange: StateChange) => void = getContext("navigate")
+
+    function addPalette() {
+        const newStateChange: StateChange = {
+            type: "add",
+            mainColor: "EF347C",
+            hueRotationAmount: 50,
+        }
+
+        navigate(newStateChange)
+    }
 
     // Toggle show gap when receiving corresponding event
     onMount(() => {
@@ -18,11 +29,7 @@
 
 <div class="flex flex-col gap-10">
     {#each $page.data.mainColor as mainColor, index}
-        <Palette
-            isFocused={index === $page.data.focusedPalette}
-            {mainColor}
-            hueRotationAmount={$page.data.hueRotationAmount[$page.data.focusedPalette]}
-        />
+        <Palette {index} />
     {/each}
 
     <div class="tooltip" data-tip="Add new palette [a]">
