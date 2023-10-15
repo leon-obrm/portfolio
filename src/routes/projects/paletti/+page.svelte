@@ -2,20 +2,23 @@
     import Palettes from "./Palettes.svelte"
     import { goto } from "$app/navigation"
     import { setContext, onMount } from "svelte"
-    import { historyBack, historyForward } from "./store"
+    import { historyBack, historyForward, palettes } from "./store"
     import Logo from "./Logo.svelte"
     import BottomControl from "./bottomcontrol/BottomControl.svelte"
     import SideControl from "./sidecontrol/SideControl.svelte"
+    import { PaletteCreator } from "./PaletteCreator"
 
     /** Data from +page.ts (URL parameters) */
     export let data
 
+    /** Creates url with state date */
     function createUrl(mainColor: string[], hueRotationAmount: number[], focusedPalette: number) {
         return `?mainColor=${mainColor.join(",")}&hueRotationAmount=${hueRotationAmount.join(
             ","
         )}&focusedPalette=${focusedPalette}`
     }
 
+    /** Updates values of palette based on its index */
     function updatePalette(
         index: number,
         mainColor?: string,
@@ -41,6 +44,7 @@
         navigate(newUrl, addToHistory)
     }
 
+    /** Adds a new palette */
     function addPalette(mainColor: string, hueRotationAmount: number) {
         const newMainColor: string[] = [...data.mainColor, mainColor]
         const newHueRotationAmount: number[] = [...data.hueRotationAmount, hueRotationAmount]
@@ -51,6 +55,7 @@
         navigate(newUrl)
     }
 
+    /** Deletes a palette based on index */
     function deletePalette(index: number) {
         const newMainColor: string[] = [
             ...data.mainColor.slice(0, index),
@@ -67,12 +72,14 @@
         navigate(newUrl)
     }
 
-    function changeFocus(index: number) {
+    /** Focuses a palette based on index */
+    function focusPalette(index: number) {
         const newUrl: string = createUrl(data.mainColor, data.hueRotationAmount, index)
 
         navigate(newUrl)
     }
 
+    /** Actually navigates to url with new states */
     function navigate(url: string, addToHistory: boolean = true) {
         goto(url)
 
@@ -84,6 +91,7 @@
         historyForward.set([])
     }
 
+    /** Moves back and forward through history stack */
     function moveHistory(direction: "forward" | "back") {
         if (direction === "back") {
             // If there is only one item in historyBack, we are already at the first page
@@ -118,12 +126,13 @@
     setContext("updatePalette", updatePalette)
     setContext("addPalette", addPalette)
     setContext("deletePalette", deletePalette)
-    setContext("changeFocus", changeFocus)
+    setContext("focusPalette", focusPalette)
 
     // Bugs
     // FIXME: Lightnesses of 0 and 100 turn hue rotation red
 
     // Features
+    // TODO: Move keydown events back to components
     // TODO: Make it possible to delete palettes
     // TODO: Add icons for editing and deleting palettes
     // TODO: Mark focused palette
@@ -174,6 +183,16 @@
     onMount(() => {
         if (data.mainColor.length === 1) updatePalette(0)
     })
+
+    const paletteCreator = new PaletteCreator()
+
+    // TODO: Improve performance by only updating hues when hue rotation amount changes
+    // Update color palettes when main color or hue rotation amount changes
+    $: palettes.set(
+        data.mainColor.map((color, index) =>
+            paletteCreator.createPalette(color, data.hueRotationAmount[index])
+        )
+    )
 </script>
 
 <svelte:window on:keydown={handleKeyDown} />
