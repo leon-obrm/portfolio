@@ -33,7 +33,7 @@
         const mainColor: string = randomMainColor()
 
         updatePalette($page.data.focusedPalette, mainColor, hueRotationAmount)
-        document.dispatchEvent(new Event("colorChange"))
+        document.dispatchEvent(new Event("updateHslPicker"))
     }
 
     // Create random palette when receiving corresponding event

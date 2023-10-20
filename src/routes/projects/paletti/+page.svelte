@@ -97,6 +97,8 @@
 
     /** Moves back and forward through history stack */
     function moveHistory(direction: "forward" | "back") {
+        let nextUrl: string = ""
+
         if (direction === "back") {
             // If there is only one item in historyBack, we are already at the first page
             if ($historyBack.length === 1) return
@@ -108,21 +110,37 @@
 
             // Go to previous page
             if ($historyBack.length === 0) return
-            goto($historyBack[$historyBack.length - 1])
+            nextUrl = $historyBack[$historyBack.length - 1]
         } else if (direction === "forward") {
             // If there is no item in historyForward, we are already at the last page
             if ($historyForward.length === 0) return
 
             // Get next url and move it to historyBack
-            const nextUrl: string = $historyForward[$historyForward.length - 1]
+            nextUrl = $historyForward[$historyForward.length - 1]
             historyForward.update((prev) => prev.slice(0, prev.length - 1))
 
             historyBack.update((prev) => [...prev, nextUrl])
-
-            // Go to next page
-            goto(nextUrl)
         }
-        document.dispatchEvent(new Event("colorChange"))
+
+        // Update data based on url
+        const newMainColor: string[] = nextUrl.split("?")[1].split("&")[0].split("=")[1].split(",")
+
+        const newHueRotationAmount: number[] = nextUrl
+            .split("?")[1]
+            .split("&")[1]
+            .split("=")[1]
+            .split(",")
+            .map((n) => parseInt(n))
+
+        const newIndex: number = parseInt(nextUrl.split("?")[1].split("&")[2].split("=")[1])
+
+        data.mainColor = newMainColor
+        data.hueRotationAmount = newHueRotationAmount
+        data.focusedPalette = newIndex
+
+        goto(nextUrl)
+
+        document.dispatchEvent(new Event("updateHslPicker"))
     }
 
     setContext("navigate", navigate)
@@ -142,7 +160,6 @@
     // TODO: Make it possible to delete palettes
     // TODO: Mark focused palette
     // TODO: Update exports
-    // TODO: Check if everything is still working with multiple palettes
     // TODO: Add settings to url state
     // TODO: Make amount of colors per palette customizable
     // TODO: Add some sort of fullscreen option
@@ -150,12 +167,12 @@
 
     // Polishing
     // TODO: Add animation to dice button
-    // TODO: Add more shadows
     // TODO: Make responsive
     // TODO: Remove steps from hue rotation
 
     // Testing
     // TODO: Check if saturation logic is still working correctly
+    // TODO: Check if everything is still working with multiple palettes
     // TODO: Check for compatibility with other browsers
 
     // Other

@@ -34,10 +34,10 @@
             }, 30)
         }
 
-        document.addEventListener("colorChange", handleColorChange)
+        document.addEventListener("updateHslPicker", handleColorChange)
 
         return () => {
-            document.removeEventListener("colorChange", handleColorChange)
+            document.removeEventListener("updateHslPicker", handleColorChange)
         }
     })
 
