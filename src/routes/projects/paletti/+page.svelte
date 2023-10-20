@@ -50,8 +50,11 @@
         const newHueRotationAmount: number[] = [...data.hueRotationAmount, hueRotationAmount]
         const newIndex: number = data.mainColor.length
 
-        const newUrl: string = createUrl(newMainColor, newHueRotationAmount, newIndex)
+        data.mainColor = newMainColor
+        data.hueRotationAmount = newHueRotationAmount
+        data.focusedPalette = newIndex
 
+        const newUrl: string = createUrl(newMainColor, newHueRotationAmount, newIndex)
         navigate(newUrl)
     }
 
@@ -65,8 +68,11 @@
 
         const newIndex: number = data.focusedPalette > 0 ? data.focusedPalette - 1 : 0
 
+        data.mainColor = newMainColor
+        data.hueRotationAmount = newHueRotationAmount
+        data.focusedPalette = newIndex
+
         const newUrl: string = createUrl(newMainColor, newHueRotationAmount, newIndex)
-        console.log(newUrl)
         navigate(newUrl)
     }
 
@@ -127,14 +133,13 @@
     setContext("focusPalette", focusPalette)
 
     // Bugs
+    // FIXME: History does not work when adding and deleting palettes
     // FIXME: Array export is missing parentheses
     // FIXME: HSL does not update when changing palettes
     // FIXME: Lightnesses of 0 and 100 turn hue rotation red
 
     // Features
-    // TODO: Move keydown events back to components
     // TODO: Make it possible to delete palettes
-    // TODO: Add icons for editing and deleting palettes
     // TODO: Mark focused palette
     // TODO: Update exports
     // TODO: Check if everything is still working with multiple palettes

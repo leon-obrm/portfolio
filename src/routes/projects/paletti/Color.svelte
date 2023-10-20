@@ -19,17 +19,22 @@
 
             const GAMMA = 2.4
 
-            var a = rgb.map((v) => {
+            if (rgb === undefined || rgb.length < 3) return
+
+            let a = rgb.map((v) => {
                 v /= 255
                 return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, GAMMA)
             })
             return a[0] * RED + a[1] * GREEN + a[2] * BLUE
         }
 
-        var lum1 = luminance(convert.hex.rgb(currentColor))
-        var lum2 = luminance(testColor)
-        var brightest = Math.max(lum1, lum2)
-        var darkest = Math.min(lum1, lum2)
+        let lum1 = luminance(convert.hex.rgb(currentColor))
+        let lum2 = luminance(testColor)
+
+        if (lum1 === undefined || lum2 === undefined) return 0
+
+        let brightest = Math.max(lum1, lum2)
+        let darkest = Math.min(lum1, lum2)
         return (brightest + 0.05) / (darkest + 0.05)
     }
 
@@ -71,7 +76,9 @@
             }`}
             style:color={textColor}
         >
-            {ntc.name(color)[1]}
+            {#if color !== undefined}
+                {ntc.name(color)[1]}
+            {/if}
         </p>
         <label
             class={`swap swap-rotate h-full w-full opacity-0 transition-opacity duration-150 hover:opacity-100 ${
