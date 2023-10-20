@@ -56,6 +56,7 @@
 
         const newUrl: string = createUrl(newMainColor, newHueRotationAmount, newIndex)
         navigate(newUrl)
+        document.dispatchEvent(new Event("updateHslPicker"))
     }
 
     /** Deletes a palette based on index */
@@ -74,6 +75,7 @@
 
         const newUrl: string = createUrl(newMainColor, newHueRotationAmount, newIndex)
         navigate(newUrl)
+        document.dispatchEvent(new Event("updateHslPicker"))
     }
 
     /** Focuses a palette based on index */
@@ -81,6 +83,7 @@
         const newUrl: string = createUrl(data.mainColor, data.hueRotationAmount, index)
 
         navigate(newUrl)
+        document.dispatchEvent(new Event("updateHslPicker"))
     }
 
     /** Actually navigates to url with new states */
@@ -151,13 +154,10 @@
     setContext("focusPalette", focusPalette)
 
     // Bugs
-    // FIXME: History does not work when adding and deleting palettes
     // FIXME: Array export is missing parentheses
-    // FIXME: HSL does not update when changing palettes
     // FIXME: Lightnesses of 0 and 100 turn hue rotation red
 
     // Features
-    // TODO: Make it possible to delete palettes
     // TODO: Mark focused palette
     // TODO: Update exports
     // TODO: Add settings to url state
