@@ -1,8 +1,8 @@
 <script lang="ts">
     import { Plus } from "lucide-svelte"
     import { onMount, getContext } from "svelte"
-    import { page } from "$app/stores"
     import Palette from "./Palette.svelte"
+    import { palettes } from "./store"
 
     const addPalette: (mainColor: string, hueRotationAmount: number) => void =
         getContext("addPalette")
@@ -25,8 +25,8 @@
 </script>
 
 <div class="flex flex-col gap-10">
-    {#each $page.data.mainColor as mainColor, index}
-        <Palette {index} />
+    {#each $palettes as palette, index}
+        <Palette {palette} {index} />
     {/each}
 
     <div class="tooltip" data-tip="Add new palette [a]">

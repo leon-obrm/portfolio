@@ -57,18 +57,16 @@
 
     /** Deletes a palette based on index */
     function deletePalette(index: number) {
-        const newMainColor: string[] = [
-            ...data.mainColor.slice(0, index),
-            ...data.mainColor.slice(index + 1),
-        ]
-        const newHueRotationAmount: number[] = [
-            ...data.hueRotationAmount.slice(0, index),
-            ...data.hueRotationAmount.slice(index + 1),
-        ]
+        let newMainColor: string[] = [...data.mainColor]
+        let newHueRotationAmount: number[] = [...data.hueRotationAmount]
+
+        newMainColor.splice(index, 1)
+        newHueRotationAmount.splice(index, 1)
+
         const newIndex: number = data.focusedPalette > 0 ? data.focusedPalette - 1 : 0
 
         const newUrl: string = createUrl(newMainColor, newHueRotationAmount, newIndex)
-
+        console.log(newUrl)
         navigate(newUrl)
     }
 
@@ -129,6 +127,8 @@
     setContext("focusPalette", focusPalette)
 
     // Bugs
+    // FIXME: Array export is missing parentheses
+    // FIXME: HSL does not update when changing palettes
     // FIXME: Lightnesses of 0 and 100 turn hue rotation red
 
     // Features
@@ -165,8 +165,8 @@
             // This prevents dialoges from closing when pressing spacebar
             e.preventDefault()
         }
-        if (e.key === "a") document.dispatchEvent(new Event("addPalette"))
-        if (e.key === "c") document.dispatchEvent(new Event("copyExport"))
+        if (e.key === "a" && !e.ctrlKey) document.dispatchEvent(new Event("addPalette"))
+        if (e.key === "c" && !e.ctrlKey) document.dispatchEvent(new Event("copyExport"))
         if (e.key === "e") document.dispatchEvent(new Event("toggleExport"))
         if (e.key === "g") document.dispatchEvent(new Event("toggleShowGap"))
         if (e.key === "m") document.dispatchEvent(new Event("toggleColorMode"))
@@ -188,11 +188,13 @@
 
     // TODO: Improve performance by only updating hues when hue rotation amount changes
     // Update color palettes when main color or hue rotation amount changes
-    $: palettes.set(
-        data.mainColor.map((color, index) =>
+    $: {
+        const newPalettes: string[][] = data.mainColor.map((color, index) =>
             paletteCreator.createPalette(color, data.hueRotationAmount[index])
         )
-    )
+
+        palettes.set(newPalettes)
+    }
 </script>
 
 <svelte:window on:keydown={handleKeyDown} />
