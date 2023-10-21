@@ -154,6 +154,7 @@
     setContext("focusPalette", focusPalette)
 
     // Bugs
+    // FIXME: Reconsider flex layout due to responsiveness issues
     // FIXME: Array export is missing parentheses
     // FIXME: Lightnesses of 0 and 100 turn hue rotation red
 
@@ -221,11 +222,12 @@
 
 <svelte:window on:keydown={handleKeyDown} />
 
-<div class="flex h-screen w-screen" data-theme="paletti">
-    <div class="flex w-5/6 flex-col justify-between">
-        <Logo />
-        <Palettes />
-        <BottomControl />
-    </div>
+<div
+    class="grid h-screen w-screen grid-cols-6 grid-rows-[repeat(8,minmax(0,1fr))]"
+    data-theme="paletti"
+>
+    <Logo />
+    <Palettes />
+    <BottomControl />
     <SideControl />
 </div>

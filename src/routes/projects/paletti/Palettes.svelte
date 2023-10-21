@@ -24,13 +24,13 @@
     })
 </script>
 
-<div class="flex flex-col gap-10">
+<div class="col-span-5 row-span-6 row-start-2 flex flex-col gap-10 overflow-x-hidden">
     {#each $palettes as palette, index}
         <Palette {palette} {index} />
     {/each}
 
     <div class="tooltip" data-tip="Add new palette [a]">
-        <button class="btn-circle btn-lg btn hover:scale-110" on:click={addBasePalette}>
+        <button class="btn-circle btn-lg btn" on:click={addBasePalette}>
             <Plus size={35} />
         </button>
     </div>

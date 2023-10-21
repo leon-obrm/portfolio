@@ -15,7 +15,7 @@
     $: isFocused = index === $page.data.focusedPalette
 </script>
 
-<div in:slide={{ delay: 550 }} out:fade class="m-3 flex flex-col items-start gap-2">
+<div in:slide={{ delay: 550 }} out:fade class="flex flex-col items-start gap-2 p-3 pt-0">
     <div class="flex w-full justify-between">
         <button
             class="pl-1.5 text-xl font-bold"

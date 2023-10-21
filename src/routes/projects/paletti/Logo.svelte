@@ -8,7 +8,7 @@
 </svelte:head>
 
 <a
-    class="m-3 ml-7 flex w-fit content-center items-baseline gap-4"
+    class="row-span-1 flex content-center items-baseline gap-4 p-3 pl-7"
     href="/projects/paletti?mainColor=EF347C&hueRotationAmount=50&focusedPalette=0"
 >
     <div class="flex">
