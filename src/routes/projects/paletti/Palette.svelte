@@ -21,7 +21,7 @@
             class="pl-1.5 text-xl font-bold"
             on:click={() => {
                 focusPalette(index)
-            }}>Primary</button
+            }}>{$page.data.names[index]}</button
         >
         <div>
             {#if $page.data.mainColors.length >= 2 && index !== $page.data.focusedPalette}

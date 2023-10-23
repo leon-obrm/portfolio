@@ -12,10 +12,15 @@
     export let data
 
     /** Creates url with state date */
-    function createUrl(mainColors: string[], hueRotations: number[], focusedPalette: number) {
-        return `?mainColors=${mainColors.join(",")}&hueRotations=${hueRotations.join(
+    function createUrl(
+        names: string[],
+        mainColors: string[],
+        hueRotations: number[],
+        focusedPalette: number
+    ) {
+        return `?names=${names.join(",")}&mainColors=${mainColors.join(
             ","
-        )}&focusedPalette=${focusedPalette}`
+        )}&hueRotations=${hueRotations.join(",")}&focusedPalette=${focusedPalette}`
     }
 
     /** Updates values of palette based on its index */
@@ -39,48 +44,53 @@
         if (addToHistory === undefined || addToHistory === true) addToHistory = true
         else addToHistory = false
 
-        const newUrl: string = createUrl(newMainColors, newHueRotation, index)
+        const newUrl: string = createUrl(data.names, newMainColors, newHueRotation, index)
 
         navigate(newUrl, addToHistory)
     }
 
     /** Adds a new palette */
     function addPalette(mainColor: string, hueRotation: number) {
+        const newNames: string[] = [...data.names, "New Palette"]
         const newMainColors: string[] = [...data.mainColors, mainColor]
         const newHueRotation: number[] = [...data.hueRotations, hueRotation]
         const newIndex: number = data.mainColors.length
 
+        data.names = newNames
         data.mainColors = newMainColors
         data.hueRotations = newHueRotation
         data.focusedPalette = newIndex
 
-        const newUrl: string = createUrl(newMainColors, newHueRotation, newIndex)
+        const newUrl: string = createUrl(newNames, newMainColors, newHueRotation, newIndex)
         navigate(newUrl)
         document.dispatchEvent(new Event("updateHslPicker"))
     }
 
     /** Deletes a palette based on index */
     function deletePalette(index: number) {
+        let newNames: string[] = [...data.names]
         let newMainColors: string[] = [...data.mainColors]
         let newHueRotations: number[] = [...data.hueRotations]
 
+        newNames.splice(index, 1)
         newMainColors.splice(index, 1)
         newHueRotations.splice(index, 1)
 
         const newIndex: number = data.focusedPalette > 0 ? data.focusedPalette - 1 : 0
 
+        data.names = newNames
         data.mainColors = newMainColors
         data.hueRotations = newHueRotations
         data.focusedPalette = newIndex
 
-        const newUrl: string = createUrl(newMainColors, newHueRotations, newIndex)
+        const newUrl: string = createUrl(newNames, newMainColors, newHueRotations, newIndex)
         navigate(newUrl)
         document.dispatchEvent(new Event("updateHslPicker"))
     }
 
     /** Focuses a palette based on index */
     function focusPalette(index: number) {
-        const newUrl: string = createUrl(data.mainColors, data.hueRotations, index)
+        const newUrl: string = createUrl(data.names, data.mainColors, data.hueRotations, index)
 
         navigate(newUrl)
         document.dispatchEvent(new Event("updateHslPicker"))
@@ -125,18 +135,21 @@
             historyBack.update((prev) => [...prev, nextUrl])
         }
 
-        // Update data based on url
-        const newMainColors: string[] = nextUrl.split("?")[1].split("&")[0].split("=")[1].split(",")
+        // Get data from url and update states (Needs to be done for some reason)
+        const newNames: string[] = nextUrl.split("?")[1].split("&")[0].split("=")[1].split(",")
+
+        const newMainColors: string[] = nextUrl.split("?")[1].split("&")[1].split("=")[1].split(",")
 
         const newHueRotations: number[] = nextUrl
             .split("?")[1]
-            .split("&")[1]
+            .split("&")[2]
             .split("=")[1]
             .split(",")
             .map((n) => parseInt(n))
 
-        const newIndex: number = parseInt(nextUrl.split("?")[1].split("&")[2].split("=")[1])
+        const newIndex: number = parseInt(nextUrl.split("?")[1].split("&")[3].split("=")[1])
 
+        data.names = newNames
         data.mainColors = newMainColors
         data.hueRotations = newHueRotations
         data.focusedPalette = newIndex
