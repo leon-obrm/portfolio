@@ -7,7 +7,7 @@
     const updatePalette: (
         index: number,
         mainColor?: string,
-        hueRotationAmount?: number,
+        hueRotation?: number,
         addToHistory?: boolean
     ) => void = getContext("updatePalette")
 
@@ -29,10 +29,10 @@
 
     /** Creates random palette config */
     function createRandomPaletteConfig() {
-        const hueRotationAmount: number = randomInt(-10, 10) * 10
+        const hueRotation: number = randomInt(-10, 10) * 10
         const mainColor: string = randomMainColor()
 
-        updatePalette($page.data.focusedPalette, mainColor, hueRotationAmount)
+        updatePalette($page.data.focusedPalette, mainColor, hueRotation)
         document.dispatchEvent(new Event("updateHslPicker"))
     }
 

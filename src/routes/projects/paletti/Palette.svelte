@@ -24,7 +24,7 @@
             }}>Primary</button
         >
         <div>
-            {#if $page.data.mainColor.length >= 2 && index !== $page.data.focusedPalette}
+            {#if $page.data.mainColors.length >= 2 && index !== $page.data.focusedPalette}
                 <div class="tooltip" data-tip="Edit palette">
                     <button
                         class="btn-sm btn-circle btn"
@@ -36,10 +36,10 @@
                     </button>
                 </div>
             {/if}
-            {#if $page.data.mainColor.length >= 2}
+            {#if $page.data.mainColors.length >= 2}
                 <div class="tooltip" data-tip="Delete palette">
                     <button
-                        disabled={$page.data.mainColor.length <= 1}
+                        disabled={$page.data.mainColors.length <= 1}
                         class="btn-sm btn-circle btn"
                         on:click={() => {
                             deletePalette(index)
@@ -63,7 +63,7 @@
         {#each palette as color, colorIndex}
             <Color
                 {isFocused}
-                color={colorIndex === 4 ? $page.data.mainColor[index] : color}
+                color={colorIndex === 4 ? $page.data.mainColors[index] : color}
                 index={colorIndex}
             />
         {/each}

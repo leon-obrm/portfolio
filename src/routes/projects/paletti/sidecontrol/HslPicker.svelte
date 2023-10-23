@@ -9,12 +9,12 @@
     const updatePalette: (
         index: number,
         mainColor?: string,
-        hueRotationAmount?: number,
+        hueRotation?: number,
         addToHistory?: boolean
     ) => void = getContext("updatePalette")
 
     // Initially load hsl values from url
-    const hslValues: number[] = convert.hex.hsl($page.data.mainColor[$page.data.focusedPalette])
+    const hslValues: number[] = convert.hex.hsl($page.data.mainColors[$page.data.focusedPalette])
 
     let hue: number = hslValues[0]
     let saturation: number = hslValues[1]
@@ -25,7 +25,7 @@
         function handleColorChange(e: Event) {
             setTimeout(() => {
                 const hslValues: number[] = convert.hex.hsl(
-                    $page.data.mainColor[$page.data.focusedPalette]
+                    $page.data.mainColors[$page.data.focusedPalette]
                 )
 
                 hue = hslValues[0]

@@ -12,8 +12,8 @@
     export let data
 
     /** Creates url with state date */
-    function createUrl(mainColor: string[], hueRotationAmount: number[], focusedPalette: number) {
-        return `?mainColor=${mainColor.join(",")}&hueRotationAmount=${hueRotationAmount.join(
+    function createUrl(mainColors: string[], hueRotations: number[], focusedPalette: number) {
+        return `?mainColors=${mainColors.join(",")}&hueRotations=${hueRotations.join(
             ","
         )}&focusedPalette=${focusedPalette}`
     }
@@ -22,16 +22,16 @@
     function updatePalette(
         index: number,
         mainColor?: string,
-        hueRotationAmount?: number,
+        hueRotation?: number,
         addToHistory?: boolean
     ) {
-        const newMainColor: string[] = [...data.mainColor]
-        const newHueRotationAmount: number[] = [...data.hueRotationAmount]
+        const newMainColors: string[] = [...data.mainColors]
+        const newHueRotation: number[] = [...data.hueRotations]
 
-        if (mainColor !== undefined) newMainColor[index] = mainColor
-        if (hueRotationAmount !== undefined) newHueRotationAmount[index] = hueRotationAmount
+        if (mainColor !== undefined) newMainColors[index] = mainColor
+        if (hueRotation !== undefined) newHueRotation[index] = hueRotation
 
-        // If change is only in hueRotationAmount, remove last item from historyBack
+        // If change is only in hueRotation, remove last item from historyBack
         // This way, the history is not cluttered with every change in hue rotation
         if ($historyBack.length > 0 && mainColor === undefined)
             historyBack.update((prev) => prev.slice(0, prev.length - 1))
@@ -39,48 +39,48 @@
         if (addToHistory === undefined || addToHistory === true) addToHistory = true
         else addToHistory = false
 
-        const newUrl: string = createUrl(newMainColor, newHueRotationAmount, index)
+        const newUrl: string = createUrl(newMainColors, newHueRotation, index)
 
         navigate(newUrl, addToHistory)
     }
 
     /** Adds a new palette */
-    function addPalette(mainColor: string, hueRotationAmount: number) {
-        const newMainColor: string[] = [...data.mainColor, mainColor]
-        const newHueRotationAmount: number[] = [...data.hueRotationAmount, hueRotationAmount]
-        const newIndex: number = data.mainColor.length
+    function addPalette(mainColor: string, hueRotation: number) {
+        const newMainColors: string[] = [...data.mainColors, mainColor]
+        const newHueRotation: number[] = [...data.hueRotations, hueRotation]
+        const newIndex: number = data.mainColors.length
 
-        data.mainColor = newMainColor
-        data.hueRotationAmount = newHueRotationAmount
+        data.mainColors = newMainColors
+        data.hueRotations = newHueRotation
         data.focusedPalette = newIndex
 
-        const newUrl: string = createUrl(newMainColor, newHueRotationAmount, newIndex)
+        const newUrl: string = createUrl(newMainColors, newHueRotation, newIndex)
         navigate(newUrl)
         document.dispatchEvent(new Event("updateHslPicker"))
     }
 
     /** Deletes a palette based on index */
     function deletePalette(index: number) {
-        let newMainColor: string[] = [...data.mainColor]
-        let newHueRotationAmount: number[] = [...data.hueRotationAmount]
+        let newMainColors: string[] = [...data.mainColors]
+        let newHueRotations: number[] = [...data.hueRotations]
 
-        newMainColor.splice(index, 1)
-        newHueRotationAmount.splice(index, 1)
+        newMainColors.splice(index, 1)
+        newHueRotations.splice(index, 1)
 
         const newIndex: number = data.focusedPalette > 0 ? data.focusedPalette - 1 : 0
 
-        data.mainColor = newMainColor
-        data.hueRotationAmount = newHueRotationAmount
+        data.mainColors = newMainColors
+        data.hueRotations = newHueRotations
         data.focusedPalette = newIndex
 
-        const newUrl: string = createUrl(newMainColor, newHueRotationAmount, newIndex)
+        const newUrl: string = createUrl(newMainColors, newHueRotations, newIndex)
         navigate(newUrl)
         document.dispatchEvent(new Event("updateHslPicker"))
     }
 
     /** Focuses a palette based on index */
     function focusPalette(index: number) {
-        const newUrl: string = createUrl(data.mainColor, data.hueRotationAmount, index)
+        const newUrl: string = createUrl(data.mainColors, data.hueRotations, index)
 
         navigate(newUrl)
         document.dispatchEvent(new Event("updateHslPicker"))
@@ -126,9 +126,9 @@
         }
 
         // Update data based on url
-        const newMainColor: string[] = nextUrl.split("?")[1].split("&")[0].split("=")[1].split(",")
+        const newMainColors: string[] = nextUrl.split("?")[1].split("&")[0].split("=")[1].split(",")
 
-        const newHueRotationAmount: number[] = nextUrl
+        const newHueRotations: number[] = nextUrl
             .split("?")[1]
             .split("&")[1]
             .split("=")[1]
@@ -137,8 +137,8 @@
 
         const newIndex: number = parseInt(nextUrl.split("?")[1].split("&")[2].split("=")[1])
 
-        data.mainColor = newMainColor
-        data.hueRotationAmount = newHueRotationAmount
+        data.mainColors = newMainColors
+        data.hueRotations = newHueRotations
         data.focusedPalette = newIndex
 
         goto(nextUrl)
@@ -203,16 +203,16 @@
 
     // Makes sure the url is updated when the page is loaded without url parameters
     onMount(() => {
-        if (data.mainColor.length === 1) updatePalette(0)
+        if (data.mainColors.length === 1) updatePalette(0)
     })
 
     const paletteCreator = new PaletteCreator()
 
-    // TODO: Improve performance by only updating hues when hue rotation amount changes
-    // Update color palettes when main color or hue rotation amount changes
+    // TODO: Improve performance by only updating hues when hue rotation changes
+    // Update color palettes when main color or hue rotation changes
     $: {
-        const newPalettes: string[][] = data.mainColor.map((color, index) =>
-            paletteCreator.createPalette(color, data.hueRotationAmount[index])
+        const newPalettes: string[][] = data.mainColors.map((color, index) =>
+            paletteCreator.createPalette(color, data.hueRotations[index])
         )
 
         palettes.set(newPalettes)

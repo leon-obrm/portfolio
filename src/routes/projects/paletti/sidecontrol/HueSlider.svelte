@@ -12,7 +12,7 @@
     const updatePalette: (
         index: number,
         mainColor?: string,
-        hueRotationAmount?: number,
+        hueRotation?: number,
         addToHistory?: boolean
     ) => void = getContext("updatePalette")
 
@@ -20,23 +20,23 @@
         const inputElement = e.target as HTMLInputElement
         if (inputElement === null) return
 
-        const hueRotationAmount: number = parseInt(inputElement.value)
+        const hueRotation: number = parseInt(inputElement.value)
 
-        updatePalette($page.data.focusedPalette, undefined, hueRotationAmount)
+        updatePalette($page.data.focusedPalette, undefined, hueRotation)
     }
 
     let mainHue: number
-    $: mainHue = convert.hex.hsl($page.data.mainColor)[0]
+    $: mainHue = convert.hex.hsl($page.data.mainColors[$page.data.focusedPalette])[0]
 
-    // Update hue rotation amount when receiving corresponding event
+    // Update hue rotation when receiving corresponding event
     onMount(() => {
         function handleKeyDown(multiplier: number) {
-            let hueRotationAmount: number = parseInt($page.data.hueRotationAmount)
-            hueRotationAmount += step * multiplier
+            let hueRotation: number = parseInt($page.data.hueRotation)
+            hueRotation += step * multiplier
 
-            hueRotationAmount = Math.min(max, Math.max(min, hueRotationAmount))
+            hueRotation = Math.min(max, Math.max(min, hueRotation))
 
-            updatePalette($page.data.focusedPalette, undefined, hueRotationAmount)
+            updatePalette($page.data.focusedPalette, undefined, hueRotation)
         }
 
         document.addEventListener("ArrowLeft", () => {
@@ -64,7 +64,7 @@
         {min}
         {max}
         {step}
-        value={$page.data.hueRotationAmount}
+        value={$page.data.hueRotations[$page.data.focusedPalette]}
         onInput={setHueRotationAmount}
     />
 </SettingWrapper>

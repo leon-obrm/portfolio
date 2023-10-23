@@ -4,14 +4,13 @@
     import Palette from "./Palette.svelte"
     import { palettes } from "./store"
 
-    const addPalette: (mainColor: string, hueRotationAmount: number) => void =
-        getContext("addPalette")
+    const addPalette: (mainColor: string, hueRotation: number) => void = getContext("addPalette")
 
     function addBasePalette() {
         const mainColor: string = "EF347C"
-        const hueRotationAmount: number = 50
+        const hueRotation: number = 50
 
-        addPalette(mainColor, hueRotationAmount)
+        addPalette(mainColor, hueRotation)
     }
 
     // Toggle show gap when receiving corresponding event

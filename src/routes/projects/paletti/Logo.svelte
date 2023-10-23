@@ -9,7 +9,7 @@
 
 <a
     class="flex content-center items-baseline gap-4 p-3 pl-7"
-    href="/projects/paletti?mainColor=EF347C&hueRotationAmount=50&focusedPalette=0"
+    href="/projects/paletti?mainColors=EF347C&hueRotations=50&focusedPalette=0"
 >
     <div class="flex">
         <div
