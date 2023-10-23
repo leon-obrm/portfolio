@@ -24,7 +24,7 @@
     })
 </script>
 
-<div class="col-span-5 row-span-6 row-start-2 flex flex-col gap-10 overflow-x-hidden">
+<div class="mb-4 flex flex-col gap-6 overflow-x-hidden">
     {#each $palettes as palette, index}
         <Palette {palette} {index} />
     {/each}
