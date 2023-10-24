@@ -31,7 +31,7 @@
     // Update hue rotation when receiving corresponding event
     onMount(() => {
         function handleKeyDown(multiplier: number) {
-            let hueRotation: number = parseInt($page.data.hueRotation)
+            let hueRotation: number = parseInt($page.data.hueRotations[$page.data.focusedPalette])
             hueRotation += step * multiplier
 
             hueRotation = Math.min(max, Math.max(min, hueRotation))

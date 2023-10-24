@@ -112,9 +112,9 @@
     })
 </script>
 
-<div class="tooltip" data-tip="Show export options [e]">
+<div class="tooltip w-full" data-tip="Show export options [e]">
     <button
-        class="btn-primary btn w-full"
+        class="btn-primary btn w-full rounded-l-none"
         on:click={() => {
             modal.showModal()
         }}
@@ -122,6 +122,7 @@
         Export
     </button>
 </div>
+
 <dialog bind:this={modal} class="modal">
     <form method="dialog" class="modal-backdrop">
         <button></button>
@@ -142,7 +143,7 @@
             {/each}
         </div>
         <div class="mockup-code">
-            <label class="swap swap-rotate absolute right-4 top-5">
+            <label class="swap-rotate swap absolute right-4 top-5">
                 <input type="checkbox" bind:checked={copyIsClicked} on:change={copyExport} />
                 <div class="swap-off flex content-center items-center justify-center">
                     <Copy size={28} />

@@ -171,6 +171,7 @@
     // FIXME: Lightnesses of 0 and 100 turn hue rotation red
 
     // Features
+    // TODO: Make palette names editable
     // TODO: Mark focused palette
     // TODO: Update exports
     // TODO: Add settings to url state
@@ -179,6 +180,7 @@
     // TODO: Make HSL values editable
 
     // Polishing
+    // TODO: Center palette when only one palette is present
     // TODO: Add animation to dice button
     // TODO: Make responsive
     // TODO: Remove steps from hue rotation
@@ -235,7 +237,7 @@
 <svelte:window on:keydown={handleKeyDown} />
 
 <div class="flex h-screen w-screen" data-theme="paletti">
-    <div class="flex w-5/6 flex-col justify-between">
+    <div class="relative flex w-5/6 flex-col justify-start">
         <Logo />
         <Palettes />
         <BottomControl />
