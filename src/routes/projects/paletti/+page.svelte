@@ -23,7 +23,17 @@
         )}&hueRotations=${hueRotations.join(",")}&focusedPalette=${focusedPalette}`
     }
 
-    /** Updates values of palette based on its index */
+    /** Updates name of palette based on its index */
+    function updateName(index: number, name: string) {
+        const newNames: string[] = [...data.names]
+
+        if (name !== undefined) newNames[index] = name
+
+        const newUrl: string = createUrl(newNames, data.mainColors, data.hueRotations, index)
+        navigate(newUrl)
+    }
+
+    /** Updates hue rotation of palette based on its index */
     function updatePalette(
         index: number,
         mainColor?: string,
@@ -31,27 +41,36 @@
         addToHistory?: boolean
     ) {
         const newMainColors: string[] = [...data.mainColors]
-        const newHueRotation: number[] = [...data.hueRotations]
+        const newHueRotations: number[] = [...data.hueRotations]
 
         if (mainColor !== undefined) newMainColors[index] = mainColor
-        if (hueRotation !== undefined) newHueRotation[index] = hueRotation
+        if (hueRotation !== undefined) newHueRotations[index] = hueRotation
 
         // If change is only in hueRotation, remove last item from historyBack
         // This way, the history is not cluttered with every change in hue rotation
-        if ($historyBack.length > 0 && mainColor === undefined)
-            historyBack.update((prev) => prev.slice(0, prev.length - 1))
+        if ($historyBack.length > 0) historyBack.update((prev) => prev.slice(0, prev.length - 1))
 
         if (addToHistory === undefined || addToHistory === true) addToHistory = true
         else addToHistory = false
 
-        const newUrl: string = createUrl(data.names, newMainColors, newHueRotation, index)
+        const newUrl: string = createUrl(data.names, newMainColors, newHueRotations, index)
 
         navigate(newUrl, addToHistory)
     }
 
     /** Adds a new palette */
     function addPalette(mainColor: string, hueRotation: number) {
-        const newNames: string[] = [...data.names, "New Palette"]
+        /** Pre chosen names */
+        const nameTemplate: string[] = ["Primary", "Secondary", "Accent", "Gray"]
+
+        let newName: string = "New Palette"
+
+        // Find first unused name
+        nameTemplate.some((name: string) => {
+            if (!data.names.includes(name)) return (newName = name)
+        })
+
+        const newNames: string[] = [...data.names, newName]
         const newMainColors: string[] = [...data.mainColors, mainColor]
         const newHueRotation: number[] = [...data.hueRotations, hueRotation]
         const newIndex: number = data.mainColors.length
@@ -161,6 +180,7 @@
 
     setContext("navigate", navigate)
     setContext("moveHistory", moveHistory)
+    setContext("updateName", updateName)
     setContext("updatePalette", updatePalette)
     setContext("addPalette", addPalette)
     setContext("deletePalette", deletePalette)
@@ -171,8 +191,6 @@
     // FIXME: Lightnesses of 0 and 100 turn hue rotation red
 
     // Features
-    // TODO: Make palette names editable
-    // TODO: Mark focused palette
     // TODO: Update exports
     // TODO: Add settings to url state
     // TODO: Make amount of colors per palette customizable
@@ -194,6 +212,10 @@
     // TODO: Move to own repository (Would make favicon setup more accessible)
 
     function handleKeyDown(e: KeyboardEvent) {
+        // Prevents keyboard shortcuts from firing when user is typing into input
+        const activeElement: Element | null = document.activeElement
+        if (activeElement && activeElement.tagName === "INPUT") return
+
         if (!isNaN(Number(e.key)))
             document.dispatchEvent(new CustomEvent("changeExportOption", { detail: Number(e.key) }))
 
@@ -218,7 +240,10 @@
 
     // Makes sure the url is updated when the page is loaded without url parameters
     onMount(() => {
-        if (data.mainColors.length === 1) updatePalette(0)
+        if (data.mainColors.length === 1) {
+            const newUrl: string = createUrl(data.names, data.mainColors, data.hueRotations, 0)
+            navigate(newUrl)
+        }
     })
 
     const paletteCreator = new PaletteCreator()

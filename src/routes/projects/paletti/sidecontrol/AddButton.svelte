@@ -23,7 +23,7 @@
 
 <div class="tooltip" data-tip="Add new palette [a]">
     <button
-        class="btn rounded-r-none border-2 border-r-0 border-gray-200"
+        class="btn rounded-r-none border-[3px] border-r-0 border-gray-200 bg-white hover:bg-gray-100"
         on:click={addBasePalette}
     >
         <Plus size={30} />

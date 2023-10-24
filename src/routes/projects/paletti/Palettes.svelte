@@ -3,7 +3,7 @@
     import { palettes } from "./store"
 </script>
 
-<div class="flex flex-col items-start gap-6 overflow-x-hidden px-3 pb-12">
+<div class="flex flex-col items-start gap-10 overflow-x-hidden px-3 pt-0.5 pb-12">
     {#each $palettes as palette, index}
         <Palette {palette} {index} />
     {/each}
