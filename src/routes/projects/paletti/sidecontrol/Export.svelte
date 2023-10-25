@@ -8,6 +8,16 @@
     let modal: any
     let currentOption: number = 0
 
+    function nameToCamelCase(name: string) {
+        return name
+            .split(" ")
+            .map((word: string, index: number) => {
+                if (index === 0) return word.toLowerCase()
+                else return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+            })
+            .join("")
+    }
+
     interface ExportOption {
         name: string
         lines: string[]
@@ -19,50 +29,74 @@
         $palettes
         exportLink = [window.location.href]
     }
+
     let exportCssVariables: string[] = []
     $: {
-        let count: number = 9
+        let cssVariables: string[] = [":root {"]
 
-        let cssVariables: string[] = [":root {\n"]
-
-        $palettes[$page.data.focusedPalette].forEach((color: string) => {
-            cssVariables = [...cssVariables, `    --primary-${count}00: #${color};\n`]
-            count--
+        // Add CSS variables for each color
+        $page.data.names.forEach((name: string, index: number) => {
+            let count: number = 9
+            $palettes[index].forEach((color: string) => {
+                cssVariables = [
+                    ...cssVariables,
+                    `    --${nameToCamelCase(name)}-${count}00: #${color};`,
+                ]
+                count--
+            })
+            cssVariables = [...cssVariables, ""]
         })
+
+        // Remove last new line
+        cssVariables = cssVariables.slice(0, -1)
 
         cssVariables = [...cssVariables, "}"]
 
         exportCssVariables = cssVariables
     }
+
+    // TODO: Adapt tailwind export to object format
+    // TODO: Update tailwind export for multiple palettes
     let exportTailwindTheme: string[] = []
     $: {
-        let count: number = 9
+        let tailwindTheme: string[] = ["theme: {", "    extend: {", "        colors: {"]
 
-        let tailwindTheme: string[] = ["theme: {\n", "    extend: {\n", "        colors: {\n"]
+        $page.data.names.forEach((name: string, index: number) => {
+            let count: number = 9
+            // Add palette name
+            tailwindTheme = [...tailwindTheme, `            ${nameToCamelCase(name)}: {`]
 
-        $palettes[$page.data.focusedPalette].forEach((color: string) => {
-            tailwindTheme = [...tailwindTheme, `            "primary-${count}00": "#${color}",\n`]
-            count--
+            // Add color
+            $palettes[index].forEach((color: string) => {
+                tailwindTheme = [...tailwindTheme, `                ${count}00: "#${color}",`]
+                count--
+            })
+            tailwindTheme = [...tailwindTheme, "            },"]
         })
 
-        tailwindTheme = [...tailwindTheme, "        },\n", "    },\n", "},"]
+        tailwindTheme = [...tailwindTheme, "        },", "    },", "},"]
 
         exportTailwindTheme = tailwindTheme
     }
+
     let exportArray: string[] = []
-    $: exportArray = [
-        `const colors: string[] = [${$palettes[$page.data.focusedPalette].join(", ")}]`,
-    ]
+    $: {
+        exportArray = $page.data.names.map(
+            (name: string, index: number) =>
+                `const ${nameToCamelCase(name)}: string[] = [${$palettes[index]
+                    .map((color: string) => `"${color}"`)
+                    .join(", ")}];`
+        )
+    }
 
     let exportOptions: ExportOption[] = []
     $: exportOptions = [
         { name: "CSS Variables", lines: exportCssVariables },
-        { name: "Tailwind CSS Theme", lines: exportTailwindTheme, fileName: "tailwind.config.js" },
+        { name: "Tailwind CSS", lines: exportTailwindTheme, fileName: "tailwind.config.js" },
         { name: "Link", lines: exportLink },
         { name: "Array", lines: exportArray },
     ]
 
-    // TODO: Adapt tailwind export to object format
     // TODO: Add help links to each export option
     // TODO: Add export to realtimecolors
 
@@ -71,7 +105,7 @@
 
     function copyExport() {
         // Copies export option to clipboard
-        navigator.clipboard.writeText(exportOptions[currentOption].lines.join(""))
+        navigator.clipboard.writeText(exportOptions[currentOption].lines.join("\n"))
 
         // Shows "Copied!" for 1 second when clicked
         copyIsClicked = true
@@ -127,7 +161,7 @@
     <form method="dialog" class="modal-backdrop">
         <button></button>
     </form>
-    <div class="modal-box fixed top-[10%] w-full max-w-5xl">
+    <div class="modal-box fixed top-[10%] w-full max-w-5xl overflow-hidden">
         <form method="dialog">
             <button class="btn-ghost btn-sm btn-circle btn absolute right-2 top-2">✕</button>
         </form>
@@ -142,25 +176,45 @@
                 >
             {/each}
         </div>
+
         <div class="mockup-code">
-            <label class="swap-rotate swap absolute right-4 top-5">
+            <label class="swap swap-rotate absolute right-3 top-4">
                 <input type="checkbox" bind:checked={copyIsClicked} on:change={copyExport} />
                 <div class="swap-off flex content-center items-center justify-center">
-                    <Copy size={28} />
+                    <Copy size={22} />
                 </div>
-                <div class="swap-on">Copied!</div>
+                <div class="swap-on text-sm">Copied!</div>
             </label>
 
-            <div class="-mb-5 overflow-x-auto pb-5">
+            <div class="-mb-5 max-h-[50vh] overflow-x-auto overflow-y-auto pb-5 text-sm">
                 {#if exportOptions[currentOption].fileName !== undefined}
                     <pre><code class="text-xs text-gray-300"
                             >{exportOptions[currentOption].fileName}</code
                         ></pre>
                 {/if}
                 {#each exportOptions[currentOption].lines as line, index}
-                    <pre data-prefix={index + 1}><code>{line}</code></pre>
+                    <pre data-prefix={index + 1}><code class="pr-8">{line}</code></pre>
                 {/each}
             </div>
         </div>
     </div>
 </dialog>
+
+<style>
+    /* Width */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #90949e;
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #747883;
+    }
+</style>
