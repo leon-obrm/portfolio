@@ -55,8 +55,6 @@
         exportCssVariables = cssVariables
     }
 
-    // TODO: Adapt tailwind export to object format
-    // TODO: Update tailwind export for multiple palettes
     let exportTailwindTheme: string[] = []
     $: {
         let tailwindTheme: string[] = ["theme: {", "    extend: {", "        colors: {"]
@@ -98,7 +96,6 @@
     ]
 
     // TODO: Add help links to each export option
-    // TODO: Add export to realtimecolors
 
     let copyIsClicked = false
     let timeout: NodeJS.Timeout

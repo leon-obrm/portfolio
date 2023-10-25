@@ -48,7 +48,8 @@
 
         // If change is only in hueRotation, remove last item from historyBack
         // This way, the history is not cluttered with every change in hue rotation
-        if ($historyBack.length > 0) historyBack.update((prev) => prev.slice(0, prev.length - 1))
+        if ($historyBack.length > 0 && mainColor === undefined)
+            historyBack.update((prev) => prev.slice(0, prev.length - 1))
 
         if (addToHistory === undefined || addToHistory === true) addToHistory = true
         else addToHistory = false
@@ -187,19 +188,16 @@
     setContext("focusPalette", focusPalette)
 
     // Bugs
-    // FIXME: Array export is missing parentheses
     // FIXME: Lightnesses of 0 and 100 turn hue rotation red
 
     // Features
-    // TODO: Update exports
-    // TODO: Add settings to url state
     // TODO: Make amount of colors per palette customizable
     // TODO: Add some sort of fullscreen option
     // TODO: Make HSL values editable
 
     // Polishing
-    // TODO: Center palette when only one palette is present
     // TODO: Add animation to dice button
+    // TODO: Center palette when only one palette is present
     // TODO: Make responsive
     // TODO: Remove steps from hue rotation
 
