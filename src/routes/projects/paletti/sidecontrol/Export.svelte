@@ -82,7 +82,7 @@
         exportArray = $page.data.names.map(
             (name: string, index: number) =>
                 `const ${nameToCamelCase(name)}: string[] = [${$palettes[index]
-                    .map((color: string) => `"${color}"`)
+                    .map((color: string) => `"#${color}"`)
                     .join(", ")}];`
         )
     }
@@ -175,7 +175,7 @@
         </div>
 
         <div class="mockup-code">
-            <label class="swap swap-rotate absolute right-3 top-4">
+            <label class="swap-rotate swap absolute right-3 top-4">
                 <input type="checkbox" bind:checked={copyIsClicked} on:change={copyExport} />
                 <div class="swap-off flex content-center items-center justify-center">
                     <Copy size={22} />
