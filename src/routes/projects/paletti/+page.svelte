@@ -196,8 +196,9 @@
     // TODO: Make HSL values editable
 
     // Polishing
-    // TODO: Add animation to dice button
+    // TODO: Improve palette animations
     // TODO: Center palette when only one palette is present
+    // TODO: Improve performance by only updating hues when hue rotation changes
     // TODO: Make responsive
     // TODO: Remove steps from hue rotation
 
@@ -246,7 +247,6 @@
 
     const paletteCreator = new PaletteCreator()
 
-    // TODO: Improve performance by only updating hues when hue rotation changes
     // Update color palettes when main color or hue rotation changes
     $: {
         const newPalettes: string[][] = data.mainColors.map((color, index) =>
