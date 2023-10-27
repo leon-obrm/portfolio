@@ -5,13 +5,13 @@ export class PaletteCreator {
     /** Creates hue palette based on hue of main color
      * Rotates hue to nearest bright hue
      */
-    modifyHues(mainHue: number, hueRotationAmount: number): number[] {
+    modifyHues(mainHue: number, hueRotation: number): number[] {
         // Hue modifiers to choose from that are added to main hue
         const maxHueModifiers: number[] = [20, 10, 5, 2, 0, 2, 5, 10, 20]
 
-        // Creates hues based on amount of hue rotation and rotation direction
+        // Creates hues based on hue rotation and rotation direction
         const hues: number[] = maxHueModifiers.map(
-            (hueModifier: number) => mainHue + (hueModifier / 100) * hueRotationAmount
+            (hueModifier: number) => mainHue + (hueModifier / 100) * hueRotation
         )
 
         return hues
@@ -68,12 +68,12 @@ export class PaletteCreator {
 
     /** Creates a more balanced color palette
      * @param mainColor Main / middle color of color palette in hex (without #)
-     * @param hueRotationAmount Range: -100 - 100
+     * @param hueRotation Range: -100 - 100
      */
-    createPalette(mainColor: string, hueRotationAmount: number): string[] {
+    createPalette(mainColor: string, hueRotation: number): string[] {
         const mainHsl: number[] = convert.hex.hsl(mainColor)
 
-        const hues: number[] = this.modifyHues(mainHsl[0], hueRotationAmount)
+        const hues: number[] = this.modifyHues(mainHsl[0], hueRotation)
         const saturations: number[] = this.modifySaturations(mainHsl[1])
         const lightnesses: number[] = this.modifyLightnesses(mainHsl[2])
 

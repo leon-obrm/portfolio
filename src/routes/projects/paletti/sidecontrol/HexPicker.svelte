@@ -6,7 +6,7 @@
     const updatePalette: (
         index: number,
         mainColor?: string,
-        hueRotationAmount?: number,
+        hueRotation?: number,
         addToHistory?: boolean
     ) => void = getContext("updatePalette")
 
@@ -34,6 +34,6 @@
     type="text"
     class="input-bordered input col-start-1 row-start-1 h-8 w-full p-0 text-center text-lg"
     maxlength="7"
-    value={$page.data.mainColor[$page.data.focusedPalette]}
+    value={$page.data.mainColors[$page.data.focusedPalette]}
     on:input={setNewColor}
 />

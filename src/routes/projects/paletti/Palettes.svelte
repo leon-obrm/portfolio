@@ -1,37 +1,31 @@
 <script lang="ts">
-    import { Plus } from "lucide-svelte"
-    import { onMount, getContext } from "svelte"
-    import { page } from "$app/stores"
     import Palette from "./Palette.svelte"
-
-    const addPalette: (mainColor: string, hueRotationAmount: number) => void =
-        getContext("addPalette")
-
-    function addBasePalette() {
-        const mainColor: string = "EF347C"
-        const hueRotationAmount: number = 50
-
-        addPalette(mainColor, hueRotationAmount)
-    }
-
-    // Toggle show gap when receiving corresponding event
-    onMount(() => {
-        document.addEventListener("addPalette", addBasePalette)
-
-        return () => {
-            document.removeEventListener("addPalette", addBasePalette)
-        }
-    })
+    import { palettes } from "./store"
 </script>
 
-<div class="flex flex-col gap-10">
-    {#each $page.data.mainColor as mainColor, index}
-        <Palette {index} />
+<div
+    class="z-20 mb-3 flex flex-col items-start gap-10 overflow-y-auto overflow-x-hidden px-3 pb-40 pt-0.5 pr-4"
+>
+    {#each $palettes as palette, index}
+        <Palette {palette} {index} />
     {/each}
-
-    <div class="tooltip" data-tip="Add new palette [a]">
-        <button class="btn-circle btn-lg btn hover:scale-110" on:click={addBasePalette}>
-            <Plus size={35} />
-        </button>
-    </div>
 </div>
+
+<style>
+    /* Width */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #c1c5cd;
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #90949e;
+    }
+</style>

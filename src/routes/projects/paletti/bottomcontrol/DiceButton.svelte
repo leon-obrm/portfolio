@@ -7,9 +7,22 @@
     const updatePalette: (
         index: number,
         mainColor?: string,
-        hueRotationAmount?: number,
+        hueRotation?: number,
         addToHistory?: boolean
     ) => void = getContext("updatePalette")
+
+    let isAnimating: boolean = false
+    let timeout: NodeJS.Timeout | null = null
+
+    /** Makes sure the rotate animation works as expected */
+    function toggleAnimation() {
+        if (!isAnimating) {
+            isAnimating = true
+            timeout = setTimeout(() => {
+                isAnimating = false
+            }, 800)
+        }
+    }
 
     /** Returns random int in range */
     function randomInt(min: number, max: number): number {
@@ -25,15 +38,15 @@
         return convert.hsl.hex([newHue, newSaturation, newLightness])
     }
 
-    // $: console.log($page.data.focusedPalette)
-
     /** Creates random palette config */
     function createRandomPaletteConfig() {
-        const hueRotationAmount: number = randomInt(-10, 10) * 10
+        toggleAnimation()
+
+        const hueRotation: number = randomInt(-10, 10) * 10
         const mainColor: string = randomMainColor()
 
-        updatePalette($page.data.focusedPalette, mainColor, hueRotationAmount)
-        document.dispatchEvent(new Event("colorChange"))
+        updatePalette($page.data.focusedPalette, mainColor, hueRotation)
+        document.dispatchEvent(new Event("updateHslPicker"))
     }
 
     // Create random palette when receiving corresponding event
@@ -48,9 +61,28 @@
 
 <div class="tooltip" data-tip="Create random palette [Spacebar]">
     <button
-        class="btn-primary btn-circle btn-lg btn hover:scale-110"
+        class="hover:scale-1d10 btn-primary btn-circle btn-lg btn {isAnimating && 'rotating'}"
         on:click={createRandomPaletteConfig}
+        on:mousedown={() => {
+            if (timeout) clearTimeout(timeout)
+            isAnimating = false
+        }}
     >
         <Dice5 size={30} />
     </button>
 </div>
+
+<style>
+    @keyframes rotate {
+        0% {
+            transform: rotate(-50deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .rotating {
+        animation: rotate 0.8s ease-out;
+    }
+</style>

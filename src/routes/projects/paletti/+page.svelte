@@ -12,26 +12,41 @@
     export let data
 
     /** Creates url with state date */
-    function createUrl(mainColor: string[], hueRotationAmount: number[], focusedPalette: number) {
-        return `?mainColor=${mainColor.join(",")}&hueRotationAmount=${hueRotationAmount.join(
+    function createUrl(
+        names: string[],
+        mainColors: string[],
+        hueRotations: number[],
+        focusedPalette: number
+    ) {
+        return `?names=${names.join(",")}&mainColors=${mainColors.join(
             ","
-        )}&focusedPalette=${focusedPalette}`
+        )}&hueRotations=${hueRotations.join(",")}&focusedPalette=${focusedPalette}`
     }
 
-    /** Updates values of palette based on its index */
+    /** Updates name of palette based on its index */
+    function updateName(index: number, name: string) {
+        const newNames: string[] = [...data.names]
+
+        if (name !== undefined) newNames[index] = name
+
+        const newUrl: string = createUrl(newNames, data.mainColors, data.hueRotations, index)
+        navigate(newUrl)
+    }
+
+    /** Updates hue rotation of palette based on its index */
     function updatePalette(
         index: number,
         mainColor?: string,
-        hueRotationAmount?: number,
+        hueRotation?: number,
         addToHistory?: boolean
     ) {
-        const newMainColor: string[] = [...data.mainColor]
-        const newHueRotationAmount: number[] = [...data.hueRotationAmount]
+        const newMainColors: string[] = [...data.mainColors]
+        const newHueRotations: number[] = [...data.hueRotations]
 
-        if (mainColor !== undefined) newMainColor[index] = mainColor
-        if (hueRotationAmount !== undefined) newHueRotationAmount[index] = hueRotationAmount
+        if (mainColor !== undefined) newMainColors[index] = mainColor
+        if (hueRotation !== undefined) newHueRotations[index] = hueRotation
 
-        // If change is only in hueRotationAmount, remove last item from historyBack
+        // If change is only in hueRotation, remove last item from historyBack
         // This way, the history is not cluttered with every change in hue rotation
         if ($historyBack.length > 0 && mainColor === undefined)
             historyBack.update((prev) => prev.slice(0, prev.length - 1))
@@ -39,44 +54,66 @@
         if (addToHistory === undefined || addToHistory === true) addToHistory = true
         else addToHistory = false
 
-        const newUrl: string = createUrl(newMainColor, newHueRotationAmount, index)
+        const newUrl: string = createUrl(data.names, newMainColors, newHueRotations, index)
 
         navigate(newUrl, addToHistory)
     }
 
     /** Adds a new palette */
-    function addPalette(mainColor: string, hueRotationAmount: number) {
-        const newMainColor: string[] = [...data.mainColor, mainColor]
-        const newHueRotationAmount: number[] = [...data.hueRotationAmount, hueRotationAmount]
-        const newIndex: number = data.mainColor.length
+    function addPalette(mainColor: string, hueRotation: number) {
+        /** Pre chosen names */
+        const nameTemplate: string[] = ["Primary", "Secondary", "Accent", "Gray"]
 
-        const newUrl: string = createUrl(newMainColor, newHueRotationAmount, newIndex)
+        let newName: string = "New Palette"
 
+        // Find first unused name
+        nameTemplate.some((name: string) => {
+            if (!data.names.includes(name)) return (newName = name)
+        })
+
+        const newNames: string[] = [...data.names, newName]
+        const newMainColors: string[] = [...data.mainColors, mainColor]
+        const newHueRotation: number[] = [...data.hueRotations, hueRotation]
+        const newIndex: number = data.mainColors.length
+
+        data.names = newNames
+        data.mainColors = newMainColors
+        data.hueRotations = newHueRotation
+        data.focusedPalette = newIndex
+
+        const newUrl: string = createUrl(newNames, newMainColors, newHueRotation, newIndex)
         navigate(newUrl)
+        document.dispatchEvent(new Event("updateHslPicker"))
     }
 
     /** Deletes a palette based on index */
     function deletePalette(index: number) {
-        const newMainColor: string[] = [
-            ...data.mainColor.slice(0, index),
-            ...data.mainColor.slice(index + 1),
-        ]
-        const newHueRotationAmount: number[] = [
-            ...data.hueRotationAmount.slice(0, index),
-            ...data.hueRotationAmount.slice(index + 1),
-        ]
+        let newNames: string[] = [...data.names]
+        let newMainColors: string[] = [...data.mainColors]
+        let newHueRotations: number[] = [...data.hueRotations]
+
+        newNames.splice(index, 1)
+        newMainColors.splice(index, 1)
+        newHueRotations.splice(index, 1)
+
         const newIndex: number = data.focusedPalette > 0 ? data.focusedPalette - 1 : 0
 
-        const newUrl: string = createUrl(newMainColor, newHueRotationAmount, newIndex)
+        data.names = newNames
+        data.mainColors = newMainColors
+        data.hueRotations = newHueRotations
+        data.focusedPalette = newIndex
 
+        const newUrl: string = createUrl(newNames, newMainColors, newHueRotations, newIndex)
         navigate(newUrl)
+        document.dispatchEvent(new Event("updateHslPicker"))
     }
 
     /** Focuses a palette based on index */
     function focusPalette(index: number) {
-        const newUrl: string = createUrl(data.mainColor, data.hueRotationAmount, index)
+        const newUrl: string = createUrl(data.names, data.mainColors, data.hueRotations, index)
 
         navigate(newUrl)
+        document.dispatchEvent(new Event("updateHslPicker"))
     }
 
     /** Actually navigates to url with new states */
@@ -93,6 +130,8 @@
 
     /** Moves back and forward through history stack */
     function moveHistory(direction: "forward" | "back") {
+        let nextUrl: string = ""
+
         if (direction === "back") {
             // If there is only one item in historyBack, we are already at the first page
             if ($historyBack.length === 1) return
@@ -104,25 +143,45 @@
 
             // Go to previous page
             if ($historyBack.length === 0) return
-            goto($historyBack[$historyBack.length - 1])
+            nextUrl = $historyBack[$historyBack.length - 1]
         } else if (direction === "forward") {
             // If there is no item in historyForward, we are already at the last page
             if ($historyForward.length === 0) return
 
             // Get next url and move it to historyBack
-            const nextUrl: string = $historyForward[$historyForward.length - 1]
+            nextUrl = $historyForward[$historyForward.length - 1]
             historyForward.update((prev) => prev.slice(0, prev.length - 1))
 
             historyBack.update((prev) => [...prev, nextUrl])
-
-            // Go to next page
-            goto(nextUrl)
         }
-        document.dispatchEvent(new Event("colorChange"))
+
+        // Get data from url and update states (Needs to be done for some reason)
+        const newNames: string[] = nextUrl.split("?")[1].split("&")[0].split("=")[1].split(",")
+
+        const newMainColors: string[] = nextUrl.split("?")[1].split("&")[1].split("=")[1].split(",")
+
+        const newHueRotations: number[] = nextUrl
+            .split("?")[1]
+            .split("&")[2]
+            .split("=")[1]
+            .split(",")
+            .map((n) => parseInt(n))
+
+        const newIndex: number = parseInt(nextUrl.split("?")[1].split("&")[3].split("=")[1])
+
+        data.names = newNames
+        data.mainColors = newMainColors
+        data.hueRotations = newHueRotations
+        data.focusedPalette = newIndex
+
+        goto(nextUrl)
+
+        document.dispatchEvent(new Event("updateHslPicker"))
     }
 
     setContext("navigate", navigate)
     setContext("moveHistory", moveHistory)
+    setContext("updateName", updateName)
     setContext("updatePalette", updatePalette)
     setContext("addPalette", addPalette)
     setContext("deletePalette", deletePalette)
@@ -132,31 +191,30 @@
     // FIXME: Lightnesses of 0 and 100 turn hue rotation red
 
     // Features
-    // TODO: Move keydown events back to components
-    // TODO: Make it possible to delete palettes
-    // TODO: Add icons for editing and deleting palettes
-    // TODO: Mark focused palette
-    // TODO: Update exports
-    // TODO: Check if everything is still working with multiple palettes
-    // TODO: Add settings to url state
     // TODO: Make amount of colors per palette customizable
     // TODO: Add some sort of fullscreen option
     // TODO: Make HSL values editable
 
     // Polishing
-    // TODO: Add animation to dice button
-    // TODO: Add more shadows
+    // TODO: Improve palette animations
+    // TODO: Center palette when only one palette is present
+    // TODO: Improve performance by only updating hues when hue rotation changes
     // TODO: Make responsive
     // TODO: Remove steps from hue rotation
 
     // Testing
     // TODO: Check if saturation logic is still working correctly
+    // TODO: Check if everything is still working with multiple palettes
     // TODO: Check for compatibility with other browsers
 
     // Other
     // TODO: Move to own repository (Would make favicon setup more accessible)
 
     function handleKeyDown(e: KeyboardEvent) {
+        // Prevents keyboard shortcuts from firing when user is typing into input
+        const activeElement: Element | null = document.activeElement
+        if (activeElement && activeElement.tagName === "INPUT") return
+
         if (!isNaN(Number(e.key)))
             document.dispatchEvent(new CustomEvent("changeExportOption", { detail: Number(e.key) }))
 
@@ -165,8 +223,8 @@
             // This prevents dialoges from closing when pressing spacebar
             e.preventDefault()
         }
-        if (e.key === "a") document.dispatchEvent(new Event("addPalette"))
-        if (e.key === "c") document.dispatchEvent(new Event("copyExport"))
+        if (e.key === "a" && !e.ctrlKey) document.dispatchEvent(new Event("addPalette"))
+        if (e.key === "c" && !e.ctrlKey) document.dispatchEvent(new Event("copyExport"))
         if (e.key === "e") document.dispatchEvent(new Event("toggleExport"))
         if (e.key === "g") document.dispatchEvent(new Event("toggleShowGap"))
         if (e.key === "m") document.dispatchEvent(new Event("toggleColorMode"))
@@ -181,24 +239,28 @@
 
     // Makes sure the url is updated when the page is loaded without url parameters
     onMount(() => {
-        if (data.mainColor.length === 1) updatePalette(0)
+        if (data.mainColors.length === 1) {
+            const newUrl: string = createUrl(data.names, data.mainColors, data.hueRotations, 0)
+            navigate(newUrl)
+        }
     })
 
     const paletteCreator = new PaletteCreator()
 
-    // TODO: Improve performance by only updating hues when hue rotation amount changes
-    // Update color palettes when main color or hue rotation amount changes
-    $: palettes.set(
-        data.mainColor.map((color, index) =>
-            paletteCreator.createPalette(color, data.hueRotationAmount[index])
+    // Update color palettes when main color or hue rotation changes
+    $: {
+        const newPalettes: string[][] = data.mainColors.map((color, index) =>
+            paletteCreator.createPalette(color, data.hueRotations[index])
         )
-    )
+
+        palettes.set(newPalettes)
+    }
 </script>
 
 <svelte:window on:keydown={handleKeyDown} />
 
 <div class="flex h-screen w-screen" data-theme="paletti">
-    <div class="flex w-5/6 flex-col justify-between">
+    <div class="relative flex w-5/6 flex-col justify-start">
         <Logo />
         <Palettes />
         <BottomControl />
