@@ -61,7 +61,7 @@
 
 <div class="tooltip" data-tip="Create random palette [Spacebar]">
     <button
-        class="hover:scale-1d10 btn-primary btn-circle btn-lg btn {isAnimating && 'rotating'}"
+        class="btn-primary btn-circle btn-lg btn {isAnimating && 'rotating'}"
         on:click={createRandomPaletteConfig}
         on:mousedown={() => {
             if (timeout) clearTimeout(timeout)
@@ -75,10 +75,10 @@
 <style>
     @keyframes rotate {
         0% {
-            transform: rotate(-50deg);
+            transform: rotate(0deg);
         }
         100% {
-            transform: rotate(360deg);
+            transform: rotate(450deg);
         }
     }
 

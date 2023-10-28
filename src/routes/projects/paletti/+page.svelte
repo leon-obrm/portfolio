@@ -188,6 +188,7 @@
     setContext("focusPalette", focusPalette)
 
     // Bugs
+    // FIXME: Add button tooltip needs higher z-index
     // FIXME: Lightnesses of 0 and 100 turn hue rotation red
 
     // Features
@@ -196,6 +197,7 @@
     // TODO: Make HSL values editable
 
     // Polishing
+    // TODO: Improve palette name editor
     // TODO: Improve palette animations
     // TODO: Center palette when only one palette is present
     // TODO: Improve performance by only updating hues when hue rotation changes
