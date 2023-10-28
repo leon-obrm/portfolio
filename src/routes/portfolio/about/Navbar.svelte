@@ -15,7 +15,7 @@
     const links: LinkProps[] = [
         { text: "About", link: "/" },
         { text: "Skills", link: "#skills" },
-        { text: "Websites", link: "#websites" },
+        { text: "Projects", link: "#projects" },
     ]
 
     let currentIndex: number = -1
