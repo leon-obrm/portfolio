@@ -46,7 +46,9 @@
             }}
         >
             <div class="hex absolute h-40 w-40 {finalColor} transition-colors duration-300" />
-            <p class="absolute w-20 text-center text-lg font-normal normal-case text-white">
+            <p
+                class="absolute w-20 text-center text-lg font-normal normal-case leading-6 text-white"
+            >
                 Take a look
             </p>
         </a>

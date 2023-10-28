@@ -23,4 +23,11 @@ export const dismissedSkills: SkillProps[] = [
         hasLogo: true,
         link: "w3.org/style/css",
     },
+    {
+        name: "Structured Query Language",
+        abbreviation: "SQL",
+        description: "Database language",
+        hasLogo: false,
+        link: "wikipedia.org/wiki/SQL",
+    },
 ]

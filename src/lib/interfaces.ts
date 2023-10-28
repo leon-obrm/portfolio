@@ -28,9 +28,3 @@ export interface ActivityProps {
     /** Links to i18n */
     key: string
 }
-
-/** Describes interface settings for color page */
-export interface ColorSettings {
-    showGap: boolean
-}
-

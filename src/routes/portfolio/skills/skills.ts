@@ -31,6 +31,13 @@ export const skills: SkillProps[] = [
         link: "kit.svelte.dev",
     },
     {
+        name: "i18next",
+        abbreviation: "",
+        description: "Internationalization framework",
+        hasLogo: true,
+        link: "i18next.com",
+    },
+    {
         name: "Tailwind CSS",
         abbreviation: "",
         description: "Utility-first CSS framework",
@@ -120,13 +127,6 @@ export const skills: SkillProps[] = [
         description: "Version control system",
         hasLogo: true,
         link: "git-scm.com",
-    },
-    {
-        name: "Structured Query Language",
-        abbreviation: "SQL",
-        description: "Database language",
-        hasLogo: false,
-        link: "wikipedia.org/wiki/SQL",
     },
     {
         name: "Python",

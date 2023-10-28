@@ -40,7 +40,7 @@
                         class="max-h-6 w-10 object-contain"
                     />
                 {:else}
-                    <p class="text-md w-10 text-center font-normal text-black">
+                    <p class="w-10 text-center text-xs font-normal text-black">
                         {skill?.abbreviation}
                     </p>
                 {/if}
