@@ -32,7 +32,7 @@
             {/each}
         </div>
     </div>
-    <Portal color={website.color} hoverColor={website.hoverColor} link={website.link} />
+    <Portal {website} />
 </div>
 
 {#if !isLast}

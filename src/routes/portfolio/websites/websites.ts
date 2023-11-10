@@ -8,8 +8,8 @@ export const websites: WebsiteProps[] = [
         description:
             "A minimalistic color palette creator. I always struggled with finding fitting colors for my web projects. This is why I created Paletti, an easy to use and fast way to create color palettes for web design.",
         learnings: ["Svelte", "Svelte Kit", "Tailwind CSS", "daisyUI"],
-        color: "bg-primary-400",
-        hoverColor: "bg-primary-300",
+        gradientStartColor: "#EB3379",
+        gradientEndColor: "#FF87B0",
         link: "https://paletti.one/",
     },
     {
@@ -18,8 +18,8 @@ export const websites: WebsiteProps[] = [
         description:
             "This quick project was created to help couples decide on what to do when they are bored. It is a simple web app that randomly chooses a duration and a fitting activity.",
         learnings: ["Svelte", "Svelte Kit", "Tailwind CSS", "i18next"],
-        color: "bg-primary-400",
-        hoverColor: "bg-primary-300",
+        gradientStartColor: "#884ACF",
+        gradientEndColor: "#BB90E7",
         link: "/projects/activities",
     },
     {
@@ -28,8 +28,8 @@ export const websites: WebsiteProps[] = [
         description:
             "This is the website you are visiting. I chose Svelte as a frontend framework because of the promises that the new framework makes when it comes to the way code is written. In addition, I made use of Figma in order to improve my mockup and design skills.",
         learnings: ["Svelte", "Svelte Kit", "Tailwind CSS", "Figma", "daisyUI"],
-        color: "bg-primary-400",
-        hoverColor: "bg-primary-300",
+        gradientStartColor: "#1B92D7",
+        gradientEndColor: "#73C0ED",
         link: "/",
     },
     {
@@ -46,8 +46,8 @@ export const websites: WebsiteProps[] = [
             "matter.js",
             "Socket.IO",
         ],
-        color: "bg-primary-400",
-        hoverColor: "bg-primary-300",
+        gradientStartColor: "#323843",
+        gradientEndColor: "#424a59",
         link: "https://dev.obrm.de/",
     },
     {
@@ -56,8 +56,8 @@ export const websites: WebsiteProps[] = [
         description:
             "This is my first website. I created it after my first lecture on web development sparked my interest. The website contains my first ever projects that I used to learn web technologies.",
         learnings: ["JavaScript", "HTML", "CSS", "Git", "SQL", "REST", "p5.js"],
-        color: "bg-primary-400",
-        hoverColor: "bg-primary-300",
+        gradientStartColor: "#D79642",
+        gradientEndColor: "#EDC791",
         link: "https://obrm.de/index.php",
     },
 ]
