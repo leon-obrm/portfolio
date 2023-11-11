@@ -5,7 +5,9 @@
 -->
 <script lang="ts">
     import MediaQuery from "$lib/MediaQuery.svelte"
-    import { Motion } from "svelte-motion"
+
+    import Linkedin from "svelte-material-icons/Linkedin.svelte"
+    import Github from "svelte-material-icons/Github.svelte"
 
     interface LinkProps {
         text: string
@@ -16,6 +18,21 @@
         { text: "About", link: "/" },
         { text: "Skills", link: "#skills" },
         { text: "Projects", link: "#projects" },
+    ]
+
+    interface IconLinkProps {
+        name: string
+        icon: any
+        link: string
+    }
+
+    const iconLinks: IconLinkProps[] = [
+        {
+            name: "LinkedIn",
+            icon: Linkedin,
+            link: "https://www.linkedin.com/in/leon-obermann-171465208/",
+        },
+        { name: "Github", icon: Github, link: "https://github.com/Jesus-Cries" },
     ]
 
     let currentIndex: number = -1
@@ -30,6 +47,7 @@
         <MediaQuery breakpoint="md">
             <svelte:fragment slot="above">
                 <!-- TODO: Mark currently visited section of page -->
+
                 <div class="flex gap-8 lg:gap-20">
                     {#each links as link, i}
                         <a
@@ -49,29 +67,18 @@
                     {/each}
                 </div>
 
-                <Motion
-                    let:motion
-                    initial={{ rotate: 0, scale: 1 }}
-                    animate={{ rotate: [0, 2.5, -5, 1.25, 0], scale: [1, 1.01, 1.02, 1, 1] }}
-                    transition={{
-                        type: "spring",
-                        stiffness: 50,
-                        damping: 10,
-                        delay: 5,
-                        repeat: Infinity,
-                        repeatType: "loop",
-                        repeatDelay: 10,
-                    }}
-                >
-                    <div use:motion class="mt-2 mr-5">
+                <div class="mr-2 flex gap-4">
+                    {#each iconLinks as iconLink}
                         <a
-                            href="mailto:leon.oberm@gmail.com"
-                            class="transition-scale btn-primary no-animation btn-sm btn text-white shadow duration-300 ease-out hover:scale-[105%] hover:border-none hover:shadow-lg"
+                            class="btn-ghost btn-circle btn hover:bg-white hover:text-primary-500"
+                            href={iconLink.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
-                            Contact me
+                            <svelte:component this={iconLink.icon} size="2.5em" />
                         </a>
-                    </div>
-                </Motion>
+                    {/each}
+                </div>
             </svelte:fragment>
 
             <div slot="below" class="dropdown-end dropdown">
@@ -106,8 +113,18 @@
 
                     <div class="divider mx-3 -my-1" />
 
+                    {#each iconLinks as iconLink}
+                        <li>
+                            <a href={iconLink.link} target="_blank" rel="noopener noreferrer">
+                                {iconLink.name}
+                            </a>
+                        </li>
+                    {/each}
+
+                    <div class="divider mx-3 -my-1" />
+
                     <li>
-                        <a href="mailto:leon.oberm@gmail.com" class="font-semibold"> Contact me </a>
+                        <a href="mailto:leon.oberm@gmail.com" class="font-semibold">Contact me</a>
                     </li>
                 </ul>
             </div>
