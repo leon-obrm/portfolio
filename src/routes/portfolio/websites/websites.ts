@@ -37,15 +37,7 @@ export const websites: WebsiteProps[] = [
         timeframe: "July 2021 - July 2022",
         description:
             "With this website I tried out my very first frontend framework / library. Here I learned how to write component based source code and how to build overall better web applications.",
-        learnings: [
-            "React",
-            "Material UI",
-            "TypeScript",
-            "Node.js",
-            "Express",
-            "matter.js",
-            "Socket.IO",
-        ],
+        learnings: ["React", "Material UI", "TypeScript", "Express", "matter.js", "Socket.IO"],
         gradientStartColor: "#323843",
         gradientEndColor: "#424a59",
         link: "https://dev.obrm.de/",
@@ -55,7 +47,7 @@ export const websites: WebsiteProps[] = [
         timeframe: "September 2019 - April 2021",
         description:
             "This is my first website. I created it after my first lecture on web development sparked my interest. The website contains my first ever projects that I used to learn web technologies.",
-        learnings: ["JavaScript", "HTML", "CSS", "Git", "SQL", "REST", "p5.js"],
+        learnings: ["JavaScript", "HTML", "CSS", "Git", "REST", "p5.js"],
         gradientStartColor: "#D79642",
         gradientEndColor: "#EDC791",
         link: "https://obrm.de/index.php",
