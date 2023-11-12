@@ -28,3 +28,10 @@ export interface ActivityProps {
     /** Links to i18n */
     key: string
 }
+
+/** Describes a link to another website */
+export interface LinkProps {
+    name: string
+    link: string
+    icon?: any
+}
