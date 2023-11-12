@@ -6,10 +6,15 @@
 <script lang="ts">
     import { websites } from "./websites"
     import Website from "./Website.svelte"
+    import Curve from "../skills/Curve.svelte"
 </script>
 
-<div class="relative flex w-full flex-col content-center items-center justify-start py-14 md:gap-3">
+<div
+    class="relative flex w-full flex-col content-center items-center justify-start py-14 pt-48 md:gap-3"
+>
     <div id="projects" class="absolute -top-[63px]" />
+
+    <Curve color="#A6DAF2" showShadow={false} />
 
     <h1 class="mb-8 w-10/12 max-w-md text-2xl font-medium md:max-w-4xl md:text-3xl">Projects</h1>
 

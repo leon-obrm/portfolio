@@ -1,9 +1,9 @@
-<div class="relative h-[350px] overflow-hidden">
+<div class="relative h-64 overflow-hidden">
     <div
-        class="absolute bottom-0 h-[1080px] w-screen"
-        style="background-image: url('/FooterWaves.svg'); background-size: cover;"
+        class="absolute bottom-0 h-[1080px] w-screen bg-cover"
+        style="background-image: url('/FooterWaves.svg');"
     />
-    <div class="absolute bottom-5 w-screen pb-4 text-center text-sm text-white">
+    <div class="absolute bottom-6 w-screen text-center text-sm text-white">
         Copyright © 2023 Leon Obermann
     </div>
 </div>

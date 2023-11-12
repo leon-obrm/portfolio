@@ -9,6 +9,7 @@
     import HexagonList from "./HexagonList.svelte"
     import NormalList from "./NormalList.svelte"
     import TileList from "./TileList.svelte"
+    import Curve from "./Curve.svelte"
 
     let currentIndex: number = 0
 
@@ -20,9 +21,11 @@
 </script>
 
 <div
-    class="relative flex flex-col content-center items-center justify-center gap-10 bg-primary-300 pt-14 pb-16 shadow-inner"
+    class="relative flex flex-col content-center items-center justify-center gap-10 bg-primary-300 pt-48 pb-20"
 >
     <div id="skills" class="absolute -top-[64px]" />
+
+    <Curve color="#FFF" />
 
     <div class="flex w-10/12 max-w-4xl content-center items-center justify-between font-medium">
         <h1 class="text-2xl md:text-3xl">Skills</h1>

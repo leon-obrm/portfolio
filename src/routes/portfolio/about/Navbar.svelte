@@ -5,34 +5,14 @@
 -->
 <script lang="ts">
     import MediaQuery from "$lib/MediaQuery.svelte"
+    import type { LinkProps } from "$lib/interfaces"
 
-    import Linkedin from "svelte-material-icons/Linkedin.svelte"
-    import Github from "svelte-material-icons/Github.svelte"
-
-    interface LinkProps {
-        text: string
-        link: string
-    }
+    export let mediaLinks: LinkProps[]
 
     const links: LinkProps[] = [
-        { text: "About", link: "/" },
-        { text: "Skills", link: "#skills" },
-        { text: "Projects", link: "#projects" },
-    ]
-
-    interface IconLinkProps {
-        name: string
-        icon: any
-        link: string
-    }
-
-    const iconLinks: IconLinkProps[] = [
-        {
-            name: "LinkedIn",
-            icon: Linkedin,
-            link: "https://www.linkedin.com/in/leon-obermann-171465208/",
-        },
-        { name: "Github", icon: Github, link: "https://github.com/Jesus-Cries" },
+        { name: "About", link: "/" },
+        { name: "Skills", link: "#skills" },
+        { name: "Projects", link: "#projects" },
     ]
 
     let currentIndex: number = -1
@@ -56,7 +36,7 @@
                             href={link.link}
                             on:click={() => (currentIndex = i)}
                         >
-                            {link.text}
+                            {link.name}
 
                             <div
                                 class="absolute -bottom-[9px] h-0.5 w-full bg-primary-500 transition-all duration-500"
@@ -68,15 +48,20 @@
                 </div>
 
                 <div class="mr-2 flex gap-4">
-                    {#each iconLinks as iconLink}
-                        <a
-                            class="btn-ghost btn-circle btn hover:bg-white hover:text-primary-500"
-                            href={iconLink.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <svelte:component this={iconLink.icon} size="2.5em" />
-                        </a>
+                    {#each mediaLinks as mediaLink}
+                        <div class="tooltip tooltip-bottom" data-tip={mediaLink.name}>
+                            <a
+                                class="btn-ghost btn-circle btn hover:bg-white hover:text-primary-500"
+                                href={mediaLink.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <svelte:component
+                                    this={mediaLink.icon}
+                                    size={mediaLink.name === "Email" ? "2.15em" : "2.25em"}
+                                />
+                            </a>
+                        </div>
                     {/each}
                 </div>
             </svelte:fragment>
@@ -106,17 +91,17 @@
                     {#each links as link}
                         <li>
                             <a href={link.link}>
-                                {link.text}
+                                {link.name}
                             </a>
                         </li>
                     {/each}
 
                     <div class="divider mx-3 -my-1" />
 
-                    {#each iconLinks as iconLink}
+                    {#each mediaLinks as mediaLink}
                         <li>
-                            <a href={iconLink.link} target="_blank" rel="noopener noreferrer">
-                                {iconLink.name}
+                            <a href={mediaLink.link} target="_blank" rel="noopener noreferrer">
+                                {mediaLink.name}
                             </a>
                         </li>
                     {/each}
