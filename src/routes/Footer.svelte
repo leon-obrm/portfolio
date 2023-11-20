@@ -1,9 +1,10 @@
-<div class="relative h-64 overflow-hidden">
-    <div
-        class="absolute bottom-0 h-[1080px] w-screen bg-cover"
-        style="background-image: url('/FooterWaves.svg');"
-    />
-    <div class="absolute bottom-6 w-screen text-center text-sm text-white">
+<script lang="ts">
+    import FooterBottom from "./FooterBottom.svelte"
+</script>
+
+<div class="relative h-64 overflow-x-hidden bg-primary-300">
+    <FooterBottom />
+    <div class="absolute bottom-5 w-screen text-center text-sm font-semibold text-white">
         Copyright © 2023 Leon Obermann
     </div>
 </div>
