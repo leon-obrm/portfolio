@@ -1,42 +1,14 @@
+import { colors } from "./src/lib/colors"
+
+const gray = colors.gray
+const primary = colors.primary
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ["./src/**/*.{html,js,svelte,ts}"],
     theme: {
         extend: {
-            colors: {
-                // Primary
-                "primary-900": "#003247",
-                "primary-800": "#0A5476",
-                "primary-700": "#16709C",
-                "primary-600": "#2B95CA",
-                "primary-500": "#52AEE0",
-                "primary-400": "#7BC5EA",
-                "primary-300": "#A6DAF2",
-                "primary-200": "#C6EBFA",
-                "primary-100": "#E5F8FF",
-
-                // Secondary
-                "secondary-900": "#570001",
-                "secondary-800": "#880712",
-                "secondary-700": "#B80F25",
-                "secondary-600": "#E51A3C",
-                "secondary-500": "#FF385C",
-                "secondary-400": "#FF6680",
-                "secondary-300": "#FF99A7",
-                "secondary-200": "#FFC7CC",
-                "secondary-100": "#FFEBEB",
-
-                // Gray
-                "gray-900": "#0F1720",
-                "gray-800": "#222933",
-                "gray-700": "#383D47",
-                "gray-600": "#575B66",
-                "gray-500": "#747883",
-                "gray-400": "#90949E",
-                "gray-300": "#C1C5CD",
-                "gray-200": "#E7EAEF",
-                "gray-100": "#F7F8FB",
-            },
+            colors,
         },
     },
     plugins: [require("@tailwindcss/typography"), require("daisyui")],
