@@ -18,6 +18,7 @@
         "@typescript-eslint/eslint-plugin": "^5.27.0",
         "@typescript-eslint/parser": "^5.27.0",
         "autoprefixer": "^10.4.13",
+        "daisyui": "^4.11.1",
         "eslint": "^8.16.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-svelte3": "^4.0.0",
@@ -30,14 +31,13 @@
         "svelte-check": "^2.7.1",
         "svelte-motion": "^0.11.5",
         "svelte-preprocess": "^4.10.7",
-        "tailwindcss": "^3.2.1",
+        "tailwindcss": "^3.4.3",
         "tslib": "^2.3.1",
         "typescript": "^4.7.4",
         "vite": "^4.4.9"
     },
     "type": "module",
     "dependencies": {
-        "daisyui": "^3.7.6",
         "i18next": "^23.4.1",
         "i18next-browser-languagedetector": "^7.1.0",
         "lucide-svelte": "^0.266.0",
