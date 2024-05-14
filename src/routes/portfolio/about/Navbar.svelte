@@ -22,7 +22,6 @@
 
     let currentIndex: number = -1
 
-    // TODO: Add highlighting color
     // TODO: Adapt light and dark theme to new color palettes
     // TODO: Adapt code to use theme variables
 
