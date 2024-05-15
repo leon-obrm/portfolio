@@ -22,13 +22,13 @@
 
 <OnViewTransition>
     <div
-        class="tooltip"
+        class="tooltip tooltip-bottom"
         data-tip={skill?.abbreviation !== "" ? skill?.abbreviation : skill?.name}
         in:scale
     >
         <div class="drop-shadow transition-all hover:drop-shadow-lg">
             <a
-                class="image-hex transition-scale btn-sm btn flex h-12 w-[2.65rem] content-center items-center justify-center border-0 bg-gray-100 duration-300 ease-out hover:scale-110 hover:bg-gray-100"
+                class="image-hex transition-scale btn btn-sm flex h-12 w-[2.65rem] content-center items-center justify-center border-0 bg-gray-100 duration-300 ease-out hover:scale-110 hover:bg-gray-100"
                 href={`https://${skill?.link}`}
                 target="_blank"
                 rel="noopener noreferrer"

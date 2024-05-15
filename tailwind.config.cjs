@@ -49,9 +49,9 @@ module.exports = {
                     "neutral-content": gray[50],
 
                     // Used for blank backgrounds
-                    "base-100": "#000000",
-                    "base-200": gray[950],
-                    "base-300": gray[900],
+                    "base-100": gray[900],
+                    "base-200": gray[800],
+                    "base-300": gray[700],
 
                     // Button text
                     "base-content": gray[100],

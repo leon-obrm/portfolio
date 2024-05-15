@@ -40,6 +40,7 @@
     "dependencies": {
         "i18next": "^23.4.1",
         "i18next-browser-languagedetector": "^7.1.0",
+        "lottie-colorify": "^0.8.0",
         "lucide-svelte": "^0.266.0",
         "svelte-i18next": "^2.0.0",
         "svelte-inview": "^3.0.1",

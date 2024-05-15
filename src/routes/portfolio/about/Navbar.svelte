@@ -7,10 +7,11 @@
     import { themeChange } from "theme-change"
     import WeatherSunny from "svelte-material-icons/WeatherSunny.svelte"
     import WeatherNight from "svelte-material-icons/WeatherNight.svelte"
+    import { onMount } from "svelte"
 
     import MediaQuery from "$lib/MediaQuery.svelte"
     import type { LinkProps } from "$lib/interfaces"
-    import { onMount } from "svelte"
+    import { theme } from "../../store"
 
     export let mediaLinks: LinkProps[]
 
@@ -26,7 +27,6 @@
     // TODO: Adapt code to use theme variables
 
     let html: HTMLHtmlElement
-    let theme: string = "light"
 
     onMount(() => {
         html = document.getElementsByTagName("html")[0]
@@ -35,29 +35,35 @@
         // Prefer theme preference from local storage
         const localStorageTheme: string = window.localStorage.getItem("theme") || ""
 
-        if (["light", "dark"].includes(localStorageTheme)) return (theme = localStorageTheme)
+        if (["light", "dark"].includes(localStorageTheme)) return ($theme = localStorageTheme)
 
         // Set theme preference from system settings
         const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)")
 
-        if (systemSettingDark.matches) theme = "dark"
-        else theme = "light"
+        if (systemSettingDark.matches) theme.set("dark")
+        else theme.set("light")
     })
 
     $: {
-        if (html !== undefined && html !== null) html.setAttribute("data-theme", theme)
+        if (html !== undefined && html !== null) html.setAttribute("data-theme", $theme)
+    }
+
+    $: {
+        theme
     }
 
     function toggleTheme() {
-        theme = theme === "light" ? "dark" : "light"
-        window.localStorage.setItem("theme", theme)
+        theme.set($theme === "light" ? "dark" : "light")
+        window.localStorage.setItem("theme", $theme)
     }
 </script>
 
 <div class="sticky top-0 z-50 w-full">
-    <div class="navbar relative flex content-center items-start justify-between bg-base-100">
+    <div
+        class="navbar relative flex content-center items-start justify-between bg-base-100 text-base-content"
+    >
         <a
-            class="btn btn-ghost text-2xl font-bold normal-case hover:bg-transparent hover:text-primary-600"
+            class="btn btn-ghost translate-y-1 text-2xl font-bold normal-case hover:bg-transparent hover:text-primary-600 hover:dark:text-primary-300"
             href="/"
         >
             obermann
@@ -69,8 +75,8 @@
                 <div class="flex gap-8 lg:gap-20">
                     {#each links as link, i}
                         <a
-                            class="btn btn-ghost no-animation relative uppercase hover:bg-transparent hover:text-primary"
-                            class:text-primary-600={currentIndex === i}
+                            class="btn btn-ghost no-animation relative uppercase hover:bg-transparent hover:text-primary-500 hover:dark:text-primary-300 {currentIndex ===
+                                i && 'text-primary-500 dark:text-primary-300'}"
                             href={link.link}
                             on:click={() => (currentIndex = i)}
                         >
@@ -89,7 +95,7 @@
                     {#each mediaLinks as mediaLink}
                         <div class="tooltip tooltip-bottom" data-tip={mediaLink.name}>
                             <a
-                                class="btn btn-circle btn-ghost hover:bg-white hover:text-primary-500"
+                                class="btn btn-circle btn-ghost hover:bg-base-100 hover:text-primary-500"
                                 href={mediaLink.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -102,7 +108,9 @@
                         </div>
                     {/each}
 
-                    <div class="divider divider-horizontal -ml-2 -mr-4 py-1"></div>
+                    <div
+                        class="divider divider-horizontal -ml-1 -mr-3 py-1 before:bg-base-300 after:bg-base-300"
+                    ></div>
 
                     <!-- Theme toggle -->
                     <label class="swap swap-rotate transition-colors hover:text-primary">
@@ -110,7 +118,7 @@
                         <input
                             type="checkbox"
                             data-toggle-theme="light,dark"
-                            checked={theme === "dark"}
+                            checked={$theme === "dark"}
                             on:change={toggleTheme}
                         />
 
@@ -174,7 +182,7 @@
                             <input
                                 type="checkbox"
                                 data-toggle-theme="light,dark"
-                                checked={theme === "dark"}
+                                checked={$theme === "dark"}
                                 on:change={toggleTheme}
                             />
 
