@@ -94,6 +94,20 @@ export const skills: SkillProps[] = [
         link: "expressjs.com",
     },
     {
+        name: "Spring Boot",
+        abbreviation: "",
+        description: "Extension for Java framework Spring",
+        hasLogo: true,
+        link: "spring.io",
+    },
+    {
+        name: "OpenAPI",
+        abbreviation: "",
+        description: "Rest API specification standard",
+        hasLogo: true,
+        link: "openapis.org",
+    },
+    {
         name: "JavaScript",
         abbreviation: "JS",
         description: "Programming language of the web",
@@ -108,25 +122,11 @@ export const skills: SkillProps[] = [
         link: "typescriptlang.org",
     },
     {
-        name: "OpenAPI",
-        abbreviation: "",
-        description: "Rest API specification standard",
-        hasLogo: true,
-        link: "openapis.org",
-    },
-    {
         name: "Figma",
         abbreviation: "",
         description: "Tool for interface design",
         hasLogo: true,
         link: "figma.com",
-    },
-    {
-        name: "Git",
-        abbreviation: "",
-        description: "Version control system",
-        hasLogo: true,
-        link: "git-scm.com",
     },
     {
         name: "Python",
