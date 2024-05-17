@@ -15,11 +15,11 @@
 >
     <div class="flex w-full content-center items-center justify-between">
         {#each mediaLinks as mediaLink}
-            <SpinAnimation delay={0.5}>
+            <SpinAnimation delay={0}>
                 <div class="tooltip" data-tip={mediaLink.name}>
                     <div class="drop-shadow-md transition-all hover:drop-shadow-lg">
                         <a
-                            class="transition-scale btn mask mask-hexagon border-none bg-base-content text-base-100 duration-300 ease-out hover:scale-110 hover:border-none hover:bg-base-content"
+                            class="transition-scale btn mask mask-hexagon border-none bg-gray-800 text-base-100 duration-300 ease-out hover:scale-110 hover:border-none hover:bg-base-content dark:bg-gray-100 hover:dark:bg-gray-200"
                             href={mediaLink.link}
                             target="_blank"
                             rel="noopener noreferrer"

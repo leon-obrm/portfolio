@@ -63,7 +63,7 @@
         class="navbar relative flex content-center items-start justify-between bg-base-100 text-base-content"
     >
         <a
-            class="btn btn-ghost translate-y-1 text-2xl font-bold normal-case hover:bg-transparent hover:text-primary-600 hover:dark:text-primary-300"
+            class="btn btn-ghost translate-y-1 text-2xl font-bold normal-case hover:bg-transparent hover:text-primary-600 md:translate-y-0 hover:dark:text-primary-300"
             href="/"
         >
             obermann

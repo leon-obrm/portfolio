@@ -21,10 +21,10 @@
         class="flex w-full max-w-md flex-col content-center items-start justify-center gap-5 md:max-w-lg"
     >
         <div class="flex flex-col content-center items-start justify-center gap-2">
-            <h2 class="text-xl md:text-2xl">{website.title}</h2>
+            <h2 class="text-xl font-medium text-base-content md:text-2xl">{website.title}</h2>
             <h3 class="text-xs text-gray-400 md:text-sm">{website.timeframe}</h3>
         </div>
-        <p class="text-justify text-sm md:text-base">{website.description}</p>
+        <p class="text-justify text-sm text-base-content md:text-base">{website.description}</p>
 
         <div class="flex content-center items-center justify-start gap-2">
             {#each website.learnings as learning}
