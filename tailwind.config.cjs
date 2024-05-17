@@ -3,8 +3,6 @@ import { colors } from "./src/lib/colors"
 const gray = colors.gray
 const primary = colors.primary
 
-// TODO: Adapt colors of Portal lottie
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ["./src/**/*.{html,js,svelte,ts}"],
