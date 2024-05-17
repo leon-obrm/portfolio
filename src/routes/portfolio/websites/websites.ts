@@ -6,7 +6,7 @@ export const websites: WebsiteProps[] = [
         title: "Paletti",
         timeframe: "August 2023 - Now",
         description:
-            "A minimalistic color palette creator. I always struggled with finding fitting colors for my web projects. This is why I created Paletti, an easy to use and fast way to create color palettes for web design.",
+            "A minimalistic color palette creator. I always struggled with finding fitting colors for my web projects. That is why I created Paletti, an easy to use and fast way to create color palettes for web design.",
         learnings: ["Svelte", "Svelte Kit", "Tailwind CSS", "daisyUI"],
         gradientStartColor: "#EB3379",
         gradientEndColor: "#FF87B0",
@@ -16,7 +16,7 @@ export const websites: WebsiteProps[] = [
         title: "Boredom Buster",
         timeframe: "August 2023",
         description:
-            "This quick project was created to help couples decide on what to do when they are bored. It is a simple web app that randomly chooses a duration and a fitting activity.",
+            "This is a quick side project that I created to find some inspiration when bored. It randomly chooses a fun activity and a fitting duration for you get up and have some fun.",
         learnings: ["Svelte", "Svelte Kit", "Tailwind CSS", "i18next"],
         gradientStartColor: "#884ACF",
         gradientEndColor: "#BB90E7",
@@ -26,7 +26,7 @@ export const websites: WebsiteProps[] = [
         title: "Portfolio",
         timeframe: "July 2022 - Now",
         description:
-            "This is the website you are visiting. I chose Svelte as a frontend framework because of the promises that the new framework makes when it comes to the way code is written. In addition, I made use of Figma in order to improve my mockup and design skills.",
+            "This is the website you are visiting right now. I chose to use Svelte to learn a new frontend framework and Figma to create UI mockups and improve my overall design skills.",
         learnings: ["Svelte", "Svelte Kit", "Tailwind CSS", "Figma", "daisyUI"],
         gradientStartColor: "#1B92D7",
         gradientEndColor: "#73C0ED",
@@ -36,7 +36,7 @@ export const websites: WebsiteProps[] = [
         title: "First Frontend framework",
         timeframe: "July 2021 - July 2022",
         description:
-            "With this website I tried out my very first frontend framework / library. Here I learned how to write component based source code and how to build overall better web applications.",
+            "With this website I tried out my very first frontend framework: React. Here I learned how to write component based source code and improved my web development skills.",
         learnings: ["React", "Material UI", "TypeScript", "Express", "matter.js", "Socket.IO"],
         gradientStartColor: "#323843",
         gradientEndColor: "#424a59",
@@ -46,7 +46,7 @@ export const websites: WebsiteProps[] = [
         title: "First Website",
         timeframe: "September 2019 - April 2021",
         description:
-            "This is my first website. I created it after my first lecture on web development sparked my interest. The website contains my first ever projects that I used to learn web technologies.",
+            "This is my first website. I created it after my first lecture on web development sparked my interest. This website contains my first ever projects that I used to learn web development.",
         learnings: ["JavaScript", "HTML", "CSS", "Git", "REST", "p5.js"],
         gradientStartColor: "#D79642",
         gradientEndColor: "#EDC791",

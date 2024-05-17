@@ -22,10 +22,9 @@ export const activites: ActivityProps[] = [
     { duration: "15", key: "fiveQuickQuestions" },
 
     // 30 Minutes
-    { duration: "30", key: "iceAndNetflix" },
-    { duration: "30", key: "cuddlingAndNetflix" },
-    { duration: "30", key: "cuddlingAndTalking" },
-    { duration: "30", key: "cuddlingOutside" },
+    { duration: "30", key: "ice" },
+    { duration: "30", key: "netflix" },
+    { duration: "30", key: "talking" },
     { duration: "30", key: "sims" },
     { duration: "30", key: "painting" },
     { duration: "30", key: "walking" },
