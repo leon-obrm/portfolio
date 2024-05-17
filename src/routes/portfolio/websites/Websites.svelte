@@ -9,12 +9,12 @@
 </script>
 
 <div
-    class="relative flex w-full flex-col content-center items-center justify-start py-14 pt-12 md:gap-3"
+    class="relative flex w-full flex-col content-center items-center justify-start py-14 pt-6 md:gap-3 md:pt-14"
 >
     <div id="projects" class="absolute -top-[63px]" />
 
     <h1
-        class="mb-8 w-10/12 max-w-md text-2xl font-semibold text-base-content md:max-w-4xl md:text-3xl"
+        class="pb-8 text-3xl font-semibold uppercase tracking-widest md:pb-14 lg:text-4xl dark:text-white"
     >
         Projects
     </h1>

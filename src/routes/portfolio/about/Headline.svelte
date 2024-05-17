@@ -8,7 +8,7 @@
             class="mt-2 text-2xl font-semibold text-primary-500 md:text-3xl lg:text-4xl dark:text-primary-300"
         >
             <h1>A software designer</h1>
-            <h1>based in Düsseldorf</h1>
+            <h1>Based in Düsseldorf</h1>
         </div>
     </div>
 </div>

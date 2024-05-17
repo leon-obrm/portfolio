@@ -3,6 +3,10 @@ import { colors } from "./src/lib/colors"
 const gray = colors.gray
 const primary = colors.primary
 
+// TODO: Align navbar in center
+// TODO: Replace daisyui logo with logo only
+// TODO: Replace express logo with text
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ["./src/**/*.{html,js,svelte,ts}"],
@@ -49,7 +53,7 @@ module.exports = {
                     "neutral-content": gray[50],
 
                     // Used for blank backgrounds
-                    "base-100": gray[900],
+                    "base-100": primary[950],
                     "base-200": gray[800],
                     "base-300": gray[700],
 

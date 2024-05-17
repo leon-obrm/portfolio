@@ -20,7 +20,7 @@
     >
         <div class="drop-shadow transition-all hover:drop-shadow-lg">
             <a
-                class="image-hex transition-scale no-animation btn flex h-[5.6rem] w-20 content-center items-center justify-center border-0 bg-white duration-300 ease-out hover:scale-110 hover:bg-white md:h-[104px] md:w-24"
+                class="image-hex transition-scale btn no-animation flex h-[5.6rem] w-20 content-center items-center justify-center border-0 bg-white duration-300 ease-out hover:scale-110 hover:bg-white md:h-[104px] md:w-24 dark:bg-primary-700"
                 href={`https://${skill.link}`}
                 target="_blank"
                 rel="noopener noreferrer"

@@ -16,9 +16,9 @@
     >
         <div id="skills" class="absolute -top-[64px]" />
 
-        <div class="flex w-10/12 max-w-4xl font-medium">
-            <h1 class="text-2xl text-white md:text-3xl">Skills</h1>
-        </div>
+        <h1 class="pb-8 text-3xl font-semibold uppercase tracking-widest text-white lg:text-4xl">
+            Skills
+        </h1>
 
         <HexagonList />
     </div>
