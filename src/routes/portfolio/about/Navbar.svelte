@@ -23,9 +23,6 @@
 
     let currentIndex: number = -1
 
-    // TODO: Adapt light and dark theme to new color palettes
-    // TODO: Adapt code to use theme variables
-
     let html: HTMLHtmlElement
 
     onMount(() => {
