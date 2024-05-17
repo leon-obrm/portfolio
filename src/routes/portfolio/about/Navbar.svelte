@@ -29,16 +29,10 @@
         html = document.getElementsByTagName("html")[0]
         themeChange(false)
 
-        // Prefer theme preference from local storage
+        // Get theme preference from local storage
         const localStorageTheme: string = window.localStorage.getItem("theme") || ""
 
         if (["light", "dark"].includes(localStorageTheme)) return ($theme = localStorageTheme)
-
-        // Set theme preference from system settings
-        const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)")
-
-        if (systemSettingDark.matches) theme.set("dark")
-        else theme.set("light")
     })
 
     $: {
