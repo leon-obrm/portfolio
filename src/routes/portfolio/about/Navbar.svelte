@@ -56,11 +56,9 @@
 </script>
 
 <div class="sticky top-0 z-50 w-full">
-    <div
-        class="navbar relative flex content-center items-start justify-between bg-base-100 text-base-content"
-    >
+    <div class="navbar relative grid grid-cols-2 bg-base-100 text-base-content md:grid-cols-3">
         <a
-            class="btn btn-ghost translate-y-1 text-2xl font-bold normal-case hover:bg-transparent hover:text-primary-600 md:translate-y-0 hover:dark:text-primary-300"
+            class="btn btn-ghost translate-y-1 justify-self-start text-2xl font-bold normal-case hover:bg-transparent hover:text-primary-600 md:translate-y-0 hover:dark:text-primary-300"
             href="/"
         >
             obermann
@@ -69,7 +67,7 @@
             <svelte:fragment slot="above">
                 <!-- TODO: Mark currently visited section of page -->
 
-                <div class="flex gap-8 lg:gap-20">
+                <div class="flex gap-0 justify-self-center lg:gap-8 xl:gap-20">
                     {#each links as link, i}
                         <a
                             class="btn btn-ghost no-animation relative uppercase hover:bg-transparent hover:text-primary-500 hover:dark:text-primary-300 {currentIndex ===
@@ -88,7 +86,7 @@
                     {/each}
                 </div>
 
-                <div class="mr-2 flex gap-4">
+                <div class="mr-2 flex gap-2 justify-self-end lg:gap-4">
                     {#each mediaLinks as mediaLink}
                         <div class="tooltip tooltip-bottom" data-tip={mediaLink.name}>
                             <a
@@ -106,8 +104,8 @@
                     {/each}
 
                     <div
-                        class="divider divider-horizontal -ml-1 -mr-3 py-1 before:bg-base-300 after:bg-base-300"
-                    ></div>
+                        class="divider divider-horizontal -ml-1 -mr-3 py-1.5 before:bg-base-300 after:bg-base-300"
+                    />
 
                     <!-- Theme toggle -->
                     <label class="swap swap-rotate transition-colors hover:text-primary">
@@ -130,7 +128,7 @@
                 </div>
             </svelte:fragment>
 
-            <div slot="below" class="dropdown dropdown-end">
+            <div slot="below" class="dropdown dropdown-end justify-self-end">
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
                 <label tabindex="0" class="btn btn-ghost m-1" for="Menu">
                     <svg

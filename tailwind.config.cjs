@@ -4,7 +4,6 @@ const gray = colors.gray
 const primary = colors.primary
 
 // TODO: Adapt colors of Portal lottie
-// TODO: Align navbar in center
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
