@@ -88,9 +88,9 @@ export const skills: SkillProps[] = [
     },
     {
         name: "Express",
-        abbreviation: "",
+        abbreviation: "ex",
         description: "Web framework for Node.js",
-        hasLogo: true,
+        hasLogo: false,
         link: "expressjs.com",
     },
     {

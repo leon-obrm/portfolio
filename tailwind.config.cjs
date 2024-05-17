@@ -3,10 +3,9 @@ import { colors } from "./src/lib/colors"
 const gray = colors.gray
 const primary = colors.primary
 
+// TODO: Update project descriptions
 // TODO: Adapt colors of Portal lottie
 // TODO: Align navbar in center
-// TODO: Replace daisyui logo with logo only
-// TODO: Replace express logo with text
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
