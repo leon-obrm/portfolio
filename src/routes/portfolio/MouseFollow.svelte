@@ -1,14 +1,17 @@
 <script lang="ts">
     import { onMount } from "svelte"
 
-    const size: number = 500
+    let size: number = 500
 
     let blob: HTMLSpanElement
 
     let isThrottled: boolean = false
     const throttleDelay: number = 100
 
-    function updateMousePosition(e: MouseEvent) {
+    function updateMousePosition(event: PointerEvent) {
+        // Disable mouse follow for mobile devices
+        if (event.pointerType === "touch") return
+
         // Do nothing if throttled
         if (isThrottled) return
 
@@ -22,8 +25,8 @@
 
         blob.animate(
             {
-                left: `${e.clientX - size / 2}px`,
-                top: `${e.clientY - size / 2}px`,
+                left: `${event.clientX - size / 2}px`,
+                top: `${event.clientY - size / 2}px`,
             },
             { duration: 500, fill: "forwards" }
         )
@@ -40,13 +43,20 @@
 
 <span
     bind:this={blob}
-    class="spin-slow fixed -z-20 rounded-full bg-white bg-gradient-to-r from-primary-50 to-primary-400 dark:from-primary-400 dark:to-primary-800"
+    class="spin-slow mouse-follow fixed -z-20 rounded-full bg-white bg-gradient-to-r from-primary-50 to-primary-300 dark:from-primary-400 dark:to-primary-800"
     style="width: {size}px; height: {size}px;"
 />
 
 <span class="fixed -z-10 h-screen w-screen backdrop-blur-[12vmax]" />
 
 <style>
+    /* Hides mouse follow on touch devices */
+    @media (hover: none) {
+        .mouse-follow {
+            display: none;
+        }
+    }
+
     @keyframes spin {
         0% {
             transform: rotate(0deg);
