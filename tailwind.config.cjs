@@ -3,6 +3,9 @@ import { colors } from "./src/lib/colors"
 const gray = colors.gray
 const primary = colors.primary
 
+// TODO: Disable mousefollow on mobile
+// TODO: Add glass effect to navbar
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ["./src/**/*.{html,js,svelte,ts}"],

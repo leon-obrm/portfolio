@@ -15,7 +15,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     version="1.1"
 >
-    <rect x="0" y="0" width="1920" height="350" fill={$theme === "light" ? "#fff" : primary[950]} />
+    <rect x="0" y="0" width="1920" height="350" fill-opacity="0" />
     <path
         d="M0 267L192 261L384 291L576 266L768 245L960 266L1152 227L1344 262L1536 242L1728 211L1920 195L1920 0L1728 0L1536 0L1344 0L1152 0L960 0L768 0L576 0L384 0L192 0L0 0Z"
         fill={$theme === "light" ? primary[50] : primary[900]}

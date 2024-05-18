@@ -16,7 +16,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     version="1.1"
 >
-    <rect x="0" y="0" width="1920" height="350" fill={$theme === "light" ? "#fff" : primary[950]} />
+    <rect class="z-0" x="0" y="0" width="1920" height="350" fill-opacity="0" />
     <path
         d="M0 73L192 88L384 120L576 71L768 108L960 92L1152 82L1344 103L1536 111L1728 122L1920 57L1920 351L1728 351L1536 351L1344 351L1152 351L960 351L768 351L576 351L384 351L192 351L0 351Z"
         fill={$theme === "light" ? primary[50] : primary[900]}
