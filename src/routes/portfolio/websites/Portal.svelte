@@ -18,6 +18,7 @@
     let animationContainer: HTMLElement
 
     const gray: TailwindPalette = colors.gray
+    const primary: TailwindPalette = colors.primary
 
     onMount(() => {
         let coloredAnimationData = replaceColor("#323843", gray[900], animationData)
@@ -46,9 +47,9 @@
     >
         <div
             class="hex absolute h-40 w-40 shadow-inner transition-colors duration-300"
-            style="background: radial-gradient({website.gradientStartColor}, {website.gradientEndColor});"
+            style="background: radial-gradient({primary[500]}, {primary[950]});"
         />
-        <p class="absolute w-20 text-center text-lg font-normal normal-case leading-6 text-white">
+        <p class="absolute w-20 text-center text-lg font-medium normal-case leading-6 text-white">
             Take a look
         </p>
     </a>

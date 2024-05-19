@@ -17,8 +17,6 @@ export interface WebsiteProps {
     timeframe: string
     description: string
     learnings: string[]
-    gradientStartColor: string
-    gradientEndColor: string
     link: string
 }
 
