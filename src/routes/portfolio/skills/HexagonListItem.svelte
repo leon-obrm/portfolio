@@ -20,7 +20,7 @@
     >
         <div class="drop-shadow transition-all hover:drop-shadow-lg">
             <a
-                class="image-hex transition-scale group btn no-animation flex h-[5.6rem] w-20 content-center items-center justify-center border-0 bg-white duration-300 ease-out hover:scale-110 hover:bg-white md:h-[104px] md:w-24 dark:bg-primary-700"
+                class="image-hex transition-scale btn no-animation flex h-[5.6rem] w-20 content-center items-center justify-center border-0 bg-white duration-300 ease-out hover:scale-110 hover:bg-white md:h-[104px] md:w-24 dark:bg-gradient-to-br dark:from-primary-600 dark:to-primary-800 dark:hover:from-primary-600 dark:hover:to-primary-900"
                 href={`https://${skill.link}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -34,9 +34,7 @@
                             : 'max-h-12 w-12 md:max-h-14 md:w-14'}"
                     />
                 {:else}
-                    <p
-                        class="w-full text-center text-3xl font-light text-base-content md:text-4xl group-hover:dark:text-gray-950"
-                    >
+                    <p class="w-full text-center text-3xl font-light text-base-content md:text-4xl">
                         {skill.abbreviation}
                     </p>
                 {/if}
