@@ -192,5 +192,5 @@
             </div>
         </MediaQuery>
     </div>
-    <div class="divider -my-2 mx-5 dark:mx-0" />
+    <div class="divider -my-2 mx-5 before:bg-primary-800 after:bg-primary-800 dark:mx-0" />
 </div>
