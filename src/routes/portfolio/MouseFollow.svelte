@@ -28,7 +28,7 @@
                 left: `${event.clientX - size / 2}px`,
                 top: `${event.clientY - size / 2}px`,
             },
-            { duration: 500, fill: "forwards" }
+            { duration: 400, fill: "forwards" }
         )
     }
 
@@ -43,7 +43,7 @@
 
 <span
     bind:this={blob}
-    class="spin-slow mouse-follow fixed -z-20 rounded-full bg-white bg-gradient-to-r from-primary-50 to-primary-300 dark:from-primary-400 dark:to-primary-800"
+    class="spin-slow mouse-follow fixed -z-20 rounded-full bg-white bg-gradient-to-r from-primary-50 to-primary-300 dark:from-primary-500 dark:to-primary-800"
     style="width: {size}px; height: {size}px;"
 />
 

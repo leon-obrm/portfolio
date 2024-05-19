@@ -50,9 +50,11 @@
 </script>
 
 <div class="sticky top-0 z-50 w-full">
-    <div class="navbar relative grid grid-cols-2 bg-base-100 text-base-content md:grid-cols-3">
+    <div
+        class="navbar relative grid grid-cols-2 bg-base-100 text-base-content md:grid-cols-3 dark:bg-base-100/60 dark:backdrop-blur-xl"
+    >
         <a
-            class="btn btn-ghost translate-y-1 justify-self-start text-2xl font-bold normal-case hover:bg-transparent hover:text-primary-600 md:translate-y-0 hover:dark:text-primary-300"
+            class="btn btn-ghost translate-y-px justify-self-start text-2xl font-bold normal-case hover:bg-transparent hover:text-primary-600 md:translate-y-0 hover:dark:text-primary-300"
             href="/"
         >
             obermann
@@ -112,11 +114,11 @@
                         />
 
                         <span class="btn btn-ghost swap-off hover:bg-transparent">
-                            <span class=""><WeatherSunny size="2em" /></span>
+                            <span><WeatherSunny size="2em" /></span>
                         </span>
 
                         <span class="btn btn-ghost swap-on hover:bg-transparent">
-                            <span class=""><WeatherNight size="1.8em" /></span>
+                            <span><WeatherNight size="1.8em" /></span>
                         </span>
                     </label>
                 </div>
@@ -190,5 +192,5 @@
             </div>
         </MediaQuery>
     </div>
-    <div class="divider -my-2 mx-5" />
+    <div class="divider -my-2 mx-5 dark:mx-0" />
 </div>
