@@ -86,7 +86,7 @@
                     {#each mediaLinks as mediaLink}
                         <div class="tooltip tooltip-bottom" data-tip={mediaLink.name}>
                             <a
-                                class="btn btn-circle btn-ghost hover:bg-base-100 hover:text-primary-500"
+                                class="btn btn-circle btn-ghost hover:bg-pink-500/0 hover:text-primary-500"
                                 href={mediaLink.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
