@@ -12,7 +12,7 @@
 <div class="overflow-hidden">
     <TopPeakDivider />
     <div
-        class="relative flex flex-col content-center items-center justify-center gap-10 bg-primary-400 py-14 dark:bg-primary-500"
+        class="relative flex flex-col content-center items-center justify-center gap-10 bg-primary-400 pb-16 pt-14 dark:bg-primary-500"
     >
         <div id="skills" class="absolute -top-[64px]" />
 

@@ -7,7 +7,7 @@
 </script>
 
 <svg
-    class="-mt-12"
+    class="-mt-12 translate-y-1"
     id="visual"
     viewBox="0 0 1920 350"
     width="1920"

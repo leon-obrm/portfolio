@@ -7,7 +7,7 @@
 </script>
 
 <svg
-    id="visual"
+    class="-translate-y-px"
     viewBox="0 0 1920 350"
     width="1920"
     height="350"

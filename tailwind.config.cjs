@@ -3,8 +3,7 @@ import { colors } from "./src/lib/colors"
 const gray = colors.gray
 const primary = colors.primary
 
-// TODO: Add gradient to background
-// TODO: Add glass effect to navbar
+// FIXME: Gradient appears when scrolled all the way to bottom (Has something to do with footer text and mouse follow blur)
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
