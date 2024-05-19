@@ -10,6 +10,9 @@
     <title>Leon's portfolio</title>
 </svelte:head>
 
+<div
+    class="fixed -z-30 hidden h-screen w-screen bg-gradient-to-br from-primary-900 to-primary-950 dark:flex"
+/>
 <MouseFollow />
 <About />
 <Skills />
