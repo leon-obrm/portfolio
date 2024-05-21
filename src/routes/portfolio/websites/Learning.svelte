@@ -22,13 +22,13 @@
 
 <OnViewTransition>
     <div
-        class="tooltip"
+        class="tooltip tooltip-bottom"
         data-tip={skill?.abbreviation !== "" ? skill?.abbreviation : skill?.name}
         in:scale
     >
         <div class="drop-shadow transition-all hover:drop-shadow-lg">
             <a
-                class="image-hex transition-scale btn-sm btn flex h-12 w-[2.65rem] content-center items-center justify-center border-0 bg-gray-100 duration-300 ease-out hover:scale-110 hover:bg-gray-100"
+                class="image-hex transition-scale btn btn-sm flex h-12 w-[2.65rem] content-center items-center justify-center border-0 bg-base-200 duration-300 ease-out hover:scale-110 hover:bg-base-200 dark:bg-gradient-to-br dark:from-primary-800 dark:to-primary-900"
                 href={`https://${skill?.link}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -37,10 +37,12 @@
                     <img
                         src={`logos/${skill?.name}.png`}
                         alt={`${skill?.name} logo`}
-                        class="max-h-6 w-10 object-contain"
+                        class="object-contain {skill.name === 'Svelte Kit'
+                            ? 'w-full scale-150'
+                            : 'max-h-6 w-10'}"
                     />
                 {:else}
-                    <p class="w-10 text-center text-xs font-normal text-black">
+                    <p class="w-10 text-center text-xs font-normal text-base-content">
                         {skill?.abbreviation}
                     </p>
                 {/if}

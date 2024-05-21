@@ -32,7 +32,7 @@
 <MediaQuery breakpoint="md">
     <div
         slot="above"
-        class="flex w-full flex-col content-center items-center justify-between gap-16 px-14 pt-16 pb-6"
+        class="flex w-full flex-col content-center items-center justify-between gap-16 px-14 pb-6 pt-16"
     >
         <div class="flex w-full max-w-4xl content-center items-center justify-between gap-20">
             <div class="flex flex-col content-center items-center justify-center gap-10">
@@ -52,7 +52,7 @@
     <div
         id="about"
         slot="below"
-        class="flex w-full flex-col content-center items-center justify-start gap-5 pt-6 pb-10"
+        class="flex w-full flex-col content-center items-center justify-start gap-5 pb-10 pt-6"
     >
         <Headline />
         <Portrait />

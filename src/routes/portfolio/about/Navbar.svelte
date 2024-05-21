@@ -4,8 +4,14 @@
   Contains navbar with logo, links to sections and email button
 -->
 <script lang="ts">
+    import { themeChange } from "theme-change"
+    import WeatherSunny from "svelte-material-icons/WeatherSunny.svelte"
+    import WeatherNight from "svelte-material-icons/WeatherNight.svelte"
+    import { onMount } from "svelte"
+
     import MediaQuery from "$lib/MediaQuery.svelte"
     import type { LinkProps } from "$lib/interfaces"
+    import { theme } from "../../store"
 
     export let mediaLinks: LinkProps[]
 
@@ -16,23 +22,52 @@
     ]
 
     let currentIndex: number = -1
+
+    let html: HTMLHtmlElement
+
+    onMount(() => {
+        html = document.getElementsByTagName("html")[0]
+        themeChange(false)
+
+        // Get theme preference from local storage
+        const localStorageTheme: string = window.localStorage.getItem("theme") || ""
+
+        if (["light", "dark"].includes(localStorageTheme)) return ($theme = localStorageTheme)
+    })
+
+    $: {
+        if (html !== undefined && html !== null) html.setAttribute("data-theme", $theme)
+    }
+
+    $: {
+        theme
+    }
+
+    function toggleTheme() {
+        theme.set($theme === "light" ? "dark" : "light")
+        window.localStorage.setItem("theme", $theme)
+    }
 </script>
 
 <div class="sticky top-0 z-50 w-full">
-    <div class="navbar relative flex content-center items-start justify-between bg-base-100">
+    <div
+        class="navbar relative grid grid-cols-2 bg-base-100 text-base-content md:grid-cols-3 dark:bg-base-100/60 dark:backdrop-blur-xl"
+    >
         <a
-            class="btn-ghost btn text-2xl font-bold normal-case hover:bg-transparent hover:text-primary-600"
-            href="/">obermann</a
+            class="btn btn-ghost translate-y-px justify-self-start text-2xl font-bold normal-case hover:bg-transparent hover:text-primary-600 md:translate-y-0 hover:dark:text-primary-300"
+            href="/"
         >
+            obermann
+        </a>
         <MediaQuery breakpoint="md">
             <svelte:fragment slot="above">
                 <!-- TODO: Mark currently visited section of page -->
 
-                <div class="flex gap-8 lg:gap-20">
+                <div class="flex gap-0 justify-self-center lg:gap-8 xl:gap-20">
                     {#each links as link, i}
                         <a
-                            class="btn-ghost no-animation btn relative hover:bg-transparent hover:text-primary"
-                            class:text-primary-600={currentIndex === i}
+                            class="btn btn-ghost no-animation relative uppercase hover:bg-transparent hover:text-primary-500 hover:dark:text-primary-300 {currentIndex ===
+                                i && 'text-primary-500 dark:text-primary-300'}"
                             href={link.link}
                             on:click={() => (currentIndex = i)}
                         >
@@ -47,11 +82,11 @@
                     {/each}
                 </div>
 
-                <div class="mr-2 flex gap-4">
+                <div class="mr-2 flex gap-2 justify-self-end lg:gap-4">
                     {#each mediaLinks as mediaLink}
                         <div class="tooltip tooltip-bottom" data-tip={mediaLink.name}>
                             <a
-                                class="btn-ghost btn-circle btn hover:bg-white hover:text-primary-500"
+                                class="btn btn-circle btn-ghost hover:bg-pink-500/0 hover:text-primary-500"
                                 href={mediaLink.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -63,12 +98,35 @@
                             </a>
                         </div>
                     {/each}
+
+                    <div
+                        class="divider divider-horizontal -ml-1 -mr-3 py-1.5 before:bg-base-300 after:bg-base-300"
+                    />
+
+                    <!-- Theme toggle -->
+                    <label class="swap swap-rotate transition-colors hover:text-primary">
+                        <!-- This hidden checkbox controls the state -->
+                        <input
+                            type="checkbox"
+                            data-toggle-theme="light,dark"
+                            checked={$theme === "dark"}
+                            on:change={toggleTheme}
+                        />
+
+                        <span class="btn btn-ghost swap-off hover:bg-transparent">
+                            <span><WeatherSunny size="2em" /></span>
+                        </span>
+
+                        <span class="btn btn-ghost swap-on hover:bg-transparent">
+                            <span><WeatherNight size="1.8em" /></span>
+                        </span>
+                    </label>
                 </div>
             </svelte:fragment>
 
-            <div slot="below" class="dropdown-end dropdown">
+            <div slot="below" class="dropdown dropdown-end justify-self-end">
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-                <label tabindex="0" class="btn-ghost btn m-1" for="Menu">
+                <label tabindex="0" class="btn btn-ghost m-1" for="Menu">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -86,7 +144,7 @@
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
                 <ul
                     tabindex="0"
-                    class="dropdown-content menu rounded-box w-52 border border-gray-200 bg-base-100 p-2 shadow"
+                    class="menu dropdown-content w-52 rounded-box border border-gray-200 bg-base-100 p-2 shadow"
                 >
                     {#each links as link}
                         <li>
@@ -96,7 +154,7 @@
                         </li>
                     {/each}
 
-                    <div class="divider mx-3 -my-1" />
+                    <div class="divider -my-1 mx-3" />
 
                     {#each mediaLinks as mediaLink}
                         <li>
@@ -106,14 +164,35 @@
                         </li>
                     {/each}
 
-                    <div class="divider mx-3 -my-1" />
+                    <div class="divider -my-1 mx-3" />
 
+                    <!-- Theme toggle -->
                     <li>
-                        <a href="mailto:leon.oberm@gmail.com" class="font-semibold">Contact me</a>
+                        <label class="swap justify-start">
+                            <!-- This hidden checkbox controls the state -->
+                            <input
+                                type="checkbox"
+                                data-toggle-theme="light,dark"
+                                checked={$theme === "dark"}
+                                on:change={toggleTheme}
+                            />
+
+                            <div class="swap-off flex gap-3">
+                                <p>Light mode</p>
+                                <WeatherSunny size="1.3em" />
+                            </div>
+
+                            <div class="swap-on flex gap-4">
+                                <p>Dark mode</p>
+                                <WeatherNight size="1.2em" />
+                            </div>
+                        </label>
                     </li>
                 </ul>
             </div>
         </MediaQuery>
     </div>
-    <div class="divider mx-5 -my-2" />
+    <div
+        class="divider -my-2 mx-5 dark:mx-0 dark:before:bg-primary-800 dark:after:bg-primary-800"
+    />
 </div>

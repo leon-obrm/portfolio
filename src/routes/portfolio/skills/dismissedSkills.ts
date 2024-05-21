@@ -30,4 +30,11 @@ export const dismissedSkills: SkillProps[] = [
         hasLogo: false,
         link: "wikipedia.org/wiki/SQL",
     },
+    {
+        name: "Git",
+        abbreviation: "",
+        description: "Version control system",
+        hasLogo: true,
+        link: "git-scm.com",
+    },
 ]

@@ -15,16 +15,16 @@
 >
     <div class="flex w-full content-center items-center justify-between">
         {#each mediaLinks as mediaLink}
-            <SpinAnimation delay={0.5}>
+            <SpinAnimation delay={0}>
                 <div class="tooltip" data-tip={mediaLink.name}>
                     <div class="drop-shadow-md transition-all hover:drop-shadow-lg">
                         <a
-                            class="transition-scale mask mask-hexagon btn border-none bg-gray-700 duration-300 ease-out hover:scale-110 hover:border-none hover:bg-gray-700"
+                            class="transition-scale btn mask mask-hexagon border-none bg-gray-800 text-neutral-content duration-300 ease-out hover:scale-110 hover:border-none hover:bg-base-content dark:bg-gradient-to-br dark:from-primary-800 dark:to-primary-900"
                             href={mediaLink.link}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <svelte:component this={mediaLink.icon} size="1.75em" color="#fff" />
+                            <svelte:component this={mediaLink.icon} size="1.75em" />
                         </a>
                     </div>
                 </div>

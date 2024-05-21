@@ -33,10 +33,9 @@ i18next // Detect user language
                     fiveQuickQuestions: "5 Quick Questions",
 
                     // 30 Minutes
-                    iceAndNetflix: "Ice & Netflix",
-                    cuddlingAndNetflix: "Cuddling & Netflix",
-                    cuddlingAndTalking: "Cuddling & Talking",
-                    cuddlingOutside: "Cuddling outside",
+                    ice: "Eating ice",
+                    netflix: "Watching netflix",
+                    talking: "Talking",
                     sims: "Sims",
                     painting: "Painting",
                     walking: "Walking",
@@ -72,10 +71,9 @@ i18next // Detect user language
                     fiveQuickQuestions: "5 schnelle Fragen",
 
                     // 30 Minutes
-                    iceAndNetflix: "Eis & Netflix",
-                    cuddlingAndNetflix: "Kuscheln & Netflix",
-                    cuddlingAndTalking: "Kuscheln & Reden",
-                    cuddlingOutside: "Draußen kuscheln",
+                    ice: "Eis essen",
+                    netflix: "Netflix schauen",
+                    talking: "Reden",
                     sims: "Sims",
                     painting: "Malen",
                     walking: "Spazieren",
