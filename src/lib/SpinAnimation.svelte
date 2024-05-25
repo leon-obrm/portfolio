@@ -26,7 +26,8 @@
           }
         : {}}
 >
-    <div use:motion class={className}>
+    <div class={className}>
+        <!-- <div use:motion class={className}> -->
         <slot />
     </div>
 </Motion>

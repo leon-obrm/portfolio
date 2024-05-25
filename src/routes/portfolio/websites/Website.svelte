@@ -22,7 +22,7 @@
     >
         <div class="flex flex-col content-center items-start justify-center gap-2">
             <h2 class="text-xl font-medium text-base-content md:text-2xl">{website.title}</h2>
-            <h3 class="text-xs text-gray-400 md:text-sm">{website.timeframe}</h3>
+            <h3 class="text-xs text-gray-700 md:text-sm">{website.timeframe}</h3>
         </div>
         <p class="text-justify text-sm text-base-content md:text-base">{website.description}</p>
 
@@ -36,7 +36,7 @@
 </div>
 
 {#if !isLast}
-    <div class="my-4 flex w-11/12 max-w-5xl flex-col content-center items-center justify-center">
-        <div class="divider border-green-500" />
-    </div>
+    <div
+        class="my-12 flex w-11/12 max-w-5xl flex-col content-center items-center justify-center"
+    ></div>
 {/if}

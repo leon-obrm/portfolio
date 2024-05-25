@@ -9,7 +9,7 @@
 </script>
 
 <div
-    class="relative flex w-full flex-col content-center items-center justify-start py-14 pt-6 md:gap-3 md:pt-14"
+    class="relative -mt-6 flex w-full flex-col content-center items-center justify-start py-14 md:gap-3"
 >
     <div id="projects" class="absolute -top-[63px]" />
 

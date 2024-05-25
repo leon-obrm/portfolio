@@ -12,13 +12,11 @@
 <div class="overflow-hidden">
     <TopPeakDivider />
     <div
-        class="relative flex flex-col content-center items-center justify-center gap-10 bg-primary-400 pb-16 pt-14 dark:bg-primary-500"
+        class="relative z-30 flex flex-col content-center items-center justify-center gap-10 bg-gray-50/65 pb-16 pt-14 backdrop-blur-3xl"
     >
         <div id="skills" class="absolute -top-[64px]" />
 
-        <h1 class="pb-8 text-3xl font-semibold uppercase tracking-widest text-white lg:text-4xl">
-            Skills
-        </h1>
+        <h1 class="pb-8 text-3xl font-semibold uppercase tracking-widest lg:text-4xl">Skills</h1>
 
         <HexagonList />
     </div>

@@ -41,13 +41,11 @@
     })
 </script>
 
-<span
+<!-- <span
     bind:this={blob}
-    class="spin-slow mouse-follow fixed -z-20 rounded-full bg-white bg-gradient-to-r from-primary-50 to-primary-300 dark:from-primary-500 dark:to-primary-800"
+    class="spin-slow mouse-follow fixed -z-20 rounded-full bg-white bg-gradient-to-r from-[#FFF1F0] to-[#F87C73] dark:from-primary-500 dark:to-primary-800"
     style="width: {size}px; height: {size}px;"
-/>
-
-<span class="fixed -z-10 h-screen w-screen backdrop-blur-[12vmax]" />
+/> -->
 
 <style>
     /* Hides mouse follow on touch devices */
