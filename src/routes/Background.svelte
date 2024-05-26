@@ -24,26 +24,6 @@
 <div class="fixed -z-10 h-screen w-screen"></div>
 
 <style>
-    /* Hides mouse follow on touch devices */
-    @media (hover: none) {
-        .mouse-follow {
-            display: none;
-        }
-    }
-
-    @keyframes wander {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(20vw);
-        }
-    }
-
-    .wander {
-        animation: wander 15s alternate infinite ease;
-    }
-
     /* div {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23004E77' cx='50' cy='0' r='50'/%3E%3Cg fill='%2313557d' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23205c84' cx='50' cy='100' r='50'/%3E%3Cg fill='%232a638a' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23346b91' cx='50' cy='200' r='50'/%3E%3Cg fill='%233d7297' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%23467a9e' cx='50' cy='300' r='50'/%3E%3Cg fill='%234e81a5' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%235789ab' cx='50' cy='400' r='50'/%3E%3Cg fill='%236090b2' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%236898b9' cx='50' cy='500' r='50'/%3E%3Cg fill='%2371a0c0' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%237aa8c7' cx='50' cy='600' r='50'/%3E%3Cg fill='%2382b0cd' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%238bb8d4' cx='50' cy='700' r='50'/%3E%3Cg fill='%2394c0db' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%239dc8e2' cx='50' cy='800' r='50'/%3E%3Cg fill='%23a6d0e9' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%23afd8f1' cx='50' cy='900' r='50'/%3E%3Cg fill='%23b8e1f8' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23C1E9FF' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
 
@@ -54,22 +34,31 @@
         0% {
             background-position: 0% 50%;
         }
-        50% {
-            background-position: 100% 50%;
-        }
         100% {
-            background-position: 0% 50%;
+            background-position: 100% 50%;
         }
     }
 
     div {
-        background: linear-gradient(-75deg, #8eff8e, #9bf6ff, #a0c4ff, #ffc6ff);
+        background: linear-gradient(
+            -75deg,
+            rgba(155, 246, 255),
+            rgba(158, 218, 255),
+            rgba(255, 198, 255)
+        );
 
         background-size: 400% 400%;
-        animation: gradient 5s ease infinite;
+        animation: gradient 5s linear infinite;
     }
 
-    /* TODO: Create infinite loop without it moving backwards */
+    /* ========================================================== */
+    /* TODO: Make gradient animate while scrolling */
+    /* TODO: Add scrolly telling animations */
+    /* ========================================================== */
+
+    /* FIXME: Gradient animation breaks on mobile */
+    /* FIXME: Portrait glass background breaks on mobile */
+
     /* TODO: Create tailwind class for own glass effect (Background + Border) */
     /* TODO: Add background noise */
     /* TODO: Add saturated shadow */

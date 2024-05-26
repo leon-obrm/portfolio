@@ -9,6 +9,8 @@
     const throttleDelay: number = 100
 
     function updateMousePosition(event: PointerEvent) {
+        if (blob === undefined) return
+
         // Disable mouse follow for mobile devices
         if (event.pointerType === "touch") return
 
