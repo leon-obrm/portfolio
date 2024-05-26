@@ -17,16 +17,14 @@
         {#each mediaLinks as mediaLink}
             <SpinAnimation delay={0}>
                 <div class="tooltip" data-tip={mediaLink.name}>
-                    <div class="drop-shadow-md transition-all hover:drop-shadow-lg">
-                        <a
-                            class="transition-scale !glassmorphism btn aspect-square w-fit rounded-3xl border-none p-0 text-gray-950 duration-300 ease-out hover:scale-110 hover:border-none"
-                            href={mediaLink.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <svelte:component this={mediaLink.icon} size="1.75em" />
-                        </a>
-                    </div>
+                    <a
+                        class="glassmorphism btn aspect-square w-fit rounded-3xl border-none p-0 text-gray-950 shadow transition-all duration-300 ease-out hover:scale-110 hover:border-none hover:shadow-lg"
+                        href={mediaLink.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <svelte:component this={mediaLink.icon} size="1.75em" />
+                    </a>
                 </div>
             </SpinAnimation>
         {/each}
