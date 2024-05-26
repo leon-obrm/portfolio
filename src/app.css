@@ -4,7 +4,8 @@
 
 @layer components {
     .glassmorphism {
-        @apply bg-transparent bg-gradient-to-bl from-white/50 to-gray-100/10 backdrop-blur-md hover:bg-transparent;
+        @apply bg-transparent backdrop-blur-md hover:bg-transparent;
+        background: linear-gradient(to bottom left, #ffffff50, #bdc0ce10), url(noise.svg);
     }
 
     .glassmorphism::before {

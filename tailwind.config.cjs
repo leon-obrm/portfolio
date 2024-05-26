@@ -8,17 +8,13 @@ const primary = colors.primary
 // TODO: Add scrolly telling animations
 // ==========================================================
 
-// FIXME: Gradient animation breaks on mobile
 // FIXME: Portrait glass background breaks on mobile
 
-// TODO: Add background noise
 // TODO: Add saturated shadow
-// TODO: Add new glass effect to all other elements
 // TODO: Replace portals with a better solution
 // TODO: Adjust link highlighting to match new colors
 // TODO: Adjust headline to match new colors
 // TODO: Adjust DHBW link to match new colors
-// TODO: Adjust skills to match new colors
 // TODO: Add blur to mobile menu (Somehow does not work)
 
 // TODO: Bring glassmorphism to dark mode
