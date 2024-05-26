@@ -11,19 +11,19 @@
     <div class="relative w-2/5 max-w-xs md:w-4/5">
         <SpinAnimation
             delay={0.9}
-            className="w-3 h-3 absolute bottom-10 left-1/3 rounded-full bg-white/35"
+            className="w-3 h-3 absolute bottom-10 left-1/3 rounded-full glassmorphism"
         />
         <SpinAnimation
             delay={0.7}
-            className="w-5 h-5 absolute bottom-2 left-1/2 rounded-full bg-white/40"
+            className="w-5 h-5 absolute bottom-2 left-1/2 rounded-full glassmorphism"
         />
         <SpinAnimation
             delay={0.5}
-            className="w-7 h-7 absolute top-0 right-3/4 rounded-full bg-white/45"
+            className="w-7 h-7 absolute top-0 right-3/4 rounded-full glassmorphism"
         />
         <SpinAnimation
             delay={0.3}
-            className="w-9 h-9 absolute top-0 left-3/4 rounded-full bg-white/45"
+            className="w-9 h-9 absolute top-0 left-3/4 rounded-full glassmorphism"
         />
     </div>
 
@@ -33,7 +33,7 @@
             hoverAnimation={false}
         >
             <div
-                class="gradient-border absolute bottom-0 aspect-square w-full max-w-xs rounded-full bg-gradient-to-bl from-white/50 to-gray-300/10 shadow-md backdrop-blur-md md:w-11/12"
+                class="glassmorphism absolute bottom-0 aspect-square w-full max-w-xs rounded-full shadow-md md:w-11/12"
             />
 
             <img
@@ -44,19 +44,3 @@
         </SpinAnimation>
     </div>
 </div>
-
-<style>
-    .gradient-border::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 9999px;
-        padding: 1px;
-        background: linear-gradient(to bottom left, #ffffff50, #bdc0ce50);
-        -webkit-mask:
-            linear-gradient(#fff 0 0) content-box,
-            linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-    }
-</style>

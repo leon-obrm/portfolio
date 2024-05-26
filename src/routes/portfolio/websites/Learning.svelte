@@ -32,7 +32,7 @@
     >
         <div class="drop-shadow transition-all hover:drop-shadow-lg">
             <a
-                class="transition-scale btn btn-sm flex aspect-square h-11 content-center items-center justify-center rounded-full border-0 bg-white/60 duration-300 ease-out hover:scale-110 hover:bg-white/60"
+                class="transition-scale glassmorphism btn btn-sm flex aspect-square h-11 content-center items-center justify-center rounded-full border-0 duration-300 ease-out hover:scale-110"
                 href={`https://${skill?.link}`}
                 target="_blank"
                 rel="noopener noreferrer"

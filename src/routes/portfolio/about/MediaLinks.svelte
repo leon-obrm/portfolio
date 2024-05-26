@@ -19,7 +19,7 @@
                 <div class="tooltip" data-tip={mediaLink.name}>
                     <div class="drop-shadow-md transition-all hover:drop-shadow-lg">
                         <a
-                            class="transition-scale btn aspect-square w-fit rounded-3xl border-none bg-white/60 p-0 text-gray-950 duration-300 ease-out hover:scale-110 hover:border-none hover:bg-white/70"
+                            class="transition-scale !glassmorphism btn aspect-square w-fit rounded-3xl border-none p-0 text-gray-950 duration-300 ease-out hover:scale-110 hover:border-none"
                             href={mediaLink.link}
                             target="_blank"
                             rel="noopener noreferrer"

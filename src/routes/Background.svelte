@@ -34,8 +34,11 @@
         0% {
             background-position: 0% 50%;
         }
-        100% {
+        50% {
             background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
         }
     }
 
@@ -48,19 +51,6 @@
         );
 
         background-size: 400% 400%;
-        animation: gradient 5s linear infinite;
+        animation: gradient 10s linear infinite;
     }
-
-    /* ========================================================== */
-    /* TODO: Make gradient animate while scrolling */
-    /* TODO: Add scrolly telling animations */
-    /* ========================================================== */
-
-    /* FIXME: Gradient animation breaks on mobile */
-    /* FIXME: Portrait glass background breaks on mobile */
-
-    /* TODO: Create tailwind class for own glass effect (Background + Border) */
-    /* TODO: Add background noise */
-    /* TODO: Add saturated shadow */
-    /* TODO: Add new glass effect to all other elements */
 </style>

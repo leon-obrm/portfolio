@@ -3,6 +3,17 @@ import { colors } from "./src/lib/colors"
 const gray = colors.gray
 const primary = colors.primary
 
+// ==========================================================
+// TODO: Make gradient animate while scrolling
+// TODO: Add scrolly telling animations
+// ==========================================================
+
+// FIXME: Gradient animation breaks on mobile
+// FIXME: Portrait glass background breaks on mobile
+
+// TODO: Add background noise
+// TODO: Add saturated shadow
+// TODO: Add new glass effect to all other elements
 // TODO: Replace portals with a better solution
 // TODO: Adjust link highlighting to match new colors
 // TODO: Adjust headline to match new colors
