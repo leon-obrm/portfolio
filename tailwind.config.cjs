@@ -3,21 +3,13 @@ import { colors } from "./src/lib/colors"
 const gray = colors.gray
 const primary = colors.primary
 
-// ==========================================================
-// TODO: Make gradient animate while scrolling
-// TODO: Add scrolly telling animations
-// ==========================================================
-
-// FIXME: Portrait glass background breaks on mobile
-
-// TODO: Add saturated shadow
+// TODO: Change description text
 // TODO: Replace portals with a better solution
+// TODO: Make background more saturated behind glass objects (Not sure if possible)
 // TODO: Adjust link highlighting to match new colors
 // TODO: Adjust headline to match new colors
 // TODO: Adjust DHBW link to match new colors
 // TODO: Add blur to mobile menu (Somehow does not work)
-
-// TODO: Bring glassmorphism to dark mode
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

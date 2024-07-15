@@ -33,7 +33,7 @@
             hoverAnimation={false}
         >
             <div
-                class="glassmorphism absolute bottom-0 aspect-square w-full max-w-xs rounded-full shadow-md md:w-11/12"
+                class="glassmorphism absolute bottom-0 aspect-square w-3/5 max-w-xs rounded-full shadow-md md:w-11/12"
             />
 
             <img

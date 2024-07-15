@@ -18,10 +18,6 @@
         // Search for skill in both active and dismissed skills
         skills.find((skill) => skill.name === learning || skill.abbreviation === learning) ||
         dismissedSkills.find((skill) => skill.name === learning || skill.abbreviation === learning)
-
-    // ================================
-    // TODO: Rework MediaLinks and Learning to be round using the same tactic
-    // ================================
 </script>
 
 <OnViewTransition>
