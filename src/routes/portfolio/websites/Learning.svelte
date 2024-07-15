@@ -22,37 +22,31 @@
 
 <OnViewTransition>
     <div
-        class="tooltip tooltip-bottom"
-        data-tip={skill?.abbreviation !== "" ? skill?.abbreviation : skill?.name}
+        class="tooltip"
+        data-tip={skill !== undefined && skill.name !== undefined && skill.name.length > 20
+            ? skill?.abbreviation
+            : skill?.name}
         in:scale
     >
-        <div class="drop-shadow transition-all hover:drop-shadow-lg">
-            <a
-                class="image-hex transition-scale btn btn-sm flex h-12 w-[2.65rem] content-center items-center justify-center border-0 bg-base-200 duration-300 ease-out hover:scale-110 hover:bg-base-200 dark:bg-gradient-to-br dark:from-primary-800 dark:to-primary-900"
-                href={`https://${skill?.link}`}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                {#if skill?.hasLogo}
-                    <img
-                        src={`logos/${skill?.name}.png`}
-                        alt={`${skill?.name} logo`}
-                        class="object-contain {skill.name === 'Svelte Kit'
-                            ? 'w-full scale-150'
-                            : 'max-h-6 w-10'}"
-                    />
-                {:else}
-                    <p class="w-10 text-center text-xs font-normal text-base-content">
-                        {skill?.abbreviation}
-                    </p>
-                {/if}
-            </a>
-        </div>
+        <a
+            class="transition-scale glassmorphism btn btn-sm flex aspect-square h-11 content-center items-center justify-center rounded-full border-0 shadow duration-300 ease-out hover:scale-110 hover:shadow-md"
+            href={`https://${skill?.link}`}
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            {#if skill?.hasLogo}
+                <img
+                    src={`logos/${skill?.name}.png`}
+                    alt={`${skill?.name} logo`}
+                    class="object-contain {skill.name === 'Svelte Kit'
+                        ? 'w-full scale-150'
+                        : 'max-h-6 w-10'}"
+                />
+            {:else}
+                <p class="w-fit text-center text-xs font-normal text-base-content">
+                    {skill?.abbreviation}
+                </p>
+            {/if}
+        </a>
     </div>
 </OnViewTransition>
-
-<style>
-    .image-hex {
-        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    }
-</style>

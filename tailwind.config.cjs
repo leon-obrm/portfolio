@@ -3,7 +3,13 @@ import { colors } from "./src/lib/colors"
 const gray = colors.gray
 const primary = colors.primary
 
-// FIXME: Gradient appears when scrolled all the way to bottom (Has something to do with footer text and mouse follow blur)
+// TODO: Change description text
+// TODO: Replace portals with a better solution
+// TODO: Make background more saturated behind glass objects (Not sure if possible)
+// TODO: Adjust link highlighting to match new colors
+// TODO: Adjust headline to match new colors
+// TODO: Adjust DHBW link to match new colors
+// TODO: Add blur to mobile menu (Somehow does not work)
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -31,12 +37,12 @@ module.exports = {
                     "neutral-content": gray[50],
 
                     // Blank backgrounds
-                    "base-100": "#FFFFFF",
-                    "base-200": gray[50],
-                    "base-300": gray[100],
+                    "base-100": gray[50],
+                    "base-200": gray[100],
+                    "base-300": gray[200],
 
                     // Button text
-                    "base-content": gray[900],
+                    "base-content": gray[950],
                 },
                 dark: {
                     ...require("daisyui/src/theming/themes")["light"],
@@ -51,7 +57,7 @@ module.exports = {
                     "neutral-content": gray[50],
 
                     // Used for blank backgrounds
-                    "base-100": primary[950],
+                    "base-100": "#000000",
                     "base-200": gray[800],
                     "base-300": gray[700],
 

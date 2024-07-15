@@ -39,7 +39,7 @@ export const websites: WebsiteProps[] = [
         timeframe: "September 2019 - April 2021",
         description:
             "This is my first website. I created it after my first lecture on web development sparked my interest. This website contains my first ever projects that I used to learn web development.",
-        learnings: ["JavaScript", "HTML", "CSS", "Git", "REST", "p5.js"],
+        learnings: ["JavaScript", "HTML", "CSS", "Git", "p5.js"],
         link: "https://obrm.de/index.php",
     },
 ]

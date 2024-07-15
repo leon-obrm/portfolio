@@ -4,7 +4,7 @@
   Contains list of skills in hexagon form
 -->
 <script lang="ts">
-    import HexagonListItem from "./HexagonListItem.svelte"
+    import Skill from "./Skill.svelte"
     import type { SkillProps } from "$lib/interfaces"
     import { skills } from "./skills"
 
@@ -53,13 +53,11 @@
 
 <svelte:window bind:outerWidth={width} />
 
-<div class="flex w-10/12 max-w-4xl flex-wrap content-center items-center justify-center">
+<div class="flex w-10/12 max-w-4xl flex-wrap content-center items-center justify-center md:gap-1">
     {#each currentSkillRows as skillRow, i}
-        <div
-            class="-my-[0.3rem] flex w-full content-center items-center justify-center gap-4 md:-my-[0.45rem]"
-        >
+        <div class="flex w-full content-center items-center justify-center gap-4 md:gap-6">
             {#each skillRow as skill, j}
-                <HexagonListItem {skill} />
+                <Skill {skill} />
             {/each}
         </div>
     {/each}

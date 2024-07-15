@@ -51,7 +51,7 @@
 
 <div class="sticky top-0 z-50 w-full">
     <div
-        class="navbar relative grid grid-cols-2 bg-base-100 text-base-content md:grid-cols-3 dark:bg-base-100/60 dark:backdrop-blur-xl"
+        class="navbar relative grid grid-cols-2 border-b border-white/20 bg-white/30 text-base-content backdrop-blur-xl md:grid-cols-3 dark:bg-base-100/60"
     >
         <a
             class="btn btn-ghost translate-y-px justify-self-start text-2xl font-bold normal-case hover:bg-transparent hover:text-primary-600 md:translate-y-0 hover:dark:text-primary-300"
@@ -60,6 +60,7 @@
             obermann
         </a>
         <MediaQuery breakpoint="md">
+            <!------------------- Desktop view ------------------->
             <svelte:fragment slot="above">
                 <!-- TODO: Mark currently visited section of page -->
 
@@ -98,32 +99,10 @@
                             </a>
                         </div>
                     {/each}
-
-                    <div
-                        class="divider divider-horizontal -ml-1 -mr-3 py-1.5 before:bg-base-300 after:bg-base-300"
-                    />
-
-                    <!-- Theme toggle -->
-                    <label class="swap swap-rotate transition-colors hover:text-primary">
-                        <!-- This hidden checkbox controls the state -->
-                        <input
-                            type="checkbox"
-                            data-toggle-theme="light,dark"
-                            checked={$theme === "dark"}
-                            on:change={toggleTheme}
-                        />
-
-                        <span class="btn btn-ghost swap-off hover:bg-transparent">
-                            <span><WeatherSunny size="2em" /></span>
-                        </span>
-
-                        <span class="btn btn-ghost swap-on hover:bg-transparent">
-                            <span><WeatherNight size="1.8em" /></span>
-                        </span>
-                    </label>
                 </div>
             </svelte:fragment>
 
+            <!------------------- Mobile view ------------------->
             <div slot="below" class="dropdown dropdown-end justify-self-end">
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
                 <label tabindex="0" class="btn btn-ghost m-1" for="Menu">
@@ -144,7 +123,7 @@
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
                 <ul
                     tabindex="0"
-                    class="menu dropdown-content w-52 rounded-box border border-gray-200 bg-base-100 p-2 shadow"
+                    class="menu dropdown-content w-52 rounded-box border border-white/20 bg-white/80 p-2 shadow backdrop-blur-xl"
                 >
                     {#each links as link}
                         <li>
@@ -165,34 +144,8 @@
                     {/each}
 
                     <div class="divider -my-1 mx-3" />
-
-                    <!-- Theme toggle -->
-                    <li>
-                        <label class="swap justify-start">
-                            <!-- This hidden checkbox controls the state -->
-                            <input
-                                type="checkbox"
-                                data-toggle-theme="light,dark"
-                                checked={$theme === "dark"}
-                                on:change={toggleTheme}
-                            />
-
-                            <div class="swap-off flex gap-3">
-                                <p>Light mode</p>
-                                <WeatherSunny size="1.3em" />
-                            </div>
-
-                            <div class="swap-on flex gap-4">
-                                <p>Dark mode</p>
-                                <WeatherNight size="1.2em" />
-                            </div>
-                        </label>
-                    </li>
                 </ul>
             </div>
         </MediaQuery>
     </div>
-    <div
-        class="divider -my-2 mx-5 dark:mx-0 dark:before:bg-primary-800 dark:after:bg-primary-800"
-    />
 </div>
