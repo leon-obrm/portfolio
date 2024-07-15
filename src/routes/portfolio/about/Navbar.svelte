@@ -99,29 +99,6 @@
                             </a>
                         </div>
                     {/each}
-
-                    <div
-                        class="divider divider-horizontal -ml-1 -mr-3 py-1.5 before:bg-gray-500 after:bg-gray-500"
-                    />
-
-                    <!-- Theme toggle -->
-                    <label class="swap swap-rotate transition-colors hover:text-primary">
-                        <!-- This hidden checkbox controls the state -->
-                        <input
-                            type="checkbox"
-                            data-toggle-theme="light,dark"
-                            checked={$theme === "dark"}
-                            on:change={toggleTheme}
-                        />
-
-                        <span class="btn btn-ghost swap-off hover:bg-transparent">
-                            <span><WeatherSunny size="2em" /></span>
-                        </span>
-
-                        <span class="btn btn-ghost swap-on hover:bg-transparent">
-                            <span><WeatherNight size="1.8em" /></span>
-                        </span>
-                    </label>
                 </div>
             </svelte:fragment>
 
@@ -167,29 +144,6 @@
                     {/each}
 
                     <div class="divider -my-1 mx-3" />
-
-                    <!-- Theme toggle -->
-                    <li>
-                        <label class="swap justify-start">
-                            <!-- This hidden checkbox controls the state -->
-                            <input
-                                type="checkbox"
-                                data-toggle-theme="light,dark"
-                                checked={$theme === "dark"}
-                                on:change={toggleTheme}
-                            />
-
-                            <div class="swap-off flex gap-3">
-                                <p>Light mode</p>
-                                <WeatherSunny size="1.3em" />
-                            </div>
-
-                            <div class="swap-on flex gap-4">
-                                <p>Dark mode</p>
-                                <WeatherNight size="1.2em" />
-                            </div>
-                        </label>
-                    </li>
                 </ul>
             </div>
         </MediaQuery>
