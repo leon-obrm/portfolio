@@ -4,14 +4,8 @@
   Contains navbar with logo, links to sections and email button
 -->
 <script lang="ts">
-    import { themeChange } from "theme-change"
-    import WeatherSunny from "svelte-material-icons/WeatherSunny.svelte"
-    import WeatherNight from "svelte-material-icons/WeatherNight.svelte"
-    import { onMount } from "svelte"
-
     import MediaQuery from "$lib/MediaQuery.svelte"
     import type { LinkProps } from "$lib/interfaces"
-    import { theme } from "../../store"
 
     export let mediaLinks: LinkProps[]
 
@@ -22,31 +16,6 @@
     ]
 
     let currentIndex: number = -1
-
-    let html: HTMLHtmlElement
-
-    onMount(() => {
-        html = document.getElementsByTagName("html")[0]
-        themeChange(false)
-
-        // Get theme preference from local storage
-        const localStorageTheme: string = window.localStorage.getItem("theme") || ""
-
-        if (["light", "dark"].includes(localStorageTheme)) return ($theme = localStorageTheme)
-    })
-
-    $: {
-        if (html !== undefined && html !== null) html.setAttribute("data-theme", "light")
-    }
-
-    $: {
-        theme
-    }
-
-    function toggleTheme() {
-        theme.set($theme === "light" ? "dark" : "light")
-        window.localStorage.setItem("theme", $theme)
-    }
 </script>
 
 <div class="sticky top-0 z-50 w-full">
