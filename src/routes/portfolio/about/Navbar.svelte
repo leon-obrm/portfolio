@@ -36,7 +36,7 @@
     })
 
     $: {
-        if (html !== undefined && html !== null) html.setAttribute("data-theme", $theme)
+        if (html !== undefined && html !== null) html.setAttribute("data-theme", "light")
     }
 
     $: {
