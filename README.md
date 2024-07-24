@@ -1,4 +1,4 @@
-# Welcome to my portfolio
+# Welcome to Leon's portfolio
 
 I'm a web designer and developer from Germany with 6+ years of coding experience and 4 years in web development and design.
 
