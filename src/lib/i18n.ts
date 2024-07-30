@@ -1,5 +1,6 @@
 import i18next from "i18next"
 import { createI18nStore } from "svelte-i18next"
+
 // Translations
 import { en } from "./translations/en"
 import { de } from "./translations/de"

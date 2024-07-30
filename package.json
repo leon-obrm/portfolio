@@ -35,7 +35,6 @@
     "type": "module",
     "dependencies": {
         "i18next": "^23.12.2",
-        "i18next-browser-languagedetector": "^8.0.0",
         "svelte-i18next": "^2.2.2"
     }
 }
