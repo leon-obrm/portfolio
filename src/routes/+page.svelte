@@ -1,5 +1,6 @@
 <script lang="ts">
-    import i18n from "$lib/i18n"
+    import { useI18n } from "$lib/useI18n"
+    const i18n = useI18n()
 </script>
 
 <h1>{$i18n.t("key")}</h1>
