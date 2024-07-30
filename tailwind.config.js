@@ -1,3 +1,5 @@
+import defaultTheme from "tailwindcss/defaultTheme"
+
 import { colors } from "./src/lib/colors"
 
 /** @type {import('tailwindcss').Config} */
@@ -6,6 +8,10 @@ export default {
     theme: {
         extend: {
             colors,
+            fontFamily: {
+                nunito: ["Nunito", ...defaultTheme.fontFamily.sans],
+                "inria-sans": ["Inria Sans", ...defaultTheme.fontFamily.sans],
+            },
         },
     },
     plugins: [],
