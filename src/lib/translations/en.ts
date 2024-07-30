@@ -1,7 +1,7 @@
 /** English translations. */
 export const en = {
     translation: {
-        key: "hello world",
+        heyIAm: "Hey, I am",
     },
 }
 

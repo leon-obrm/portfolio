@@ -1,7 +1,9 @@
 <script lang="ts">
-    import { useI18n } from "$lib/useI18n"
-    const i18n = useI18n()
+    import NavBar from "./navbar/NavBar.svelte"
+    import Homepage from "./homepage/Homepage.svelte"
 </script>
 
-<h1>{$i18n.t("key")}</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<NavBar />
+<div class="p-5">
+    <Homepage />
+</div>
