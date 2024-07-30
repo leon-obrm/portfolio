@@ -9,6 +9,6 @@
     setContext("i18n", getI18nStore())
 </script>
 
-<div class="font-nunito">
+<div class="flex flex-col bg-gray-900 font-nunito text-white">
     <slot />
 </div>
