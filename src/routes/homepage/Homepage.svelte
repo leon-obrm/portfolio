@@ -2,6 +2,10 @@
     import ContactPortrait from "./ContactPortrait.svelte"
 </script>
 
+<div
+    class="absolute left-0 top-0 -z-50 h-screen w-screen bg-gradient-to-bl from-[#CF820F] to-[#1C0D00] opacity-20"
+/>
+
 <ContactPortrait />
 
 <div class="flex flex-col gap-2 font-inria-sans text-6xl uppercase tracking-wider">
@@ -10,7 +14,7 @@
     <h3>Developer</h3>
 </div>
 
-<p>
+<p class="pt-16">
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo pariatur consequuntur aperiam
     molestiae cupiditate sapiente veritatis quos commodi earum adipisci ut, dolore nisi cumque
     tempore, doloribus rerum tenetur vero ipsam rem minus excepturi? Voluptas libero possimus
