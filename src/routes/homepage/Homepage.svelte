@@ -8,7 +8,7 @@
 
 <ContactPortrait />
 
-<div class="flex flex-col gap-2 pt-8 font-inria-sans text-6xl uppercase tracking-wider">
+<div class="flex w-fit flex-col gap-2 pt-8 font-inria-sans text-6xl uppercase tracking-wider">
     <h3 class="translate-x-1.5 text-2xl tracking-wide">Web</h3>
     <h3>Designer <span class="text-3xl">&</span></h3>
     <h3>Developer</h3>

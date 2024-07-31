@@ -39,3 +39,10 @@ export interface ISkill {
     link: string
     isVisible?: boolean
 }
+
+/** Describes a link. */
+export interface ILink {
+    name: string
+    link: string
+    icon?: unknown
+}

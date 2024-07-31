@@ -13,6 +13,6 @@
 
 <BackgroundBlur />
 
-<div class="flex flex-col overflow-x-hidden font-nunito text-white">
+<div class="flex w-full flex-col overflow-x-clip font-nunito text-white">
     <slot />
 </div>

@@ -5,7 +5,7 @@
 </script>
 
 <div class="flex justify-center pt-12">
-    <div class="relative w-full max-w-[65%] overflow-hidden rounded-[65px]">
+    <div class="relative w-[65%] max-w-xl overflow-hidden rounded-[65px]">
         <img class="shadow-image-glow" src="Rooftop-min.JPG" alt="Portrait of Leon Obermann" />
         <h4
             class="absolute bottom-0 w-full bg-gray-800/25 p-2.5 text-center font-medium uppercase tracking-wider backdrop-blur-sm"
