@@ -13,35 +13,3 @@
     <h3>Designer <span class="text-3xl">&</span></h3>
     <h3>Developer</h3>
 </div>
-
-<p class="pt-16">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo pariatur consequuntur aperiam
-    molestiae cupiditate sapiente veritatis quos commodi earum adipisci ut, dolore nisi cumque
-    tempore, doloribus rerum tenetur vero ipsam rem minus excepturi? Voluptas libero possimus
-    dolorum quaerat maxime eveniet aspernatur iusto totam nisi, laudantium vero perspiciatis
-    assumenda reprehenderit? Tempore?
-</p>
-
-<p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo pariatur consequuntur aperiam
-    molestiae cupiditate sapiente veritatis quos commodi earum adipisci ut, dolore nisi cumque
-    tempore, doloribus rerum tenetur vero ipsam rem minus excepturi? Voluptas libero possimus
-    dolorum quaerat maxime eveniet aspernatur iusto totam nisi, laudantium vero perspiciatis
-    assumenda reprehenderit? Tempore?
-</p>
-
-<p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo pariatur consequuntur aperiam
-    molestiae cupiditate sapiente veritatis quos commodi earum adipisci ut, dolore nisi cumque
-    tempore, doloribus rerum tenetur vero ipsam rem minus excepturi? Voluptas libero possimus
-    dolorum quaerat maxime eveniet aspernatur iusto totam nisi, laudantium vero perspiciatis
-    assumenda reprehenderit? Tempore?
-</p>
-
-<p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo pariatur consequuntur aperiam
-    molestiae cupiditate sapiente veritatis quos commodi earum adipisci ut, dolore nisi cumque
-    tempore, doloribus rerum tenetur vero ipsam rem minus excepturi? Voluptas libero possimus
-    dolorum quaerat maxime eveniet aspernatur iusto totam nisi, laudantium vero perspiciatis
-    assumenda reprehenderit? Tempore?
-</p>

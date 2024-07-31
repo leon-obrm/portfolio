@@ -1,6 +1,6 @@
-import type { TailwindColors } from "./interfaces"
+import type { ITailwindColors } from "./interfaces"
 
-export const colors: TailwindColors = {
+export const colors: ITailwindColors = {
     gray: {
         950: "#0D0C0C",
         900: "#242323",
