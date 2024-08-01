@@ -2,7 +2,7 @@
     import type { ILink } from "$lib/interfaces"
     import { useI18n } from "$lib/useI18n"
 
-    import { Github, Linkedin, Menu } from "lucide-svelte"
+    import { Github, Linkedin } from "lucide-svelte"
     import { fly } from "svelte/transition"
 
     let showDrawer: boolean = false
@@ -39,21 +39,37 @@
 </script>
 
 <!-- ================ Name ================ -->
-<h2 class="z-50 w-fit pb-2 pl-5 pt-5 text-2xl uppercase tracking-wider md:pl-10">
+<h2 class="z-50 w-fit pb-2 pl-5 pt-5 text-2xl uppercase tracking-wider lg:pl-10">
     {$i18n.t("heyIAm")}
 </h2>
-<h2 class="sticky top-4 z-50 w-fit pl-5 text-2xl uppercase tracking-wider md:pl-10">
+<h2 class="sticky top-4 z-50 w-fit pl-5 text-2xl uppercase tracking-wider lg:pl-10">
     Leon Obermann
 </h2>
 
 <!-- ======== Mobile Hamburger Menu ======== -->
-<div class="fixed right-5 top-3.5 z-50 flex lg:hidden">
+<div class="fixed right-[22px] top-[22px] z-50 flex lg:hidden">
     <button
         on:click={() => {
             showDrawer = !showDrawer
         }}
     >
-        <Menu color="#fff" size={36} strokeWidth={1} />
+        <div
+            class="flex h-5 w-8 flex-col justify-between gap-2 [&_*]:w-full [&_*]:bg-white [&_span]:h-px [&_span]:rounded-full"
+        >
+            <span class="transition-opacity {showDrawer && 'opacity-0'}" />
+
+            <!-- ======== Inner Line (Turns into X) ======== -->
+            <div class="relative">
+                <span
+                    class="absolute left-0 top-0 transition-transform {showDrawer && 'rotate-45'}"
+                />
+                <span
+                    class="absolute left-0 top-0 transition-transform {showDrawer && '-rotate-45'}"
+                />
+            </div>
+
+            <span class="transition-opacity {showDrawer && 'opacity-0'}" />
+        </div>
     </button>
 </div>
 
