@@ -35,25 +35,25 @@
 </script>
 
 <!-- ================ Mobile ================ -->
-<div class="z-50 sm:hidden">
-    <Menu color="#fff" size={40} strokeWidth={1} />
+<div class="z-50 lg:hidden">
+    <Menu color="#fff" size={36} strokeWidth={1} />
 </div>
 
 <!-- ================ Desktop ================ -->
-<div class="z-50 hidden items-center gap-16 sm:flex">
-    <div class="flex items-center gap-24">
+<div class="z-50 hidden items-center gap-16 lg:flex">
+    <div class="flex items-center gap-20">
         {#each internalLinks as link}
-            <a class="text-xl font-light tracking-wider" href={link.link}>{link.name}</a>
+            <a class="text-lg font-light tracking-wider" href={link.link}>{link.name}</a>
         {/each}
     </div>
 
     <!-- Divider -->
-    <span class="h-8 w-0.5 bg-white/40" />
+    <span class="h-7 w-0.5 bg-white/40" />
 
     <div class="flex items-center gap-10">
         {#each externalLinks as link}
             <a href={link.link} target="_blank" rel="noopener noreferrer">
-                <svelte:component this={link.icon} size={32} strokeWidth={1} />
+                <svelte:component this={link.icon} size={28} strokeWidth={1} />
             </a>
         {/each}
 
@@ -61,7 +61,7 @@
             {#each languages as language}
                 <!-- ================== Check if opacity transition is cool ================== -->
                 <button
-                    class="text-xl font-light uppercase transition-opacity {$i18n.resolvedLanguage !==
+                    class="text-lg font-light uppercase transition-opacity {$i18n.resolvedLanguage !==
                         language && 'opacity-40'}"
                     on:click={() => {
                         $i18n.changeLanguage(language)
