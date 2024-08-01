@@ -1,18 +1,23 @@
 <script lang="ts">
     import type { ILink } from "$lib/interfaces"
-    import { ChevronDown, Github, Linkedin, Menu } from "lucide-svelte"
+    import { Github, Linkedin, Menu } from "lucide-svelte"
+    import { useI18n } from "$lib/useI18n"
 
-    const internalLinks: ILink[] = [
+    const i18n = useI18n()
+
+    let internalLinks: ILink[]
+
+    $: internalLinks = [
         {
-            name: "Projects",
+            name: $i18n.t("projects"),
             link: "/projects",
         },
         {
-            name: "Skills",
+            name: $i18n.t("skills"),
             link: "/skills",
         },
         {
-            name: "About",
+            name: $i18n.t("about"),
             link: "/about",
         },
     ]
@@ -25,6 +30,8 @@
         },
         { name: "GitHub", link: "https://github.com/Jesus-Cries", icon: Github },
     ]
+
+    const languages: string[] = ["en", "de"]
 </script>
 
 <!-- ================ Mobile ================ -->
@@ -41,7 +48,7 @@
     </div>
 
     <!-- Divider -->
-    <span class="h-12 w-0.5 bg-white/40" />
+    <span class="h-8 w-0.5 bg-white/40" />
 
     <div class="flex items-center gap-10">
         {#each externalLinks as link}
@@ -50,9 +57,17 @@
             </a>
         {/each}
 
-        <div class="flex items-center">
-            <span class="text-xl font-light">EN</span>
-            <ChevronDown size={32} />
+        <div class="flex items-center gap-3">
+            {#each languages as language}
+                <!-- ================== Check if opacity transition is cool ================== -->
+                <button
+                    class="text-xl font-light uppercase transition-opacity {$i18n.resolvedLanguage !==
+                        language && 'opacity-40'}"
+                    on:click={() => {
+                        $i18n.changeLanguage(language)
+                    }}>{language}</button
+                >
+            {/each}
         </div>
     </div>
 </div>

@@ -3,6 +3,9 @@ export const en = {
     translation: {
         heyIAm: "Hey, I am",
         contactMe: "Contact me",
+        projects: "Projects",
+        skills: "Skills",
+        about: "About",
     },
 }
 
