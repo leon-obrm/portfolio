@@ -5,7 +5,7 @@
     import { Github, Linkedin, Menu } from "lucide-svelte"
     import { fly } from "svelte/transition"
 
-    let showDrawer: boolean = true
+    let showDrawer: boolean = false
 
     const i18n = useI18n()
 
@@ -36,23 +36,36 @@
     ]
 
     const languages: string[] = ["en", "de"]
-
-    // TODO: Prevent scrolling if drawer is shown
-    // ======== OR ========
-    // TODO: Fix transition to navbar backdrop blur
-
-    // FIXME: Name overflows into drawer on mobile if on top of page
 </script>
+
+<!-- ================ Name ================ -->
+<h2 class="z-50 w-fit pb-2 pl-5 pt-5 text-2xl uppercase tracking-wider md:pl-10">
+    {$i18n.t("heyIAm")}
+</h2>
+<h2 class="sticky top-4 z-50 w-fit pl-5 text-2xl uppercase tracking-wider md:pl-10">
+    Leon Obermann
+</h2>
+
+<!-- ======== Mobile Hamburger Menu ======== -->
+<div class="fixed right-5 top-3.5 z-50 flex lg:hidden">
+    <button
+        on:click={() => {
+            showDrawer = !showDrawer
+        }}
+    >
+        <Menu color="#fff" size={36} strokeWidth={1} />
+    </button>
+</div>
 
 <!-- ================ Mobile Drawer ================ -->
 {#if showDrawer}
     <div
-        class="fixed left-0 top-16 z-40 h-[calc(100vh-64px)] w-full bg-black/30 backdrop-blur-[12vmax]"
-        in:fly={{ x: 1000, y: 0 }}
-        out:fly={{ x: 1000, y: 0, duration: 750 }}
+        class="fixed left-0 top-0 z-40 h-screen w-full bg-black/30 backdrop-blur-[12vmax]"
+        in:fly={{ x: 1000 }}
+        out:fly={{ x: 1000, duration: 750 }}
     >
         <div
-            class="flex h-[85%] w-full flex-col items-center justify-center gap-8 text-3xl font-thin tracking-widest"
+            class="flex h-full w-full flex-col items-center justify-center gap-7 text-3xl font-thin tracking-widest"
         >
             <!-- ======== Internal Links ======== -->
             {#each internalLinks as link}
@@ -64,7 +77,7 @@
 
             <!-- ======== External Links ======== -->
             {#each externalLinks as link}
-                <a href={link.link}>{link.name}</a>
+                <a href={link.link} target="_blank" rel="noopener noreferrer">{link.name}</a>
             {/each}
 
             <!-- ======== Language Toggle ======== -->
@@ -91,17 +104,6 @@
 <div
     class="fixed left-0 top-0 z-30 flex h-16 w-full items-center justify-end pr-5 backdrop-blur-[6vmax] md:pr-10"
 >
-    <!-- ======== Mobile Menu ======== -->
-    <div class="z-50 flex lg:hidden">
-        <button
-            on:click={() => {
-                showDrawer = !showDrawer
-            }}
-        >
-            <Menu color="#fff" size={36} strokeWidth={1} />
-        </button>
-    </div>
-
     <!-- ======== Desktop Menu ======== -->
     <div class="z-50 hidden items-center gap-16 lg:flex">
         <div class="flex items-center gap-20">
@@ -137,11 +139,3 @@
         </div>
     </div>
 </div>
-
-<!-- ================ Name ================ -->
-<h2 class="z-50 w-fit pb-2 pl-5 pt-5 text-2xl uppercase tracking-wider md:pl-10">
-    {$i18n.t("heyIAm")}
-</h2>
-<h2 class="sticky top-4 z-50 w-fit pl-5 text-2xl uppercase tracking-wider md:pl-10">
-    Leon Obermann
-</h2>
