@@ -23,7 +23,7 @@ export interface ITailwindColors {
 export interface IProject {
     title: string
     timeframe: string
-    paragraphs: string[]
+    paragraphs: string
     skills: string[]
     link: string
     gradientFrom: string

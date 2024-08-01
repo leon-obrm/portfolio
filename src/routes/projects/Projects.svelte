@@ -1,15 +1,16 @@
 <script lang="ts">
     import type { IProject } from "$lib/interfaces"
     import { skills } from "$lib/skills"
+    import { useI18n } from "$lib/useI18n"
 
-    const projects: IProject[] = [
+    const i18n = useI18n()
+
+    let projects: IProject[]
+    $: projects = [
         {
             title: "Paletti",
-            timeframe: "August 2023 - Now",
-            paragraphs: [
-                "I’ve always struggled with finding fitting colors for my website.",
-                "That is why I created Paletti, an easy to use and fast way to create indivdual color palettes for web design and development.",
-            ],
+            timeframe: $i18n.t("palettiTimeframe"),
+            paragraphs: $i18n.t("palettiParagraphs"),
             skills: ["Svelte", "SvelteKit", "Tailwind CSS", "daisyUI"],
             link: "paletti.one",
             gradientFrom: "from-[#440322]",
@@ -17,11 +18,8 @@
         },
         {
             title: "Boredom Buster",
-            timeframe: "August 2023",
-            paragraphs: [
-                "This is a quick side project that I created to find some inspiration when bored.",
-                "It randomly chooses a fun activity and a fitting duration for you get up and have some fun.",
-            ],
+            timeframe: $i18n.t("boredomBusterTimeframe"),
+            paragraphs: $i18n.t("boredomBusterParagraphs"),
             skills: ["Svelte", "SvelteKit", "Tailwind CSS", "i18next"],
             link: "boredom-buster.obrm.de",
             gradientFrom: "from-[#2F0344]",
@@ -45,7 +43,7 @@
             <h3 class="text-3xl font-bold tracking-wider">{project.title}</h3>
             <div class="flex flex-col gap-4">
                 <p>{project.timeframe}</p>
-                {#each project.paragraphs as paragraph}
+                {#each project.paragraphs.split("\n") as paragraph}
                     <p>{paragraph}</p>
                 {/each}
 
