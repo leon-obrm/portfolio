@@ -13,7 +13,7 @@ export default {
                 "inria-sans": ["Inria Sans", ...defaultTheme.fontFamily.sans],
             },
             boxShadow: {
-                "image-glow": "0px 0px 105px rgba(255, 255, 255, 0.1)",
+                "image-glow": "0px 0px 105px rgba(255, 255, 255, 0.15)",
             },
         },
     },

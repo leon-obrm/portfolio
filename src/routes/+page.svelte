@@ -5,7 +5,7 @@
 </script>
 
 <NavBar />
-<div class="w-full p-5">
+<div class="w-full p-5 lg:p-10">
     <Homepage />
     <Projects />
 </div>
