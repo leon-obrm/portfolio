@@ -54,7 +54,7 @@
         }}
     >
         <div
-            class="flex h-5 w-8 flex-col justify-between gap-2 [&_*]:w-full [&_*]:bg-white [&_span]:h-px [&_span]:rounded-full"
+            class="flex h-5 w-8 flex-col justify-between gap-2 [&_*]:w-full [&_span]:h-px [&_span]:rounded-full [&_span]:bg-white"
         >
             <span class="transition-opacity {showDrawer && 'opacity-0'}" />
 
@@ -76,12 +76,12 @@
 <!-- ================ Mobile Drawer ================ -->
 {#if showDrawer}
     <div
-        class="fixed left-0 top-0 z-40 h-screen w-full bg-black/30 backdrop-blur-[12vmax]"
+        class="fixed left-0 top-0 z-40 h-screen w-full bg-black/30 backdrop-blur-[10vmax]"
         in:fly={{ x: 1000 }}
         out:fly={{ x: 1000, duration: 750 }}
     >
         <div
-            class="flex h-full w-full flex-col items-center justify-center gap-7 text-3xl font-thin tracking-widest"
+            class="flex h-full w-full flex-col items-center justify-center gap-7 text-2xl font-light tracking-widest"
         >
             <!-- ======== Internal Links ======== -->
             {#each internalLinks as link}
@@ -89,7 +89,7 @@
             {/each}
 
             <!-- ======== Divider ======== -->
-            <span class="h-0.5 w-12 rounded-full bg-white/40" />
+            <span class="h-0.5 w-10 rounded-full bg-white/40" />
 
             <!-- ======== External Links ======== -->
             {#each externalLinks as link}

@@ -12,7 +12,7 @@
 <div class="flex flex-col items-center lg:flex-row-reverse lg:items-end lg:justify-center">
     <!-- ======== Portrait ======== -->
     <div class="flex justify-center pt-12 lg:pt-0">
-        <div class="relative w-[65%] max-w-xl overflow-hidden rounded-[65px] shadow-image-glow">
+        <div class="relative w-[65%] max-w-lg overflow-hidden rounded-[65px] shadow-image-glow">
             <img src="Rooftop-min.JPG" alt="Portrait of Leon Obermann" />
             <h4
                 class="absolute bottom-0 w-full bg-gray-800/25 p-[4%] text-center font-medium uppercase tracking-wider backdrop-blur-sm lg:text-xl"
