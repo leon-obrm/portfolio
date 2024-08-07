@@ -11,10 +11,17 @@ export const en = {
         // Projects
         palettiTimeframe: "August 2023 - Now",
         palettiParagraphs:
-            "I’ve always struggled with finding fitting colors for my website designs.\nThat is why I created Paletti, an easy to use and fast way to create indivdual color palettes for web design and development.",
+            "Choosing the perfect colors for web designs is hard. And even if you know how to do it right, it still takes a lot of time. That's why I created Paletti.\nPaletti is a user-friendly tool for quickly generating indivdual color palettes for web design and development.",
         boredomBusterTimeframe: "August 2023",
         boredomBusterParagraphs:
-            "This is a quick side project that I created to find some inspiration when bored.\nIt randomly chooses a fun activity and a fitting duration for you get up and have some fun.",
+            "Finding something fun to do can be challenging. This is where the Boredom Buster comes in.\nJust hit the button, and it'll randomly suggest an exciting activity and the perfect amount of time to get up and enjoy yourself.",
+
+        // Skills intro
+        from: "from",
+        concept: "concept",
+        to: "to",
+        code: "code",
+        hereAreTheSkills: "Here are the skills that make it happen",
     },
 }
 

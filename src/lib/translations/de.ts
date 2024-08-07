@@ -13,9 +13,16 @@ export const de: ITranslation = {
         // Projects
         palettiTimeframe: "August 2023 - Jetzt",
         palettiParagraphs:
-            "Ich hatte schon immer Probleme damit, die passenden Farben für meine Websitedesigns zu finden.\nDeshalb habe ich Paletti entwickelt, eine einfach zu bedienende und schnelle Möglichkeit, individuelle Farbpaletten für Webdesign und -entwicklung zu erstellen.",
+            "Die richtigen Farben für ein Web Design zu finden ist schwierig. Selbst wenn man weiß, wie man es richtig anstellt, nimmt es viel Zeit in Anspruch. Deshalb habe ich Paletti entwickelt.\nPaletti ist ein benutzerfreundliches Tool zur schnellen Erstellung individueller Farbpaletten für Webdesign und -entwicklung.",
         boredomBusterTimeframe: "August 2023",
         boredomBusterParagraphs:
-            "Dies ist ein kleines Nebenprojekt, das ich erstellt habe, um etwas Inspiration zu finden, wenn mir langweilig ist.\nEs wählt zufällig eine lustige Aktivität mit einer passenden Dauer aus, um einen zu motivieren, aus der Langeweile auszubrechen.",
+            "Es ist nicht immer einfach, eine spannende Aktivität zu finden. Genau hier kommt der Boredom Buster ins Spiel.\nEinfach den Button drücken und er schlägt dir zufällig eine unterhaltsame Aktivität und die ideale Dauer vor, um aufzustehen und Spaß zu haben.",
+
+        // Skills intro
+        from: "von",
+        concept: "Konzept",
+        to: "zu",
+        code: "Code",
+        hereAreTheSkills: "Diese Fertigkeiten machen es möglich",
     },
 }

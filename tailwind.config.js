@@ -8,6 +8,9 @@ export default {
     theme: {
         extend: {
             colors,
+            screens: {
+                xs: "500px",
+            },
             fontFamily: {
                 nunito: ["Nunito", ...defaultTheme.fontFamily.sans],
                 "inria-sans": ["Inria Sans", ...defaultTheme.fontFamily.sans],
