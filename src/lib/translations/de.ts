@@ -24,5 +24,11 @@ export const de: ITranslation = {
         to: "zu",
         code: "Code",
         hereAreTheSkills: "Diese Fertigkeiten machen es möglich",
+
+        // About intro
+        meetThe: "Triff die",
+        person: "Person",
+        behind: "hinter",
+        theCode: "dem Code",
     },
 }

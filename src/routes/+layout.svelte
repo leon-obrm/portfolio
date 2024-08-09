@@ -9,6 +9,8 @@
 
     // Adapt i18n to usage with SvelteKit (Avoids unwanted syncs between different frontends)
     setContext("i18n", getI18nStore())
+
+    // TODO: Add in view transitions / animations
 </script>
 
 <BackgroundBlur />

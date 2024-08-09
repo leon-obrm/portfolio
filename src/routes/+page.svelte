@@ -3,6 +3,7 @@
     import Homepage from "./homepage/Homepage.svelte"
     import Projects from "./projects/Projects.svelte"
     import Skills from "./skills/Skills.svelte"
+    import About from "./about/About.svelte"
 </script>
 
 <NavBar />
@@ -10,4 +11,5 @@
     <Homepage />
     <Projects />
     <Skills />
+    <About />
 </div>

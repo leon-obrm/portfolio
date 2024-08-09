@@ -22,6 +22,12 @@ export const en = {
         to: "to",
         code: "code",
         hereAreTheSkills: "Here are the skills that make it happen",
+
+        // About intro
+        meetThe: "Meet the",
+        person: "person",
+        behind: "behind",
+        theCode: "the code",
     },
 }
 
