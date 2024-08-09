@@ -37,7 +37,9 @@ export interface ISkill {
     description: string
     hasLogo: boolean
     link: string
-    isVisible?: boolean
+    isHidden?: boolean
+    backlight?: string
+    customSize?: string
 }
 
 /** Describes a link. */

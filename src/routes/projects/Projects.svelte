@@ -27,6 +27,8 @@
             gradientTo: "to-[#9714C6]",
         },
     ]
+
+    // TODO: Add interactive mouse follow on image hover
 </script>
 
 <ProjectsIntro />

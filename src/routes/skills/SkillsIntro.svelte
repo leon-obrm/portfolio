@@ -5,8 +5,8 @@
     const i18n = useI18n()
 </script>
 
-<div class="flex w-full justify-center">
-    <div class="flex w-full max-w-5xl justify-center pt-20 lg:justify-between lg:pt-44">
+<div class="flex w-full justify-center pb-20 pt-20 lg:pb-44 lg:pt-44">
+    <div class="flex w-full max-w-5xl justify-center lg:justify-between">
         <!-- ======== Desktop Triangles ======== -->
         <div class="hidden flex-col justify-around lg:flex">
             <Triangle />

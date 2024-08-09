@@ -9,6 +9,7 @@ export const skills: ISkill[] = [
         description: "JavaScript library for building UIs",
         hasLogo: true,
         link: "reactjs.org",
+        backlight: "bg-teal-500/10",
     },
     {
         name: "Material UI",
@@ -16,6 +17,7 @@ export const skills: ISkill[] = [
         description: "Component library for React",
         hasLogo: true,
         link: "mui.com",
+        backlight: "bg-blue-500/10",
     },
     {
         name: "Svelte",
@@ -30,6 +32,8 @@ export const skills: ISkill[] = [
         description: "Frontend framework for Svelte",
         hasLogo: true,
         link: "kit.svelte.dev",
+        backlight: "bg-amber-500/10",
+        customSize: "max-h-16 w-16 xl:max-h-20 xl:w-20",
     },
     {
         name: "i18next",
@@ -44,6 +48,7 @@ export const skills: ISkill[] = [
         description: "Utility-first CSS framework",
         hasLogo: true,
         link: "tailwindcss.com",
+        backlight: "bg-cyan-500/10",
     },
     {
         name: "daisyUI",
@@ -72,6 +77,7 @@ export const skills: ISkill[] = [
         description: "JavaScript library for creativity",
         hasLogo: true,
         link: "p5js.org",
+        backlight: "bg-red-400/15",
     },
     {
         name: "matter.js",
@@ -79,6 +85,8 @@ export const skills: ISkill[] = [
         description: "2D physics engine for the web",
         hasLogo: true,
         link: "brm.io/matter-js",
+        backlight: "bg-gradient-to-r from-green-300/30 to-red-300/30 via-gray-500/20",
+        customSize: "max-h-14 w-14 xl:max-h-[72px] xl:w-[72px]",
     },
     {
         name: "Node.js",
@@ -86,13 +94,17 @@ export const skills: ISkill[] = [
         description: "JavaScript run-time environment",
         hasLogo: true,
         link: "nodejs.dev",
+        backlight: "bg-green-300/30 xl:bg-green-300/40",
+        customSize: "max-h-14 w-14 xl:max-h-16 xl:w-16",
     },
     {
         name: "Express",
         abbreviation: "ex",
         description: "Web framework for Node.js",
-        hasLogo: false,
+        hasLogo: true,
         link: "expressjs.com",
+        backlight: "bg-gray-200/20",
+        customSize: "max-h-8 w-8 xl:max-h-10 xl:w-10",
     },
     {
         name: "Spring Boot",
@@ -142,6 +154,7 @@ export const skills: ISkill[] = [
         description: "Microcontroller platform",
         hasLogo: true,
         link: "arduino.cc",
+        backlight: "bg-teal-500/20",
     },
     {
         name: "Onshape",
@@ -149,6 +162,7 @@ export const skills: ISkill[] = [
         description: "CAD software for 3D modeling",
         hasLogo: true,
         link: "onshape.com",
+        customSize: "max-h-11 w-11 xl:max-h-12 xl:w-12",
     },
     {
         name: "UltiMaker Cura",
@@ -156,6 +170,7 @@ export const skills: ISkill[] = [
         description: "Slicing software for 3D printing",
         hasLogo: true,
         link: "ultimaker.com",
+        customSize: "max-h-12 w-12 xl:max-h-14 xl:w-14",
     },
 
     // Skills that should not be rendered in skills section
@@ -165,7 +180,7 @@ export const skills: ISkill[] = [
         description: "Software architectural style",
         hasLogo: false,
         link: "restfulapi.net",
-        isVisible: false,
+        isHidden: true,
     },
     {
         name: "Hypertext Markup Language",
@@ -173,7 +188,7 @@ export const skills: ISkill[] = [
         description: "Markup language of the web",
         hasLogo: true,
         link: "w3.org/html",
-        isVisible: false,
+        isHidden: true,
     },
     {
         name: "Cascading Style Sheets",
@@ -181,7 +196,7 @@ export const skills: ISkill[] = [
         description: "Style sheet language of the web",
         hasLogo: true,
         link: "w3.org/style/css",
-        isVisible: false,
+        isHidden: true,
     },
     {
         name: "Structured Query Language",
@@ -189,7 +204,7 @@ export const skills: ISkill[] = [
         description: "Database language",
         hasLogo: false,
         link: "wikipedia.org/wiki/SQL",
-        isVisible: false,
+        isHidden: true,
     },
     {
         name: "Git",
@@ -197,6 +212,6 @@ export const skills: ISkill[] = [
         description: "Version control system",
         hasLogo: true,
         link: "git-scm.com",
-        isVisible: false,
+        isHidden: true,
     },
 ]
