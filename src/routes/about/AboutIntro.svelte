@@ -2,8 +2,6 @@
     import { useI18n } from "$lib/useI18n"
 
     const i18n = useI18n()
-
-    // TODO: Triff die PERSON? --> Könnte besser vom Layout passen
 </script>
 
 <div class="flex w-full justify-center py-28 sm:py-32 md:py-36 lg:py-44">

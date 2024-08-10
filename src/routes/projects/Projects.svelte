@@ -36,7 +36,7 @@
 <div class="flex flex-col items-center gap-12">
     {#each projects as project, index}
         <div
-            class="flex max-w-xl flex-col gap-7 lg:max-w-6xl lg:items-center lg:gap-12 {index %
+            class="flex max-w-lg flex-col gap-7 lg:max-w-6xl lg:items-center lg:gap-12 {index %
                 2 ===
             0
                 ? 'lg:flex-row '
@@ -48,8 +48,13 @@
                 alt="Screenshot of project {project.title}"
             />
             <div class="relative flex flex-col lg:w-1/3">
+                <!-- ======== Blurred Background Gradient ======== -->
                 <div
-                    class="absolute -left-5 top-0 -z-50 h-full w-[120%] bg-gradient-to-tr opacity-30 lg:-left-24 lg:w-[130%] lg:opacity-40 {project.gradientFrom} {project.gradientTo}"
+                    class="absolute -left-1/4 -top-[12.5%] -z-50 h-[125%] w-[150%] rounded-full bg-gradient-to-tr opacity-25 lg:w-[200%] {project.gradientFrom} {project.gradientTo} {index %
+                        2 ===
+                    0
+                        ? 'lg:-left-2/3'
+                        : 'lg:-left-1/3'}"
                 />
 
                 <h3 class="text-3xl font-bold tracking-wider xl:text-4xl xl:tracking-widest">

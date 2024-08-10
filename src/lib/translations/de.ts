@@ -13,7 +13,7 @@ export const de: ITranslation = {
         // Projects
         palettiTimeframe: "August 2023 - Jetzt",
         palettiParagraphs:
-            "Die richtigen Farben für ein Web Design zu finden ist schwierig. Selbst wenn man weiß, wie man es richtig anstellt, nimmt es viel Zeit in Anspruch. Deshalb habe ich Paletti entwickelt.\nPaletti ist ein benutzerfreundliches Tool zur schnellen Erstellung individueller Farbpaletten für Webdesign und -entwicklung.",
+            "Die richtigen Farben für ein Web Design zu finden ist schwierig. Selbst wenn man weiß, wie man es richtig anstellt, nimmt es viel Zeit in Anspruch. Deshalb habe ich Paletti entwickelt.\nPaletti ist ein benutzerfreundliches Tool zur schnellen Erstellung individueller Farbpaletten für Webdesign und Webentwicklung.",
         boredomBusterTimeframe: "August 2023",
         boredomBusterParagraphs:
             "Es ist nicht immer einfach, eine spannende Aktivität zu finden. Genau hier kommt der Boredom Buster ins Spiel.\nEinfach den Button drücken und er schlägt dir zufällig eine unterhaltsame Aktivität und die ideale Dauer vor, um aufzustehen und Spaß zu haben.",
@@ -30,5 +30,19 @@ export const de: ITranslation = {
         person: "Person",
         behind: "hinter",
         theCode: "dem Code",
+
+        // About
+        heyAgain: "Hey nochmal!",
+        myNameIs: "Mein Name ist",
+        andIAm: " und ich bin Webdesigner und Entwickler aus Deutschland.",
+        withOver6Years:
+            "Mit mehr als 6 Jahren an Entwicklungsexpertise und 3 Jahren an Designerfahrung schließe ich die Lücke zwischen",
+        creativityAndTechnology: "Kreativität und Technologie",
+        toBringYourVision: ", um Ihre Vision zum Leben zu erwecken.",
+        overTheLast2Years: "In den letzten 2 Jahren als",
+        professionalFullStackDeveloper: "professioneller Full Stack Entwickler",
+        IveRefinedMySkills:
+            " habe ich meine Fähigkeiten verfeinert, Lösungen zu entwickeln, die sowohl schön als auch funktional sind.",
+        letsCreate: "Lassen Sie uns etwas Besonderes schaffen!",
     },
 }
