@@ -4,6 +4,7 @@
     import Projects from "./projects/Projects.svelte"
     import Skills from "./skills/Skills.svelte"
     import About from "./about/About.svelte"
+    import Contact from "./contact/Contact.svelte"
 </script>
 
 <NavBar />
@@ -12,4 +13,5 @@
     <Projects />
     <Skills />
     <About />
+    <Contact />
 </div>

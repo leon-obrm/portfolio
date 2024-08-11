@@ -118,7 +118,7 @@
 
 <!-- ================ NavBar ================ -->
 <div
-    class="fixed left-0 top-0 z-30 flex h-16 w-full items-center justify-end pr-5 backdrop-blur-[2vmax] md:pr-10"
+    class="fixed left-0 top-0 z-30 flex h-16 w-full items-center justify-end pr-5 backdrop-blur-[30px] md:pr-10"
 >
     <!-- ======== Desktop Menu ======== -->
     <div class="z-50 hidden items-center gap-16 lg:flex">

@@ -44,5 +44,10 @@ export const de: ITranslation = {
         IveRefinedMySkills:
             " habe ich meine Fähigkeiten verfeinert, Lösungen zu entwickeln, die sowohl schön als auch funktional sind.",
         letsCreate: "Lassen Sie uns etwas Besonderes schaffen!",
+
+        // Contact intro
+        haveISparked: "Ist Ihr Interesse geweckt?",
+        feelFreeToSend: "Senden Sie mir gerne unten eine Nachricht.",
+        IllBeHappyToHear: "Ich freue mich, von Ihnen zu hören!",
     },
 }

@@ -42,6 +42,11 @@ export const en = {
         IveRefinedMySkills:
             ", I've refined my skills to craft solutions that are both beautiful and functional.",
         letsCreate: "Let's create something exceptional together!",
+
+        // Contact intro
+        haveISparked: "Have I sparked your interest?",
+        feelFreeToSend: "Feel free to send me a message below.",
+        IllBeHappyToHear: "I’ll be happy to hear from you!",
     },
 }
 
