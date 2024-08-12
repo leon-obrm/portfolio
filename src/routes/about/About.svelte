@@ -7,7 +7,10 @@
 
 <AboutIntro />
 
-<div class="flex justify-center">
+<div class="relative flex justify-center">
+    <!-- ======== Scroll destination for links ======== -->
+    <span class="absolute -top-24" id="about" />
+
     <div class="flex max-w-lg flex-col items-center gap-10 lg:max-w-4xl lg:flex-row lg:gap-12">
         <!-- ======== Portrait ======== -->
         <img

@@ -33,7 +33,10 @@
 
 <ProjectsIntro />
 
-<div class="flex flex-col items-center gap-12">
+<div class="relative flex flex-col items-center gap-12">
+    <!-- ======== Scroll destination for links ======== -->
+    <span class="absolute -top-20" id="projects" />
+
     {#each projects as project, index}
         <div
             class="flex max-w-lg flex-col gap-7 lg:max-w-6xl lg:items-center lg:gap-12 {index %

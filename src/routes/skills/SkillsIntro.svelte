@@ -5,7 +5,10 @@
     const i18n = useI18n()
 </script>
 
-<div class="flex w-full justify-center py-20 lg:py-44">
+<div class="relative flex w-full justify-center py-20 lg:py-44">
+    <!-- ======== Scroll destination for links ======== -->
+    <span class="absolute top-4" id="skills" />
+
     <div class="flex w-full max-w-5xl justify-center lg:justify-between">
         <!-- ======== Desktop Triangles ======== -->
         <div class="hidden flex-col justify-around lg:flex">
