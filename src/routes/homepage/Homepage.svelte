@@ -16,7 +16,8 @@
             class="relative w-[65%] max-w-lg overflow-hidden rounded-[65px] shadow-image-glow"
             href="#contact"
         >
-            <img src="Rooftop-min.JPG" alt="Portrait of Leon Obermann" />
+            <img src="Rooftop.jpg" alt="Portrait of Leon Obermann" />
+
             <h3
                 class="absolute bottom-0 w-full bg-gray-800/25 p-[4%] text-center font-medium uppercase tracking-wider backdrop-blur-sm lg:text-xl"
             >

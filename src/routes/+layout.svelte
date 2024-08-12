@@ -17,7 +17,6 @@
     // TODO: Add interactive mouse follow on image hover
 
     // ======== Bug Fixes ========
-    // FIXME: Reduce size of images
     // FIXME: Skill section lags
     // FIXME: Zooming on laptop touchpad creates white vignette
 </script>

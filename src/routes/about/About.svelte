@@ -15,7 +15,7 @@
         <!-- ======== Portrait ======== -->
         <img
             class="w-[65%] max-w-xs rounded-[65px] shadow-image-glow"
-            src="Red Tree-min.JPG"
+            src="Red_Tree.jpg"
             alt="Portrait of Leon Obermann"
         />
         <div class="relative flex flex-col gap-4 font-light tracking-wide xl:text-lg">
