@@ -19,6 +19,7 @@
             id={name}
             {placeholder}
             required
+            maxlength="10000"
         ></textarea>
     {:else}
         <!-- ======== Text ======== -->
@@ -30,6 +31,7 @@
             id={name}
             {placeholder}
             required
+            maxlength="100"
         />
     {/if}
 </div>

@@ -19,6 +19,7 @@ export const actions = {
             }
         }
 
+        /** Escapes unsafe HTML characters. */
         function escapeHtml(unsafeHtml: string) {
             return unsafeHtml
                 .replace(/&/g, "&amp;")
@@ -31,6 +32,15 @@ export const actions = {
         name = escapeHtml(String(name))
         email = escapeHtml(String(email))
         message = escapeHtml(String(message))
+
+        /** Shortens form data to match maxLength limit. */
+        function shortenString(longString: string, length: number) {
+            return longString.substring(0, length)
+        }
+
+        name = shortenString(name, 100)
+        email = shortenString(email, 100)
+        message = shortenString(message, 5000)
 
         // Add email header
         let html = `<h4>Email from ${name} (${email})</h4>`
