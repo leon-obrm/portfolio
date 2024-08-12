@@ -10,8 +10,17 @@
     // Adapt i18n to usage with SvelteKit (Avoids unwanted syncs between different frontends)
     setContext("i18n", getI18nStore())
 
+    // ======== Enhancements ========
     // TODO: Add visual email confirmation
+    // TODO: Add project intros
     // TODO: Add in view transitions / animations
+    // TODO: Add interactive mouse follow on image hover
+
+    // ======== Bug Fixes ========
+    // FIXME: Set tab name based on language
+    // FIXME: Make links accessible
+    // FIXME: Fix heading order (Contact button)
+    // FIXME: Reduce size of images
     // FIXME: Skill section lags
     // FIXME: Zooming on laptop touchpad creates white vignette
 </script>

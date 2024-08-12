@@ -6,9 +6,9 @@ export const actions = {
     default: async ({ request }) => {
         const formData = await request.formData()
 
-        const name = formData.get("name")
-        const email = formData.get("email")
-        const message = formData.get("message")
+        let name = formData.get("name")
+        let email = formData.get("email")
+        let message = formData.get("message")
 
         // Check if all required fields are present
         if (!name || !email || !message) {
@@ -18,6 +18,19 @@ export const actions = {
                 body: { error: "Missing form data" },
             }
         }
+
+        function escapeHtml(unsafeHtml: string) {
+            return unsafeHtml
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;")
+        }
+
+        name = escapeHtml(String(name))
+        email = escapeHtml(String(email))
+        message = escapeHtml(String(message))
 
         // Add email header
         let html = `<h4>Email from ${name} (${email})</h4>`
