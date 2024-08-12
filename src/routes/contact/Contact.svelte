@@ -15,7 +15,7 @@
     <!-- ======== Scroll destination for links ======== -->
     <span class="absolute -top-20" id="contact" />
 
-    <form method="POST" class="flex w-full max-w-2xl flex-col gap-6 lg:gap-7">
+    <form class="flex w-full max-w-2xl flex-col gap-6 lg:gap-7" method="POST">
         <!-- ======== Contact ======== -->
         <h3 class="text-3xl font-bold tracking-wider lg:text-4xl lg:tracking-widest">
             {$i18n.t("contact")}
