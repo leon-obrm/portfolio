@@ -57,6 +57,9 @@ export const en = {
         yourMessage: "Your message",
         messagePlaceholder: "How can I help you?",
         sendMessage: "Send message",
+
+        // Footer
+        social: "Social",
     },
 }
 

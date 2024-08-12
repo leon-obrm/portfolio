@@ -11,10 +11,12 @@
     setContext("i18n", getI18nStore())
 
     // TODO: Add in view transitions / animations
+    // FIXME: Skill section lags
+    // FIXME: Zooming on laptop touchpad creates white vignette
 </script>
 
 <BackgroundBlur />
 
-<div class="flex w-full flex-col overflow-x-clip font-nunito text-white">
+<div class="relative flex w-full flex-col overflow-clip font-nunito text-white">
     <slot />
 </div>

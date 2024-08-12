@@ -59,5 +59,8 @@ export const de: ITranslation = {
         yourMessage: "Ihre Nachricht",
         messagePlaceholder: "Wie kann ich Ihnen helfen?",
         sendMessage: "Nachricht senden",
+
+        // Footer
+        social: "Soziales",
     },
 }

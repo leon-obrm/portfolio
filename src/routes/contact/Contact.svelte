@@ -40,7 +40,7 @@
 
         <!-- ======== Send ======== -->
         <button
-            class="rounded-xl bg-gray-50 p-4 font-semibold uppercase tracking-wider text-black shadow-image-glow transition-all hover:bg-gray-100 active:scale-95"
+            class="rounded-xl bg-gray-50 p-3 font-semibold uppercase tracking-wider text-black shadow-image-glow transition-all hover:bg-gray-100 active:scale-95"
         >
             {$i18n.t("sendMessage")}
         </button>

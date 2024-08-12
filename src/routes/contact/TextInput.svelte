@@ -11,7 +11,7 @@
     {#if isTextarea}
         <!-- ======== Textarea ======== -->
         <textarea
-            class="h-44 rounded-xl border border-gray-300 bg-transparent p-2 pl-5 tracking-wider placeholder:tracking-wide placeholder:text-gray-600 lg:h-60 lg:text-lg"
+            class="h-44 resize-none rounded-xl border border-gray-300 bg-transparent p-2 pl-5 tracking-wider placeholder:tracking-wide placeholder:text-gray-600 lg:h-60 lg:text-lg"
             {name}
             id={name}
             {placeholder}
