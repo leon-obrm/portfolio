@@ -1,6 +1,9 @@
 /** English translations. */
 export const en = {
     translation: {
+        // Title
+        leonObermannsPortfolio: "Leon Obermann's Portfolio",
+
         // Homepage
         heyIAm: "Hey, I am",
         contactMe: "Contact me",

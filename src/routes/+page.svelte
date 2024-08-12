@@ -6,7 +6,15 @@
     import About from "./about/About.svelte"
     import Contact from "./contact/Contact.svelte"
     import Footer from "./footer/Footer.svelte"
+
+    import { useI18n } from "$lib/useI18n"
+
+    const i18n = useI18n()
 </script>
+
+<svelte:head>
+    <title>{$i18n.t("leonObermannsPortfolio")}</title>
+</svelte:head>
 
 <NavBar />
 
