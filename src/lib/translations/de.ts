@@ -49,5 +49,15 @@ export const de: ITranslation = {
         haveISparked: "Ist Ihr Interesse geweckt?",
         feelFreeToSend: "Senden Sie mir gerne unten eine Nachricht.",
         IllBeHappyToHear: "Ich freue mich, von Ihnen zu hören!",
+
+        // Contact
+        contact: "Kontakt",
+        yourName: "Ihr Name",
+        namePlaceholder: "Geben Sie Ihren Namen ein",
+        yourEmail: "Ihre Email",
+        emailPlaceholder: "Geben Sie Ihre E-Mail Adresse ein",
+        yourMessage: "Ihre Nachricht",
+        messagePlaceholder: "Wie kann ich Ihnen helfen?",
+        sendMessage: "Nachricht senden",
     },
 }

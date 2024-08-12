@@ -47,6 +47,16 @@ export const en = {
         haveISparked: "Have I sparked your interest?",
         feelFreeToSend: "Feel free to send me a message below.",
         IllBeHappyToHear: "I’ll be happy to hear from you!",
+
+        // Contact
+        contact: "Contact",
+        yourName: "Your name",
+        namePlaceholder: "Enter your name",
+        yourEmail: "Your email",
+        emailPlaceholder: "Enter your email address",
+        yourMessage: "Your message",
+        messagePlaceholder: "How can I help you?",
+        sendMessage: "Send message",
     },
 }
 
