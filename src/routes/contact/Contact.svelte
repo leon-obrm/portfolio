@@ -9,7 +9,10 @@
 
 <ContactIntro />
 
-<div class="flex w-full justify-center">
+<div class="relative flex w-full justify-center">
+    <!-- ======== Scroll destination for links ======== -->
+    <span class="absolute -top-20" id="contact" />
+
     <div class="flex w-full max-w-2xl flex-col gap-6 lg:gap-7">
         <!-- ======== Contact ======== -->
         <h3 class="text-3xl font-bold tracking-wider lg:text-4xl lg:tracking-widest">

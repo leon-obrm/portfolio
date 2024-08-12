@@ -42,9 +42,12 @@
 <h2 class="z-50 w-fit pb-2 pl-5 pt-5 text-2xl uppercase tracking-wider lg:pl-10">
     {$i18n.t("heyIAm")}
 </h2>
-<h2 class="sticky top-4 z-50 w-fit pl-5 text-2xl uppercase tracking-wider lg:pl-10">
+<a
+    class="sticky top-4 z-50 w-fit px-5 text-2xl uppercase tracking-wider transition-colors hover:text-gray-200 lg:pl-10"
+    href="/"
+>
     Leon Obermann
-</h2>
+</a>
 
 <!-- ======== Mobile Hamburger Menu ======== -->
 <div class="fixed right-[5px] top-[6px] z-50 flex lg:hidden">
