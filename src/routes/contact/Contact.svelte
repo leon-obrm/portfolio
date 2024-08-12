@@ -5,6 +5,8 @@
     import { useI18n } from "$lib/useI18n"
 
     const i18n = useI18n()
+
+    let isSubmitted: boolean = false
 </script>
 
 <ContactIntro />
@@ -13,7 +15,7 @@
     <!-- ======== Scroll destination for links ======== -->
     <span class="absolute -top-20" id="contact" />
 
-    <div class="flex w-full max-w-2xl flex-col gap-6 lg:gap-7">
+    <form method="POST" class="flex w-full max-w-2xl flex-col gap-6 lg:gap-7">
         <!-- ======== Contact ======== -->
         <h3 class="text-3xl font-bold tracking-wider lg:text-4xl lg:tracking-widest">
             {$i18n.t("contact")}
@@ -24,6 +26,7 @@
             name={"name"}
             label={$i18n.t("yourName")}
             placeholder={$i18n.t("namePlaceholder")}
+            {isSubmitted}
         />
 
         <!-- ======== Email ======== -->
@@ -31,6 +34,8 @@
             name={"email"}
             label={$i18n.t("yourEmail")}
             placeholder={$i18n.t("emailPlaceholder")}
+            isEmail
+            {isSubmitted}
         />
 
         <!-- ======== Message ======== -->
@@ -39,13 +44,18 @@
             label={$i18n.t("yourMessage")}
             placeholder={$i18n.t("messagePlaceholder")}
             isTextarea
+            {isSubmitted}
         />
 
         <!-- ======== Send ======== -->
         <button
             class="rounded-xl bg-gray-50 p-3 font-semibold uppercase tracking-wider text-black shadow-image-glow transition-all hover:bg-gray-100 active:scale-95"
+            type="submit"
+            on:click={() => {
+                isSubmitted = true
+            }}
         >
             {$i18n.t("sendMessage")}
         </button>
-    </div>
+    </form>
 </div>
