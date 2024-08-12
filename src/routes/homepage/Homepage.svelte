@@ -17,11 +17,11 @@
             href="#contact"
         >
             <img src="Rooftop-min.JPG" alt="Portrait of Leon Obermann" />
-            <h4
+            <h3
                 class="absolute bottom-0 w-full bg-gray-800/25 p-[4%] text-center font-medium uppercase tracking-wider backdrop-blur-sm lg:text-xl"
             >
                 {$i18n.t("contactMe")}
-            </h4>
+            </h3>
         </a>
     </div>
 
@@ -29,8 +29,8 @@
     <div
         class="flex w-fit flex-col gap-2 pt-8 font-inria-sans text-6xl uppercase tracking-wider sm:text-7xl md:text-8xl lg:translate-y-20 lg:tracking-widest xl:translate-y-32 xl:text-9xl"
     >
-        <h3 class="translate-x-1.5 text-2xl tracking-wide lg:translate-x-2.5 lg:text-4xl">Web</h3>
-        <h3>Designer <span class="text-3xl lg:text-5xl">&</span></h3>
-        <h3>Developer</h3>
+        <h2 class="translate-x-1.5 text-2xl tracking-wide lg:translate-x-2.5 lg:text-4xl">Web</h2>
+        <h2>Designer <span class="text-3xl lg:text-5xl">&</span></h2>
+        <h2>Developer</h2>
     </div>
 </div>

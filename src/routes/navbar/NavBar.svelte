@@ -151,6 +151,7 @@
                     href={link.link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={link.name}
                 >
                     <svelte:component this={link.icon} size={28} strokeWidth={1.2} />
                 </a>
@@ -161,7 +162,7 @@
                 {#each languages as language}
                     <button
                         class="px-1.5 py-2 text-lg font-light uppercase transition-opacity {$i18n.resolvedLanguage !==
-                            language && 'opacity-40 hover:opacity-70'}"
+                            language && 'opacity-50 hover:opacity-75'}"
                         on:click={() => {
                             $i18n.changeLanguage(language)
                         }}>{language}</button

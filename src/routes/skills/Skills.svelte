@@ -69,6 +69,7 @@
                     href="https://{skill.link}"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={skill.name}
                 >
                     <!-- ======== Logo ======== -->
                     <img
