@@ -10,6 +10,7 @@
     // Adapt i18n to usage with SvelteKit (Avoids unwanted syncs between different frontends)
     setContext("i18n", getI18nStore())
 
+    // TOOD: Add links: "Leon Obermann" --> Top of page    &    "Contact me" --> Contact
     // TODO: Add in view transitions / animations
     // FIXME: Skill section lags
     // FIXME: Zooming on laptop touchpad creates white vignette

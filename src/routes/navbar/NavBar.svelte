@@ -3,7 +3,7 @@
     import { useI18n } from "$lib/useI18n"
 
     import { Github, Linkedin } from "lucide-svelte"
-    import { fly } from "svelte/transition"
+    import { fade } from "svelte/transition"
 
     let showDrawer: boolean = false
 
@@ -47,8 +47,9 @@
 </h2>
 
 <!-- ======== Mobile Hamburger Menu ======== -->
-<div class="fixed right-[22px] top-[22px] z-50 flex lg:hidden">
+<div class="fixed right-[5px] top-[6px] z-50 flex lg:hidden">
     <button
+        class="p-4"
         on:click={() => {
             showDrawer = !showDrawer
         }}
@@ -77,15 +78,19 @@
 {#if showDrawer}
     <div
         class="fixed left-0 top-0 z-40 h-screen w-full bg-black/30 backdrop-blur-[10vmax]"
-        in:fly={{ x: 1000 }}
-        out:fly={{ x: 1000, duration: 750 }}
+        transition:fade={{ duration: 150 }}
     >
         <div
             class="flex h-full w-full flex-col items-center justify-center gap-7 text-2xl font-light tracking-widest"
         >
             <!-- ======== Internal Links ======== -->
             {#each internalLinks as link}
-                <a href={link.link}>{link.name}</a>
+                <a
+                    href={link.link}
+                    on:click={() => {
+                        showDrawer = false
+                    }}>{link.name}</a
+                >
             {/each}
 
             <!-- ======== Divider ======== -->
