@@ -21,7 +21,7 @@
         <div class="relative flex flex-col gap-4 font-light tracking-wide xl:text-lg">
             <!-- ======== Blurred Background Gradient ======== -->
             <div
-                class="absolute -left-1/4 -top-1/2 -z-50 h-[175%] w-[150%] rounded-full bg-gradient-to-tr from-[#440309] to-[#C61414] opacity-15 lg:-left-80 lg:-top-[12.5%] lg:h-[125%] lg:w-[200%]"
+                class="absolute -left-1/4 -top-2/3 -z-50 h-[175%] w-[150%] rounded-full bg-gradient-to-tr from-[#440309] to-[#C61414] opacity-15 lg:-left-80 lg:-top-[12.5%] lg:h-[125%] lg:w-[200%]"
             />
 
             <h3 class="text-3xl font-bold tracking-wider xl:text-4xl xl:tracking-widest">
