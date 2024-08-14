@@ -1,4 +1,5 @@
 <script lang="ts">
+    import ScrollUpButton from "./ScrollUpButton.svelte"
     import BackgroundBlur from "./BackgroundBlur.svelte"
 
     // Load TailwindCSS
@@ -20,6 +21,8 @@
     // FIXME:? Skill section lags (Could already be fixed due to now smaller image sizes)
     // FIXME:? Zooming on laptop touchpad creates white vignette
 </script>
+
+<ScrollUpButton />
 
 <BackgroundBlur />
 

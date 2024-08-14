@@ -65,7 +65,7 @@
             {#each skillRow as skill, j}
                 <!-- ======== Single Skill ======== -->
                 <a
-                    class="skill relative flex h-20 w-20 content-center items-center justify-center overflow-clip rounded-full shadow transition-all duration-300 ease-out hover:scale-110 hover:shadow-lg xl:h-24 xl:w-24"
+                    class="glass-border relative flex h-20 w-20 content-center items-center justify-center overflow-clip rounded-full shadow transition-all duration-300 ease-out hover:scale-110 hover:shadow-lg xl:h-24 xl:w-24"
                     href="https://{skill.link}"
                     target="_blank"
                     rel="noopener noreferrer"
