@@ -1,6 +1,7 @@
 <script lang="ts">
     import ScrollUpButton from "./ScrollUpButton.svelte"
     import BackgroundBlur from "./BackgroundBlur.svelte"
+    import MouseFollow from "./MouseFollow.svelte"
 
     // Load TailwindCSS
     import "../app.css"
@@ -15,16 +16,16 @@
     // TODO: Add visual email confirmation
     // TODO: Add project intros
     // TODO: Add in view transitions / animations
-    // TODO: Add interactive mouse follow on image hover
 
     // ======== Bug Fixes ========
-    // FIXME:? Skill section lags (Could already be fixed due to now smaller image sizes)
     // FIXME:? Zooming on laptop touchpad creates white vignette
 </script>
 
 <ScrollUpButton />
 
 <BackgroundBlur />
+
+<MouseFollow />
 
 <div class="relative flex w-full flex-col overflow-clip font-nunito text-white">
     <slot />

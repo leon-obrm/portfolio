@@ -31,7 +31,7 @@
 
 <ProjectsIntro />
 
-<div class="relative flex flex-col items-center gap-12">
+<div class="relative flex flex-col items-center gap-44">
     <!-- ======== Scroll destination for links ======== -->
     <span class="absolute -top-20" id="projects" />
 
@@ -43,11 +43,19 @@
                 ? 'lg:flex-row '
                 : 'lg:flex-row-reverse'}"
         >
-            <img
-                class="rounded shadow-image-glow lg:w-2/3"
-                src="projects/{project.title}.png"
-                alt="Screenshot of project {project.title}"
-            />
+            <a
+                class="mouse-follow cursor-none shadow-image-glow lg:w-2/3"
+                data-type="link"
+                href="https://{project.link}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <img
+                    class="rounded"
+                    src="projects/{project.title}.png"
+                    alt="Screenshot of project {project.title}"
+                />
+            </a>
             <div class="relative flex flex-col lg:w-1/3">
                 <!-- ======== Blurred Background Gradient ======== -->
                 <div

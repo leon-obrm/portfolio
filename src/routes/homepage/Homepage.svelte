@@ -13,7 +13,8 @@
     <!-- ======== Portrait ======== -->
     <div class="flex justify-center pt-12 lg:pt-0">
         <a
-            class="relative w-[65%] max-w-lg overflow-hidden rounded-[65px] shadow-image-glow"
+            data-type="scroll-down"
+            class="mouse-follow relative w-[65%] max-w-lg cursor-none overflow-hidden rounded-[65px] shadow-image-glow"
             href="#contact"
         >
             <img src="Rooftop.jpg" alt="Portrait of Leon Obermann" />
