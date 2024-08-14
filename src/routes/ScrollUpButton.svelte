@@ -41,7 +41,7 @@
         window.scrollTo(0, 0)
     }}
     disabled={!showButton}
-    class="glass-border fixed bottom-6 right-6 z-50 rounded-full bg-white/15 p-2.5 shadow-md backdrop-blur-[5px] transition-opacity duration-300 lg:bottom-8 lg:right-8 {!showButton &&
+    class="glass-border fixed bottom-6 right-6 z-50 rounded-full bg-white/10 p-2.5 shadow-md backdrop-blur-[5px] transition-opacity duration-300 lg:bottom-8 lg:right-8 {!showButton &&
         'opacity-0'}"
 >
     <ChevronUp color="#fff" size="36" strokeWidth={1.5} />

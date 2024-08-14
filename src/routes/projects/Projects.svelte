@@ -2,6 +2,7 @@
     import type { IProject } from "$lib/interfaces"
     import { skills } from "$lib/skills"
     import { useI18n } from "$lib/useI18n"
+    import { SquareArrowOutUpRight } from "lucide-svelte"
     import ProjectsIntro from "./ProjectsIntro.svelte"
 
     const i18n = useI18n()
@@ -44,7 +45,7 @@
                 : 'lg:flex-row-reverse'}"
         >
             <a
-                class="mouse-follow cursor-none shadow-image-glow lg:w-2/3"
+                class="mouse-follow relative cursor-none shadow-image-glow lg:w-2/3"
                 data-type="link"
                 href="https://{project.link}"
                 target="_blank"
@@ -55,6 +56,12 @@
                     src="projects/{project.title}.png"
                     alt="Screenshot of project {project.title}"
                 />
+                <div
+                    class="absolute right-0 top-0 rounded-bl rounded-tr bg-black/20 p-2.5 backdrop-blur-[3px] sm:p-3"
+                >
+                    <span class="sm:hidden"><SquareArrowOutUpRight size={20} /></span>
+                    <span class="hidden sm:flex"><SquareArrowOutUpRight size={24} /></span>
+                </div>
             </a>
             <div class="relative flex flex-col lg:w-1/3">
                 <!-- ======== Blurred Background Gradient ======== -->

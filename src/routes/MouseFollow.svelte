@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { ArrowDown, ArrowUpRight } from "lucide-svelte"
+    import { Mail, ArrowUpRight } from "lucide-svelte"
     import { onMount } from "svelte"
 
     let mouseFollow: HTMLDivElement
@@ -72,7 +72,7 @@
 >
     <!-- ======== Scroll Icon ======== -->
     <span bind:this={scrollIcon}>
-        <ArrowDown color="#fff" size={28} strokeWidth={1.5} />
+        <Mail color="#fff" size={28} strokeWidth={1.5} />
     </span>
 
     <!-- ======== Link Icon ======== -->
