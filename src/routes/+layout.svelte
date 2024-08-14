@@ -13,6 +13,7 @@
     setContext("i18n", getI18nStore())
 
     // ======== Enhancements ========
+    // TODO: Add scroll up button
     // TODO: Add visual email confirmation
     // TODO: Add project intros
     // TODO: Add in view transitions / animations
