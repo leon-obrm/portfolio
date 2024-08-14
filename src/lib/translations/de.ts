@@ -14,7 +14,7 @@ export const de: ITranslation = {
         about: "Über mich",
 
         // Projects intro
-        exploreMyWork: "Entdecke meine Arbeit",
+        exploreMyWork: "Meine Projekte",
         butWait: "Hier gibt es noch mehr",
 
         // Projects
