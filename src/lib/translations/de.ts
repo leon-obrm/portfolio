@@ -13,6 +13,10 @@ export const de: ITranslation = {
         skills: "Fertigkeiten",
         about: "Über mich",
 
+        // Projects intro
+        exploreMyWork: "Entdecke meine Arbeit",
+        butWait: "Hier gibt es noch mehr",
+
         // Projects
         palettiTimeframe: "August 2023 - Jetzt",
         palettiParagraphs:

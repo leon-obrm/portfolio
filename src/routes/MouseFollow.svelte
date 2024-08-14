@@ -37,7 +37,7 @@
         }
 
         const keyframes = {
-            transform: `translate(${mouseX - 28}px, ${mouseY - 28}px) scale(${interacting ? 1.2 : 0.5})`,
+            transform: `translate(${mouseX - 28}px, ${mouseY - 28}px) scale(${interacting ? 1.2 : 0})`,
             opacity: interacting ? 100 : 0,
         }
 
@@ -72,7 +72,7 @@
 >
     <!-- ======== Scroll Icon ======== -->
     <span bind:this={scrollIcon}>
-        <Mail color="#fff" size={28} strokeWidth={1.5} />
+        <Mail color="#fff" size={24} strokeWidth={1.5} />
     </span>
 
     <!-- ======== Link Icon ======== -->

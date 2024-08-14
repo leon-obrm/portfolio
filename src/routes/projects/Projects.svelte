@@ -4,6 +4,7 @@
     import { useI18n } from "$lib/useI18n"
     import { SquareArrowOutUpRight } from "lucide-svelte"
     import ProjectsIntro from "./ProjectsIntro.svelte"
+    import SecondProjectIntro from "./SecondProjectIntro.svelte"
 
     const i18n = useI18n()
 
@@ -32,7 +33,7 @@
 
 <ProjectsIntro />
 
-<div class="relative flex flex-col items-center gap-44">
+<div class="relative flex flex-col items-center">
     <!-- ======== Scroll destination for links ======== -->
     <span class="absolute -top-20" id="projects" />
 
@@ -57,7 +58,7 @@
                     alt="Screenshot of project {project.title}"
                 />
                 <div
-                    class="absolute right-0 top-0 rounded-bl rounded-tr bg-black/20 p-2.5 backdrop-blur-[3px] sm:p-3"
+                    class="absolute right-0 top-0 rounded-bl-xl rounded-tr bg-black/20 p-2.5 backdrop-blur-[3px] sm:p-3"
                 >
                     <span class="sm:hidden"><SquareArrowOutUpRight size={20} /></span>
                     <span class="hidden sm:flex"><SquareArrowOutUpRight size={24} /></span>
@@ -98,5 +99,9 @@
                 </div>
             </div>
         </div>
+
+        {#if index === 0}
+            <SecondProjectIntro />
+        {/if}
     {/each}
 </div>

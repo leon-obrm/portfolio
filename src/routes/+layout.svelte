@@ -14,7 +14,6 @@
 
     // ======== Enhancements ========
     // TODO: Add visual email confirmation
-    // TODO: Add project intros
     // TODO: Add in view transitions / animations
 
     // ======== Bug Fixes ========

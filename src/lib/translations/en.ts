@@ -11,6 +11,10 @@ export const en = {
         skills: "Skills",
         about: "About",
 
+        // Projects intro
+        exploreMyWork: "Explore my work",
+        butWait: "But wait, there's more",
+
         // Projects
         palettiTimeframe: "August 2023 - Now",
         palettiParagraphs:

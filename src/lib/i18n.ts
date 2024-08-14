@@ -6,7 +6,7 @@ import { en } from "./translations/en"
 import { de } from "./translations/de"
 
 i18next.init({
-    lng: "en",
+    lng: "de",
     resources: {
         en,
         de,
