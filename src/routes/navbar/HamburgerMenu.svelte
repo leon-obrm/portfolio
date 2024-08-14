@@ -11,7 +11,7 @@
         }}
     >
         <div
-            class="flex h-5 w-8 flex-col justify-between gap-2 [&_*]:h-px [&_*]:w-full [&_span]:rounded-full [&_span]:bg-white"
+            class="flex h-[21px] w-8 flex-col justify-between gap-2 [&_*]:h-px [&_*]:w-full [&_span]:rounded-full [&_span]:bg-white"
         >
             <span class="transition-opacity {showDrawer && 'opacity-0'}" />
 
