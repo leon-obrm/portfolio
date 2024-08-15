@@ -67,6 +67,11 @@ export const de: ITranslation = {
         messagePlaceholder: "Wie kann ich Ihnen helfen?",
         sendMessage: "Nachricht senden",
 
+        // Contact popup
+        emailThanks: "Danke für Ihre Nachricht!",
+        emailAppreciate: "Ich werde sie schnellstmöglich lesen und mich zeitnah bei Ihnen melden.",
+        back: "Zurück",
+
         // Footer
         social: "Soziales",
     },

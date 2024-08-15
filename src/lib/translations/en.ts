@@ -65,6 +65,11 @@ export const en = {
         messagePlaceholder: "How can I help you?",
         sendMessage: "Send message",
 
+        // Contact popup
+        emailThanks: "Thank you for reaching out!",
+        emailAppreciate: "I appreciate your message and will get back to you shortly.",
+        back: "Back",
+
         // Footer
         social: "Social",
     },

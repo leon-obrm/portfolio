@@ -4,7 +4,7 @@
     export let placeholder: string
     export let isTextarea: boolean = false
     export let isEmail: boolean = false
-    export let isSubmitted: boolean
+    export let submissionState: "idle" | "submitting" | "submitted"
 </script>
 
 <div class="flex flex-col gap-2 lg:gap-3">
@@ -14,7 +14,7 @@
         <!-- ======== Textarea ======== -->
         <textarea
             class="h-44 resize-none rounded-xl border border-gray-300 bg-transparent p-2 pl-5 tracking-wider placeholder:tracking-wide placeholder:text-gray-600 lg:h-60 lg:text-lg
-            {isSubmitted && 'invalid:border-red-700'}"
+            {submissionState === 'submitting' && 'invalid:border-red-700'}"
             {name}
             id={name}
             {placeholder}
@@ -25,7 +25,7 @@
         <!-- ======== Text ======== -->
         <input
             class="rounded-xl border border-gray-300 bg-transparent p-2 pl-5 tracking-wider placeholder:tracking-wide placeholder:text-gray-600 lg:text-lg
-            {isSubmitted && 'invalid:border-red-700'}"
+            {submissionState === 'submitting' && 'invalid:border-red-700'}"
             type={isEmail ? "email" : "text"}
             {name}
             id={name}

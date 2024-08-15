@@ -13,7 +13,6 @@
     setContext("i18n", getI18nStore())
 
     // ======== Enhancements ========
-    // TODO: Add visual email confirmation
     // TODO: Add in view transitions / animations
 
     // ======== Bug Fixes ========

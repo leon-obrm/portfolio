@@ -1,12 +1,28 @@
 <script lang="ts">
     import ContactIntro from "./ContactIntro.svelte"
     import TextInput from "./TextInput.svelte"
-
+    import SuccessPopup from "./SuccessPopup.svelte"
     import { useI18n } from "$lib/useI18n"
 
     const i18n = useI18n()
 
-    let isSubmitted: boolean = false
+    let submissionState: "idle" | "submitting" | "submitted" = "idle"
+    let form: HTMLFormElement
+
+    async function handleSubmit(event: Event) {
+        // Prevent default form submission
+        event.preventDefault()
+
+        const formData = new FormData(form)
+
+        try {
+            const response = await fetch("/", { method: "POST", body: formData })
+
+            if (response.ok) submissionState = "submitted"
+        } catch (e: any) {
+            console.log(`An error occured while submitting contact form: ${e.stack}`)
+        }
+    }
 </script>
 
 <ContactIntro />
@@ -15,7 +31,12 @@
     <!-- ======== Scroll destination for links ======== -->
     <span class="absolute -top-20" id="contact" />
 
-    <form class="flex w-full max-w-2xl flex-col gap-6 lg:gap-7" method="POST">
+    <form
+        class="flex w-full max-w-2xl flex-col gap-6 lg:gap-7"
+        bind:this={form}
+        method="POST"
+        on:submit={handleSubmit}
+    >
         <!-- ======== Contact ======== -->
         <h3 class="text-3xl font-bold tracking-wider lg:text-4xl lg:tracking-widest">
             {$i18n.t("contact")}
@@ -26,7 +47,7 @@
             name={"name"}
             label={$i18n.t("yourName")}
             placeholder={$i18n.t("namePlaceholder")}
-            {isSubmitted}
+            {submissionState}
         />
 
         <!-- ======== Email ======== -->
@@ -35,7 +56,7 @@
             label={$i18n.t("yourEmail")}
             placeholder={$i18n.t("emailPlaceholder")}
             isEmail
-            {isSubmitted}
+            {submissionState}
         />
 
         <!-- ======== Message ======== -->
@@ -44,7 +65,7 @@
             label={$i18n.t("yourMessage")}
             placeholder={$i18n.t("messagePlaceholder")}
             isTextarea
-            {isSubmitted}
+            {submissionState}
         />
 
         <!-- ======== Send ======== -->
@@ -52,10 +73,12 @@
             class="rounded-xl bg-gray-50 p-3 font-semibold uppercase tracking-wider text-black shadow-image-glow transition-all hover:bg-gray-100 active:scale-95"
             type="submit"
             on:click={() => {
-                isSubmitted = true
+                submissionState = "submitting"
             }}
         >
             {$i18n.t("sendMessage")}
         </button>
     </form>
 </div>
+
+<SuccessPopup bind:submissionState {form} />
