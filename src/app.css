@@ -2,14 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-    .glassmorphism {
-        @apply bg-transparent backdrop-blur-md hover:bg-transparent;
-        background: linear-gradient(to bottom left, #ffffff50, #bdc0ce10), url(noise.svg);
-    }
+body {
+    background-color: #161616;
+}
 
-    .glassmorphism::before {
-        @apply absolute inset-0 rounded-full bg-gradient-to-bl from-white/50 to-primary-200/50 p-px;
+@layer components {
+    .glass-border::before {
+        @apply absolute inset-0 rounded-full bg-gradient-to-br from-gray-200/20 via-gray-800/0 via-50% to-gray-800/0 p-px;
         content: "";
         -webkit-mask:
             linear-gradient(#fff 0 0) content-box,
@@ -17,10 +16,4 @@
         -webkit-mask-composite: xor;
         mask-composite: exclude;
     }
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "Nunito", sans-serif;
 }

@@ -1,9 +1,30 @@
 <script lang="ts">
+    import ScrollUpButton from "./ScrollUpButton.svelte"
+    import BackgroundBlur from "./BackgroundBlur.svelte"
+    import MouseFollow from "./MouseFollow.svelte"
+
+    // Load TailwindCSS
     import "../app.css"
+
+    import getI18nStore from "$lib/i18n"
+    import { setContext } from "svelte"
+
+    // Adapt i18n to usage with SvelteKit (Avoids unwanted syncs between different frontends)
+    setContext("i18n", getI18nStore())
+
+    // ======== Enhancements ========
+    // TODO: Add in view transitions / animations
+
+    // ======== Bug Fixes ========
+    // FIXME:? Zooming on laptop touchpad creates white vignette
 </script>
 
-<div
-    class="selection:bg-gray-700 selection:text-white selection:dark:bg-gray-50 selection:dark:text-black"
->
+<ScrollUpButton />
+
+<BackgroundBlur />
+
+<MouseFollow />
+
+<div class="relative flex w-full flex-col overflow-clip font-nunito text-white">
     <slot />
 </div>
