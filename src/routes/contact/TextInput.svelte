@@ -1,10 +1,12 @@
 <script lang="ts">
+    import type { SubmissionState } from "$lib/interfaces"
+
     export let name: string
     export let label: string
     export let placeholder: string
     export let isTextarea: boolean = false
     export let isEmail: boolean = false
-    export let submissionState: "idle" | "verifying" | "submitting" | "submitted"
+    export let submissionState: SubmissionState
 </script>
 
 <div class="flex flex-col gap-2 lg:gap-3">

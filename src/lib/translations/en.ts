@@ -64,6 +64,7 @@ export const en = {
         yourMessage: "Your message",
         messagePlaceholder: "How can I help you?",
         sendMessage: "Send message",
+        somethingWentWrong: "Something went wrong. Please try again or send an email to",
 
         // Contact popup
         emailThanks: "Thank you for reaching out!",

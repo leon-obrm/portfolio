@@ -1,5 +1,6 @@
 import { GOOGLE_EMAIL } from "$env/static/private"
 import transporter from "$lib/transporter.server"
+import { json } from "@sveltejs/kit"
 
 // Sends email with data from contact form
 export const actions = {
@@ -14,10 +15,7 @@ export const actions = {
             // Check if all required fields are present
             if (!name || !email || !message) {
                 console.error("Missing form data:", { name, email, message })
-                return {
-                    status: 400,
-                    body: { error: "Missing form data" },
-                }
+                return json({ error: "Missing form data" }, { status: 400 })
             }
 
             /** Escapes unsafe HTML characters. */
@@ -81,11 +79,9 @@ export const actions = {
         } catch (e: unknown) {
             // @ts-expect-error The error is of type unknown as the try catch block can catch multiple different errors
             console.log(`An error occured while trying to send email: ${e.stack}`)
+
             // Return 500 response
-            return {
-                status: 500,
-                body: { error: "Failed to send email" },
-            }
+            return json({ error: "Failed to send email" }, { status: 500 })
         }
     },
 }

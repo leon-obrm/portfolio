@@ -3,10 +3,12 @@
     import TextInput from "./TextInput.svelte"
     import SuccessPopup from "./SuccessPopup.svelte"
     import { useI18n } from "$lib/useI18n"
+    import type { SubmissionState } from "$lib/interfaces"
+    import { CircleAlert } from "lucide-svelte"
 
     const i18n = useI18n()
 
-    let submissionState: "idle" | "verifying" | "submitting" | "submitted" = "idle"
+    let submissionState: SubmissionState = "idle"
     let form: HTMLFormElement
 
     async function handleSubmit(event: Event) {
@@ -20,7 +22,10 @@
         try {
             const response = await fetch("/", { method: "POST", body: formData })
 
-            if (response.ok) submissionState = "submitted"
+            console.log(response)
+
+            if (response.status === 200) submissionState = "submitted"
+            else submissionState = "error"
         } catch (e: any) {
             console.log(`An error occured while submitting contact form: ${e.stack}`)
         }
@@ -71,22 +76,33 @@
         />
 
         <!-- ======== Send ======== -->
-        <button
-            class="rounded-xl bg-gray-50 p-3 font-semibold uppercase tracking-wider text-black shadow-image-glow transition-all hover:bg-gray-100 active:scale-95"
-            type="submit"
-            on:click={() => {
-                submissionState = "verifying"
-            }}
-        >
-            <span class="relative">
-                {#if submissionState === "submitting"}
-                    <div class="absolute -left-9 flex h-full items-center">
-                        <span class="loading loading-spinner loading-sm bg-gray-500" />
-                    </div>
-                {/if}
-                {$i18n.t("sendMessage")}
-            </span>
-        </button>
+        <div class="flex w-full flex-col gap-4 lg:gap-5">
+            <button
+                class="w-full rounded-xl bg-gray-50 p-3 font-semibold uppercase tracking-wider text-black shadow-image-glow transition-all hover:bg-gray-100 active:scale-95"
+                type="submit"
+                on:click={() => {
+                    submissionState = "verifying"
+                }}
+            >
+                <span class="relative">
+                    {#if submissionState === "submitting"}
+                        <div class="absolute -left-9 flex h-full items-center">
+                            <span class="loading loading-spinner loading-sm bg-gray-500" />
+                        </div>
+                    {/if}
+                    {$i18n.t("sendMessage")}
+                </span>
+            </button>
+
+            {#if submissionState === "error"}
+                <div class="flex items-center gap-2 lg:gap-3">
+                    <span><CircleAlert /></span>
+                    <p class="text-sm tracking-wide">
+                        {$i18n.t("somethingWentWrong")} leon.oberm@gmail.com.
+                    </p>
+                </div>
+            {/if}
+        </div>
     </form>
 </div>
 

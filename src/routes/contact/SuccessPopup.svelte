@@ -1,8 +1,9 @@
 <script lang="ts">
     import { fade } from "svelte/transition"
     import { useI18n } from "$lib/useI18n"
+    import type { SubmissionState } from "$lib/interfaces"
 
-    export let submissionState: "idle" | "verifying" | "submitting" | "submitted" = "submitted"
+    export let submissionState: SubmissionState = "submitted"
     export let form: HTMLFormElement
 
     const i18n = useI18n()

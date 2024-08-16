@@ -48,3 +48,16 @@ export interface ILink {
     link: string
     icon?: unknown
 }
+
+/**
+ * Describes the states a contact form submission can be in.
+ * @type {"idle" | "verifying" | "submitting" | "submitted" | "error"}
+ *
+ * @description
+ * - **idle**: The user has not yet interacted with the form.
+ * - **verifying**: The user clicked on "submit" and it is being verified if the inputted data is allowed.
+ * - **submitting**: The inputted data is allowed and is being processed by the backend.
+ * - **submitted**: The form was successfully submitted.
+ * - **error**: Something went wrong while submitting the form.
+ */
+export type SubmissionState = "idle" | "verifying" | "submitting" | "submitted" | "error"

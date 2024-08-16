@@ -66,6 +66,8 @@ export const de: ITranslation = {
         yourMessage: "Ihre Nachricht",
         messagePlaceholder: "Wie kann ich Ihnen helfen?",
         sendMessage: "Nachricht senden",
+        somethingWentWrong:
+            "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder senden Sie eine Email an",
 
         // Contact popup
         emailThanks: "Danke für Ihre Nachricht!",
