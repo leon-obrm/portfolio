@@ -6,10 +6,12 @@
 
     const i18n = useI18n()
 
-    let submissionState: "idle" | "submitting" | "submitted" = "idle"
+    let submissionState: "idle" | "verifying" | "submitting" | "submitted" = "idle"
     let form: HTMLFormElement
 
     async function handleSubmit(event: Event) {
+        submissionState = "submitting"
+
         // Prevent default form submission
         event.preventDefault()
 
@@ -73,10 +75,17 @@
             class="rounded-xl bg-gray-50 p-3 font-semibold uppercase tracking-wider text-black shadow-image-glow transition-all hover:bg-gray-100 active:scale-95"
             type="submit"
             on:click={() => {
-                submissionState = "submitting"
+                submissionState = "verifying"
             }}
         >
-            {$i18n.t("sendMessage")}
+            <span class="relative">
+                {#if submissionState === "submitting"}
+                    <div class="absolute -left-9 flex h-full items-center">
+                        <span class="loading loading-spinner loading-sm bg-gray-500" />
+                    </div>
+                {/if}
+                {$i18n.t("sendMessage")}
+            </span>
         </button>
     </form>
 </div>

@@ -2,7 +2,7 @@
     import { fade } from "svelte/transition"
     import { useI18n } from "$lib/useI18n"
 
-    export let submissionState: "idle" | "submitting" | "submitted" = "submitted"
+    export let submissionState: "idle" | "verifying" | "submitting" | "submitted" = "submitted"
     export let form: HTMLFormElement
 
     const i18n = useI18n()
