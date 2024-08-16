@@ -1,10 +1,13 @@
 <script lang="ts">
+    import InViewTransition from "$lib/InViewTransition.svelte"
     import { useI18n } from "$lib/useI18n"
 
     const i18n = useI18n()
 </script>
 
-<div class="flex w-full justify-center py-6 xs:py-10 sm:py-16 md:py-24 xl:py-44">
+<InViewTransition
+    containerClass="flex w-full justify-center py-6 xs:py-10 sm:py-16 md:py-24 xl:py-44"
+>
     <div
         class="relative flex w-full max-w-md justify-center sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl"
     >
@@ -42,7 +45,7 @@
             />
         </svg>
     </div>
-</div>
+</InViewTransition>
 
 <style>
     /* Arrow - Line */
