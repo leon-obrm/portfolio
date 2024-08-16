@@ -7,6 +7,7 @@
     let isInView: boolean
     const options = {
         rootMargin,
+        unobserveOnEnter: true,
     }
 </script>
 
