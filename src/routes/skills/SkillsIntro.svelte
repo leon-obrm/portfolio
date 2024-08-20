@@ -33,11 +33,11 @@
             </p>
 
             <!-- ======== Mobile Triangles ======== -->
-            <div class="relative flex h-5 w-full justify-around lg:hidden">
-                <Triangle />
-                <Triangle />
-                <Triangle />
-            </div>
+            <InViewTransition containerClass="relative flex h-5 w-full justify-around lg:hidden">
+                <Triangle y={15} duration={1250} />
+                <Triangle y={15} duration={1250} />
+                <Triangle y={15} duration={1250} />
+            </InViewTransition>
         </div>
 
         <!-- ======== Desktop Triangles ======== -->
