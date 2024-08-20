@@ -45,7 +45,7 @@
         if (!topIsInView && !bottomIsInView) return
 
         // Calculate position of animation from 0 to 1
-        animationPosition = 1 - bottomEdge / windowHeigth
+        animationPosition = 1 - (topEdge + bottomEdge) / 2 / windowHeigth
         // Make sure position is between 0 and 1
         animationPosition = Math.min(1, Math.max(0, animationPosition))
 
