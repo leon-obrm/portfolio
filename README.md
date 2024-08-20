@@ -1,8 +1,12 @@
 # Welcome to Leon's portfolio
 
-I'm a web designer and developer from Germany with 6+ years of coding experience and 4 years in web development and design.
+My name is Leon Obermann, and I'm a web designer and developer from Germany.
 
-For the past 2 years, I've worked professionally as a full stack developer, focusing on creating innovative web projects using modern technology.
+With over 6 years of coding expertise and 3 years of design experience, I bridge the gap between creativity and technology to bring your vision to life.
+
+Over the last 2 years as a professional full stack developer, I've refined my skills to craft solutions that are both beautiful and functional.
+
+Let's create something exceptional together!
 
 # Installation
 
