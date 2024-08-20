@@ -1,4 +1,5 @@
 <script lang="ts">
+    import InViewTransition from "$lib/InViewTransition.svelte"
     import { useI18n } from "$lib/useI18n"
     import Triangle from "./Triangle.svelte"
 
@@ -11,10 +12,11 @@
 
     <div class="flex w-full max-w-5xl justify-center lg:justify-between">
         <!-- ======== Desktop Triangles ======== -->
-        <div class="hidden flex-col justify-around lg:flex">
+        <InViewTransition containerClass="hidden flex-col justify-around lg:flex">
+            <Triangle delay={100} />
             <Triangle />
-            <Triangle />
-        </div>
+        </InViewTransition>
+
         <!-- ======== Transition Text ======== -->
         <div class="flex w-fit flex-col items-center gap-1 sm:gap-2 lg:gap-4">
             <h3
@@ -31,16 +33,17 @@
             </p>
 
             <!-- ======== Mobile Triangles ======== -->
-            <div class="relative flex h-5 w-full justify-around lg:hidden">
-                <Triangle />
-                <Triangle />
-                <Triangle />
-            </div>
+            <InViewTransition containerClass="relative flex h-5 w-full justify-around lg:hidden">
+                <Triangle y={15} duration={1250} />
+                <Triangle y={15} duration={1250} />
+                <Triangle y={15} duration={1250} />
+            </InViewTransition>
         </div>
+
         <!-- ======== Desktop Triangles ======== -->
-        <div class="hidden flex-col justify-around lg:flex">
+        <InViewTransition containerClass="hidden flex-col justify-around lg:flex">
+            <Triangle delay={100} />
             <Triangle />
-            <Triangle />
-        </div>
+        </InViewTransition>
     </div>
 </div>

@@ -1,14 +1,19 @@
 <script lang="ts">
+    import InViewTransition from "$lib/InViewTransition.svelte"
     import { useI18n } from "$lib/useI18n"
+    import { fade, fly } from "svelte/transition"
 
     const i18n = useI18n()
 </script>
 
 <div class="relative flex w-full justify-center py-36 sm:py-40 md:py-44 lg:py-52">
     <!-- ======== Dotted Background ======== -->
-    <div class="absolute -left-1/4 top-0 flex h-full w-[150%] items-center justify-center">
-        <div class="dots h-full w-full max-w-screen-2xl"></div>
-    </div>
+    <InViewTransition
+        containerClass="absolute -left-1/4 top-0 flex h-full w-[150%] items-center justify-center"
+        rootMargin="-40%"
+    >
+        <div class="dots h-full w-full max-w-screen-2xl" in:fade={{ duration: 1250 }} />
+    </InViewTransition>
 
     <div class="flex flex-col gap-3 text-center sm:gap-5 lg:gap-8">
         <h3
@@ -17,12 +22,12 @@
             {$i18n.t("haveISparked")}
         </h3>
 
-        <div
-            class="flex flex-col items-center gap-0.5 tracking-wide xs:text-lg sm:gap-1.5 sm:text-xl md:text-2xl lg:gap-3 lg:text-3xl lg:tracking-wider"
+        <InViewTransition
+            containerClass="flex flex-col items-center gap-0.5 tracking-wide xs:text-lg sm:gap-1.5 sm:text-xl md:text-2xl lg:gap-3 lg:text-3xl lg:tracking-wider"
         >
-            <p>{$i18n.t("feelFreeToSend")}</p>
-            <p>{$i18n.t("IllBeHappyToHear")}</p>
-        </div>
+            <p in:fly={{ y: 50, duration: 750 }}>{$i18n.t("feelFreeToSend")}</p>
+            <p in:fly={{ y: 50, duration: 750, delay: 200 }}>{$i18n.t("IllBeHappyToHear")}</p>
+        </InViewTransition>
     </div>
 </div>
 
