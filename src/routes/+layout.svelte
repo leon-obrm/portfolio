@@ -3,18 +3,17 @@
     import BackgroundBlur from "./BackgroundBlur.svelte"
     import MouseFollow from "./MouseFollow.svelte"
 
-    // Load TailwindCSS
+    // Loads TailwindCSS
     import "../app.css"
 
     import getI18nStore from "$lib/i18n"
     import { setContext } from "svelte"
 
-    // Adapt i18n to usage with SvelteKit (Avoids unwanted syncs between different frontends)
+    // Adapts i18n to usage with SvelteKit (Avoids unwanted syncs between different frontends)
     setContext("i18n", getI18nStore())
 
     // ======== Enhancements ========
     // TODO: Decrease opacity of image click indicators on hover
-    // TODO: Add LinkedIn link to about image
 
     // ======== Bug Fixes ========
     // FIXME: 404 favicon.ico not found in browser console
