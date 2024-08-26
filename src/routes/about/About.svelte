@@ -21,7 +21,7 @@
             target="_blank"
             rel="noopener noreferrer"
         >
-            <img src="Red_Tree.jpg" alt="Portrait of Leon Obermann" />
+            <img src="Red_Tree.webp" alt="Portrait of Leon Obermann" />
 
             <div
                 class="absolute bottom-0 flex w-full items-center justify-center gap-2 bg-gray-800/25 p-[4%] backdrop-blur-sm"

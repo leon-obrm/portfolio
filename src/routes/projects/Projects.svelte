@@ -54,7 +54,7 @@
             >
                 <img
                     class="rounded"
-                    src="projects/{project.title}.png"
+                    src="projects/{project.title}.webp"
                     alt="Screenshot of project {project.title}"
                 />
                 <div

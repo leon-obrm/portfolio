@@ -73,7 +73,7 @@
                 >
                     <!-- ======== Logo ======== -->
                     <img
-                        src={`logos/${skill.name}.png`}
+                        src={`logos/${skill.name}.webp`}
                         alt={`${skill.name} logo`}
                         class="object-contain {skill.customSize
                             ? skill.customSize
@@ -82,7 +82,7 @@
 
                     <!-- ======== Blurred Logo ======== -->
                     <img
-                        src={`logos/${skill.name}.png`}
+                        src={`logos/${skill.name}.webp`}
                         alt={`${skill.name} logo`}
                         class="absolute -z-30 object-contain {skill.customSize
                             ? skill.customSize
