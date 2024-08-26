@@ -17,7 +17,6 @@
     // TODO: Add LinkedIn link to about image
 
     // ======== Bug Fixes ========
-    // FIXME: Links in footer are too wide
     // FIXME: 404 favicon.ico not found in browser console
     // FIXME: Skill sections lags (Other sections too, but this one is the most noticeable)
     // FIXME:? Zooming on laptop touchpad creates white vignette
