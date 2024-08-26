@@ -13,9 +13,14 @@
     setContext("i18n", getI18nStore())
 
     // ======== Enhancements ========
-    // TODO: Add in view transitions / animations
+    // TODO: Decrease opacity of image click indicators on hover
+    // TODO: Add LinkedIn link to about image
 
     // ======== Bug Fixes ========
+    // FIXME: Links in footer are too wide
+    // FIXME: 404 favicon.ico not found in browser console
+    // FIXME: Increase z index of contact intro text
+    // FIXME: Skill sections lags (Other sections too, but this one is the most noticeable)
     // FIXME:? Zooming on laptop touchpad creates white vignette
 </script>
 
