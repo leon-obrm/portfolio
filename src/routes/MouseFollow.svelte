@@ -68,7 +68,7 @@
 
 <div
     bind:this={mouseFollow}
-    class="glass-border pointer-events-none fixed left-0 top-0 z-10 flex h-14 w-14 items-center justify-center rounded-full bg-black/25 opacity-0 backdrop-blur-[5px]"
+    class="glass-border pointer-events-none fixed left-0 top-0 z-20 flex h-14 w-14 items-center justify-center rounded-full bg-black/25 opacity-0 backdrop-blur-[5px]"
 >
     <!-- ======== Scroll Icon ======== -->
     <span bind:this={scrollIcon}>
