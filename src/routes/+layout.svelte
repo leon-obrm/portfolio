@@ -13,10 +13,8 @@
     setContext("i18n", getI18nStore())
 
     // ======== Enhancements ========
-    // TODO: Decrease opacity of image click indicators on hover
 
     // ======== Bug Fixes ========
-    // FIXME: 404 favicon.ico not found in browser console
     // FIXME: Skill sections lags (Other sections too, but this one is the most noticeable)
     // FIXME:? Zooming on laptop touchpad creates white vignette
 </script>
