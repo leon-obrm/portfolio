@@ -9,6 +9,7 @@
         on:click={() => {
             showDrawer = !showDrawer
         }}
+        aria-label="Menu"
     >
         <div
             class="flex h-[21px] w-8 flex-col justify-between gap-2 [&_*]:h-px [&_*]:w-full [&_span]:rounded-full [&_span]:bg-white"

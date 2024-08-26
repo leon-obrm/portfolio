@@ -37,12 +37,13 @@
 </script>
 
 <button
+    class="glass-border fixed bottom-6 right-6 z-50 rounded-full bg-gray-400/20 p-2.5 shadow-md backdrop-blur-[5px] transition-opacity duration-300 lg:bottom-8 lg:right-8 {!showButton &&
+        'opacity-0'}"
     on:click={() => {
         window.scrollTo(0, 0)
     }}
     disabled={!showButton}
-    class="glass-border fixed bottom-6 right-6 z-50 rounded-full bg-gray-400/20 p-2.5 shadow-md backdrop-blur-[5px] transition-opacity duration-300 lg:bottom-8 lg:right-8 {!showButton &&
-        'opacity-0'}"
+    aria-label="Scroll to top"
 >
     <ChevronUp color="#fff" size="36" strokeWidth={1.5} />
 </button>
