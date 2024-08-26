@@ -3,19 +3,19 @@
     import BackgroundBlur from "./BackgroundBlur.svelte"
     import MouseFollow from "./MouseFollow.svelte"
 
-    // Load TailwindCSS
+    // Loads TailwindCSS
     import "../app.css"
 
     import getI18nStore from "$lib/i18n"
     import { setContext } from "svelte"
 
-    // Adapt i18n to usage with SvelteKit (Avoids unwanted syncs between different frontends)
+    // Adapts i18n to usage with SvelteKit (Avoids unwanted syncs between different frontends)
     setContext("i18n", getI18nStore())
 
     // ======== Enhancements ========
-    // TODO: Add in view transitions / animations
 
     // ======== Bug Fixes ========
+    // FIXME: Skill sections lags (Other sections too, but this one is the most noticeable)
     // FIXME:? Zooming on laptop touchpad creates white vignette
 </script>
 

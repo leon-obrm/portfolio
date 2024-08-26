@@ -95,11 +95,14 @@
             </button>
 
             {#if submissionState === "error"}
-                <div class="flex items-center gap-2 lg:gap-3">
-                    <span><CircleAlert /></span>
-                    <p class="text-sm tracking-wide">
-                        {$i18n.t("somethingWentWrong")} leon.oberm@gmail.com.
-                    </p>
+                <div class="flex justify-center">
+                    <div class="flex items-center gap-2 lg:gap-3">
+                        <!-- Span prevents resizing of icon when resizing window. -->
+                        <span><CircleAlert /></span>
+                        <p class="text-sm tracking-wide">
+                            {$i18n.t("somethingWentWrong")} leon.oberm@gmail.com.
+                        </p>
+                    </div>
                 </div>
             {/if}
         </div>

@@ -15,7 +15,7 @@
         <div class="dots h-full w-full max-w-screen-2xl" in:fade={{ duration: 1250 }} />
     </InViewTransition>
 
-    <div class="flex flex-col gap-3 text-center sm:gap-5 lg:gap-8">
+    <div class="z-10 flex flex-col gap-3 text-center sm:gap-5 lg:gap-8">
         <h3
             class="text-2xl font-semibold tracking-wide xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:tracking-wider"
         >
