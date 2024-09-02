@@ -29,7 +29,7 @@
 
     <!-- ======== Job Title ======== -->
     <div
-        class="flex w-fit flex-col gap-2 pt-8 font-inria-sans text-6xl uppercase tracking-wider sm:text-7xl md:text-8xl lg:translate-y-20 lg:tracking-widest xl:translate-y-32 xl:text-9xl"
+        class="z-10 flex w-fit flex-col gap-2 pt-8 font-inria-sans text-6xl uppercase tracking-wider sm:text-7xl md:text-8xl lg:translate-y-20 lg:tracking-widest xl:translate-y-32 xl:text-9xl"
     >
         <h2 class="translate-x-1.5 text-2xl tracking-wide lg:translate-x-2.5 lg:text-4xl">Web</h2>
         <h2>Designer <span class="text-3xl lg:text-5xl">&</span></h2>
