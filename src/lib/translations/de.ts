@@ -65,6 +65,9 @@ export const de: ITranslation = {
         emailPlaceholder: "Geben Sie Ihre E-Mail Adresse ein",
         yourMessage: "Ihre Nachricht",
         messagePlaceholder: "Wie kann ich Ihnen helfen?",
+        privacyPolicyDisclaimer:
+            "Ich verwende Ihre Angaben zur Beantwortung Ihrer Anfrage. Weitere Informationen finden Sie in meiner",
+        privacyPolicyDisclaimer2: "Datenschutzerklärung",
         sendMessage: "Nachricht senden",
         somethingWentWrong:
             "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder senden Sie eine Email an",
