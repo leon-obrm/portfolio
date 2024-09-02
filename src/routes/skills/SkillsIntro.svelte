@@ -1,9 +1,16 @@
 <script lang="ts">
     import InViewTransition from "$lib/InViewTransition.svelte"
     import { useI18n } from "$lib/useI18n"
+    import { onMount } from "svelte"
     import Triangle from "./Triangle.svelte"
 
     const i18n = useI18n()
+
+    let scrollAnchor: HTMLDivElement
+
+    onMount(() => {
+        scrollAnchor = document.getElementById("skill-scroll-anchor") as HTMLDivElement
+    })
 </script>
 
 <div class="relative flex w-full justify-center py-20 lg:py-44">
@@ -13,8 +20,8 @@
     <div class="flex w-full max-w-5xl justify-center lg:justify-between">
         <!-- ======== Desktop Triangles ======== -->
         <InViewTransition containerClass="hidden flex-col justify-around lg:flex">
-            <Triangle delay={100} />
-            <Triangle />
+            <Triangle delay={100} {scrollAnchor} />
+            <Triangle {scrollAnchor} />
         </InViewTransition>
 
         <!-- ======== Transition Text ======== -->
@@ -34,16 +41,16 @@
 
             <!-- ======== Mobile Triangles ======== -->
             <InViewTransition containerClass="relative flex h-5 w-full justify-around lg:hidden">
-                <Triangle y={15} duration={1250} />
-                <Triangle y={15} duration={1250} />
-                <Triangle y={15} duration={1250} />
+                <Triangle y={15} duration={1250} {scrollAnchor} />
+                <Triangle y={15} duration={1250} {scrollAnchor} />
+                <Triangle y={15} duration={1250} {scrollAnchor} />
             </InViewTransition>
         </div>
 
         <!-- ======== Desktop Triangles ======== -->
         <InViewTransition containerClass="hidden flex-col justify-around lg:flex">
-            <Triangle delay={100} />
-            <Triangle />
+            <Triangle delay={100} {scrollAnchor} />
+            <Triangle {scrollAnchor} />
         </InViewTransition>
     </div>
 </div>
