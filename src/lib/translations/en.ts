@@ -72,6 +72,8 @@ export const en = {
         back: "Back",
 
         // Footer
+        legalNotice: "Legal Notice",
+        privacyPolicy: "Privacy Policy",
         social: "Social",
     },
 }

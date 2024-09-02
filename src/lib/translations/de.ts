@@ -75,6 +75,8 @@ export const de: ITranslation = {
         back: "Zurück",
 
         // Footer
+        legalNotice: "Impressum",
+        privacyPolicy: "Datenschutzerklärung",
         social: "Soziales",
     },
 }
