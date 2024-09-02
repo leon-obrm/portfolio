@@ -11,7 +11,7 @@
 
 <div class="flex flex-col gap-2 lg:gap-3">
     <!-- ======== Label ======== -->
-    <label class="font-semibold tracking-wide lg:text-lg" for={name}>{label}</label>
+    <label class="font-semibold tracking-wide lg:text-lg" for={name}>{label} *</label>
     {#if isTextarea}
         <!-- ======== Textarea ======== -->
         <textarea

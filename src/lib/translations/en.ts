@@ -63,6 +63,9 @@ export const en = {
         emailPlaceholder: "Enter your email address",
         yourMessage: "Your message",
         messagePlaceholder: "How can I help you?",
+        privacyPolicyDisclaimer:
+            "I use your details to answer your request. Further information can be found in my",
+        privacyPolicyDisclaimer2: "privacy policy",
         sendMessage: "Send message",
         somethingWentWrong: "Something went wrong. Please try again or send an email to",
 
@@ -72,7 +75,20 @@ export const en = {
         back: "Back",
 
         // Footer
+        legalNotice: "Legal notice",
+        privacyPolicy: "Privacy policy",
         social: "Social",
+
+        // Legal notice
+        informationAccordingDdg: "Information according to §5 DDG",
+        address: "Address",
+        germany: "Germany",
+        contactInformation: "Contact information",
+        email: "Email",
+        euDisputeResolution: "EU dispute resolution",
+        theEuropeanCommissionProvides:
+            "The European Commission provides a platform for online dispute resolution (ODR)",
+        youCanFindMyEmailAbove: "You can find my email address above in the legal notice.",
     },
 }
 

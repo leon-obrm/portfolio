@@ -56,6 +56,9 @@
 <div
     class="relative flex w-full flex-wrap content-center items-center justify-center gap-3 md:gap-4 xl:gap-5"
 >
+    <!-- ======== Triangle OnClick Scroll Anchor ======== -->
+    <div class="absolute -top-24" id="skill-scroll-anchor"></div>
+
     <!-- ======== Gray Background Blur ======== -->
     <div
         class="absolute left-1/2 top-0 -z-50 h-full w-full max-w-sm -translate-x-1/2 bg-gradient-to-tr from-gray-800/10 to-gray-500/10 md:max-w-2xl lg:max-w-5xl"

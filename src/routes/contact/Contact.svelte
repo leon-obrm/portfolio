@@ -75,6 +75,16 @@
             {submissionState}
         />
 
+        <p class="text-sm">
+            {$i18n.t("privacyPolicyDisclaimer")}
+            <a
+                class="underline underline-offset-2 transition-colors hover:text-gray-200"
+                href="/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer">{$i18n.t("privacyPolicyDisclaimer2")}</a
+            >.
+        </p>
+
         <!-- ======== Send ======== -->
         <div class="flex w-full flex-col gap-4 lg:gap-5">
             <button

@@ -65,6 +65,9 @@ export const de: ITranslation = {
         emailPlaceholder: "Geben Sie Ihre E-Mail Adresse ein",
         yourMessage: "Ihre Nachricht",
         messagePlaceholder: "Wie kann ich Ihnen helfen?",
+        privacyPolicyDisclaimer:
+            "Ich verwende Ihre Angaben zur Beantwortung Ihrer Anfrage. Weitere Informationen finden Sie in meiner",
+        privacyPolicyDisclaimer2: "Datenschutzerklärung",
         sendMessage: "Nachricht senden",
         somethingWentWrong:
             "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder senden Sie eine Email an",
@@ -75,6 +78,19 @@ export const de: ITranslation = {
         back: "Zurück",
 
         // Footer
+        legalNotice: "Impressum",
+        privacyPolicy: "Datenschutzerklärung",
         social: "Soziales",
+
+        // Legal notice
+        informationAccordingDdg: "Inhalte gemäß §5 DDG",
+        address: "Adresse",
+        germany: "Deutschland",
+        contactInformation: "Kontaktdaten",
+        email: "E-Mail",
+        euDisputeResolution: "EU-Streitschlichtung",
+        theEuropeanCommissionProvides:
+            "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit",
+        youCanFindMyEmailAbove: "Meine E-Mail-Adresse finden Sie oben im Impressum.",
     },
 }

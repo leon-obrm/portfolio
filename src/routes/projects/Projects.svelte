@@ -46,19 +46,21 @@
                 : 'lg:flex-row-reverse'}"
         >
             <a
-                class="mouse-follow relative cursor-none shadow-image-glow lg:w-2/3"
+                class="mouse-follow group relative cursor-none shadow-image-glow lg:w-2/3"
                 data-type="link"
                 href="https://{project.link}"
                 target="_blank"
                 rel="noopener noreferrer"
             >
+                <!-- ======== Screenshot ======== -->
                 <img
                     class="rounded"
                     src="projects/{project.title}.webp"
                     alt="Screenshot of project {project.title}"
                 />
+                <!-- ======== Click Indicator ======== -->
                 <div
-                    class="absolute right-0 top-0 rounded-bl-xl rounded-tr bg-black/20 p-2.5 backdrop-blur-[3px] sm:p-3"
+                    class="absolute right-0 top-0 rounded-bl-xl rounded-tr bg-black/20 p-2.5 backdrop-blur-[3px] transition-opacity duration-300 group-hover:opacity-0 sm:p-3"
                 >
                     <span class="sm:hidden"><SquareArrowOutUpRight size={20} /></span>
                     <span class="hidden sm:flex"><SquareArrowOutUpRight size={24} /></span>
@@ -74,26 +76,31 @@
                         : 'lg:-left-1/3'}"
                 />
 
+                <!-- ======== Title ======== -->
                 <h3 class="text-3xl font-bold tracking-wider xl:text-4xl xl:tracking-widest">
                     {project.title}
                 </h3>
                 <div class="flex flex-col gap-4 xl:text-lg">
+                    <!-- ======== Timeframe ======== -->
                     <p>{project.timeframe}</p>
                     {#each project.paragraphs.split("\n") as paragraph}
                         <p>{paragraph}</p>
                     {/each}
 
+                    <!-- ======== Project Skills ======== -->
                     <div class="flex w-full flex-wrap gap-2">
                         {#each project.skills as skill}
                             <a
-                                class="rounded-full bg-white/20 px-3 py-0.5 text-xs"
+                                class="rounded-full bg-white/20 px-3 py-0.5 text-xs transition-colors hover:bg-gray-200/20"
                                 href="https://{skills.find(
                                     (pSkill) =>
                                         pSkill.name === skill || pSkill.abbreviation === skill
                                 )?.link}"
                                 target="_blank"
-                                rel="noopener noreferrer">{skill}</a
+                                rel="noopener noreferrer"
                             >
+                                {skill}
+                            </a>
                         {/each}
                     </div>
                 </div>

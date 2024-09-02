@@ -64,7 +64,7 @@
 </script>
 
 <div
-    class="relative flex w-full flex-col items-center gap-12 overflow-clip bg-black/20 pb-6 pt-9 sm:pt-12"
+    class="relative flex w-full flex-col items-center gap-12 overflow-clip bg-black/20 pb-6 pt-9 sm:gap-16 sm:pt-12"
 >
     <div class="flex w-full max-w-4xl justify-evenly gap-3 text-sm xs:text-base">
         {#each linkLists as linkList}
@@ -77,7 +77,7 @@
                 <div class="flex flex-col gap-2">
                     {#each linkList.links as link}
                         <a
-                            class="w-fit font-extralight hover:text-gray-200"
+                            class="w-fit font-extralight transition-colors hover:text-gray-200"
                             href={link.link}
                             target={link.link.includes("http") ? "_blank" : "_self"}
                             rel={link.link.includes("http") ? "noopener noreferrer" : ""}
@@ -90,10 +90,24 @@
         {/each}
     </div>
 
-    <!-- ======== Copyright ======== -->
-    <p class="text-center text-xs font-light tracking-widest xs:text-sm">
-        Copyright © 2024 Leon Obermann
-    </p>
+    <!-- ======== Legal ======== -->
+    <div
+        class="flex w-full max-w-2xl flex-wrap items-center justify-center gap-x-5 gap-y-2 px-6 text-xs font-light tracking-widest sm:gap-x-7 sm:text-sm"
+    >
+        <!-- ======== Copyright ======== -->
+        <p class="text-center">Copyright © 2024 Leon Obermann</p>
+
+        <div class="flex gap-5 sm:gap-7">
+            <!-- ======== Legal Notice ======== -->
+            <a class="transition-colors hover:text-gray-200" href="legal-notice">
+                {$i18n.t("legalNotice")}
+            </a>
+            <!-- ======== Privacy Policy ======== -->
+            <a class="transition-colors hover:text-gray-200" href="privacy-policy">
+                {$i18n.t("privacyPolicy")}
+            </a>
+        </div>
+    </div>
 
     <!-- ======== Blur Layer ======== -->
     <div class="absolute left-0 top-0 -z-20 h-full w-full backdrop-blur-[50px]" />
