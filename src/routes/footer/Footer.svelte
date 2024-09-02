@@ -77,7 +77,7 @@
                 <div class="flex flex-col gap-2">
                     {#each linkList.links as link}
                         <a
-                            class="w-fit font-extralight hover:text-gray-200"
+                            class="w-fit font-extralight transition-colors hover:text-gray-200"
                             href={link.link}
                             target={link.link.includes("http") ? "_blank" : "_self"}
                             rel={link.link.includes("http") ? "noopener noreferrer" : ""}
