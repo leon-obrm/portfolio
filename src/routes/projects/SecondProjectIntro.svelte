@@ -12,7 +12,7 @@
         class="relative flex w-full max-w-md justify-center sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl"
     >
         <h2
-            class="absolute left-0 top-[55%] text-lg xs:top-[63%] sm:text-xl md:text-2xl lg:text-3xl"
+            class="absolute left-0 top-[55%] z-10 text-lg xs:top-[63%] sm:text-xl md:text-2xl lg:text-3xl"
         >
             {$i18n.t("butWait")}
         </h2>

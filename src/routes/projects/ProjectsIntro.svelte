@@ -12,7 +12,7 @@
         class="relative flex w-full max-w-md justify-center sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl"
     >
         <h2
-            class="absolute right-0 top-[55%] text-xl sm:text-2xl md:text-3xl lg:top-[65%] lg:text-4xl"
+            class="absolute right-0 top-[55%] z-10 text-xl sm:text-2xl md:text-3xl lg:top-[65%] lg:text-4xl"
         >
             {$i18n.t("exploreMyWork")}
         </h2>
