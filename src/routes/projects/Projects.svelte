@@ -46,7 +46,7 @@
                 : 'lg:flex-row-reverse'}"
         >
             <a
-                class="mouse-follow relative cursor-none shadow-image-glow lg:w-2/3"
+                class="mouse-follow group relative cursor-none shadow-image-glow lg:w-2/3"
                 data-type="link"
                 href="https://{project.link}"
                 target="_blank"
@@ -60,7 +60,7 @@
                 />
                 <!-- ======== Click Indicator ======== -->
                 <div
-                    class="absolute right-0 top-0 rounded-bl-xl rounded-tr bg-black/20 p-2.5 backdrop-blur-[3px] sm:p-3"
+                    class="absolute right-0 top-0 rounded-bl-xl rounded-tr bg-black/20 p-2.5 backdrop-blur-[3px] transition-opacity duration-300 group-hover:opacity-0 sm:p-3"
                 >
                     <span class="sm:hidden"><SquareArrowOutUpRight size={20} /></span>
                     <span class="hidden sm:flex"><SquareArrowOutUpRight size={24} /></span>
