@@ -18,11 +18,11 @@
             links: [
                 {
                     name: $i18n.t("projects"),
-                    link: "/#projects",
+                    link: "#projects",
                 },
                 {
                     name: $i18n.t("skills"),
-                    link: "/#skills",
+                    link: "#skills",
                 },
                 {
                     name: $i18n.t("about"),
