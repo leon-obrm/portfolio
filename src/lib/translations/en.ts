@@ -75,6 +75,17 @@ export const en = {
         legalNotice: "Legal Notice",
         privacyPolicy: "Privacy Policy",
         social: "Social",
+
+        // Legal notice
+        informationAccordingDdg: "Information according to §5 DDG",
+        address: "Address",
+        germany: "Germany",
+        contactInformation: "Contact information",
+        email: "Email",
+        euDisputeResolution: "EU dispute resolution",
+        theEuropeanCommissionProvides:
+            "The European Commission provides a platform for online dispute resolution (ODR)",
+        youCanFindMyEmailAbove: "You can find my email address above in the legal notice.",
     },
 }
 

@@ -78,5 +78,16 @@ export const de: ITranslation = {
         legalNotice: "Impressum",
         privacyPolicy: "Datenschutzerklärung",
         social: "Soziales",
+
+        // Legal notice
+        informationAccordingDdg: "Inhalte gemäß §5 DDG",
+        address: "Adresse",
+        germany: "Deutschland",
+        contactInformation: "Kontaktdaten",
+        email: "E-Mail",
+        euDisputeResolution: "EU-Streitschlichtung",
+        theEuropeanCommissionProvides:
+            "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit",
+        youCanFindMyEmailAbove: "Meine E-Mail-Adresse finden Sie oben im Impressum.",
     },
 }

@@ -18,11 +18,11 @@
             links: [
                 {
                     name: $i18n.t("projects"),
-                    link: "#projects",
+                    link: "/#projects",
                 },
                 {
                     name: $i18n.t("skills"),
-                    link: "#skills",
+                    link: "/#skills",
                 },
                 {
                     name: $i18n.t("about"),
@@ -98,10 +98,14 @@
         <p class="text-center">Copyright © 2024 Leon Obermann</p>
 
         <div class="flex gap-5 sm:gap-7">
-            <!-- ======== Privacy Policy ======== -->
-            <a class="transition-colors hover:text-gray-200" href="">{$i18n.t("privacyPolicy")}</a>
             <!-- ======== Legal Notice ======== -->
-            <a class="transition-colors hover:text-gray-200" href="">{$i18n.t("legalNotice")}</a>
+            <a class="transition-colors hover:text-gray-200" href="legal-notice">
+                {$i18n.t("legalNotice")}
+            </a>
+            <!-- ======== Privacy Policy ======== -->
+            <a class="transition-colors hover:text-gray-200" href="privacy-policy">
+                {$i18n.t("privacyPolicy")}
+            </a>
         </div>
     </div>
 
