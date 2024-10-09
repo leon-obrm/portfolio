@@ -23,7 +23,7 @@
 
         <div>
             <h3>{$i18n.t("contactInformation")}</h3>
-            <p>{$i18n.t("email")}: leon.oberm@gmail.com</p>
+            <p>{$i18n.t("email")}: leon@obrm.de</p>
         </div>
 
         <div>
