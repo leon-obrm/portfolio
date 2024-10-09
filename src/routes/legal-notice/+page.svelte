@@ -24,6 +24,7 @@
         <div>
             <h3>{$i18n.t("contactInformation")}</h3>
             <p>{$i18n.t("email")}: leon@obrm.de</p>
+            <p>{$i18n.t("phone")}: +49 156 79543182</p>
         </div>
 
         <div>
