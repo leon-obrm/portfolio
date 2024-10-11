@@ -120,5 +120,5 @@
 
 <!-- ======== Blurred Blue Gradient ======== -->
 <div
-    class="absolute -bottom-44 -left-1/4 -z-50 h-[675px] w-[150%] -rotate-12 rounded-3xl bg-gradient-to-tr from-[#1474BA] to-[#033140] opacity-15"
+    class="absolute -bottom-44 -left-1/4 -z-50 h-[675px] w-[150%] -rotate-12 rounded-3xl bg-gradient-to-tr from-[#1417ba] to-[#033140] opacity-15"
 />

@@ -6,7 +6,7 @@
 
 <!-- ======== Gradient ======== -->
 <div
-    class="absolute left-0 top-0 -z-50 h-screen w-full bg-gradient-to-bl from-[#cf750f] to-[#1C0D00] opacity-20"
+    class="absolute left-0 top-0 -z-50 h-screen w-full bg-gradient-to-bl from-[#cf750f] to-[#1c000b] opacity-20"
 />
 
 <div class="flex flex-col items-center lg:flex-row-reverse lg:items-end lg:justify-center">
