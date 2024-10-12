@@ -16,7 +16,7 @@
             paragraphs: $i18n.t("palettiParagraphs"),
             skills: ["Svelte", "SvelteKit", "Tailwind CSS", "daisyUI"],
             link: "paletti.one",
-            gradientFrom: "from-[#440322]",
+            gradientFrom: "from-[#33044A]",
             gradientTo: "to-[#FF1E6F]",
         },
         {
@@ -25,7 +25,7 @@
             paragraphs: $i18n.t("boredomBusterParagraphs"),
             skills: ["Svelte", "SvelteKit", "Tailwind CSS", "i18next"],
             link: "boredom-buster.obrm.de",
-            gradientFrom: "from-[#2F0344]",
+            gradientFrom: "from-[#44033D]",
             gradientTo: "to-[#9714C6]",
         },
     ]

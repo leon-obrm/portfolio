@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { ILink } from "$lib/interfaces"
+    import Logo from "$lib/Logo.svelte"
 
     import { useI18n } from "$lib/useI18n"
 
@@ -56,7 +57,7 @@
                 },
                 {
                     name: "Email",
-                    link: "mailto:leon.oberm@gmail.com",
+                    link: "mailto:leon@obrm.de",
                 },
             ],
         },
@@ -97,6 +98,9 @@
         <!-- ======== Copyright ======== -->
         <p class="text-center">Copyright © 2024 Leon Obermann</p>
 
+        <!-- ======== Logo ======== -->
+        <Logo className="w-6 h-6 -mx-1" />
+
         <div class="flex gap-5 sm:gap-7">
             <!-- ======== Legal Notice ======== -->
             <a class="transition-colors hover:text-gray-200" href="legal-notice">
@@ -120,5 +124,5 @@
 
 <!-- ======== Blurred Blue Gradient ======== -->
 <div
-    class="absolute -bottom-44 -left-1/4 -z-50 h-[675px] w-[150%] -rotate-12 rounded-3xl bg-gradient-to-tr from-[#1474BA] to-[#033140] opacity-15"
+    class="absolute -bottom-44 -left-1/4 -z-50 h-[675px] w-[150%] -rotate-12 rounded-3xl bg-gradient-to-tr from-[#1417ba] to-[#033140] opacity-15"
 />
