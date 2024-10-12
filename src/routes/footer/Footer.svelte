@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { ILink } from "$lib/interfaces"
+    import Logo from "$lib/Logo.svelte"
 
     import { useI18n } from "$lib/useI18n"
 
@@ -96,6 +97,9 @@
     >
         <!-- ======== Copyright ======== -->
         <p class="text-center">Copyright © 2024 Leon Obermann</p>
+
+        <!-- ======== Logo ======== -->
+        <Logo className="w-6 h-6 -mx-1" />
 
         <div class="flex gap-5 sm:gap-7">
             <!-- ======== Legal Notice ======== -->
