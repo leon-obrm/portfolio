@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { inject } from "@vercel/analytics"
+
     import ScrollUpButton from "./ScrollUpButton.svelte"
     import BackgroundBlur from "./BackgroundBlur.svelte"
     import MouseFollow from "./MouseFollow.svelte"
@@ -23,6 +25,8 @@
     import { useI18n } from "$lib/useI18n"
 
     const i18n = useI18n()
+
+    inject()
 </script>
 
 <svelte:head>
