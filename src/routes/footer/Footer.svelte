@@ -57,7 +57,7 @@
                 },
                 {
                     name: "Email",
-                    link: "mailto:leon@obrm.de",
+                    link: "mailto:leon@obermann-webdesign.de",
                 },
             ],
         },

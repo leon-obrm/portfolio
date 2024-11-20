@@ -66,7 +66,7 @@ export const de: ITranslation = {
         yourMessage: "Ihre Nachricht",
         messagePlaceholder: "Wie kann ich Ihnen helfen?",
         privacyPolicyDisclaimer:
-            "Ich verwende Ihre Angaben zur Beantwortung Ihrer Anfrage. Weitere Informationen finden Sie in meiner",
+            "Ich verwende Ihre Angaben zur Beantwortung Ihrer Anfrage. Weitere Informationen finden Sie in der",
         privacyPolicyDisclaimer2: "Datenschutzerklärung",
         sendMessage: "Nachricht senden",
         somethingWentWrong:
