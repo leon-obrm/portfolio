@@ -1,7 +1,4 @@
 <script lang="ts">
-    import { inject } from "@vercel/analytics"
-    import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit"
-
     import ScrollUpButton from "./ScrollUpButton.svelte"
     import BackgroundBlur from "./BackgroundBlur.svelte"
     import MouseFollow from "./MouseFollow.svelte"
@@ -26,9 +23,6 @@
     import { useI18n } from "$lib/useI18n"
 
     const i18n = useI18n()
-
-    inject()
-    injectSpeedInsights()
 </script>
 
 <svelte:head>
