@@ -110,7 +110,7 @@
                         <!-- Span prevents resizing of icon when resizing window. -->
                         <span><CircleAlert /></span>
                         <p class="text-sm tracking-wide">
-                            {$i18n.t("somethingWentWrong")} leon@obrm.de.
+                            {$i18n.t("somethingWentWrong")} leon@obermann-webdesign.de.
                         </p>
                     </div>
                 </div>

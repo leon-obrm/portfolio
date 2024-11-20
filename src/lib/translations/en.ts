@@ -64,7 +64,7 @@ export const en = {
         yourMessage: "Your message",
         messagePlaceholder: "How can I help you?",
         privacyPolicyDisclaimer:
-            "I use your details to answer your request. Further information can be found in my",
+            "I use your details to answer your request. Further information can be found in the",
         privacyPolicyDisclaimer2: "privacy policy",
         sendMessage: "Send message",
         somethingWentWrong: "Something went wrong. Please try again or send an email to",
