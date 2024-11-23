@@ -14,8 +14,6 @@
     // Adapts i18n to usage with SvelteKit (Avoids unwanted syncs between different frontends)
     setContext("i18n", getI18nStore())
 
-    // ======== Enhancements ========
-
     // ======== Bug Fixes ========
     // FIXME: Skill sections lags (Other sections too, but this one is the most noticeable)
     // FIXME:? Zooming on laptop touchpad creates white vignette
