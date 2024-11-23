@@ -47,19 +47,25 @@
                 {$i18n.t("myNameIs")}
                 <b class="font-bold">Leon Obermann</b>{$i18n.t("andIAm")}
             </p>
+
             <p>
                 {$i18n.t("withOver6Years")}
                 <b class="font-bold">{$i18n.t("creativityAndTechnology")}</b>{$i18n.t(
                     "toBringYourVision"
                 )}
             </p>
+
             <p>
-                {$i18n.t("overTheLast2Years")}
-                <b class="font-bold">{$i18n.t("professionalFullStackDeveloper")}</b>{$i18n.t(
-                    "IveRefinedMySkills"
-                )}
+                {$i18n.t("lookingFor")}
+                <a
+                    class="underline underline-offset-2 transition-colors hover:text-gray-200"
+                    href="https://obermann-webdesign.de/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {$i18n.t("customWebDesign")}</a
+                >.
             </p>
-            <p>{$i18n.t("letsCreate")}</p>
         </div>
     </div>
 </div>

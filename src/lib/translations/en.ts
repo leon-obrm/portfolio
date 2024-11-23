@@ -44,11 +44,9 @@ export const en = {
             "With over 6 years of coding expertise and 3 years of design experience, I bridge the gap between",
         creativityAndTechnology: "creativity and technology",
         toBringYourVision: " to bring your vision to life.",
-        overTheLast2Years: "Over the last 2 years as a",
-        professionalFullStackDeveloper: "professional full stack developer",
-        IveRefinedMySkills:
-            ", I've refined my skills to craft solutions that are both beautiful and functional.",
-        letsCreate: "Let's create something exceptional together!",
+        lookingFor:
+            "Looking for a unique and engaging website to attract and retain more customers? Explore ",
+        customWebDesign: "my custom web design services",
 
         // Contact intro
         haveISparked: "Have I sparked your interest?",

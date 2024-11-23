@@ -46,11 +46,8 @@ export const de: ITranslation = {
             "Mit mehr als 6 Jahren an Entwicklungsexpertise und 3 Jahren an Designerfahrung schließe ich die Lücke zwischen",
         creativityAndTechnology: "Kreativität und Technologie",
         toBringYourVision: ", um Ihre Vision zum Leben zu erwecken.",
-        overTheLast2Years: "In den letzten 2 Jahren als",
-        professionalFullStackDeveloper: "professioneller Full Stack Entwickler",
-        IveRefinedMySkills:
-            " habe ich meine Fähigkeiten verfeinert, Lösungen zu entwickeln, die sowohl schön als auch funktional sind.",
-        letsCreate: "Lassen Sie uns etwas Besonderes schaffen!",
+        lookingFor: "Sie möchten mehr Kunden erreichen und begeistern? Entdecken Sie ",
+        customWebDesign: "maßgeschneidertes Webdesign für Ihre Marke",
 
         // Contact intro
         haveISparked: "Ist Ihr Interesse geweckt?",
