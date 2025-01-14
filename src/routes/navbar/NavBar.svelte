@@ -35,7 +35,7 @@
             link: "https://www.linkedin.com/in/leon-obermann-171465208/",
             icon: Linkedin,
         },
-        { name: "GitHub", link: "https://github.com/Jesus-Cries", icon: Github },
+        { name: "GitHub", link: "https://github.com/leon-obrm", icon: Github },
     ]
 
     const languages: string[] = ["en", "de"]

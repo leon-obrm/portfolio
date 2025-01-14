@@ -53,7 +53,7 @@
                 },
                 {
                     name: "GitHub",
-                    link: "https://github.com/Jesus-Cries",
+                    link: "https://github.com/leon-obrm",
                 },
                 {
                     name: "Email",
