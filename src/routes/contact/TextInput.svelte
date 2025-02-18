@@ -43,6 +43,7 @@
             {placeholder}
             {required}
             maxlength="100"
+            tabindex={required ? 0 : -1}
         />
     {/if}
 </div>
