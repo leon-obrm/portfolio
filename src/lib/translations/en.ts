@@ -57,6 +57,8 @@ export const en = {
         contact: "Contact",
         yourName: "Your name",
         namePlaceholder: "Enter your name",
+        yourPhone: "Your phone",
+        phonePlaceholder: "Enter your phone",
         yourEmail: "Your email",
         emailPlaceholder: "Enter your email address",
         yourMessage: "Your message",

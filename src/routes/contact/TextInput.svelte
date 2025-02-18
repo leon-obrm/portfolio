@@ -7,11 +7,20 @@
     export let isTextarea: boolean = false
     export let isEmail: boolean = false
     export let submissionState: SubmissionState
+    export let required: boolean = true
 </script>
 
-<div class="flex flex-col gap-2 lg:gap-3">
+<div
+    class="flex flex-col gap-2 lg:gap-3 {!required &&
+        'absolute left-0 top-0 -z-10 h-0 w-0 opacity-0'}"
+>
     <!-- ======== Label ======== -->
-    <label class="font-semibold tracking-wide lg:text-lg" for={name}>{label} *</label>
+    <label class="font-semibold tracking-wide lg:text-lg" for={name}>
+        {label}
+        {#if required}
+            *
+        {/if}
+    </label>
     {#if isTextarea}
         <!-- ======== Textarea ======== -->
         <textarea
@@ -20,7 +29,7 @@
             {name}
             id={name}
             {placeholder}
-            required
+            {required}
             maxlength="10000"
         ></textarea>
     {:else}
@@ -32,7 +41,7 @@
             {name}
             id={name}
             {placeholder}
-            required
+            {required}
             maxlength="100"
         />
     {/if}
