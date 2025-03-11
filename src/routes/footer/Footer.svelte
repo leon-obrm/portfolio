@@ -35,12 +35,12 @@
             title: $i18n.t("projects"),
             links: [
                 {
-                    name: "Paletti",
-                    link: "https://paletti.one",
+                    name: "Kreativ-Bauten",
+                    link: "https://kreativ-bauten.com",
                 },
                 {
-                    name: "Boredom Buster",
-                    link: "https://boredom-buster.obrm.de",
+                    name: "Paletti",
+                    link: "https://paletti.one",
                 },
             ],
         },
