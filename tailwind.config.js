@@ -12,7 +12,7 @@ export default {
                 xs: "500px",
             },
             fontFamily: {
-                nunito: ["Nunito", ...defaultTheme.fontFamily.sans],
+                nunito: ["Nunito Variable", ...defaultTheme.fontFamily.sans],
                 "inria-sans": ["Inria Sans", ...defaultTheme.fontFamily.sans],
             },
             boxShadow: {
