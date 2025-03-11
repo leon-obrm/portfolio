@@ -10,8 +10,6 @@
     >
         <h1 class="text-2xl font-semibold tracking-wide">{$i18n.t("legalNotice")}</h1>
 
-        <h2 class="text-lg tracking-wide">{$i18n.t("informationAccordingDdg")}</h2>
-
         <div>
             <h3>{$i18n.t("address")}</h3>
             <p>Leon Obermann</p>

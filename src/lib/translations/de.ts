@@ -82,7 +82,6 @@ export const de: ITranslation = {
         social: "Soziales",
 
         // Legal notice
-        informationAccordingDdg: "Inhalte gemäß §5 DDG",
         address: "Adresse",
         germany: "Deutschland",
         contactInformation: "Kontaktdaten",

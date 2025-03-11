@@ -80,7 +80,6 @@ export const en = {
         social: "Social",
 
         // Legal notice
-        informationAccordingDdg: "Information according to §5 DDG",
         address: "Address",
         germany: "Germany",
         contactInformation: "Contact information",
