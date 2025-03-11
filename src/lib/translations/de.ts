@@ -18,12 +18,12 @@ export const de: ITranslation = {
         butWait: "Hier gibt es noch mehr",
 
         // Projects
-        palettiTimeframe: "August 2023 - Jetzt",
+        kreativBautenTimeframe: "Oktober 2024 - März 2025",
+        kreativBautenParagraphs:
+            "Für den Handwerksbetrieb Kreativ-Bauten habe ich eine individuelle Webseite entwickelt, die seine Expertise in Ausstellungsbau, Raumakustik und Handwerk optimal präsentiert.\nMit einer einzigartigen Animation, die sich perfekt in das Logo einfügt, und einem modernen, simplen Design hebt sich die Webseite klar von der Konkurrenz ab.",
+        palettiTimeframe: "August 2023 - August 2024",
         palettiParagraphs:
             "Die richtigen Farben für ein Web Design zu finden ist schwierig. Selbst wenn man weiß, wie man es richtig anstellt, nimmt es viel Zeit in Anspruch. Deshalb habe ich Paletti entwickelt.\nPaletti ist ein benutzerfreundliches Tool zur schnellen Erstellung individueller Farbpaletten für Webdesigner und Webentwickler.",
-        boredomBusterTimeframe: "August 2023",
-        boredomBusterParagraphs:
-            "Es ist nicht immer einfach, eine spannende Aktivität zu finden. Genau hier kommt der Boredom Buster ins Spiel.\nEinfach den Button drücken und er schlägt dir zufällig eine unterhaltsame Aktivität und die ideale Dauer vor, um aufzustehen und Spaß zu haben.",
 
         // Skills intro
         from: "von",

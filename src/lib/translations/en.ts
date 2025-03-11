@@ -16,12 +16,12 @@ export const en = {
         butWait: "But wait, there's more",
 
         // Projects
-        palettiTimeframe: "August 2023 - Now",
+        kreativBautenTimeframe: "October 2024 - March 2025",
+        kreativBautenParagraphs:
+            "I developed a custom website for the craft business Kreativ-Bauten that perfectly showcases its expertise in exhibition construction, room acoustics, and craftsmanship.\nWith a unique animation seamlessly integrated into the logo and a modern, minimalist design, the website clearly stands out from the competition.",
+        palettiTimeframe: "August 2023 - August 2024",
         palettiParagraphs:
             "Choosing the perfect colors for web designs is hard. And even if you know how to do it right, it still takes a lot of time. That's why I created Paletti.\nPaletti is a user-friendly tool for quickly generating individual color palettes for web designers and developers.",
-        boredomBusterTimeframe: "August 2023",
-        boredomBusterParagraphs:
-            "Finding something fun to do can be challenging. This is where the Boredom Buster comes in.\nJust hit the button, and it'll randomly suggest an exciting activity and the perfect amount of time to get up and enjoy yourself.",
 
         // Skills intro
         from: "from",

@@ -11,6 +11,15 @@
     let projects: IProject[]
     $: projects = [
         {
+            title: "Kreativ-Bauten",
+            timeframe: $i18n.t("kreativBautenTimeframe"),
+            paragraphs: $i18n.t("kreativBautenParagraphs"),
+            skills: ["Svelte", "SvelteKit", "Tailwind CSS"],
+            link: "kreativ-bauten.com",
+            gradientFrom: "from-[#4a4a4a]",
+            gradientTo: "to-[#757575]",
+        },
+        {
             title: "Paletti",
             timeframe: $i18n.t("palettiTimeframe"),
             paragraphs: $i18n.t("palettiParagraphs"),
@@ -18,15 +27,6 @@
             link: "paletti.one",
             gradientFrom: "from-[#33044A]",
             gradientTo: "to-[#FF1E6F]",
-        },
-        {
-            title: "Boredom Buster",
-            timeframe: $i18n.t("boredomBusterTimeframe"),
-            paragraphs: $i18n.t("boredomBusterParagraphs"),
-            skills: ["Svelte", "SvelteKit", "Tailwind CSS", "i18next"],
-            link: "boredom-buster.obrm.de",
-            gradientFrom: "from-[#44033D]",
-            gradientTo: "to-[#9714C6]",
         },
     ]
 </script>
