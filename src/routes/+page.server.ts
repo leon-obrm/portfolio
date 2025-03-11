@@ -8,6 +8,9 @@ export const actions = {
         try {
             const formData = await request.formData()
 
+            const phone = formData.get("phone")
+            if (phone !== "") return json({ error: "Failed to send email" }, { status: 500 })
+
             let name = formData.get("name")
             let email = formData.get("email")
             let message = formData.get("message")

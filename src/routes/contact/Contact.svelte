@@ -57,6 +57,15 @@
             {submissionState}
         />
 
+        <!-- ======== Phone Number ======== -->
+        <TextInput
+            name={"phone"}
+            label={$i18n.t("yourPhone")}
+            placeholder={$i18n.t("phonePlaceholder")}
+            {submissionState}
+            required={false}
+        />
+
         <!-- ======== Email ======== -->
         <TextInput
             name={"email"}

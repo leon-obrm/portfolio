@@ -58,6 +58,8 @@ export const de: ITranslation = {
         contact: "Kontakt",
         yourName: "Ihr Name",
         namePlaceholder: "Geben Sie Ihren Namen ein",
+        yourPhone: "Ihre Telefonnummer",
+        phonePlaceholder: "Geben Sie Ihre Telefonnummer ein",
         yourEmail: "Ihre Email",
         emailPlaceholder: "Geben Sie Ihre E-Mail Adresse ein",
         yourMessage: "Ihre Nachricht",
