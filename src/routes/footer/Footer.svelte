@@ -96,7 +96,7 @@
         class="flex w-full max-w-2xl flex-wrap items-center justify-center gap-x-5 gap-y-2 px-6 text-xs font-light tracking-widest sm:gap-x-7 sm:text-sm"
     >
         <!-- ======== Copyright ======== -->
-        <p class="text-center">Copyright © 2024 Leon Obermann</p>
+        <p class="text-center">Copyright © 2025 Leon Obermann</p>
 
         <!-- ======== Logo ======== -->
         <Logo className="w-6 h-6 -mx-1" />
