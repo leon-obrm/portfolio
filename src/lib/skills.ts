@@ -36,6 +36,14 @@ export const skills: ISkill[] = [
         customSize: "max-h-16 w-16 xl:max-h-20 xl:w-20",
     },
     {
+        name: "Threlte",
+        abbreviation: "",
+        description: "Three.js for Svelte",
+        hasLogo: true,
+        link: "threlte.xyz",
+        backlight: "bg-amber-500/10",
+    },
+    {
         name: "i18next",
         abbreviation: "",
         description: "Internationalization framework",
@@ -164,6 +172,8 @@ export const skills: ISkill[] = [
         link: "onshape.com",
         customSize: "max-h-11 w-11 xl:max-h-12 xl:w-12",
     },
+
+    // Skills that should not be rendered in skills section
     {
         name: "UltiMaker Cura",
         abbreviation: "",
@@ -171,9 +181,8 @@ export const skills: ISkill[] = [
         hasLogo: true,
         link: "ultimaker.com",
         customSize: "max-h-12 w-12 xl:max-h-14 xl:w-14",
+        isHidden: true,
     },
-
-    // Skills that should not be rendered in skills section
     {
         name: "Representational State Transfer",
         abbreviation: "REST",

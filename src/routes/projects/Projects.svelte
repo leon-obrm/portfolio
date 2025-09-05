@@ -15,7 +15,7 @@
             timeframe: $i18n.t("heronConsultingTimeframe"),
             paragraphs: $i18n.t("heronConsultingParagraphs"),
             // FIXME: Fix Threlte
-            skills: ["Svelte", "SvelteKit", "Tailwind CSS", "Threlte"],
+            skills: ["SvelteKit", "Tailwind CSS", "Threlte", "i18next"],
             link: "www.heron-consulting.de",
             gradientFrom: "from-[#020a17]",
             gradientTo: "to-[#000c1a]",
@@ -24,7 +24,7 @@
             title: "Paletti",
             timeframe: $i18n.t("palettiTimeframe"),
             paragraphs: $i18n.t("palettiParagraphs"),
-            skills: ["Svelte", "SvelteKit", "Tailwind CSS", "daisyUI"],
+            skills: ["SvelteKit", "Tailwind CSS", "daisyUI"],
             link: "paletti.one",
             gradientFrom: "from-[#33044A]",
             gradientTo: "to-[#FF1E6F]",
