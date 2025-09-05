@@ -14,7 +14,6 @@
             title: "Ronny Herold Consulting",
             timeframe: $i18n.t("heronConsultingTimeframe"),
             paragraphs: $i18n.t("heronConsultingParagraphs"),
-            // FIXME: Fix Threlte
             skills: ["SvelteKit", "Tailwind CSS", "Threlte", "i18next"],
             link: "www.heron-consulting.de",
             gradientFrom: "from-[#020a17]",
