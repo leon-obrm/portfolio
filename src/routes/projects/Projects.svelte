@@ -11,13 +11,14 @@
     let projects: IProject[]
     $: projects = [
         {
-            title: "Kreativ-Bauten",
-            timeframe: $i18n.t("kreativBautenTimeframe"),
-            paragraphs: $i18n.t("kreativBautenParagraphs"),
-            skills: ["Svelte", "SvelteKit", "Tailwind CSS"],
-            link: "kreativ-bauten.com",
-            gradientFrom: "from-[#4a4a4a]",
-            gradientTo: "to-[#757575]",
+            title: "Ronny Herold Consulting",
+            timeframe: $i18n.t("heronConsultingTimeframe"),
+            paragraphs: $i18n.t("heronConsultingParagraphs"),
+            // FIXME: Fix Threlte
+            skills: ["Svelte", "SvelteKit", "Tailwind CSS", "Threlte"],
+            link: "www.heron-consulting.de",
+            gradientFrom: "from-[#020a17]",
+            gradientTo: "to-[#000c1a]",
         },
         {
             title: "Paletti",

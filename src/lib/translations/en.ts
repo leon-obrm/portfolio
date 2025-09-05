@@ -16,9 +16,9 @@ export const en = {
         butWait: "But wait, there's more",
 
         // Projects
-        kreativBautenTimeframe: "October 2024 - March 2025",
-        kreativBautenParagraphs:
-            "I developed a custom website for the craft business Kreativ-Bauten that perfectly showcases its expertise in exhibition construction, room acoustics, and craftsmanship.\nWith a unique animation seamlessly integrated into the logo and a modern, minimalist design, the website clearly stands out from the competition.",
+        heronConsultingTimeframe: "March - August 2025",
+        heronConsultingParagraphs:
+            "The new website for Ronny Herold Consulting combines clean design with excellent usability. Elegant animations and an interactive 3D effect create an innovative user experience.\nThis effectively communicates his consulting services to potential clients and strengthens his positioning in the market.",
         palettiTimeframe: "August 2023 - August 2024",
         palettiParagraphs:
             "Choosing the perfect colors for web designs is hard. And even if you know how to do it right, it still takes a lot of time. That's why I created Paletti.\nPaletti is a user-friendly tool for quickly generating individual color palettes for web designers and developers.",

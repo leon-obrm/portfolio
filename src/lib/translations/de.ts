@@ -18,9 +18,9 @@ export const de: ITranslation = {
         butWait: "Hier gibt es noch mehr",
 
         // Projects
-        kreativBautenTimeframe: "Oktober 2024 - März 2025",
-        kreativBautenParagraphs:
-            "Für den Handwerksbetrieb Kreativ-Bauten habe ich eine individuelle Webseite entwickelt, die seine Expertise in Ausstellungsbau, Raumakustik und Handwerk optimal präsentiert.\nMit einer einzigartigen Animation, die sich perfekt in das Logo einfügt, und einem modernen, simplen Design hebt sich die Webseite klar von der Konkurrenz ab.",
+        heronConsultingTimeframe: "März - August 2025",
+        heronConsultingParagraphs:
+            "Die neue Webseite für Ronny Herold Consulting kombiniert klares Design mit hoher Benutzerfreundlichkeit. Elegante Animationen und ein interaktiver 3D-Effekt sorgen für ein innovatives Nutzungserlebnis.\nDadurch wird sein Beratungsangebot gezielt an potenzielle Kunden vermittelt und stärkt seine Positionierung im Markt.",
         palettiTimeframe: "August 2023 - August 2024",
         palettiParagraphs:
             "Die richtigen Farben für ein Web Design zu finden ist schwierig. Selbst wenn man weiß, wie man es richtig anstellt, nimmt es viel Zeit in Anspruch. Deshalb habe ich Paletti entwickelt.\nPaletti ist ein benutzerfreundliches Tool zur schnellen Erstellung individueller Farbpaletten für Webdesigner und Webentwickler.",
