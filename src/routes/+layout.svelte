@@ -7,7 +7,7 @@
     import "../app.css"
 
     import getI18nStore from "$lib/i18n"
-    import { setContext } from "svelte"
+    import { onMount, setContext } from "svelte"
     import NavBar from "./navbar/NavBar.svelte"
     import Footer from "./footer/Footer.svelte"
 
@@ -19,8 +19,16 @@
     // FIXME:? Zooming on laptop touchpad creates white vignette
 
     import { useI18n } from "$lib/useI18n"
+    import { initLenis } from "$lib/lenis"
 
     const i18n = useI18n()
+
+    onMount(() => {
+        // Initialize Lenis to provide smooth scrolling
+        const lenis = initLenis()
+
+        return () => lenis.destroy()
+    })
 </script>
 
 <svelte:head>
