@@ -2,11 +2,16 @@
     import { fade } from "svelte/transition"
     import { useI18n } from "$lib/useI18n"
     import type { SubmissionState } from "$lib/interfaces"
+    import { bodyScrollLock } from "$lib/bodyScrollLock"
 
     export let submissionState: SubmissionState = "submitted"
     export let form: HTMLFormElement
 
     const i18n = useI18n()
+
+    $: {
+        bodyScrollLock(submissionState === "submitted")
+    }
 </script>
 
 {#if submissionState === "submitted"}

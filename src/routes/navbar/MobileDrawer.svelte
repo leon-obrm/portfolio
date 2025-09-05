@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { bodyScrollLock } from "$lib/bodyScrollLock"
     import type { ILink } from "$lib/interfaces"
     import { useI18n } from "$lib/useI18n"
     import { fade } from "svelte/transition"
@@ -9,6 +10,10 @@
     export let languages: string[]
 
     const i18n = useI18n()
+
+    $: {
+        bodyScrollLock(showDrawer)
+    }
 </script>
 
 <!-- ================ Mobile Drawer ================ -->
