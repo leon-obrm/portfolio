@@ -77,7 +77,7 @@
                 />
 
                 <!-- ======== Title ======== -->
-                <h3 class="text-3xl font-bold tracking-wider xl:text-4xl xl:tracking-widest">
+                <h3 class="font-inria-sans text-3xl font-medium tracking-wider xl:text-4xl">
                     {project.title}
                 </h3>
                 <div class="flex flex-col gap-4 xl:text-lg">
